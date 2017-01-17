@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_Object/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Jacascript Object</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-11-08
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Jacascript Object
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="JS-三種內建物件"><a href="#JS-三種內建物件" class="headerlink" title="JS 三種內建物件"></a>JS 三種內建物件</h4><p>1.內建原生物件共11種  </p>
+<blockquote>
+<p>object 老祖宗</p>
+<blockquote>
+<p>string、array、boolean、date、global、math、number、regexp、error</p>
+</blockquote>
+</blockquote>
+<p>2.宿主物件(host objects):由宿主提供物件(如：瀏覽器)，像是BOM(browser object model)  </p>
+<p>3.使用者自訂物件 </p>
+<p>========================</p>
+<h4 id="原生物件介紹"><a href="#原生物件介紹" class="headerlink" title="原生物件介紹"></a>原生物件介紹</h4><h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p><em>與array的差別在於string用了method後不會改變原始變數</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//兩種建立方式</span></div><div class="line"><span class="keyword">const</span> str1 = <span class="string">'JS'</span>; </div><div class="line"><span class="keyword">const</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'HIJS'</span>);</div><div class="line"></div><div class="line"><span class="comment">//////////相關方法////////////</span></div><div class="line"><span class="comment">//字串長度和大小寫</span></div><div class="line">length <span class="comment">//屬性可以取得字串長度 </span></div><div class="line">toLowerCase() <span class="comment">//方法可以將英文大寫轉小寫  </span></div><div class="line">toUpperCase() <span class="comment">//方法可以將英文小寫轉大寫</span></div><div class="line"><span class="comment">//取得字串指定字元</span></div><div class="line">charAt(index)<span class="comment">//取得 index 位置的字元   </span></div><div class="line">charCodeAt(index)<span class="comment">//取得 index 位置的 Unicode  </span></div><div class="line"><span class="comment">//字串搜尋</span></div><div class="line">indexOf(string,index)<span class="comment">//傳回第一次搜尋到字串的index，未 找到傳回-1，傳入字串為欲搜尋字串，index 為開始位置</span></div><div class="line">lastIndexOf(string)<span class="comment">//同上一方法，不過是從尾部反向搜尋  </span></div><div class="line">match(string)<span class="comment">//同第一種方式，但傳回找到字串，無則傳null  </span></div><div class="line">search(string)<span class="comment">//與 indexOf 功能類似，但可用正則式  </span></div><div class="line"><span class="comment">//子字串的處理</span></div><div class="line">replace(string1,string2)<span class="comment">//將找到的 string1 子字串取代為 string2</span></div><div class="line">split(string)<span class="comment">//使用參數 string 作為分割，並回傳分割後 Array 物件</span></div><div class="line">substr(index,length)<span class="comment">//從 index 開始取出length個字元   </span></div><div class="line">substring(index1,index2)<span class="comment">//取 index1 到 index2(不含)子字串   </span></div><div class="line">concat(string)<span class="comment">//將 string 新增到 string 物件字串之後</span></div></pre></td></tr></table></figure>
+<h5 id="array"><a href="#array" class="headerlink" title="array"></a>array</h5><p><em>能動態新增元素</em> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//三種使用方法  </span></div><div class="line"><span class="comment">//宣告有三個元素的陣列   </span></div><div class="line">constnameA = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);   </div><div class="line">nameA[<span class="number">0</span>] = <span class="string">'KD'</span>;   </div><div class="line">nameA[<span class="number">1</span>] = <span class="string">'XD'</span>;   </div><div class="line">nameA[<span class="number">2</span>] = <span class="string">'XDD'</span>;</div><div class="line"><span class="comment">//也可以在建立物件時建立元素值   </span></div><div class="line"><span class="keyword">const</span> num = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">100</span>,<span class="number">22</span>,<span class="number">34</span>);  </div><div class="line"><span class="comment">//最簡單好記，使用[]  </span></div><div class="line"><span class="keyword">const</span> nameB = [];   </div><div class="line">nameB[<span class="number">0</span>] = <span class="string">'KD'</span>;   </div><div class="line">nameB[<span class="number">1</span>] = <span class="string">'XD'</span>;   </div><div class="line">nameB[<span class="number">2</span>] = <span class="string">'XDD'</span>;  </div><div class="line"><span class="comment">//Array 物件內建屬性和方法</span></div><div class="line"><span class="comment">//與string方法相似</span></div><div class="line">length<span class="comment">//取得陣列長度   </span></div><div class="line">join()<span class="comment">//將陣列元素用 "逗號," 串成一個字串   </span></div><div class="line">reverse()<span class="comment">//將陣列元素反轉   </span></div><div class="line">sort()<span class="comment">//將陣列元素依照   </span></div><div class="line">unicode <span class="comment">//進行排序   </span></div><div class="line">concat(array)<span class="comment">//將參數中的陣列合併到目前陣列  </span></div><div class="line"><span class="comment">//建立二維陣列  </span></div><div class="line"><span class="keyword">const</span> users = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123; </div><div class="line">    users[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</div><div class="line">&#125;<span class="comment">//output:[[undefined, undefined], [undefined, undefined]]</span></div></pre></td></tr></table></figure>
+<h5 id="date"><a href="#date" class="headerlink" title="date"></a>date</h5><p><em>取得電腦日期和時間</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重要觀念！！！從1970開始算</span></div><div class="line"><span class="keyword">const</span> d = newDate(); <span class="comment">//milliseconds since 1970/01/01   </span></div><div class="line"><span class="keyword">const</span> now = <span class="built_in">Date</span>.now();  <span class="comment">//1970/1/1到現在的毫秒數</span></div><div class="line"><span class="keyword">const</span> date = d.getDate();   <span class="comment">//日期</span></div><div class="line">constyear = d.getFullYear(); <span class="comment">//年</span></div></pre></td></tr></table></figure></p>
+<h5 id="math"><a href="#math" class="headerlink" title="math"></a>math</h5><p><em>不需要 new 運算子自己就會 建立，故可以直接使用屬性和方法</em> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.PI);   </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.E);  </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LN2);  </div><div class="line"><span class="comment">//Math物件的亂數最大和最小值</span></div><div class="line">max(value1,value2)<span class="comment">//傳回兩個參數中的最大值   </span></div><div class="line">min(value1,value2)<span class="comment">//傳回兩個參數中的最小值</span></div><div class="line"><span class="comment">//重要方法、random   </span></div><div class="line">random()<span class="comment">//傳回亂數值(0-1，不含1)   </span></div><div class="line">round(value)<span class="comment">//將參數四捨五入後傳回  </span></div><div class="line"><span class="comment">//Math物件的數學方法</span></div><div class="line">abs()<span class="comment">//傳回絕對值   </span></div><div class="line">log()<span class="comment">//傳會自然對數   </span></div><div class="line">sqrt()<span class="comment">//傳回平方根   </span></div><div class="line">pow()<span class="comment">//傳回次方   </span></div><div class="line">exp()<span class="comment">//自然對數</span></div></pre></td></tr></table></figure>
+<h5 id="error"><a href="#error" class="headerlink" title="error"></a>error</h5><p><em>Error 物件會儲存執行時發生錯誤的資 訊，發生錯誤時會自動建立</em></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//基本錯誤處理架構</span></div><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    <span class="comment">//此區塊內為需要例外處理的程式碼</span></div><div class="line">&#125; <span class="keyword">catch</span>(e)&#123;</div><div class="line">    <span class="comment">//如果try區塊發生錯誤會執行此一區塊，並傳入e參數(Error物件)，可</span></div><div class="line">&#125; <span class="keyword">finally</span>&#123;</div><div class="line">    <span class="comment">//這是選擇性區域，是不管錯誤是否發生都會執行的區塊</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="regexp"><a href="#regexp" class="headerlink" title="regexp"></a>regexp</h5><p><em>使用正規表示法的物件，用以比對其它字串是法符合範本字串</em>  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">exec(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳字串陣列</span></div><div class="line">test(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳true不符合回傳false</span></div><div class="line"></div><div class="line"><span class="comment">//\S+至少有一非空白字元   </span></div><div class="line"><span class="keyword">const</span> matches=<span class="regexp">/(hello\S+)/</span>.exec(<span class="string">'Thisisahelloworld!'</span>);  </div><div class="line"><span class="built_in">console</span>.log(matches[<span class="number">1</span>]);<span class="comment">//helloworld!</span></div><div class="line">conststr=<span class="string">"helloworld!"</span>;   </div><div class="line">constresult=<span class="regexp">/^hello/</span>.test(str);   </div><div class="line"><span class="built_in">console</span>.log(result);<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<h4 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h4><p>在這個章節中我們學會了:  </p>
+<ol>
+<li>物件基礎概念  </li>
+<li>JavaScript 常用內建物件</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Ruby_lec11_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 11 - 新增投票功能">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Git_lec2_note/" data-toggle="tooltip" data-placement="top"
+                           title="git lec2">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#JS-三種內建物件"><span class="toc-text">JS 三種內建物件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原生物件介紹"><span class="toc-text">原生物件介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#string"><span class="toc-text">string</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#array"><span class="toc-text">array</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#date"><span class="toc-text">date</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#math"><span class="toc-text">math</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#error"><span class="toc-text">error</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#regexp"><span class="toc-text">regexp</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#總結"><span class="toc-text">總結</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_Object/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_Object/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

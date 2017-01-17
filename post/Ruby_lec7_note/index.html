@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Ruby_lec7_note/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>RoR 7 - 表單與驗證</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-10-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            RoR 7 - 表單與驗證
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="小知識"><a href="#小知識" class="headerlink" title="小知識"></a>小知識</h4><p>irb管ruby<br>rails consle管rail</p>
+<h4 id="rails-db-查詢技巧"><a href="#rails-db-查詢技巧" class="headerlink" title="rails db 查詢技巧"></a>rails db 查詢技巧</h4><p>＊搜尋某一筆<br>find.by<br>ex DBTable_find_by_name(“Bob”)</p>
+<p>＊搜尋多筆<br>where</p>
+<h4 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h4><p>“永遠不要相信前端傳來的東西”<br>SQL很難debug =&gt; How to deal with it?<br>將邏輯判斷寫在應用程式端(application)=&gt;Model層面(好處：不用考慮資料庫總類、與資料庫直接做連結)<br>最好作法千端也後端也寫</p>
+<h4 id="ruby-in-HTML"><a href="#ruby-in-HTML" class="headerlink" title="ruby in HTML"></a>ruby in HTML</h4><p>Controller<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">new</span></span></div><div class="line">    <span class="comment"># Order為order class，對應到Order Model，對應到資料表的</span></div><div class="line">    <span class="comment"># Order Table，產生出一個新的Order物件並存到order實例變數</span></div><div class="line">    </div><div class="line">    @order = Order.new</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>new.html.erb<br><!-- 三行code如何變成這麼多東西？
+Ruby轉換而成... --></p>
+<p></p><h1>New Order</h1><br><!-- form為封包，將固定的html寫成此form封包
+render 為呼叫此封包 --><br>&lt;%= render ‘form’, order: @order %&gt;<br>&lt;%= link_to ‘Back’, orders_path %&gt;<p></p>
+<h4 id="form-html-erb"><a href="#form-html-erb" class="headerlink" title="_form.html.erb"></a>_form.html.erb</h4><p><em>form_for為ruby的方法之一</em>  </p>
+<blockquote>
+<p>form_for方法用於產生一個form表單<br><em>order.errors.any()會回傳一個error array</em><br>pluralize(order.errors.count, “error”):計算錯資訊，並將此與”error”一起回傳</p>
+</blockquote>
+<!-- f.label產生一個前端的label
+f.text_field將輸入的東西綁定:name -->
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;field&quot;&gt;</div><div class="line">    &lt;%= f.label :name %&gt;</div><div class="line">    &lt;%= f.text_field :name %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><strong>一個表單都是跟某一個model的某一個instance綁定在一起</strong><br><strong>使用者登入則沒有綁定model=&gt;form_tag情況</strong></p>
+<h4 id="Create-Method"><a href="#Create-Method" class="headerlink" title="Create Method"></a>Create Method</h4><p>Post對應到Order#create<br>針對不同需求(前端或其他)傳遞不同類型資料(HTML or JSON)</p>
+<h4 id="order-params"><a href="#order-params" class="headerlink" title="order_params"></a>order_params</h4><p>將前端資料層層過濾，只允許name、phone、description等資料能傳進資料庫</p>
+<h4 id="bind-pry-debugging"><a href="#bind-pry-debugging" class="headerlink" title="bind.pry debugging"></a>bind.pry debugging</h4><p><strong>將前端資料打包成params傳回後端並阻攔</strong><br>(1)Gemfile-&gt;gem:’pry’<br>(2)下binding pry</p>
+<p>params[:order]<br>=&gt; <actioncontroller::parameters {"name"="">“123123”, “phone”=&gt;”12”, “description”=&gt;”212”} permitted: false&gt;</actioncontroller::parameters></p>
+<p>params.require(:order)<br>=&gt; <actioncontroller::parameters {"name"="">“123123”, “phone”=&gt;”12”, “description”=&gt;”212”} permitted: false&gt;</actioncontroller::parameters></p>
+<p> params.require(:order).permit(:name)<br>Unpermitted parameters: phone, description<br>=&gt; <actioncontroller::parameters {"name"="">“123123”} permitted: true&gt;</actioncontroller::parameters></p>
+<p><strong>前端參數層層過濾，最後產生新物件並存進DB</strong><br>前端傳的參數放入一個大hash中<br>params.require(:order):只留下order物件<br>params.require(:order).permit(:name,:phone,:description):只允許這些資料被寫入資料表<br>order_params=params.require(:order).permit(:name,:phone,:description):存到變中<br>放到資料表中<br>Order.new(order_params):新增order物件<br>@order.save:存進資料庫</p>
+<p><em>private方法</em>  </p>
+<blockquote>
+<p>安全性考量下<br>程式碼經常被改動時<br>帳務系統算回扣的 </p>
+</blockquote>
+<p><em>new vs create</em><br>new為顯示空表<br>create為填好資料要把資料寫入資料庫時</p>
+<h4 id="edit-amp-update"><a href="#edit-amp-update" class="headerlink" title="edit &amp; update"></a>edit &amp; update</h4><p>edit顯示出要更改的object<br>真正寫入DB是update</p>
+<h4 id="View-Partial"><a href="#View-Partial" class="headerlink" title="View Partial"></a>View Partial</h4><p>重複執行的程式碼打包起來<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">before_action <span class="symbol">:set_order</span>, <span class="symbol">only:</span> [<span class="symbol">:show</span>, <span class="symbol">:edit</span>, <span class="symbol">:update</span>, <span class="symbol">:destroy</span>]</div><div class="line"><span class="comment">#&lt;-&gt;before_action :set_order, except: [:index, :new, :create]</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_order</span></span></div><div class="line">      @order = Order.find(params[<span class="symbol">:id</span>])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h4 id="before-action"><a href="#before-action" class="headerlink" title="before_action"></a>before_action</h4><blockquote>
+<blockquote>
+<p>controller<br>執行某個action之前一定會先做某個事情</p>
+</blockquote>
+</blockquote>
+<h4 id="實例變數-var-name"><a href="#實例變數-var-name" class="headerlink" title="實例變數@var_name"></a>實例變數@var_name</h4><blockquote>
+<p>class中定義變數的方式，類似於類別成員<br>只要是實例變數就能被前端綁定<br>能夠被前端template直接使用</p>
+</blockquote>
+<p>[作業]<br>留言板驗證做完<br>挑戰:show、index做出來</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Ruby_lec6_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 6 - 手動打造Action">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Ruby_lec8_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 8 - Bootstrap into RoR">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#小知識"><span class="toc-text">小知識</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rails-db-查詢技巧"><span class="toc-text">rails db 查詢技巧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Validation"><span class="toc-text">Validation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ruby-in-HTML"><span class="toc-text">ruby in HTML</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#undefined"><span class="toc-text">New Order</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#form-html-erb"><span class="toc-text">_form.html.erb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Create-Method"><span class="toc-text">Create Method</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#order-params"><span class="toc-text">order_params</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bind-pry-debugging"><span class="toc-text">bind.pry debugging</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#edit-amp-update"><span class="toc-text">edit & update</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#View-Partial"><span class="toc-text">View Partial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#before-action"><span class="toc-text">before_action</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#實例變數-var-name"><span class="toc-text">實例變數@var_name</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Ruby_lec7_note/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/Ruby_lec7_note/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

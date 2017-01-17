@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_Storage/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JS_Stoarge</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-12-15
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JS_Stoarge
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>Cookie<br>Local Stoarge<br>Session Stoarge  </p>
+</blockquote>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><blockquote>
+<p>簡介：Cookie 技術是在瀏覽器儲存資訊的一種方法，而這些資訊就稱為 Cookie，伺服器可以儲存一些資訊到瀏覽器，到下次瀏覽器再與伺服器溝通時，這時資訊就會傳到伺服器。<br>可設定清除時間、大小約4KB<br>每次呼叫都會放置在header標頭<br>使用 Cookie 的例子： </p>
+</blockquote>
+<ol>
+<li>月曆記事簿：將要記住的訊息儲存在瀏覽器，到特定的時間彈出該訊息</li>
+<li>個人化網站：記錄你在某網站的設定，例如背景顏色，當你下次再到該站時就會用你所設定的背景顏色； 記錄你之前在某網站瀏覽到那一頁，到下次瀏覽該站時就自動帶你到該頁，節省瀏覽時間</li>
+<li>登入保安：當你登入某網站時，伺服器會記錄一些資訊到瀏覽器，以確定你是否那個登入的使用者 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定Cookie</span></div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=Jason"</span>;</div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=Jason; expires = Thu, 18 Dec 2017 12:00:00 UTC"</span>;</div></pre></td></tr></table></figure>
+<p>透過<code>⌘+alt+i</code>打開<code>developer tool</code>，查看<code>Application</code>後能發現資料已經順利儲存：<br><img src="http://i.imgur.com/PJzsWC8.png" alt="Loading Fail" title="Cookie"> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//set cookie by function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname, cvalue, exdays</span>)</span>&#123;</div><div class="line">    <span class="keyword">const</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="comment">//六天後過期</span></div><div class="line">    d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">6</span>*<span class="number">1000</span>));</div><div class="line">    <span class="keyword">const</span> expires = <span class="string">"expires="</span> + d.toUTCString();</div><div class="line">    <span class="comment">//設定cookie</span></div><div class="line">    <span class="built_in">document</span>.cookie = cname + <span class="string">"="</span> + cvalue + <span class="string">";"</span> + expires + <span class="string">";"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//getCookie func</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>)</span>&#123;</div><div class="line">    <span class="keyword">const</span> name = cname + <span class="string">'='</span>;</div><div class="line">    <span class="comment">//透過';'將所有cookie塞入array</span></div><div class="line">    <span class="keyword">const</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;ca.length;i++)&#123;</div><div class="line">        <span class="keyword">let</span> c = ca[i];</div><div class="line">        <span class="comment">//判斷是否前面開頭為空白' '</span></div><div class="line">        <span class="keyword">while</span>(c.charAt(<span class="number">0</span>) === <span class="string">''</span>)&#123;</div><div class="line">            <span class="comment">//空白則往第二個字元往後取得</span></div><div class="line">            c = c.substring;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">//判斷所需要的key name</span></div><div class="line">        <span class="keyword">if</span>(c.indexOf(name) === <span class="number">0</span>)&#123;</div><div class="line">            <span class="comment">//擷取正確的value</span></div><div class="line">            <span class="keyword">return</span> c.substring(name.length, c.length);</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//沒有符合的key就回傳空白</span></div><div class="line">    <span class="keyword">return</span> = <span class="string">''</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">setCookie(<span class="string">'Name'</span>,<span class="string">'Jason'</span>,<span class="string">'10'</span>);</div><div class="line"><span class="built_in">console</span>.log(getCookie(<span class="string">'Name'</span>));</div></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/l9qof2T.png" alt="Loading Fail" title="Get Cookie"></p>
+<p><em>小技巧：也可以指定 Cookie 在某一個特定日期失效， 例如你想它在 2001 年 1 月 2 日 3 時 4 分失效， 可以將之前例子中的 expires 變數用以下方法來設定它的值：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> expires = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">expires.setYear(<span class="number">2001</span>);</div><div class="line">expires.setMonth(<span class="number">0</span>);</div><div class="line">expires.setDate(<span class="number">1</span>);</div><div class="line">expires.setHours(<span class="number">2</span>);</div><div class="line">expires.setMinutes(<span class="number">3</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="Local-Stoarge"><a href="#Local-Stoarge" class="headerlink" title="Local Stoarge"></a>Local Stoarge</h3><blockquote>
+<p>以key/value進行儲存。除非主動<code>remove</code>否則會保留資料<br>約5MB</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定localStorage</span></div><div class="line">localStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);</div><div class="line">localStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;</div><div class="line">localStorage.name = <span class="string">"Jason"</span>;</div><div class="line"><span class="comment">//取得localStorage data</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Name='</span>+localStorage.getItem(<span class="string">"name"</span>));</div><div class="line"><span class="comment">//刪除localStorage</span></div><div class="line">localStorage.removeItem(<span class="string">'name'</span>);</div></pre></td></tr></table></figure>
+<p><code>localStorage.setItem(&quot;name&quot;,&quot;Jason&quot;)</code>透過<code>⌘+alt+i</code>打開開發者工具，查看<code>Application</code>後能發現資料已經順利儲存：<br><img src="http://i.imgur.com/pet0WSJ.png" alt="Loading Fail" title="LocalStorage">  </p>
+<h3 id="Session-Stoarge"><a href="#Session-Stoarge" class="headerlink" title="Session Stoarge"></a>Session Stoarge</h3><blockquote>
+<p>用法和local幾乎一樣<br>關閉頁面或瀏覽器後清除</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定sessionStorage</span></div><div class="line">sessionStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);</div><div class="line">sessionStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;</div><div class="line">sessionStorage.name = <span class="string">"Jason"</span>;</div><div class="line"><span class="comment">//取得sessionStorage data</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Name='</span>+sessionStorage.getItem(<span class="string">"name"</span>));</div><div class="line"><span class="comment">//刪除sessionStorage</span></div><div class="line">sessionStorage.removeItem(<span class="string">'name'</span>);</div></pre></td></tr></table></figure>
+<h3 id="相關閱讀"><a href="#相關閱讀" class="headerlink" title="相關閱讀"></a>相關閱讀</h3>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
+                           title="JS_Project_Envi">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Terminal_Command/" data-toggle="tooltip" data-placement="top"
+                           title="Terminal Command">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Local-Stoarge"><span class="toc-text">Local Stoarge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session-Stoarge"><span class="toc-text">Session Stoarge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#相關閱讀"><span class="toc-text">相關閱讀</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_Storage/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_Storage/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

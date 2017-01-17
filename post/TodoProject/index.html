@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/TodoProject/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://nodejs.org/static/images/logos/nodejs-new-pantone-black.png">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Todo Project</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-12-26
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#MAEN Stack"
+                           title="MAEN Stack">MAEN Stack</a>
+                        
+                        <a class="tag" href="/tags/#Project"
+                           title="Project">Project</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Todo Project
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>ToDo介紹</li>
+<li>套件安裝與環境設定</li>
+<li>程式碼解釋</li>
+</ul>
+<blockquote>
+<p>app.js<br>models/db.js<br>routes/index.js<br>views/all ejs</p>
+</blockquote>
+<ul>
+<li>push to heroku</li>
+<li>參考資料</li>
+</ul>
+<h3 id="ToDo介紹"><a href="#ToDo介紹" class="headerlink" title="ToDo介紹"></a>ToDo介紹</h3><ol>
+<li>瞭解一個web app應用最基礎的方式無非是直接去寫一個project，儘管內容不是多高級的技術，卻含括了最基本的CRUD等功能。</li>
+<li>而此app透過MAEN Stack方式，結合MongoDB、Angular、Express、NodeJS建立一款線上備忘錄App。</li>
+<li>MEAN Stack主要檔案結構如下：</li>
+</ol>
+<p>ToDo</p>
+<blockquote>
+<p>bin</p>
+<blockquote>
+<p>www</p>
+</blockquote>
+<p>models</p>
+<blockquote>
+<p>db.js</p>
+</blockquote>
+<p>public</p>
+<blockquote>
+<p>src</p>
+<blockquote>
+<p>bower_component<br>stylesheets</p>
+</blockquote>
+</blockquote>
+<p>routes</p>
+<blockquote>
+<p>index.js</p>
+</blockquote>
+<p>src</p>
+<p>views</p>
+<blockquote>
+<p>.ejs</p>
+</blockquote>
+<p>app.js</p>
+<p>bower.json</p>
+<p>package.json</p>
+</blockquote>
+<h3 id="套件安裝與環境設定"><a href="#套件安裝與環境設定" class="headerlink" title="套件安裝與環境設定"></a>套件安裝與環境設定</h3><ul>
+<li>特別套件</li>
+</ul>
+<blockquote>
+<p>mongoose:用<code>Schema</code>定義了一個<code>collection</code>的結構，加上其他對這個 collection 的驗證設定、操作方法等等，便構成了一個<code>Model</code><br>express-generator:前端鷹架，類似rails<br>nodemon:前端即時監聽程式碼</p>
+<blockquote>
+<p>開啟local server<code>$ nodemon server.js localhost:3000</code></p>
+</blockquote>
+<p>body-parse:讀取前端body內的資訊</p>
+</blockquote>
+<ul>
+<li>安裝順序</li>
+</ul>
+<ol>
+<li><p>MongoDB安裝<br><code>$ brew install mongodb</code><br><a href="https://kueiblog.herokuapp.com/post/MongoDB/">詳細安裝過程點此</a></p>
+</li>
+<li><p>使用express-generator產生專案<br><code>$ express -e examples</code></p>
+</li>
+<li><p>安裝相關套件<br><code>$ sudo npm install express-generator nodemon -g</code><br><code>$ sudo npm install</code><br><code>$ bower install --save &#39;bootstrap&#39; &#39;jquery&#39;</code></p>
+</li>
+</ol>
+<h3 id="程式碼解釋"><a href="#程式碼解釋" class="headerlink" title="程式碼解釋"></a>程式碼解釋</h3><ul>
+<li><p>app.js<br>作為一彙整檔，將所有<code>modules</code>與重要file(例如<code>routes</code>)引入。</p>
+</li>
+<li><p>models/db.js</p>
+</li>
+</ul>
+<ol>
+<li><p>連結資料庫(MongoDB)<br>local端:<code>mongoose.connect(&#39;mongodb://localhost/todoapp&#39;)</code>，todoapp為db名稱<br>也可以透過雲端MongoDB服務mLab將資料塞在雲端<br>mLab:<code>var dbURI = mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds145868.mlab.com:45868/todo</code>;最後做連結<code>mongoose.connect(dbURI)</code></p>
+</li>
+<li><p>透過mongoose建立起ToDo Schema<br>這邊只用到title與date</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const TodoSchema = &#123; </div><div class="line">  title: String,</div><div class="line">  date: &#123; type: Date, default: Date.now() &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>透過mongoose建立起Model並將資料表(collection)取名為Todo<br>將其module.exports後可以讓其他file去<code>require</code>並使用此model與資料庫做互動<br><code>module.exports = mongoose.model(&#39;Todo&#39;, TodoSchema);</code></p>
+</li>
+</ol>
+<ul>
+<li>routes/index.js<br>route作為引入各種路徑至某網頁，可說是<code>Express</code>最方便與厲害的地方。<br>透過var router = <code>express.Router()</code>去取得router後便可以輕易做到各種route的引用。</li>
+</ul>
+<p>在CRUD中最重要的不外乎是<code>讀取(Read)</code>資料與<code>產生(Create)</code>資料<br>而相對應的<code>動作(method)</code>則是<code>get</code>與<code>post</code><br>express透過<code>router.get</code>與<code>router.post</code>等方法可以輕易達到效果</p>
+<p>先來介紹<code>讀取(Read)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.find(&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'index'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>瀏覽器得到<code>/</code>請求(<code>request</code>)後便會導入此匿名function中，分別會有三個參數<code>req, res, next</code>ㄎ接著就能透過這些參數做事情。首先，這邊透過<code>Todo model</code>去取得所有資料，MongoDB對應指令則是<code>find({})</code>，取得後再接一匿名function去做接下來的事情，假若error則能透過next(err)去處理，而這邊假設會成功，成功後得到參數<code>todos</code>，此其時就是所有資料的集合，並用<code>json</code>的方式傳入，後續透過<code>res.render</code>，此為引用<code>ejs 模板</code>並將資料傳入得模板中，這邊只簡單提到，後續會做更近一步說明。</p>
+<p><code>產生(Create)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/create'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log(req.body);//&#123; title: '打電動' &#125;</span></div><div class="line">  <span class="keyword">new</span> Todo(&#123;</div><div class="line">    <span class="attr">title</span>: req.body.title,</div><div class="line">  &#125;).save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    res.redirect( <span class="string">'/'</span> );</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>與<code>get</code>其實程式很像對吧？主要差異在於method改用<code>post</code>，在這邊不再是讀取資料而是產生資料，故透過<code>new Todo</code>去產生一筆新資料，這邊比較特別的是<code>req.body.title</code>，此為將前端表單輸入的資料讀取進來，由於express無法進行body的解析，故前面require此模組<code>body-parser</code>後就可以引入，而這邊讓我們先跳到<code>前端表單ejs</code>部分進行解釋。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/create"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>代辦事項：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 透過name取得資料 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">required</span> <span class="attr">placeholder</span>=<span class="string">"請輸入代辦事項"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-block"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span>     </div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>要特別注意的是表單的method要用<code>post</code>;<code>action</code>採用<code>&quot;/create&quot;</code>如此便能對應到應屬的route</p>
+<p>成功建立資料進行儲存動作<code>.save</code>，沒有意外則會儲存並導入到<code>首頁(/)</code></p>
+<p><code>更新(Update)</code><br>提到更新資料一定要提到route裡的<code>subredditName</code>。subredditName讓我們的route更加有擴充性，概念是將輸入的網址當作變數去使用，使用方式為加上<code>:</code>，例如網址列打<code>/:id/:title</code>後，透過req.params會得到：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//multi params</span></div><div class="line">req.params=</div><div class="line">&#123;</div><div class="line">    <span class="attr">id</span>:<span class="string">'1'</span>,</div><div class="line">    <span class="attr">title</span>:<span class="string">'sports'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>所以要取出其中的值就按照物件方式<code>req.params.id</code>以及<code>req.params.title</code></p>
+<p>而在ToDo app中，如果要編輯資料則是先點選要更改的資料，route藉由<code>/todos/:id</code>導入到<code>todo.ejs</code>，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">router.get(<span class="string">'/todos/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log(req.params.id);</span></div><div class="line">  Todo.findById(req.params.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    res.render(<span class="string">'todo'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todo</span>: todo &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>步驟大致都跟<code>create</code>時類似，要注意的是前端的小技巧部分，這邊來看看前端的寫法<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table class="table table-striped"&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;代辦事項名稱&lt;/th&gt;</div><div class="line">        &lt;th&gt;記錄時間&lt;/th&gt; </div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;% for(var i = 0; i &lt; todos.length; i++) &#123; %&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt; </div><div class="line">    &lt;% &#125; %&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
+<p>這邊透過ejs的前端邏輯去進行<code>for loop</code>將從<code>router.get(&#39;/&#39;)</code>拿到的<code>todos</code>資料全部run過一遍並且呈現在前端interface上<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//todos資料為object</div><div class="line">todos=</div><div class="line">[ </div><div class="line">  &#123; _id: 587af425f82029c9f8814179,</div><div class="line">    title: '吃午餐',</div><div class="line">    __v: 0,</div><div class="line">    date: Sun Jan 15 2017 12:01:27 GMT+0800 (CST) &#125;,</div><div class="line">  &#123; _id: 587b10e9b57224e3e72dd6a4,</div><div class="line">    title: '打程式',</div><div class="line">    __v: 0,</div><div class="line">    date: Sun Jan 15 2017 15:02:15 GMT+0800 (CST) &#125; </div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>值得注意的是在塞資料的過程中取出各個資料的id<code>todos[i].id</code>並塞進超連結<code>href</code>中，於是當點擊某筆資料時能連結到他的id name route外，更能順便將網址的data取出拿來運用，真是個聰明方式!!</p>
+<p>進入到todo.ejs後真正要開始<code>update</code>與<code>delete</code>。<br>點擊<code>修改</code>button後，route導入到<code>/todos/:id/edit</code>並render <code>edit.ejs</code>，一但修改完資料後按出<code>送出修改</code>bitton，route導入到<code>/edit</code>，要注意的是，和<code>create</code>時一樣，這邊的方法一樣用<code>post</code>，接著就會去DB尋找此筆資料，然而，很重要的一點是，如何得知是哪比資料呢？前面用<code>req.params.id</code>去搜尋資料，然而別忘記，此刻所導入的route是<code>/edit</code>，故這邊透過<code>req.body.id</code>進行資料的搜尋，這邊又要提到前端的小技巧，將value偷偷塞入<code>&lt;input&gt;</code>tag中的value裡頭，如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>便能透過req.body.id去取得資料。</p>
+<p>故這邊逐一將title與date做更改，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/edit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    todo.title = req.body.title;</div><div class="line">    todo.date = <span class="built_in">Date</span>.now();</div><div class="line">    todo.save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">      res.redirect( <span class="string">'/'</span> );</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>刪除部分則是用<code>remove()</code>去執行<code>todo.remove()</code>，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    todo.remove(<span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">      res.redirect( <span class="string">'/'</span> );</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>前端action此刻為<code>action=&quot;/delete&quot;</code>，完整程式碼如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/delete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-lg"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>刪除<span class="tag">&lt;/<span class="name">button</span>&gt;</span>          </div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如此便完成所有關於<code>CRUD</code>程式碼部分的介紹。</p>
+<ul>
+<li>views/all ejs<br>前面其實已經有說到許多關於<code>ejs</code>在裡頭的運用<br>透過render去使用ejs，並能將資料以<code>json</code>方式傳入前端<br>ejs與javascript對應如下：</li>
+</ul>
+<p><em>javascript</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Todo.find(&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'index'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><em>ejs</em><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;</div><div class="line"></div><div class="line">&lt;% for(var i｀ = 0; i &lt; todos.length; i++) &#123; %&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt; </div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="push-to-heroku"><a href="#push-to-heroku" class="headerlink" title="push to heroku"></a>push to heroku</h3><p>比較需要特別注意的是在<code>package</code>的安裝部分是否有順利在heroku上安裝成功。</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://blog.chh.tw/posts/mongodb-odm-mongoose/" target="_blank" rel="external">MongoDB的ODM：mongoose 簡單介紹</a><br><a href="http://dreamerslab.com/blog/tw/write-a-todo-list-with-express-and-mongodb/" target="_blank" rel="external">用Express和MongoDB寫一個todo list</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/MongoDB/" data-toggle="tooltip" data-placement="top"
+                           title="MongoDB">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
+                           title="JS_Project_Envi">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ToDo介紹"><span class="toc-text">ToDo介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#套件安裝與環境設定"><span class="toc-text">套件安裝與環境設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程式碼解釋"><span class="toc-text">程式碼解釋</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push-to-heroku"><span class="toc-text">push to heroku</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#MAEN Stack"
+                           title="MAEN Stack">MAEN Stack</a>
+                        
+                        <a class="tag" href="/tags/#Project"
+                           title="Project">Project</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/TodoProject/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/TodoProject/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

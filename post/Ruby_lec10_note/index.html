@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Ruby_lec10_note/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>RoR 10 - 使用者認證</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-11-06
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            RoR 10 - 使用者認證
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p>使用者認證：網頁需要辨識使用者身份，查看該使用者是否有權限能做某些事或使用某些功能</p>
+<h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>1.HTTP 溝通協定不會記住使用者狀態 (登入狀態，購物車內容 etc.)<br>2.Server 與 Client 之間不是一直保持連線<br>3.為了讓 browser 能跨 request 記住資訊，使用 session 來儲存資訊<br>4.session 資訊是由 server 端產出<br>5.為了使用者體驗，<em>session 資訊通常會放在 cookie 裡面</em><br>6.cookie 是 <em>browser 的暫存空間，只有 4k 的大小</em></p>
+<p>使用者輸入user id後，server會產生token暫存在客戶用戶端<br>切換頁面時，user browser會自動將cookie的id再傳回server自動進行登陸</p>
+<h4 id="實作user"><a href="#實作user" class="headerlink" title="實作user"></a>實作user</h4><blockquote>
+<p>user model部分加入:</p>
+</blockquote>
+<p>rails內建功能:使用者認證<br><em>has_secure_password validation: false</em><br>has_secure_password 會要求輸入兩次密碼，故透過validation: false關掉</p>
+<p><strong>GemFile加入</strong><br>gem’bcrypt’:今天存在db的密碼是經過加密的密碼(安全性)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem &apos;bycypt&apos;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>db部分加入: </p>
+</blockquote>
+<p>新增<em>password_digest</em>欄位，名字一樣不能亂取  </p>
+<blockquote>
+<p>db加入資料: </p>
+</blockquote>
+<p>password_digest欄位只要輸入password:”” </p>
+<h4 id="實作session"><a href="#實作session" class="headerlink" title="實作session"></a>實作session</h4><p>session沒有model因為沒有 <strong>對應到資料庫</strong>，但是session controller也在創造跟銷毀物件<br>登入時創造一個新的session；登出時銷毀原本的session<br>三個方法new、create、destroy  </p>
+<blockquote>
+<p>new:專門用來顯示登入用的頁面  </p>
+<blockquote>
+<p>但是不用做任何事情，連空物件都不用產生<br>create:登入時使用<br>destroy:登出時使用  </p>
+</blockquote>
+</blockquote>
+<h4 id="路由-routes-對應controller方法"><a href="#路由-routes-對應controller方法" class="headerlink" title="路由(routes)對應controller方法"></a>路由(routes)對應controller方法</h4><p>session/new (不直觀) =&gt; /login (直觀)<br>get ‘/login’, to: ‘sessions#new’<br>post ‘/login’, to: ‘sessions#create’<br>get ‘/logout’, to: ‘sessions#destroy’</p>
+<h4 id="前端頁面sessions-gt-new-html-erb"><a href="#前端頁面sessions-gt-new-html-erb" class="headerlink" title="前端頁面sessions-&gt;new.html.erb"></a>前端頁面sessions-&gt;new.html.erb</h4><p>form_for:跟某個model綁定(orders)<br>form_tag:session不用，不是某個特定model</p>
+<h4 id="form-for-vs-form-tag"><a href="#form-for-vs-form-tag" class="headerlink" title="form_for vs form_tag"></a>form_for vs form_tag</h4><ol>
+<li>兩者都是 Rails 用來建立表單的 helper  </li>
+<li>form_for 是會和 model 綁定的表單，像是對 user 或是 post 等 model 物件的新增和修改   </li>
+<li>form_tag 是沒有對應 model 的表單，適用像是登入、搜尋等功能</li>
+</ol>
+<p><em>form_tag</em>  </p>
+<blockquote>
+<p>使用者登入是在創立session<br>session沒有自己的model<br>於是用form_tag </p>
+<p>沒有model對應<br>於是將使用者前端參數塞到params[:name]</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%= text_field_tag :name, params[:name] %&gt;</div></pre></td></tr></table></figure>
+<p>link_to是產生超連結  </p>
+<p>devise go<br><em>付費有時是最省事的方法</em>  </p>
+<h4 id="前端加入判斷式"><a href="#前端加入判斷式" class="headerlink" title="前端加入判斷式"></a>前端加入判斷式</h4><p><em>helper method</em>  </p>
+<blockquote>
+<p>所有的controller都是繼承ApplicationController  </p>
+<blockquote>
+<p>更改Application_Controller<br>current_user method、logged_in? method<br>||=：左邊變數當下是空值就將右邊結果存入左邊變數<br>!放後面為方法;前面放一個!為相反、前面兩個!!代表把變數變成boolean(只要不是nil)</p>
+</blockquote>
+</blockquote>
+<h4 id="小提醒"><a href="#小提醒" class="headerlink" title="[小提醒]"></a>[小提醒]</h4><p>不要把太複雜的前端判斷式語法用ruby去寫<br>其仍然要把ruby轉換為JS去進行操作。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Git_lec1_note/" data-toggle="tooltip" data-placement="top"
+                           title="git introduction">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/MarkdownTest/" data-toggle="tooltip" data-placement="top"
+                           title="Markdown Editing">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#session"><span class="toc-text">session</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#實作user"><span class="toc-text">實作user</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#實作session"><span class="toc-text">實作session</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由-routes-對應controller方法"><span class="toc-text">路由(routes)對應controller方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前端頁面sessions-gt-new-html-erb"><span class="toc-text">前端頁面sessions->new.html.erb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#form-for-vs-form-tag"><span class="toc-text">form_for vs form_tag</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#前端加入判斷式"><span class="toc-text">前端加入判斷式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#小提醒"><span class="toc-text">[小提醒]</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Ruby_lec10_note/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/Ruby_lec10_note/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

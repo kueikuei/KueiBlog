@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_Note/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Jacascript Introduction (From Lec 1~8)</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-10-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Jacascript Introduction (From Lec 1~8)
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="單元1"><a href="#單元1" class="headerlink" title="單元1"></a>單元1</h4><h5 id="pokemon-fight-example"><a href="#pokemon-fight-example" class="headerlink" title="pokemon fight example"></a>pokemon fight example</h5><blockquote>
+<p>ES6:可以透過$代表變數並插入字串如：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">"Jason"</span>;</div><div class="line"><span class="string">'hello!I am $&#123;name&#125;'</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//常用函數</span></div><div class="line">random()<span class="comment">//0~1</span></div><div class="line">prompt():使用者輸入<span class="function"><span class="keyword">function</span>之一，輸入為字串透過<span class="title">parseInt</span>轉成整數</span></div><div class="line"></div><div class="line"><span class="title">swith</span>(<span class="params"></span>)&#123;</div><div class="line">    <span class="keyword">case</span> x:</div><div class="line">        ...</div><div class="line">        break</div><div class="line">    <span class="keyword">case</span> y:</div><div class="line">        ...</div><div class="line">        break</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="單元2"><a href="#單元2" class="headerlink" title="單元2"></a>單元2</h4><blockquote>
+<p>What is programming?<br>用什麼方式存取資料？資料結構<br>用什麼方法做？演算法</p>
+</blockquote>
+<h4 id="靜態網站vs動態網站"><a href="#靜態網站vs動態網站" class="headerlink" title="靜態網站vs動態網站"></a>靜態網站vs動態網站</h4><h4 id="JS能幹嘛？"><a href="#JS能幹嘛？" class="headerlink" title="JS能幹嘛？"></a>JS能幹嘛？</h4><ol>
+<li>網頁應用程式開發（JS前端/NodeJS後端）</li>
+<li>by cmd 去操作沒有UI介面的瀏覽器=&gt;模擬測試用：PhantomJS</li>
+<li>跑在WebView瀏覽器核心的應用(WebView Application)、手機(phonegap)、桌面應用程式開發(Electron)</li>
+<li>用JS寫的原生應用程式</li>
+<li>網路爬蟲、VR/AR、IOT、Robotics等應用</li>
+</ol>
+<h4 id="單元2-3"><a href="#單元2-3" class="headerlink" title="單元2-3"></a>單元2-3</h4><h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span>&gt;</span></div><div class="line">//描述資料的資料</div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">utf8</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'Jason'</span> <span class="attr">descrition</span>=<span class="string">'hello world'</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="標籤"><a href="#標籤" class="headerlink" title="標籤"></a>標籤</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 有順序性 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>打顆蛋<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>伴入蔥花<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;</span></div><div class="line">    <span class="attr">li</span>&gt;放入少許鹽巴<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 無順序性 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>李白<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>杜甫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>白居易<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"連結網址"</span> <span class="attr">target</span>=<span class="string">"開啟方式"</span>&gt;</span>帶我走<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- target 常見屬性值（_blank（開新視窗）） --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"圖存放位置"</span> <span class="attr">alt</span>=<span class="string">"破圖說明"</span> <span class="attr">title</span>=<span class="string">"滑鼠移至圖上說明"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- alt也用在google搜尋檢索 --&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="絕對位置"><a href="#絕對位置" class="headerlink" title="絕對位置"></a>絕對位置</h5><p>URL<br>網址</p>
+<h5 id="相對位置"><a href="#相對位置" class="headerlink" title="相對位置"></a>相對位置</h5><p>父資料夾../father/fathrt.html<br>子資料夾./sample/son.html<br>同資料夾./father.html</p>
+<h5 id="Get-vs-Post-表單運作"><a href="#Get-vs-Post-表單運作" class="headerlink" title="Get vs Post 表單運作"></a>Get vs Post 表單運作</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>表單是撰寫動態網站和資料庫互動的重要一環，常用於客戶端（Client）蒐集資訊，透過提交表單可以讓資料傳送到給後端程式處理。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.php"</span><span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">!‐‐action放置後端程式位置，method為傳送方式，GET會顯示提交內容於網址列，POST則不會‐‐</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"query"</span>&gt;</span>搜尋</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>瀏覽的網頁傳遞參數給 Server 端主要有兩種方法：</p>
+<ol>
+<li>Get  </li>
+<li>Post</li>
+</ol>
+<p>google搜尋為Get。表單參數與填寫內容可在URL看到，較不安全，但GET的執行速度比較快，可加入書簽(Bookmark) 中。一般用於獲取/查詢資源資訊</p>
+<p>POST 資料傳遞時，網址並不會更動。透過 HTTP message body夾帶，故參數與值不會顯示於 URL，常用於更新資源、登入。</p>
+<h4 id="單元6-8"><a href="#單元6-8" class="headerlink" title="單元6-8"></a>單元6-8</h4><h5 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h5><p>開發者工具(Mac: alt + command + i)<br>層疊樣式表（原文：Cascading Style Sheets，簡寫CSS）</p>
+<h5 id="CSS屬性分為兩大類"><a href="#CSS屬性分為兩大類" class="headerlink" title="CSS屬性分為兩大類:"></a>CSS屬性分為兩大類:</h5><p>外觀:主要負責控制如：文字顏色、大小、背影顏色等外觀<br>版面:負責如何將元素放置在螢幕中適切的位置</p>
+<h5 id="三種使用方式"><a href="#三種使用方式" class="headerlink" title="三種使用方式"></a>三種使用方式</h5><ol>
+<li>行內樣式 (Inline Styles):放body</li>
+<li>內嵌樣式 (Embeded Styles):放head </li>
+<li>外部樣式表 (External Stylesheets):最推薦的</li>
+</ol>
+<h5 id="CSS-規則包含了兩部分：1-選擇器2-宣告"><a href="#CSS-規則包含了兩部分：1-選擇器2-宣告" class="headerlink" title="CSS 規則包含了兩部分：1. 選擇器2. 宣告"></a>CSS 規則包含了兩部分：1. 選擇器2. 宣告</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!-- p為選擇器 --&gt;</div><div class="line">p&#123;</div><div class="line">    &lt;!-- 內容都是在宣告 --&gt;</div><div class="line">    color:red;</div><div class="line">    font‐family:Arial;//屬性(元素的面向)：值(想用在該元素上的設定值)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="常用選擇器種類（重要）"><a href="#常用選擇器種類（重要）" class="headerlink" title="常用選擇器種類（重要）"></a>常用選擇器種類（重要）</h5><h6 id="Universal-selector（通用選擇器）"><a href="#Universal-selector（通用選擇器）" class="headerlink" title="Universal selector（通用選擇器）"></a>Universal selector（通用選擇器）</h6><p>使用 * 選取所有元素</p>
+<h6 id="Type-selectors（型態選擇器）"><a href="#Type-selectors（型態選擇器）" class="headerlink" title="Type selectors（型態選擇器）"></a>Type selectors（型態選擇器）</h6><p>Ex. h1、p ，選取該元素</p>
+<h6 id="Class-selectors（Class選擇器）"><a href="#Class-selectors（Class選擇器）" class="headerlink" title="Class selectors（Class選擇器）"></a>Class selectors（Class選擇器）</h6><p>使用 .class 名稱，選取該class元素</p>
+<h6 id="ID-selectors（ID選擇器）"><a href="#ID-selectors（ID選擇器）" class="headerlink" title="ID selectors（ID選擇器）"></a>ID selectors（ID選擇器）</h6><p>使用 #ID 名稱，選取該ID元素</p>
+<p>等級為:<br>id&gt;class&gt;&gt;type&gt;universal</p>
+<p>偽類(Pseudo-classes)選擇器</p>
+<p>超連結<br>:link (超連結平常的樣式)<br>:visited (超連結點閱後的樣式)<br>:hover (滑鼠滑入的樣式)<br>:active (滑鼠按下的樣式) </p>
+<p>css後來優先？lvha通常會這樣擺設<br>css階層</p>
+<blockquote>
+<p>定義外觀樣式時難免會有不同的樣式去定義到同一個元素的情況<br>越經常指到element分數越高</p>
+</blockquote>
+<ul>
+<li>Specificity 比大小  </li>
+<li>使用者優先  </li>
+<li>!important 大魔王  </li>
+<li>後來會覆蓋之前  </li>
+<li>越接近元素越強</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/MarkdownTest/" data-toggle="tooltip" data-placement="top"
+                           title="Markdown Editing">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Ruby_lec5_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 5 - MVC 架構">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#單元1"><span class="toc-text">單元1</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#pokemon-fight-example"><span class="toc-text">pokemon fight example</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#單元2"><span class="toc-text">單元2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#靜態網站vs動態網站"><span class="toc-text">靜態網站vs動態網站</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS能幹嘛？"><span class="toc-text">JS能幹嘛？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#單元2-3"><span class="toc-text">單元2-3</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML"><span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#標籤"><span class="toc-text">標籤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#絕對位置"><span class="toc-text">絕對位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#相對位置"><span class="toc-text">相對位置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Get-vs-Post-表單運作"><span class="toc-text">Get vs Post 表單運作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#單元6-8"><span class="toc-text">單元6-8</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS屬性分為兩大類"><span class="toc-text">CSS屬性分為兩大類:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#三種使用方式"><span class="toc-text">三種使用方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS-規則包含了兩部分：1-選擇器2-宣告"><span class="toc-text">CSS 規則包含了兩部分：1. 選擇器2. 宣告</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#常用選擇器種類（重要）"><span class="toc-text">常用選擇器種類（重要）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Universal-selector（通用選擇器）"><span class="toc-text">Universal selector（通用選擇器）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Type-selectors（型態選擇器）"><span class="toc-text">Type selectors（型態選擇器）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Class-selectors（Class選擇器）"><span class="toc-text">Class selectors（Class選擇器）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#ID-selectors（ID選擇器）"><span class="toc-text">ID selectors（ID選擇器）</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_Note/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_Note/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_Project_Envi/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JS_Project_Envi</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-12-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JS_Project_Envi
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
+<p>npm<br>bower<br>gulp<br>push to github</p>
+</blockquote>
+<h3 id="npm"><a href="#npm" class="headerlink" title="npm"></a>npm</h3><ol>
+<li><code>$ npm init</code>產生<code>package.json</code>檔</li>
+<li><code>$ npm install</code>透過<code>package.json</code>將相關套件進行安裝，並產生<code>node_modules</code>資料夾存放套件</li>
+<li>或是<code>$ npm install --save &#39;package_name&#39;</code>將相關套件引入並且在<code>package.json</code>中<code>dependencies</code>套件</li>
+<li><code>$ npm install --save -dev &#39;package_name&#39;</code>會將相關套件引入並且存放在<code>package.json</code>中<code>devDependencies</code>套件</li>
+</ol>
+<p><em>建議將<code>dependencies與devDependencies</code>事先寫入<code>package.json</code>檔案中再直接<code>$ npm install</code></em></p>
+<h3 id="bower"><a href="#bower" class="headerlink" title="bower"></a>bower</h3><p><code>$ bower</code>作為前端管理的輕量級套件，實行步驟與<code>$ npm</code>類似。  </p>
+<ol>
+<li><code>$ bower init</code>產生<code>bower.json</code>檔</li>
+<li><code>$ bower install --save &#39;package_name&#39;</code>將相關套件引入並且在<code>bower.json</code>中<code>dependencies</code>套件，此外，會產生<code>bower_components</code>裡面放置相關套件</li>
+</ol>
+<h3 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h3><p>自動化建置工具<code>gulp</code></p>
+<p><code>$ gulp</code>透過<code>gulpfile.babel.js 檔案</code>能將相關資源檔轉譯成靜態網頁所需要的檔案</p>
+<blockquote>
+<p>透過<code>gulpfile.babel.js</code>轉譯成瀏覽器可以讀取的語言  </p>
+<blockquote>
+<p>sass轉成css<br>js優化處理，最終剩下bundle.js<br>image壓縮處理</p>
+</blockquote>
+</blockquote>
+<p>在進行<code>$ gulp</code>時若出現<code>gulpfile.babel.js</code>無法讀取的狀況，可增加<code>.babelrc</code>檔案讓<code>$ gulp</code>指令能順利執行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//.babelrc</div><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [&quot;es2015&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>$ gulp</code>轉譯後產生<code>dist 資料夾</code>，裡頭存放轉譯後的<code>js與css file</code></p>
+<p><code>main.js</code>經過<code>gulp</code>後轉譯成<code>bundle.js</code>，而專案在讀取.js檔案主要是讀取<code>bundle.js file</code></p>
+<h3 id="push-to-github"><a href="#push-to-github" class="headerlink" title="push to github"></a>push to github</h3><ol>
+<li><p>產生<code>public 資料夾</code>存放所有遠端檔案與資源，除了<code>node_modules</code>外，將所有檔案皆放入此<code>public 資料夾</code>中</p>
+</li>
+<li><p>遠端github產生<code>repository</code>，並將此repo的<code>GitHub Pages</code>開啟，創立名為<code>gh-pages</code>的分支，切換到<code>Settings</code>，並在<code>GitHub Pages</code>中的<code>Source</code>切換到<code>gh-pages</code>並<code>Save</code></p>
+</li>
+<li><p>本地端的檔案，所有的<code>檔案資源路徑</code>與<code>相關routing</code>都要配合遠端<code>repo_name</code>進行更改：  </p>
+</li>
+</ol>
+<blockquote>
+<p>html方面(例如index.html、create.html、update.html等等)</p>
+<blockquote>
+<p><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;</code>repo_name<code>/bower_components/bootstrap/dist/css/bootstrap.css&quot;&gt;</code><br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;</code>repo_name<code>/dist/css/main.css&quot;&gt;</code></p>
+</blockquote>
+<p>js方面(main.js與bundle.js都要改)</p>
+<blockquote>
+<p>更改方面建議的方式是更改完<code>main.js</code>後再透過<code>$ gulp</code>自動去更改<code>bundle.js</code><br>最重要的是<code>routing</code>上的更改：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (path) &#123;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/repo_name/create.html'</span>:</div><div class="line">        submitListener(<span class="string">'create'</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">case</span> <span class="string">'/repo_name/update.html'</span>:</div><div class="line">        readFormData();</div><div class="line">        submitListener(<span class="string">'update'</span>);</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">    <span class="keyword">default</span>:</div><div class="line">        readAccountData();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="git-push-to-repo"><a href="#git-push-to-repo" class="headerlink" title="git push to repo"></a>git push to repo</h4><ol>
+<li>本地端透過<code>$ git checkout -b gh-pages</code>產生名為<code>gh-pages</code>的分支`</li>
+<li>逐步實施<code>$ git init</code>、<code>$ git add file_name</code>、<code>$ git commit -m&#39;description&#39;</code>後<br>透過<code>$ git push origin gh-pages</code>上傳到遠端分支上</li>
+<li>不幸出現<code>failed to push some refs to...</code>的話，透過<code>$ git pull --rebase origin gh-pages</code>合併本地端與遠端，並再次<code>$ git push origin gh-pages</code></li>
+<li>順利的話就能透過github產生靜態分頁，並透過此網址<code>https://kueikuei.github.io/</code>repo_name<code>/</code>進行網站瀏覽</li>
+</ol>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/TodoProject/" data-toggle="tooltip" data-placement="top"
+                           title="Todo Project">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/JS_Storage/" data-toggle="tooltip" data-placement="top"
+                           title="JS_Stoarge">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm"><span class="toc-text">npm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bower"><span class="toc-text">bower</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp"><span class="toc-text">gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push-to-github"><span class="toc-text">push to github</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-push-to-repo"><span class="toc-text">git push to repo</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_Project_Envi/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_Project_Envi/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

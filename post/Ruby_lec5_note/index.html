@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Ruby_lec5_note/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>RoR 5 - MVC 架構</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2016-10-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            RoR 5 - MVC 架構
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h4 id="作業講解"><a href="#作業講解" class="headerlink" title="作業講解"></a>作業講解</h4><p>4.找出array中非字串<br>[].select(|x|x [].class != String)</p>
+<p>6.arr = [1,2,3,3].uniq<br>=&gt; [1,2,3] 但保留原始 arr<br>[1,2,3,4].uniq!<br>=&gt; [1,2,3] 不保留原始 arr</p>
+<p><em>小知識</em><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>].uniq! <span class="comment">#arr = [1,2,3]</span></div><div class="line"><span class="comment">#!放後面會改變原本的值</span></div></pre></td></tr></table></figure></p>
+<p><strong>ruby方法能加?或!</strong>  </p>
+<blockquote>
+<p>清楚告訴使用者大概會回傳怎樣的值<br>?回傳boolean;!代表值會改變</p>
+</blockquote>
+<h4 id="提醒，git上傳"><a href="#提醒，git上傳" class="headerlink" title="提醒，git上傳"></a>提醒，git上傳</h4><p>縮排兩格，sublime=&gt;space 2<br>命名方式：蛇底式寫法<br>變數命名：<br>instace var =&gt; @<br>class var =&gt; @@<br>class是工廠</p>
+<h4 id="MVC-架構"><a href="#MVC-架構" class="headerlink" title="MVC 架構"></a>MVC 架構</h4><ol>
+<li>Model 封裝資料與商業邏輯，與資料庫裡的資料表對應</li>
+<li>View 處理使用者介面，顯示及編輯表單，可內嵌Ruby語法</li>
+<li>Controller 負責將資料送進送出Model，處理從外界 (也就是瀏覽器) 來的HTTP Request請求，與Model互動後輸出View (也就是HTML)</li>
+</ol>
+<p>＃早期網頁都沒有JS，透過php夾雜在html裡頭去做邏輯判斷與資料庫連結<br>＃rails的view特別之處在於能嵌入ruby程式碼<br>＃桌機跟網路MVC差別，網頁不會自動跟新資料(http協定)<br>＃後端(controller &amp; model)<br>＃controller決定要CRUD哪個動作，根據路由(Routing)規則決定派往哪一個Controller<br> 的 Action，類似於MEAN的app.js  </p>
+<h2 id="Rails-MVC-架構"><a href="#Rails-MVC-架構" class="headerlink" title="Rails MVC 架構"></a>Rails MVC 架構</h2><p><img src="https://ihower.tw/rails/images/basic-mvc-diagram.png" alt="Loading Fail" title="rails mvc">  </p>
+<ol>
+<li>瀏覽器發出HTTP request請求給Rails  </li>
+<li>路由(Routing)根據規則決定派往哪一個Controller 的 Action  </li>
+<li>負責處理的 Controller Action 操作 Model 資料</li>
+<li>Model 存取資料庫或資料處理  </li>
+<li>Controller Action 將得到的資料餵給View樣板  </li>
+<li>回傳最後的 HTML 成品給瀏覽器</li>
+</ol>
+<p>Model File<br>和資料庫的資料表相對應的抽象類別，和其他資料表的關聯、行為、商業邏輯等<br>都是在這裡定義或處理</p>
+<p>View File<br>HTML頁面，顯示為主</p>
+<p>Controller File主要的功能：</p>
+<ol>
+<li>收集 request 的資訊，例如 使用者傳進來的參數</li>
+<li>操作 Model 來做資料的處理</li>
+<li>回傳 response 結果</li>
+</ol>
+<h4 id="rails-scaffold-訂便當系統"><a href="#rails-scaffold-訂便當系統" class="headerlink" title="rails scaffold 訂便當系統"></a>rails scaffold 訂便當系統</h4><p><strong>scaffold鷹架指令：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rails g scaffold order name:string phone:string description:text</div></pre></td></tr></table></figure></p>
+<p><strong>scaffold做了什麼？</strong>  </p>
+<blockquote>
+<p>產生諸多CRUD新檔案</p>
+<blockquote>
+<p>網頁運作，就是把CRUD URL與背後邏輯實做出來<br>routes.rb<br>resource:orders  </p>
+<blockquote>
+<p>自動產生整個CRUD function  </p>
+<blockquote>
+<p>觀念:</p>
+<blockquote>
+<p>post跟new綁在一起<br>edit跟update綁在一起<br><img src="http://www.weijieworld.com/wp-content/uploads/2015/02/screen-shot-2015-02-24-at-4-02-00-pm.png" alt="Loading Fail" title="rails CRUD"></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><strong>rails routes URL 定義</strong><br><strong>route file</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#route</span></div><div class="line">get <span class="string">'orders/index'</span> =&gt; <span class="string">'order#index'</span></div><div class="line"></div><div class="line"><span class="comment">#controller</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></div><div class="line">    @order=Order.all</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>＊routes.rb為專案最主要的檔案，http請求後給予相對應回應檔案，Rails 專案的路由<br>都是在這裡設定<br>＊routes info:<a href="http://localhost:3000/rails/info/routes" target="_blank" rel="external">http://localhost:3000/rails/info/routes</a>  </p>
+<blockquote>
+<p>也可在 terminal 裡輸入 rake routes 查詢</p>
+</blockquote>
+<p>＊取資料get 產生資料post</p>
+<p><strong>controller file</strong><br><strong>controller功能</strong>  </p>
+<ol>
+<li>收集 http request 的資訊，例如:使用者傳進來的參數  </li>
+<li>操作 Model 來做資料的處理  </li>
+<li>回傳 response 結果  </li>
+</ol>
+<p>繼承ApplicationController</p>
+<p><strong>modelfile</strong><br><strong>model功能</strong><br>和資料庫的資料表相對應的抽象類別，和其他資料表的關聯、行為、商業邏輯等都是在這裡定義或處理</p>
+<p><strong>Active Record</strong></p>
+<blockquote>
+<p>翻譯官:Ruby的ORM(對映射關聯式資料與物件資料)</p>
+<blockquote>
+<p>SQL&lt;-&gt;ruby<br><strong>把data table物件化，讓開發者不須使用SQL語法，直接用熟悉的Ruby語法操作資料</strong><br>order table經過ActiveRecord後是一個class</p>
+</blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>CRUD</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CREATE</td>
+<td style="text-align:center">新增資料</td>
+</tr>
+<tr>
+<td>READ</td>
+<td style="text-align:center">讀取資料</td>
+</tr>
+<tr>
+<td>UPDATE</td>
+<td style="text-align:center">編輯資料</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td style="text-align:center">刪除資料</td>
+</tr>
+</tbody>
+</table>
+<p>CREATE  -  Order.create(name: “Bob”, description: “hamburger”)<br>READ    -  Order.all<br>UPDATE  - Order.find(1).update(description: “sandwich”)<br>DELETE  - Order.find(1).destroy</p>
+<p><strong>rail console</strong></p>
+<blockquote>
+<p>類似irb，不過只屬於rails專案的環境<br><strong>可在裡面測試 ActiveRecord</strong></p>
+<blockquote>
+<p>$rails console</p>
+<blockquote>
+<p>Order.all<br>Order.all.find()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p><em>skinny constroller, fat model</em></p>
+<blockquote>
+<p>商業邏輯該放哪？ruby習慣放在model，controller越小越好，處理CRUD就好</p>
+</blockquote>
+<p><strong>html.erb file</strong><br>＊ruby的html為.erb，代表可以嵌入ruby語言的html<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#controller</div><div class="line">def index</div><div class="line">    @order=Order.all</div><div class="line">end</div><div class="line"></div><div class="line">#html.erb</div><div class="line">&lt;tbody&gt;</div><div class="line">    &lt;% @orders.each do |order| %&gt;</div><div class="line">      &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;%= order.name %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= order.phone %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Show', order %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Edit', edit_order_path(order) %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Destroy', order, method: :delete, data: &#123; confirm: 'Are you sure?' &#125; %&gt;&lt;/td&gt;</div><div class="line">      &lt;/tr&gt;</div><div class="line">    &lt;% end %&gt;</div><div class="line">&lt;/tbody&gt;</div></pre></td></tr></table></figure></p>
+<p>$bundle install  </p>
+<blockquote>
+<p>確保相關package安裝，並且不用再裝舊或新pcakage版本<br>類似MEAN的npm install<br>gem.file 紀錄需要的package 類似node 的.json檔</p>
+</blockquote>
+<h4 id="rails-專案建立步驟"><a href="#rails-專案建立步驟" class="headerlink" title="rails 專案建立步驟"></a>rails 專案建立步驟</h4><ol>
+<li>$rails new “my_app_name”  </li>
+<li>安裝執行這個專案需要的gem: $ bundle install  </li>
+</ol>
+<p>rails framwork也是由其他諸多framwork共同建立起來<br>必須要depend on其他套件=&gt;由GemFile記錄=&gt;$bundle install  </p>
+<blockquote>
+<p>What is bundler?  </p>
+<blockquote>
+<p>Gem依存性(dependencies)管理工具<br>會根據 Gemfile 的設定自動下載及安裝 Gem 套件<br>在團隊開發時，維持開發者之間套件版本的一致性</p>
+</blockquote>
+</blockquote>
+<h4 id="Rails-專案裡一些重要的設定檔"><a href="#Rails-專案裡一些重要的設定檔" class="headerlink" title="Rails 專案裡一些重要的設定檔"></a>Rails 專案裡一些重要的設定檔</h4><p>config/database.yml =&gt; ruby預設是sqlite資料庫，輕量化版本的資料庫，避免遇到麻煩的環境設定</p>
+<blockquote>
+<p>gem sqlite3:rails跟sqllite的接口</p>
+</blockquote>
+<p>config/routes.rb =&gt; 查看支援哪些功能(function)<br>Gemfile =&gt; dependency  </p>
+<blockquote>
+<p>Gemfile.lock:不要隨便動它。</p>
+<blockquote>
+<p>裝sqlite browser檢驗DB資料</p>
+</blockquote>
+</blockquote>
+<p>class method =&gt; 整體<br>instance method =&gt; 單一</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/JS_Note/" data-toggle="tooltip" data-placement="top"
+                           title="Jacascript Introduction (From Lec 1~8)">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Ruby_lec6_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 6 - 手動打造Action">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#作業講解"><span class="toc-text">作業講解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提醒，git上傳"><span class="toc-text">提醒，git上傳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MVC-架構"><span class="toc-text">MVC 架構</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Rails-MVC-架構"><span class="toc-text">Rails MVC 架構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rails-scaffold-訂便當系統"><span class="toc-text">rails scaffold 訂便當系統</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rails-專案建立步驟"><span class="toc-text">rails 專案建立步驟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Rails-專案裡一些重要的設定檔"><span class="toc-text">Rails 專案裡一些重要的設定檔</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails"
+                           title="Ruby on Rails">Ruby on Rails</a>
+                        
+                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Ruby_lec5_note/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/Ruby_lec5_note/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
