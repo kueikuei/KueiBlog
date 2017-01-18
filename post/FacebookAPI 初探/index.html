@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueiblog.herokuapp.com/archives/2016/page/3/">
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/FacebookAPI 初探/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -144,192 +144,161 @@
 </script>
 
 <!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg">
+
+
+
 <style>
-    header.intro-header{
-        background-image: url('http://file1.jydoc.com/%E7%B4%A0%E6%9D%90%E5%BA%93/0715-14/1100-%E8%B6%85%E6%B8%85%E6%99%B0%E9%A3%8E%E6%99%AF%E5%9B%BE13.jpg');
+
+    header.intro-header {
+        background-image: url('http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg');
     }
-    header.site-heading {
-        margin: 50px;
-        background-image: url('http://file1.jydoc.com/%E7%B4%A0%E6%9D%90%E5%BA%93/0715-14/1100-%E8%B6%85%E6%B8%85%E6%99%B0%E9%A3%8E%E6%99%AF%E5%9B%BE13.jpg');
-    }
+
 </style>
 
-<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading text-center">
-                    <h1>archives</h1>
-                    <span class="subheading">Search page by date</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Facebook API 初探</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-01-17
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Facebook"
+                           title="Facebook">Facebook</a>
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="post-title-haojen">
+        <span>
+            Facebook API 初探
+        </span>
+    </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <!-- archive list -->
-            
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>ToDo介紹</li>
+<li>套件安裝與環境設定</li>
+<li>程式碼解釋</li>
+</ul>
+<p>測試方面可以直接透過<code>http-server</code>package去檢驗</p>
+
+                <hr>
                 
-                
-                
+
+                <ul class="pager">
                     
                     
-                    <div class="archive archive-year" data-date="2016">
-                        <h2 class="archive-title">
-                        <span class="fa fa-archive">
-                            <a href="/archives/2016">2016</a>
-                        </span>
-                        </h2>
-                
-                
+                    <li class="next">
+                        <a href="/post/MEAN-Stack/" data-toggle="tooltip" data-placement="top"
+                           title="MEAN Stack">Next Post &rarr;</a>
+                    </li>
                     
-                    
-                    <div class="archive archive-month" data-date="201611">
-                        <h3 class="archive-title">
-                            <a href="/archives/2016/11">11</a>
-                        </h3>
+                </ul>
+
                 
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec10_note/">
-                        <h4 class="post-title">
-                            RoR 10 - 使用者認證
-                        </h4>
-                        
-                    </a>
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-                <hr>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li></ol>
                 </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/MarkdownTest/">
-                        <h4 class="post-title">
-                            Markdown Editing
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                    
-                    </div><!--month-->
-                    
-                    
-                    <div class="archive archive-month" data-date="201610">
-                        <h3 class="archive-title">
-                            <a href="/archives/2016/10">10</a>
-                        </h3>
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/JS_Note/">
-                        <h4 class="post-title">
-                            Jacascript Introduction (From Lec 1~8)
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec5_note/">
-                        <h4 class="post-title">
-                            RoR 5 - MVC 架構
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec6_note/">
-                        <h4 class="post-title">
-                            RoR 6 - 手動打造Action
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec9_note/">
-                        <h4 class="post-title">
-                            RoR 9 - Heroku Deploy
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec7_note/">
-                        <h4 class="post-title">
-                            RoR 7 - 表單與驗證
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
-                
-                
-                
-                
-                <div class="one-tag-list">
-                <div class="post-preview">
-                    <a href="/post/Ruby_lec8_note/">
-                        <h4 class="post-title">
-                            RoR 8 - Bootstrap into RoR
-                        </h4>
-                        
-                    </a>
-                </div>
-                <hr>
-                </div>
-            
+            </div>
         </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Facebook"
+                           title="Facebook">Facebook</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
-</div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/FacebookAPI 初探/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/FacebookAPI 初探/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
 <!-- Footer -->
 <!-- Footer -->
 <footer>
