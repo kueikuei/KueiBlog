@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Ajax asynchronous</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-01-25
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Ajax"
+                           title="Ajax">Ajax</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Ajax asynchronous
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>Ajax介紹</li>
+<li>小試身手</li>
+<li>程式碼解釋</li>
+</ul>
+<h3 id="Ajax介紹"><a href="#Ajax介紹" class="headerlink" title="Ajax介紹"></a>Ajax介紹</h3><p>全名為<code>Asynchronous JavaScript and XML</code>，中文譯為<code>非同步的JavaScript與XML技術</code>，然而現今不只單純用XML，JSON更是一大主流。是一套綜合了多項技術的瀏覽器端網頁開發技術。可以完成不刷頁局部更新應用，使用者體驗較好。</p>
+<p><strong>同步Synchronous與非同步Asynchronous</strong></p>
+<ul>
+<li>同步就是要等到上一個函數任務執行完才能執行下一個，是依序執行</li>
+<li>非同步係指程式不會因為上一個函數尚未執行完(例如:回傳結果)就卡住，會往下執行下一個任務</li>
+</ul>
+<p>傳統的http同步<code>Synchronous</code>動作，user對browser發送一個requset後server再回傳一個response，如此便停止動作，直到user再度發送一個requset，這些順序是循序漸進，開始結束開始結束如此循環，但是缺點在於，當user的網路過慢時，可能會看見網路空白頁以及逐漸載入的過程，影響使用者觀感。</p>
+<p><em>Synchronous</em><br><img src="http://www.flag.com.tw/db/preview/images/F2472_1_F.jpg" alt="Loading Fail"></p>
+<p><em>Asychronous</em><br><img src="http://www.flag.com.tw/db/preview/images/F2472_1_F.jpg" alt="Loading Fail"></p>
+<h3 id="小試身手"><a href="#小試身手" class="headerlink" title="小試身手"></a>小試身手</h3><p>產生一個XML物件後，透過<code>get method</code>去遠端<code>request</code>資料，並透過<code>監聽</code>確認是否有取得資料。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一般使用 XMLHttpRequest物件</span></div><div class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//new出Ajax物件</span></div><div class="line"><span class="keyword">const</span> REQUEST_URL = <span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"></div><div class="line"><span class="comment">//監聽是否完成</span></div><div class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(xhr.readyState===XMLHttpRequest.DONE)&#123;</div><div class="line">        <span class="built_in">console</span>.log(xhr.responseText);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">xhr.open(<span class="string">'GET'</span>,REQUEST_URL);</div><div class="line">xhr.send();</div></pre></td></tr></table></figure>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p><code>1. Promise為何而生？</code><br>在開發時，我想或多或少都會碰到以下情況，多個接口非同步請求數據時，每个接口的調用都得上一個接口的结果，這就是有名的<code>迴調金字塔</code>，用程式碼顯示如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">    $.ajax(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'/a'</span>,</div><div class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (data.code === <span class="number">1</span>) &#123;</div><div class="line">            $.ajax(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">'/b'</span>,</div><div class="line">                <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span> (data.code === <span class="number">1</span>) &#123;</div><div class="line">                        $.ajax(&#123;</div><div class="line">                            <span class="attr">url</span>: <span class="string">'/c'</span>,</div><div class="line">                            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                                <span class="comment">// ......</span></div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>而Promise則是為了避免非同步處理進入<code>廻調地獄callback hell</code>的處理方法之一。</strong></p>
+<p>請不要誤會，Promise並不是Javascript特有的處理方式，而是像諸如OOP、演算法等，是每一種程式語言都有相似的處理方式，比如：</p>
+<ul>
+<li>jQuery的Deferred</li>
+<li>angular的$q</li>
+<li>Java的java.util.concurrent.Futrue</li>
+<li>Python的Twisted deferreds and PEP-3148 futures</li>
+<li>F#的Async</li>
+<li>.Net的Task</li>
+<li>Javascript的Promise A+</li>
+</ul>
+<p><code>2. 细說Promise</code><br>同步執行函式的結果要不就是回傳一個值，要不然就是執行到一半發生例外，中斷目前<br>的程式然後拋出例外。<br>異步的函式結果又會是什麼？要不然就最後回傳一個值，要不然就執行到一半發生例外，但<br>是異步的函式發生錯誤時怎麼辦？可以馬上中斷程式然後拋出例外嗎？不行。那該怎麼作？<br>只能用別的方式來處理。也就是說<strong>異步的函式，除了與同步函式執行方式不同，它們對於錯<br>誤的處理方式也要用不同的方式。</strong> </p>
+<p>簡單來說，異步執行函式的結果<strong>要不就是帶有回傳值的成功，要不就是帶有回傳理由(reason)的失敗</strong>。</p>
+<p><strong>Promise的狀態</strong></p>
+<p>從Promise模式的角度看，完成一個任務，可分成3種狀態。</p>
+<ul>
+<li><strong>pending</strong> - 未完成，準備狀態</li>
+<li><strong>resolve</strong> - 任務成功時調用（已完成，又稱Fulfilled）</li>
+<li><strong>reject</strong> - 任務失敗時調用</li>
+</ul>
+<p>Promise的<code>狀態變化只發生一次</code>(從pending變成resolve或reject)，變化後狀態凝固。</p>
+<p><strong>Promise的API</strong><br>由ECMAScript所定義，最普遍有以下兩種：</p>
+<ul>
+<li>Constructor </li>
+<li>Instance Method </li>
+</ul>
+<p>和一些內建物件一樣(例如Date)，這邊或能將Promise想像為物件較容易理解，我們可以用Constructor 来產生一個Promise:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="comment">//處理非同步,结束後調用resolve或reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>物件都有內建的方法，Promise也不例外，最常見的為<code>then</code>、<code>catch</code>方法，延續剛剛的例子，在產生一筆新的Promise Object後，接著無非是想知道成功(resolve)取得資料或失敗(reject)：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(<span class="function"><span class="keyword">function</span> <span class="title">onResolve</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//成功時調用</span></div><div class="line">&#125;.catch(<span class="function"><span class="keyword">function</span> <span class="title">onReject</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">//失敗時調用</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>easy example</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//define data</span></div><div class="line"><span class="keyword">const</span> comments=[</div><div class="line">  &#123;<span class="attr">title</span>:<span class="string">'Comment1'</span>,<span class="attr">content</span>:<span class="string">'content1'</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>:<span class="string">'Comment2'</span>,<span class="attr">content</span>:<span class="string">'content2'</span>&#125;,</div><div class="line">];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getComments</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      resolve(comments);</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCommentsToConsole</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  getComments()</div><div class="line">  .then(<span class="function"><span class="params">comments</span>=&gt;</span><span class="built_in">console</span>.log(comments))</div><div class="line">  .catch(<span class="function"><span class="params">err</span>=&gt;</span><span class="built_in">console</span>.log(err));</div><div class="line">&#125;</div><div class="line"></div><div class="line">printCommentsToConsole();</div></pre></td></tr></table></figure></p>
+<p><strong>result</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[object <span class="built_in">Object</span>] &#123;</div><div class="line">  <span class="attr">content</span>: <span class="string">"content1"</span>,</div><div class="line">  <span class="attr">title</span>: <span class="string">"Comment1"</span></div><div class="line">&#125;, [object <span class="built_in">Object</span>] &#123;</div><div class="line">  <span class="attr">content</span>: <span class="string">"content2"</span>,</div><div class="line">  <span class="attr">title</span>: <span class="string">"Comment2"</span></div><div class="line">&#125;]</div></pre></td></tr></table></figure></p>
+<p><strong>example2</strong><br><strong>ajax promise</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getJSON = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> client = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    client.open(<span class="string">"GET"</span>, url);</div><div class="line">    client.onreadystatechange = handler;</div><div class="line">    client.responseType = <span class="string">"json"</span>;</div><div class="line">    client.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json"</span>);</div><div class="line">    client.send();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(<span class="keyword">this</span>.response);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText));</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> promise;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">getJSON(<span class="string">"http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Contents: '</span> + json);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(<span class="string">'出錯了'</span>, error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>這邊有份有趣的Promise介紹文章，作者將Promise結合當前火紅的Pokemon Go進行講解，有興趣就讀讀看吧:)<a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a></p>
+<h3 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h3><p>讓原本的<code>XMLHttpRequest</code>更簡單<br>fetch() 主要使用兩個參數,<code>請求地址</code>和<code>選項</code>。請求完成後return Promise 物件</p>
+<p>這邊我們用剛剛的<strong>ajax promise</strong>為例子，透過fetch去做做看<br>範例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> myHeaders = <span class="keyword">new</span> Headers();</div><div class="line"></div><div class="line"><span class="keyword">if</span>(self.fetch)&#123;</div><div class="line"><span class="comment">//runmyfetchrequesthere</span></div><div class="line"><span class="keyword">const</span> myInit=&#123;</div><div class="line">    <span class="attr">method</span>:<span class="string">'GET'</span>,</div><div class="line">    <span class="attr">headers</span>:myHeaders,</div><div class="line">    <span class="attr">mode</span>:<span class="string">'cors'</span>,</div><div class="line">    <span class="attr">cache</span>:<span class="string">'default'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> REQUEST_URL=<span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"></div><div class="line"><span class="comment">//do fetch API</span></div><div class="line">fetch(REQUEST_URL,myInit)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> response.json();</div><div class="line">    &#125;)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="comment">//dosomethingwithXMLHttpRequest?</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>是不是簡化很多呢?<br>快來試試看吧:)</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a><br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">ECMAScript 6 入门之Promise</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/FacebookAPI 初探/" data-toggle="tooltip" data-placement="top"
+                           title="Facebook API 初探">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ajax介紹"><span class="toc-text">Ajax介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小試身手"><span class="toc-text">小試身手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-text">Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-API"><span class="toc-text">fetch API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Ajax"
+                           title="Ajax">Ajax</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Ajax_asynchronous/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/Ajax_asynchronous/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
