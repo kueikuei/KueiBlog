@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JS_ES6_Variable</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-02-02
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JS_ES6_Variable
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>var</li>
+<li>let</li>
+<li>const</li>
+<li>參考資料</li>
+</ul>
+<p>此篇或許讀者讀來會覺得咬文齧字，但對於深入了解Javascript此種語言特性而言是重要的。<br>過去Javascript並沒有所謂的block或說是<code>scope概念</code>，舉一個Java與C常見的block varible例子:<br>｀<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gcc -o $@ $&lt;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"inner scope: %d\n"</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"main scope: %d\n"</span>, i);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// inner scope:1</span></div><div class="line"><span class="comment">// main scope:0</span></div></pre></td></tr></table></figure></p>
+<p>但是相同的例子若是透過Javascript來寫:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"inner block: "</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"host block: %d"</span>, i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// inner block:1</span></div><div class="line"><span class="comment">// host block:1</span></div></pre></td></tr></table></figure></p>
+<p>結果都是1，也就是inner block的變數i取代了host block的變數i。</p>
+<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><ul>
+<li>全域(none var) vs 區域(var)</li>
+</ul>
+<p>過去在ES6之前的ECMAScript規範中，對於scope 的定義只有兩種，一為<code>全域活動範圍(global scope)</code>，一為<code>函數活動範圍(function scope)</code>。<br>而ES6以前對於變數的宣告也只有<code>var</code>一種，假若<code>沒有var宣告，則屬於全域範圍(global)</code>，而全域變數若在瀏覽器中，就是<code>window物件</code>;在函數內以var宣告的變數，屬於<code>區域(local)</code>範圍，<code>僅限函數活動範圍內可用</code></p>
+<p>讓我們看看一個global與local的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    x = <span class="number">10</span>;</div><div class="line">    <span class="keyword">var</span> y = <span class="number">20</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line">func();</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(x);</div><div class="line"><span class="built_in">console</span>.log(y);</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// 10</span></div></pre></td></tr></table></figure></p>
+<p>由於y屬於區域變數，在func結束後就消失，故沒有被console出來。</p>
+<p>而<code>如果在global環境下使用var，仍然屬於global variable</code>，此時如果在function中一樣以var定義此變數，則function中會暫時取代此global var:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = <span class="number">20</span>;</div><div class="line">    <span class="built_in">console</span>.log(x);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">func();</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(x);</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// 20</span></div><div class="line"><span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>而Javacript以function作為scope單位，在<code>function scope</code>的概念下，任何的變數一但經過<code>var</code>宣告，都能使用在scope裡頭：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">        <span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> x;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="built_in">console</span>.log(func());</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// 10</span></div></pre></td></tr></table></figure>
+<p>儘管變數x放在if裡頭，卻仍然能被傳到外頭並return。<br>var 宣告的變數是當時作用範圍中整個都是有作用的，而這又能扯到一個驚奇的表現方式，稱為<code>hoisting</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(m);</div><div class="line">    <span class="keyword">var</span> m = <span class="number">10</span>;</div><div class="line">    <span class="built_in">console</span>.log(m);</div><div class="line">&#125;</div><div class="line"> </div><div class="line">func();</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// undefined</span></div><div class="line"><span class="comment">// 10</span></div></pre></td></tr></table></figure></p>
+<p>在第一個console.log中，印出來的結果不是產生<code>error</code>，而是出現<code>undefined</code>，這說明變數確實被定義，儘管還不知道value為何，這種現象稱為<code>變數的抬升(variable hoisting)</code>。</p>
+<p>有興趣能再看此篇文章：<br><a href="https://kueiblog.herokuapp.com/post/JS_Function/#Var-hoisting、Scope-Chain">Javascript Function 初探</a></p>
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>隨著函數式編程技巧大量地應用在JavaScript工作，人們漸漸感到原本的活動範圍定義不夠用了。操作變數時常常無意中碰觸到預期區域以外的變數。人們需要一個更區域、更細小的變數活動範圍。於是過去僅被少數瀏覽器實作的<code>let語法在ES6被定為正式規範</code>。</p>
+<p>故剛剛的例子透過let來實作則會是我們想要的答案:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">let</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"inner block: "</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"host block: %d"</span>, i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span> </div><div class="line"><span class="comment">// inner block:1</span></div><div class="line"><span class="comment">// host block:0</span></div></pre></td></tr></table></figure></p>
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>ES6之前，JavaScript也沒有<code>常數(const)</code>，而ES6也增加了<code>const</code>這個定義，而在定義時最好還是依照過往常數的命名規則-<code>全大寫</code>，增加其他協作者的易讀性</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://rocksaying.tw/archives/2015/ES6_var,let,const.html" target="_blank" rel="external">學習 ECMAScript 6 - var, let 和 const</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/iPetProhect/" data-toggle="tooltip" data-placement="top"
+                           title="iPetProject">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var"><span class="toc-text">var</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#let"><span class="toc-text">let</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_ES6_Variable/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_ES6_Variable/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

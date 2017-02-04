@@ -204,7 +204,9 @@
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
 <li>Ajax介紹</li>
 <li>小試身手</li>
-<li>程式碼解釋</li>
+<li>Promise</li>
+<li>fetch API</li>
+<li>參考資料</li>
 </ul>
 <h3 id="Ajax介紹"><a href="#Ajax介紹" class="headerlink" title="Ajax介紹"></a>Ajax介紹</h3><p>全名為<code>Asynchronous JavaScript and XML</code>，中文譯為<code>非同步的JavaScript與XML技術</code>，然而現今不只單純用XML，JSON更是一大主流。是一套綜合了多項技術的瀏覽器端網頁開發技術。可以完成不刷頁局部更新應用，使用者體驗較好。</p>
 <p><strong>同步Synchronous與非同步Asynchronous</strong></p>
@@ -254,12 +256,17 @@
 <h3 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h3><p>讓原本的<code>XMLHttpRequest</code>更簡單<br>fetch() 主要使用兩個參數,<code>請求地址</code>和<code>選項</code>。請求完成後return Promise 物件</p>
 <p>這邊我們用剛剛的<strong>ajax promise</strong>為例子，透過fetch去做做看<br>範例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> myHeaders = <span class="keyword">new</span> Headers();</div><div class="line"></div><div class="line"><span class="keyword">if</span>(self.fetch)&#123;</div><div class="line"><span class="comment">//runmyfetchrequesthere</span></div><div class="line"><span class="keyword">const</span> myInit=&#123;</div><div class="line">    <span class="attr">method</span>:<span class="string">'GET'</span>,</div><div class="line">    <span class="attr">headers</span>:myHeaders,</div><div class="line">    <span class="attr">mode</span>:<span class="string">'cors'</span>,</div><div class="line">    <span class="attr">cache</span>:<span class="string">'default'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> REQUEST_URL=<span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"></div><div class="line"><span class="comment">//do fetch API</span></div><div class="line">fetch(REQUEST_URL,myInit)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> response.json();</div><div class="line">    &#125;)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="comment">//dosomethingwithXMLHttpRequest?</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>是不是簡化很多呢?<br>快來試試看吧:)</p>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a><br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">ECMAScript 6 入门之Promise</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a><br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">ECMAScript 6 入门之Promise</a><br><a href="http://huli.logdown.com/posts/292655-javascript-promise-generator-async-es6" target="_blank" rel="external">[Javascript] Promise, generator, async與ES6</a><br><a href="http://eddychang.me/blog/javascript/88-promise-basic-usage.html" target="_blank" rel="external">Promise教學 - Promise物件建立與基本使用</a><br><a href="https://www.gitbook.com/book/eyesofkids/javascript-start-from-es6/details" target="_blank" rel="external">從ES6開始的JavaScript學習生活</a></p>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/iPetProhect/" data-toggle="tooltip" data-placement="top"
+                           title="iPetProject">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
