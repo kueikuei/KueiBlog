@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -96,7 +96,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -199,7 +199,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>函數基礎概念<br>JS常用內建函數<br>自己建立JS函數<br>var hoisting<br>Scope Chain<br>Self-Invoking Function<br>Closure  </p>
+<p>函數基礎概念<br>JS常用內建函數<br>自己建立JS函數<br>var hoisting<br>Scope Chain<br>Self-Invoking Function<br>Closure<br>參考資料  </p>
 </blockquote>
 <h3 id="函數基礎概念"><a href="#函數基礎概念" class="headerlink" title="函數基礎概念"></a>函數基礎概念</h3><p>如同把東西放入黑盒子裡，並且會產生某些成品<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Function_machine2.svg/220px-Function_machine2.svg.png" alt="Loading Fail" title="Function"></p>
 <p>在JavaScript中要執行一段函式（function）並不困難，只要在函式的最後加上括號<code>()</code>就可以了<br>執行函式的執行這個動作稱做<code>invoke</code></p>
@@ -224,7 +224,7 @@
 <p>jQuery經常用到自調用函數<br>其主要功用是簡化JS DOM，讓開發者簡單去操作DOM</p>
 <h3 id="var-hoisting"><a href="#var-hoisting" class="headerlink" title="var hoisting"></a>var hoisting</h3><p>JS中，函數在被執行之前就會先被解析(hoisted)，因此變數可以函數內任意的地方<br>宣告，先宣告卻未被定義的變數則會被設定為<code>undefined</code>。</p>
 <p>由剛剛的例子得知，JavaScript是<code>function scope</code>，無論你在函數內那裏宣告變數<br>var，都會提升到最前面宣告，稱為<code>變數的拉升(Variable Hoisting)</code>。</p>
-<p>建議把變數的宣告放在函數的最頂端。否則可能導致混亂的情況，或是使用<code>let</code>可避免這種狀況<br>詳細用法可以參考<a href="https://kueiblog.herokuapp.com/post/#JS_ES6_Variable">JS_ES6_Variable</a>此篇文章</p>
+<p>建議把變數的宣告放在函數的最頂端。否則可能導致混亂的情況，或是使用<code>let</code>可避免這種狀況<br>詳細用法可以參考<a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/">JS_ES6_Variable</a>此篇文章</p>
 <p>example1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//儘管還沒定義但會回傳 undefinded</span></div><div class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func();</div></pre></td></tr></table></figure></p>
 <p>example2<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先，Global Execution Context（A wrapper to help manage the code that is running）會被建立</span></div><div class="line"><span class="comment">//function a 和 b 由於 hoisting 的緣故會先被建立在記憶體中，接著才會開始逐行執行程式。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//接著，程式碼會執行到 a( ) 這個部分，這時候，會建立a的execution context，並且被放置到execution stack中。</span></div><div class="line"><span class="comment">//由於在 function a( ) 裡面有去執行到 function b ，因此，在這個execution stack中，最上面會變成 function b 的execution context。</span></div><div class="line"><span class="comment">//當 function b 執行完之後，會從execution stack中離開，繼續逐行執行function a。</span></div><div class="line"><span class="comment">//當 function a 執行完之後，一樣會從execution stack中抽離，在回到Global Execution Context逐行執行。</span></div><div class="line">a();</div></pre></td></tr></table></figure></p>
 <p><img src="https://1.bp.blogspot.com/-8l88MM54PFg/V0Qb5ztM1tI/AAAAAAAAlzY/3HiJFqWAF4ItzxKqE3gEa4mSz-u8tKrigCLcB/s1600/4.png" alt="Loading Fail" title="execution stack"></p>
@@ -262,6 +262,7 @@
 <h3 id="Arrow-Function"><a href="#Arrow-Function" class="headerlink" title="Arrow Function"></a>Arrow Function</h3><p>箭頭函數(Arrow Function)是ES6之後可以使用的功能，讓程式碼更為簡潔。</p>
 <p><em>基本語法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125; </div><div class="line">(param1, param2, …, paramN) =&gt; expression</div><div class="line"><span class="comment">// 等於 :  =&gt; &#123; return expression; &#125; </span></div><div class="line"></div><div class="line"><span class="comment">// 只有一個參數時,括號才能不加:</span></div><div class="line">(singleParam) =&gt; &#123; statements &#125;</div><div class="line">singleParam =&gt; &#123; statements &#125;</div><div class="line"></div><div class="line"><span class="comment">//若無參數,就一定要加括號:</span></div><div class="line">() =&gt; &#123; statements &#125;</div></pre></td></tr></table></figure></p>
 <p><strong>Examples</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// An empty arrow function returns undefined</span></div><div class="line"><span class="keyword">let</span> empty = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</div><div class="line"></div><div class="line"><span class="function">(<span class="params">(</span>) =&gt;</span> <span class="string">"foobar"</span>)() <span class="comment">// returns "foobar" </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> simple = <span class="function"><span class="params">a</span> =&gt;</span> a &gt; <span class="number">15</span> ? <span class="number">15</span> : a; </div><div class="line">simple(<span class="number">16</span>); <span class="comment">// 15</span></div><div class="line">simple(<span class="number">10</span>); <span class="comment">// 10</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> max = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a &gt; b ? a : b;</div></pre></td></tr></table></figure></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/">JS_ES6_Variable</a><br><a href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/">Ajax asynchronous</a><br><a href="http://openhome.cc/Gossip/JavaScript/Closure.html" target="_blank" rel="external">閉包（Closure）</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">闭包</a><br><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">箭頭函數 (Arrow Function)</a></p>
 
                 <hr>
                 
@@ -295,7 +296,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函數基礎概念"><span class="toc-text">函數基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS常用內建函數"><span class="toc-text">JS常用內建函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自己建立JS函數"><span class="toc-text">自己建立JS函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-hoisting"><span class="toc-text">var hoisting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope-Chain"><span class="toc-text">Scope Chain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Closure"><span class="toc-text">Closure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-Function"><span class="toc-text">Arrow Function</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#函數基礎概念"><span class="toc-text">函數基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS常用內建函數"><span class="toc-text">JS常用內建函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自己建立JS函數"><span class="toc-text">自己建立JS函數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-hoisting"><span class="toc-text">var hoisting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scope-Chain"><span class="toc-text">Scope Chain</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Closure"><span class="toc-text">Closure</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Arrow-Function"><span class="toc-text">Arrow Function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
                 </div>
             </div>
         </div>

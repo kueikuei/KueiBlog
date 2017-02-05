@@ -88,7 +88,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -96,7 +96,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -204,9 +204,10 @@
 <li>const</li>
 <li>參考資料</li>
 </ul>
-<p>此篇或許讀者讀來會覺得咬文齧字，但對於深入了解Javascript此種語言特性而言是重要的。<br>過去Javascript並沒有所謂的block或說是<code>scope概念</code>，舉一個Java與C常見的block varible例子:<br>｀<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gcc -o $@ $&lt;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"inner scope: %d\n"</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"main scope: %d\n"</span>, i);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// inner scope:1</span></div><div class="line"><span class="comment">// main scope:0</span></div></pre></td></tr></table></figure></p>
+<p>此篇或許讀者讀來會覺得咬文齧字，但對於深入了解Javascript此種語言特性而言是重要的。<br>過去Javascript並沒有所謂的block或說是<code>scope概念</code>，舉一個Java與C常見的block varible例子:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// gcc -o $@ $&lt;</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"inner scope: %d\n"</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"main scope: %d\n"</span>, i);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// inner scope:1</span></div><div class="line"><span class="comment">// main scope:0</span></div></pre></td></tr></table></figure>
 <p>但是相同的例子若是透過Javascript來寫:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">var</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"inner block: "</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"host block: %d"</span>, i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span></div><div class="line"><span class="comment">// inner block:1</span></div><div class="line"><span class="comment">// host block:1</span></div></pre></td></tr></table></figure></p>
-<p>結果都是1，也就是inner block的變數i取代了host block的變數i。</p>
+<p>結果都是1，也就是inner block的變數i取代了host block的變數i。<br>由此可以看出JS是不存在<code>block</code>概念。</p>
 <h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><ul>
 <li>全域(none var) vs 區域(var)</li>
 </ul>
@@ -223,7 +224,7 @@
 <h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>隨著函數式編程技巧大量地應用在JavaScript工作，人們漸漸感到原本的活動範圍定義不夠用了。操作變數時常常無意中碰觸到預期區域以外的變數。人們需要一個更區域、更細小的變數活動範圍。於是過去僅被少數瀏覽器實作的<code>let語法在ES6被定為正式規範</code>。</p>
 <p>故剛剛的例子透過let來實作則會是我們想要的答案:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">let</span> i = <span class="number">0</span>;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">let</span> i = <span class="number">1</span>;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"inner block: "</span>, i);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"host block: %d"</span>, i);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/*=====result=======*/</span> </div><div class="line"><span class="comment">// inner block:1</span></div><div class="line"><span class="comment">// host block:0</span></div></pre></td></tr></table></figure></p>
 <h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p>ES6之前，JavaScript也沒有<code>常數(const)</code>，而ES6也增加了<code>const</code>這個定義，而在定義時最好還是依照過往常數的命名規則-<code>全大寫</code>，增加其他協作者的易讀性</p>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://rocksaying.tw/archives/2015/ES6_var,let,const.html" target="_blank" rel="external">學習 ECMAScript 6 - var, let 和 const</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://rocksaying.tw/archives/2015/ES6_var,let,const.html" target="_blank" rel="external">學習 ECMAScript 6 - var, let 和 const</a><br><a href="http://www.codedata.com.tw/javascript/essential-javascript-variable/" target="_blank" rel="external">JavaScript 語言核心（3）你的變數 var 了嗎？</a></p>
 
                 <hr>
                 
@@ -232,7 +233,7 @@
                     
                     
                     <li class="next">
-                        <a href="/post/iPetProhect/" data-toggle="tooltip" data-placement="top"
+                        <a href="/post/iPetProject/" data-toggle="tooltip" data-placement="top"
                            title="iPetProject">Next Post &rarr;</a>
                     </li>
                     

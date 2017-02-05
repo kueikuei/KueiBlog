@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/iPetProject/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>iPetProject</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-01-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Ajax"
+                           title="Ajax">Ajax</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            iPetProject
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>iPet介紹</li>
+<li>程式碼結構</li>
+<li>套件介紹</li>
+<li>主程式碼講解</li>
+<li>參考資料</li>
+</ul>
+<h3 id="iPet介紹"><a href="#iPet介紹" class="headerlink" title="iPet介紹"></a>iPet介紹</h3><h3 id="程式碼結構"><a href="#程式碼結構" class="headerlink" title="程式碼結構"></a>程式碼結構</h3><p><code><span class="pln">iPet<br></span><span class="pun">├─</span><span class="pln"> bower_components</span><span class="pun">/</span><span class="pln"><br></span><span class="pun">├─</span><span class="pln"> </span><span class="kwd">dist</span><span class="pun">/</span><span class="pln"><br></span><span class="pun">│</span><span class="pln">  </span><span class="pun">└─</span><span class="pln"> css</span><span class="pun">/</span><span class="pln"><span class="pun">main.css</span><br></span><span class="pun">│</span><span class="pln"> </span><span class="pun">└─</span><span class="pln"> js/</span><span class="pln">bundle</span><span class="pun">.</span><span class="pln">js</span><br><span class="pun">├─</span><span class="pln"> src</span><span class="pun">/</span><span class="pln"><br></span><span class="pun">│</span><span class="pln">  </span><span class="pun">└─</span><span class="pln"> script</span><span class="pun">/</span><span class="pun">main.js</span><br><span class="pun">│</span><span class="pln">  </span><span class="pun">└─</span><span class="pln"> styles</span><span class="pun">/</span><span class="pun">main.scss</span><br><span class="pun">├─</span><span class="pln"> </span><span class="pun">.</span><span class="pln">babelrc<br></span><span class="pun">├─</span><span class="pln"> index</span><span class="pun">.</span><span class="pln">html<br></span><span class="pun">├─</span><span class="pln"> gulpfile</span><span class="pun">.</span><span class="pln">babel</span><span class="pun">.</span><span class="pln">js<br></span><span class="pun">├─</span><span class="pln"> </span><span class="kwd">package</span><span class="pun">.</span><span class="pln">json<br></span><span class="pun">├─</span><span class="pln"> README</span><span class="pun">.</span><span class="pln">md<br></span><span class="pun">└─</span><span class="pln"> bower</span><span class="pun">.</span><span class="pln">json</span></code></p>
+<h3 id="套件介紹"><a href="#套件介紹" class="headerlink" title="套件介紹"></a>套件介紹</h3><ul>
+<li>babel-core : javascript轉譯器</li>
+<li>babel-preset-es2015 : 如此才能使用ES語法</li>
+<li>babel-register : </li>
+<li>babelify : </li>
+<li>browserify : 在前端使用後端才能用的node_modules</li>
+<li>gulp : 自動化處理工具</li>
+<li>gulp-connect : 啟local server</li>
+<li>gulp-sass : sass取得css</li>
+<li>gulp-uglify : 醜化代碼並壓縮檔案</li>
+<li>vinyl-source-stream : 讀檔案格式要用的</li>
+</ul>
+<h3 id="主程式碼講解"><a href="#主程式碼講解" class="headerlink" title="主程式碼講解"></a>主程式碼講解</h3><p>主程式碼有<code>index.html</code>、<code>main.js</code>、<code>gulpfile.bebel.js</code>三個。</p>
+<ul>
+<li><strong>index.html</strong><br>index.html主要有兩大功能-<code>介面呈現</code>與<code>容器</code>，介面呈現在這邊透過<code>bootstrap</code>去定義、而容器部分則有以下程式碼進行：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span> <span class="attr">id</span>=<span class="string">"data-list"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>將<code>main.js</code>撈取到的資料整理好後最後放進<code>&lt;div class=&quot;col-md-12&quot; id=&quot;data-list&quot;&gt;</code>中</p>
+<ul>
+<li><strong>main.js</strong><br>可說是整個project的核心檔案，可以將其拆成三個部分去探討-<code>變數定義</code>、<code>資料撈取</code>、<code>塞入前端</code>。</li>
+</ul>
+<p><strong>變數定義</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> REQUEST_URL = <span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"><span class="keyword">let</span> data = <span class="string">''</span>;</div><div class="line"><span class="keyword">let</span> str = <span class="string">''</span>;</div></pre></td></tr></table></figure></p>
+<p>首先將open data的json網址篩入變數<code>REQUEST_URL</code>，並且製造兩個容器，分別是<code>data</code>與<code>str</code>，data是之後存放資料的容器、而str是前端的容器。</p>
+<p><strong>資料撈取</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Asynchronous</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchDemo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    fetch(REQUEST_URL).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">    <span class="comment">// fetch(REQUEST_URL).then((response) =&gt; &#123;</span></div><div class="line">        <span class="keyword">return</span> response.json();</div><div class="line">    &#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</div><div class="line">      data = json;</div><div class="line">      dataList();</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>這邊利用<code>fetch()</code>進行資料的撈取，一但得到資料則promise回傳物件，透過<code>then</code>接續做事，要注意的是回傳的資料結果此時為<code>response</code>參數，並將其轉成<code>json</code>格式，再進一步return給後續的then func，最後篩入<code>容器data</code>中並呼叫<code>dataList()</code>做接下來的動作。</p>
+<p><strong>塞入前端</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//put data into HTML</span></div><div class="line"><span class="keyword">const</span> dataList = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  data.map(<span class="function">(<span class="params">key, index</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">//ES6 把前端變數丟入</span></div><div class="line">    str += </div><div class="line">    <span class="string">`</span></div><div class="line">      &lt;div class="col-sm-6 col-md-4"&gt;</div><div class="line">        &lt;div class="thumbnail"&gt;</div><div class="line">          &lt;img class="thumbnail-image" src="<span class="subst">$&#123;key.ImageName&#125;</span>" alt="..."&gt;</div><div class="line">          &lt;div class="caption"&gt;</div><div class="line">            &lt;h3&gt;<span class="subst">$&#123;key.Variety&#125;</span> <span class="subst">$&#123;key.Name&#125;</span> &lt;span class="label label-default"&gt;<span class="subst">$&#123;key.HairType&#125;</span>&lt;/span&gt;&lt;/h3&gt;</div><div class="line">            &lt;p class="ellipsis"&gt;<span class="subst">$&#123;key.Resettlement&#125;</span>&lt;/p&gt;</div><div class="line">            &lt;p&gt;&lt;a href="tel:<span class="subst">$&#123;key.Phone&#125;</span>" class="btn btn-primary" role="button"&gt;聯絡電話&lt;/a&gt; &lt;a href="mailto:<span class="subst">$&#123;key.Email&#125;</span>" class="btn btn-default" role="button"&gt;聯絡信箱&lt;/a&gt;&lt;/p&gt;</div><div class="line">          &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">      &lt;/div&gt;</div><div class="line">    `;</div><div class="line">  &#125;);</div><div class="line">  <span class="built_in">document</span>.querySelector(<span class="string">'#data-list'</span>).innerHTML = str; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>得到的資料結構此時是這樣的：<br><code>data = [{},{},{}]</code><br>故這邊透過<code>迭代方法map()</code>將資料一筆筆抽出來放進<code>參數key</code>，此時就可以呼叫各筆資料裡頭的屬性，然而有個問題在於要如何將這邊變數塞進前端？別擔心，ES6提供了簡單的方法<code>${var}</code>，只要以這種形式就能將變數塞入，有寫過<code>jade</code>的讀者應該不陌生，最後透過選擇棄選到<code>index.html的data-list</code>並將資料塞入便完成。</p>
+<p>心血來潮，來提一下<code>bootstrap</code>吧!!!要知道，好的商品也需要好的包裝，bootstrap就是在做這件事情。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-6 col-md-4"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"thumbnail"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"thumbnail-image"</span> <span class="attr">src</span>=<span class="string">"$&#123;key.ImageName&#125;"</span> <span class="attr">alt</span>=<span class="string">"..."</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>這邊的<code>col-sm-6</code>、<code>col-md-4</code>其實都是在做<code>RWD(Responsive web design)</code>，讓各種尺寸的介面都能得到最好的視覺體驗，而<code>thumbnail-image</code>是照片模式的其中一種呈現方式，其他還有<code>圓形.img-circle</code>、<code>橢圓邊角.img-rounded</code>等等，透過bootstrap可以輕鬆呈現出這些好看的結果。</p>
+<ul>
+<li><strong>gulpfile.bebel.js</strong><br><em>Gulp簡單來說，就是個自動化任務的工具。比如說開發網頁的時候，想要在儲存檔案時自動重整網頁，那就設定好，讓Gulp幫你執行；想要把css、js檔都minify，寫好讓Gulp幫你執行；想要……，只要找到適當的模組，Gulp都可以幫你執行<a href="https://noootown.wordpress.com/2015/11/28/reactjsgulp/" target="_blank" rel="external">([程設雜筆] 設定ReactJS + Gulp)</a></em>。</li>
+</ul>
+<p>babel前面有提到是JS轉譯器，我們最終的目的是將<code>main.js轉成bundle.js</code>，而當babel與gulp碰撞產生火花時，我們只需要在main.js寫好程式碼並存檔，gulp會自動幫我們監聽並且透過babel轉譯成bundel.js，如此在開發時就能省下許多功夫。</p>
+<p>自動化、轉譯、監聽程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//路徑設定</span></div><div class="line"><span class="comment">//src to destination</span></div><div class="line"><span class="keyword">const</span> dirs = &#123;</div><div class="line">  <span class="attr">src</span>: <span class="string">'src'</span>,<span class="comment">//src</span></div><div class="line">  dest: <span class="string">'dist'</span><span class="comment">//destination</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> stylesPaths = &#123;</div><div class="line">  <span class="attr">src</span>: <span class="string">`<span class="subst">$&#123;dirs.src&#125;</span>/styles/*.scss`</span>,</div><div class="line">  <span class="attr">dest</span>: <span class="string">`<span class="subst">$&#123;dirs.dest&#125;</span>/css`</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> scriptsPaths = &#123;</div><div class="line">  <span class="attr">src</span>: <span class="string">`<span class="subst">$&#123;dirs.src&#125;</span>/scripts/*.js`</span>,</div><div class="line">  <span class="attr">dest</span>: <span class="string">`<span class="subst">$&#123;dirs.dest&#125;</span>/js`</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line">gulp.task(<span class="string">'styles'</span>, () =&gt; &#123;</div><div class="line">  gulp.src(stylesPaths.src)</div><div class="line">    .pipe(sass())         <span class="comment">// 編譯 Scss</span></div><div class="line">    .pipe(gulp.dest(stylesPaths.dest))  <span class="comment">//</span></div><div class="line">    .pipe(connect.reload());</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'scripts'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> browserify(&#123;</div><div class="line">        <span class="attr">entries</span>: [<span class="string">'./src/scripts/main.js'</span>]</div><div class="line">    &#125;)</div><div class="line">    .transform(babelify)</div><div class="line">    .bundle()</div><div class="line">    .pipe(source(<span class="string">'bundle.js'</span>))</div><div class="line">    .pipe(gulp.dest(scriptsPaths.dest));</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'server'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  connect.server(&#123;</div><div class="line">    <span class="attr">livereload</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">port</span>: <span class="number">7777</span>,</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//監聽</span></div><div class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  gulp.watch(stylesPaths.src, [<span class="string">'styles'</span>]);</div><div class="line">  gulp.watch(scriptsPaths.src, [<span class="string">'scripts'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'default'</span>, [<span class="string">'scripts'</span>, <span class="string">'styles'</span>, <span class="string">'server'</span>, <span class="string">'watch'</span>]);</div><div class="line">gulp.task(<span class="string">'build'</span>, [<span class="string">'scripts'</span>, <span class="string">'styles'</span>]);</div></pre></td></tr></table></figure></p>
+<p><em>小提醒</em><br>記得增添<code>.babalrc</code>檔案<br>這是指定 gulp 使用最新標準的ES語法進行編譯。<br>內容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  &quot;presets&quot;: [</div><div class="line">    &quot;es2015&quot;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://noootown.wordpress.com/2015/11/28/reactjsgulp/" target="_blank" rel="external">[程設雜筆] 設定ReactJS + Gulp</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/JS_ES6_Variable/" data-toggle="tooltip" data-placement="top"
+                           title="JS_ES6_Variable">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/Ajax_asynchronous/" data-toggle="tooltip" data-placement="top"
+                           title="Ajax asynchronous">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iPet介紹"><span class="toc-text">iPet介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程式碼結構"><span class="toc-text">程式碼結構</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#套件介紹"><span class="toc-text">套件介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主程式碼講解"><span class="toc-text">主程式碼講解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
+                        
+                        <a class="tag" href="/tags/#Ajax"
+                           title="Ajax">Ajax</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/iPetProject/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/iPetProject/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
