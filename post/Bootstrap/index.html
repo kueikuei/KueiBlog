@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Bootstrap/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://freehtml5.co/wp-content/uploads/2016/05/guardian_featured_img.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://freehtml5.co/wp-content/uploads/2016/05/guardian_featured_img.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Bootstrap 初探</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-02-06
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                        <a class="tag" href="/tags/#Bootstrap"
+                           title="Bootstrap">Bootstrap</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Bootstrap 初探
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h3 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h3><ul>
+<li>Bootstrap介紹</li>
+<li>Bootstrap RWD應用</li>
+<li>Bootstrap 常用基礎元件</li>
+<li>Bootstrap格線系統</li>
+<li>參考資料</li>
+</ul>
+<h3 id="Bootstrap介紹"><a href="#Bootstrap介紹" class="headerlink" title="Bootstrap介紹"></a>Bootstrap介紹</h3><p><em>學習Bootstrap就如同國高中的歷史地理背誦，是一種洗腦，一種毒。</em></p>
+<p>Bootstrap讓前端工程師能夠快速開發出好看的頁面，也無需執著於雕刻CSS，很方便沒錯，但缺點在於，大家刻出來的東西都大同小異、此外，必須照著其規則走，故剛開始接觸時，會感覺不像在寫程式，比較像是在<code>背誦</code>程式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>預設按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>危險按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-success btn-lg"</span>&gt;</span>成功按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>設定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>帳號<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>課程<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>購買資訊<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>幾個關鍵字<code>btn</code>、<code>btn-default</code>、<code>btn-group按鈕群組</code>等，就套用了bootstrap各式。<br><code></code></p>
+<p></p><p><br><span class="btn btn-default">預設按鈕</span><span class="btn btn-danger">危險按鈕</span><span class="btn btn-success btn-lg">成功按鈕</span></p>
+<p><div class="btn-group"><br>  <div class="btn btn-default">設定</div><br>  <div class="btn btn-primary">帳號</div><br>  <div class="btn btn-default">課程</div><br>  <div class="btn btn-default">購買資訊</div><br></div><br></p><br><p></p>
+<h3 id="Bootstrap-RWD應用"><a href="#Bootstrap-RWD應用" class="headerlink" title="Bootstrap RWD應用"></a>Bootstrap RWD應用</h3><p>RWD(Responsive web design)稱自適應網頁設計、回應式網頁設計、對應式網頁設計。 是一種網頁設計的技術做法，該設計可使網站在多種瀏覽裝置(維基百科)。</p>
+<p>本節介紹一些Bootstrap內建的RWD關鍵字：</p>
+<ul>
+<li>jumbotron</li>
+<li>container</li>
+<li>img-responsive</li>
+</ul>
+<p>Bootstrap的<code>jumbotron</code>超大屏幕。可以增加標題的大小，為頁面内容添加更多的margin<br><code>container</code>提供一個共用的RWD佈局方式<br>那麼圖片的RWD呢？別擔心，Bootstrap也預料到了，只要加上<code>img-responsive</code>就能輕鬆做到了</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello Bootstrap!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>bootstrap是個很多人使用的網頁模板，裡面有很多別人寫好的現成css資源，也有用來排版很方便的網格系統。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">href</span>=<span class="string">"https://kkbruce.tw/bs3/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>了解更多(中文說明文件)<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code></code></p>
+<p><div class="jumbotron"><br>  <div class="container"><br>    <b>Hello Bootstrap!</b><br>    <p>bootstrap是個很多人使用的網頁模板，裡面有很多別人寫好的現成css資源，也有用來排版很方便的網格系統。</p><a class="btn btn-primary" href="https://kkbruce.tw/bs3/" target="_blank">了解更多(中文說明文件)</a><br>  </div><br></div><br></p>
+<h3 id="Bootstrap-常用基礎元件"><a href="#Bootstrap-常用基礎元件" class="headerlink" title="Bootstrap 常用基礎元件"></a>Bootstrap 常用基礎元件</h3><ul>
+<li>Button</li>
+<li>Breadcrumb</li>
+<li>list-group/list-group-item</li>
+<li>table</li>
+</ul>
+<p>前面已經介紹過<code>Button</code>，這邊我們來聊聊其他好用的Bootstrap元件吧:))</p>
+<p><strong>Breadcrumb</strong><br>Breadcrumb中文翻譯為麵包屑，麵包屑一層一層疊加一起，適合用來表達有遞呈關連的當前網頁瀏覽位置<br>加上<code>breadcrumb</code>即可使用，然而在hexo的markdown筆記下無法順利產生，原因尚在查詢:(</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>麵包屑導覽列<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span>&gt;</span>動態網頁課程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>bootstrap介紹<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第一個範例<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>list</strong><br>加上<code>list-group</code>定義清單群組，接著每一個子清單都要加入<code>list-group-item</code>關鍵字。<br>而清單有著諸多功能，包含加入<code>disabled</code>此清單就無法選取<br>加入<code>badge</code>還有提示的功能，配合JS改變數字變數，就可以進行一些計算，例如留言數等等，在當前網頁中經常看到。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>清單練習<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item active"</span>&gt;</span>list-group 清單<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge"</span>&gt;</span>15<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item disabled"</span>&gt;</span>btn btn-default 按鈕<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item list-group-item-success"</span>&gt;</span>breadcrumb 麵包屑尋覽列<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code><br>  <ul class="list-group"><br>    <li class="list-group-item active">list-group 清單<span class="badge">15</span></li><br>    <li class="list-group-item disabled">btn btn-default 按鈕</li><br>    <li class="list-group-item list-group-item-success">breadcrumb 麵包屑尋覽列</li><br>  </ul><br></code></p>
+<p><strong>table</strong><br>使用起來相當簡單，只要加入<code>table</code>關鍵字即大功告成。</p>
+<p>完整範例請見<a href="http://codepen.io/frank890417/pen/vXRkaP?editors=1000" target="_blank" rel="external">Demo 8-6 RWD原理與應用-bootstrap 基礎案例與原理熟悉</a></p>
+<h3 id="Bootstrap格線系統"><a href="#Bootstrap格線系統" class="headerlink" title="Bootstrap格線系統"></a>Bootstrap格線系統</h3><p><strong><em>12column compose 1row, and rows be consist of FrontWeb</em></strong></p>
+<p>Bootstrap將螢幕寬度分為<code>12等分(12 column)</code>，而在定義column前必須先定義row。<br>故標準公式為：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>按照尺寸來分可以分為<code>4(xs/sm/md/lg)</code>個尺寸，讓我們看看上面的例子可以發現使用的是<code>xs超小螢幕尺寸</code>，這是因為<code>尺寸是向上覆蓋的</code>(比如如果指定md中螢幕佔7欄，沒有指定lg大螢幕佔多少，會沿用中螢幕的分配)，故原則上都要定義<code>xs</code>，否則板面容易跑掉，或是透過<code>visible-size</code>、<code>hidden-size</code>關鍵字在特定尺寸下顯示或隱藏，如此便完成RWD的設計。</p>
+<p>完整範例參考<a href="http://codepen.io/frank890417/pen/RGrwJm?editors=1100" target="_blank" rel="external">Demo 8-7 RWD原理與應用-bootstrap 格線系統原理與RWD應用</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://codepen.io/frank890417/pen/vXRmXk?editors=1100" target="_blank" rel="external">Demo 8-5 RWD原理與應用-懶人工具- bootstrap與原理與結構講解</a><br><a href="http://codepen.io/frank890417/pen/vXRkaP?editors=1000" target="_blank" rel="external">Demo 8-6 RWD原理與應用-bootstrap 基礎案例與原理熟悉</a><br><a href="http://codepen.io/frank890417/pen/RGrwJm?editors=1100" target="_blank" rel="external">Demo 8-7 RWD原理與應用-bootstrap 格線系統原理與RWD應用</a><br><a href="https://kkbruce.tw/bs3/GettingStarted" target="_blank" rel="external">kkbruce.tw/bs3/GettingStarted</a><br><a href="https://kkbruce.tw/bs3/CSS" target="_blank" rel="external">kkbruce.tw/bs3/CSS#type</a><br><a href="https://kkbruce.tw/bs2/Scaffolding" target="_blank" rel="external">kkbruce.tw/bs2/Scaffolding</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/CSS基礎與深入/" data-toggle="tooltip" data-placement="top"
+                           title="CSS基礎與深入">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/JS-jQuery/" data-toggle="tooltip" data-placement="top"
+                           title="JS_jQuery">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap介紹"><span class="toc-text">Bootstrap介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap-RWD應用"><span class="toc-text">Bootstrap RWD應用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap-常用基礎元件"><span class="toc-text">Bootstrap 常用基礎元件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bootstrap格線系統"><span class="toc-text">Bootstrap格線系統</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#CSS"
+                           title="CSS">CSS</a>
+                        
+                        <a class="tag" href="/tags/#Bootstrap"
+                           title="Bootstrap">Bootstrap</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Bootstrap/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/Bootstrap/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
