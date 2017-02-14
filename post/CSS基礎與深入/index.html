@@ -80,6 +80,14 @@
                         
 							
                         <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
                             <a href="/works/">works</a>
                         </li>
 							
@@ -89,14 +97,6 @@
 							
                         <li>
                             <a href="/tags/">tags</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -240,13 +240,18 @@
 <p>讓我們看看範例來認識他們吧：<br><a href="http://codepen.io/KUEI/pen/rjQaRX?editors=1100" target="_blank" rel="external">CSS元素位置-(相對/絕對)定位</a></p>
 <h3 id="CSS內間隔-外間隔-padding-margin"><a href="#CSS內間隔-外間隔-padding-margin" class="headerlink" title="CSS內間隔/外間隔(padding/margin)"></a>CSS內間隔/外間隔(padding/margin)</h3><p>CSS 排版有一個很重要的觀念：<code>Box Model</code> 。它描述了元素之間的彼鄰關係，同時也左右了我們是否能夠成功透過CSS，完成整個頁面的呈現。</p>
 <p>也就是說，每一個元素我們都可視它為一個 Box（方塊）。一個 Box 由以下屬性組成：margin 、 padding 、 border 、 content 。而一個 Box 的實際寬度 (高度) 是由 padding + border + width (height) 所組成，如下圖：<br><code><br><img src="https://mdn.mozillademos.org/files/13649/box-model-alt-small.png" alt="Smiley face" height="200" width="300"><br></code></p>
-<h3 id="CSS小技巧筆記"><a href="#CSS小技巧筆記" class="headerlink" title="CSS小技巧筆記"></a>CSS小技巧筆記</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*代表選取所有元素*/</span></div><div class="line"><span class="comment">/*再透過border可以得到所有元素的框線大小與範圍*/</span></div><div class="line">*&#123;</div><div class="line">  <span class="attribute">border</span>:solid <span class="number">1px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 透過此產生頁面高度，並能透過捲軸動 */</span></div><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">2000px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* , 代表兩個元素一起執行*/</span></div><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h3 id="CSS小技巧筆記"><a href="#CSS小技巧筆記" class="headerlink" title="CSS小技巧筆記"></a>CSS小技巧筆記</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*代表選取所有元素*/</span></div><div class="line"><span class="comment">/*再透過border可以得到所有元素的框線大小與範圍*/</span></div><div class="line">*&#123;</div><div class="line">  <span class="attribute">border</span>:solid <span class="number">1px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* 透過此產生頁面高度，並能透過捲軸動 */</span></div><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">  <span class="attribute">height</span>: <span class="number">2000px</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/* , 代表兩個元素一起執行*/</span></div><div class="line"><span class="selector-tag">html</span>,<span class="selector-tag">body</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">/* border一樣佔有空間 */</span></div><div class="line"><span class="comment">/* 將border放進元素內 */</span></div><div class="line"><span class="selector-tag">element</span>&#123;</div><div class="line">    <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* vertical-align定位 */</span></div><div class="line"><span class="comment">/* 元素未必是向上定位 */</span></div><div class="line"><span class="comment">/* 建議放在*裡 */</span></div><div class="line">*&#123;</div><div class="line">    <span class="attribute">vertical-align</span>:middle;</div><div class="line">    <span class="attribute">vertical-align</span>:top;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://s.codepen.io/frank890417/debug/EymPkK" target="_blank" rel="external">css 分開撰寫 tag/class/id概念</a><br><a href="http://pinkyvivi.pixnet.net/blog/post/1131260-css%E2%88%A5%E6%8E%92%E7%89%88%E8%A7%80%E5%BF%B5-boxmodel%3Emargin%E3%80%81padding" target="_blank" rel="external">CSS∥排版觀念-BoxModel&gt;Margin、Padding</a><br><a href="http://zh-tw.learnlayout.com/position.html" target="_blank" rel="external">關於 position 屬性</a><br><a href="http://zh-tw.learnlayout.com/position-example.html" target="_blank" rel="external">更完整的 position 範例</a><br><a href="http://zh-tw.learnlayout.com/inline-block.html" target="_blank" rel="external">display: inline-block</a><br><a href="http://www.see-design.com.tw/i/css_position.html" target="_blank" rel="external">10步掌握CSS定位: position static relative absolute float</a></p>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/SASS/" data-toggle="tooltip" data-placement="top"
+                           title="SASS(CSS樣板語言)">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">

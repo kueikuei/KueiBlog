@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
-        <lastmod>2016-12-10T09:35:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/Terminal/</loc>
         <lastmod>2016-12-16T13:08:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -93,36 +86,64 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
-        <lastmod>2017-02-12T03:27:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Bootstrap/</loc>
-        <lastmod>2017-02-12T03:27:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/Javascript/</loc>
-        <lastmod>2017-02-12T09:39:24.000Z</lastmod>
+        <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Ajax/</loc>
-        <lastmod>2017-02-12T09:39:24.000Z</lastmod>
+        <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Project/</loc>
-        <lastmod>2017-02-12T09:39:24.000Z</lastmod>
+        <lastmod>2017-02-13T12:31:48.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Bootstrap/</loc>
+        <lastmod>2017-02-13T12:37:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
+        <lastmod>2017-02-13T13:40:35.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/SASS/</loc>
+        <lastmod>2017-02-13T13:40:35.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
+        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
+        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Google-Search-Engine/</loc>
+        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

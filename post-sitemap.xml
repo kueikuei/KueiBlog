@@ -7,8 +7,16 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/post/iPetProject/</loc>
-        <lastmod>2017-02-12T09:39:24.000Z</lastmod>
+        <loc>https://kueiblog.herokuapp.com/post/SEO%E6%90%9C%E5%B0%8B%E5%BC%95%E6%93%8E%E5%84%AA%E5%8C%96%E7%B5%90%E5%90%88Hexo%E5%AF%A6%E4%BD%9C/</loc>
+        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/post/SASS/</loc>
+        <lastmod>2017-02-13T13:40:35.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +24,15 @@
 
     <url>
         <loc>https://kueiblog.herokuapp.com/post/CSS%E5%9F%BA%E7%A4%8E%E8%88%87%E6%B7%B1%E5%85%A5/</loc>
-        <lastmod>2017-02-12T03:27:25.000Z</lastmod>
+        <lastmod>2017-02-13T12:37:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/post/iPetProject/</loc>
+        <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
