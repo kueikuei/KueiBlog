@@ -114,36 +114,43 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
-        <lastmod>2017-02-13T13:40:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/SASS/</loc>
-        <lastmod>2017-02-13T13:40:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
-        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
-        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Google-Search-Engine/</loc>
-        <lastmod>2017-02-14T08:14:22.000Z</lastmod>
+        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
+        <lastmod>2017-02-22T06:51:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/SASS/</loc>
+        <lastmod>2017-02-22T06:51:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/project/</loc>
+        <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
