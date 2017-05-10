@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/MongoDB/">
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/高雄前端開發者大會/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -167,24 +167,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>MongoDB</h1>
+                    <h1>高雄前端開發者大會</h1>
                     
                     <span class="meta">
                          作者 KueiKuei
                         <span>
-                          日期 2017-01-02
+                          日期 2017-05-06
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Stoarge"
-                           title="Stoarge">Stoarge</a>
-                        
-                        <a class="tag" href="/tags/#Database"
-                           title="Database">Database</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
-                           title="MongoDB">MongoDB</a>
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
                         
                     </div>
                 </div>
@@ -193,7 +187,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            MongoDB
+            高雄前端開發者大會
         </span>
     </div>
 </header>
@@ -204,97 +198,31 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote>
-<p>環境安裝<br>Mongodb v.s Relational DB<br>基本指令(Mongo Shell)<br>進階應用<br>參考資料</p>
-</blockquote>
-<h3 id="環境安裝"><a href="#環境安裝" class="headerlink" title="環境安裝"></a>環境安裝</h3><ul>
-<li>brew update # 更新 brew</li>
-<li>brew install mongodb # 安裝 MongoDB</li>
-<li>brew upgrade mongodb # 更新 MongoDB</li>
-<li>mongod 或加<code>sudo</code> mongod # 啟動 Local端MongoDB Server</li>
-<li>mongo  # 連線到 localhost:27017 ，不需帳密。</li>
-<li>27017 預設 port</li>
-<li><p>預設目錄在:<code>/usr/local/Cellar/mongodb/3.4.0/data/db</code></p>
-</li>
-<li><p>mkdir -p /data/db # 建立資料庫儲存的目錄。</p>
-</li>
-<li>chown <code>id -u</code> /data/db # 授權當前使用者目錄權限。</li>
-<li>id -u # 列出當前使用者 uid</li>
-<li>mongod –dbpath /data/db # 設定資料庫資料目錄。</li>
-<li>Robomongo:快速檢視資料庫中資料 </li>
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h3 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h3><ul>
+<li>十年一覺前端夢</li>
+<li>用 RxJS 寫出可讀的程式碼 </li>
+<li>前端團隊奴的日常</li>
+<li>Vue isomorphic</li>
+<li>網站規劃流程二三事</li>
+<li>參考資料</li>
 </ul>
-<h3 id="Relational-DB-v-s-MongoDB"><a href="#Relational-DB-v-s-MongoDB" class="headerlink" title="Relational DB v.s MongoDB"></a>Relational DB v.s MongoDB</h3><table>
-<thead>
-<tr>
-<th>SQL</th>
-<th style="text-align:center">MongoDB</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>table</td>
-<td style="text-align:center">collection</td>
-</tr>
-<tr>
-<td>row(record)</td>
-<td style="text-align:center">documents</td>
-</tr>
-<tr>
-<td>column</td>
-<td style="text-align:center">field(key)</td>
-</tr>
-<tr>
-<td>value</td>
-<td style="text-align:center">value)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="基本指令-Mongo-Shell"><a href="#基本指令-Mongo-Shell" class="headerlink" title="基本指令(Mongo Shell)"></a>基本指令(Mongo Shell)</h3><blockquote>
-<p>終端機輸入<code>mongo</code>啟動<code>Mongo Shell</code><br>資料庫中的CRUD</p>
-</blockquote>
-<ul>
-<li>db 當前使用的資料庫。</li>
-<li>show dbs 資料庫列表。</li>
-<li>show collections 資料表清單。</li>
-<li>use [dbname] 切換使用目標資料庫。</li>
-<li>db.getSlibingDB(‘dbname’) 取得資料庫參考物件。</li>
-<li>db.dropDatabase() # 移除資料庫。</li>
-<li>db.addUser( { user: “<user>“, pwd: “<password>“, roles: [<roles>] } ) # 加入使用者 # db.addUser is not a function</roles></password></user></li>
-<li>db.auth(‘id’, ‘pwd’) # 登入認證身份。</li>
-<li>printjson(obj) 將物件以 JSON 格式輸出。</li>
-<li>db.createCollection(name, {capped: <boolean>, autoIndexId: <boolean>, size: <number>, max <number>} ) # 建立集合，主要的功能是用來開固定式集合，固定式集合不能刪除 Row，但可以移除整個資料表，一旦 capped 設為 true 就要指定 size，但如果要限制則必須在指定 max 。一旦超出 max 舊的資料就會被覆寫。</number></number></boolean></boolean></li>
-<li>db.collection.drop() # 移除資料表。</li>
-<li>db.collection.ensureIndex({name: [1|-1]}) # 建立索引</li>
-<li>db.collection.getIndexes() # 取得索引</li>
-<li>db.collection.dropIndex({name: 1}) # 移除索引</li>
-<li>db.testData.find() # 檢視資料</li>
-</ul>
-<h3 id="進階應用"><a href="#進階應用" class="headerlink" title="進階應用"></a>進階應用</h3><ul>
-<li>產生多筆資料</li>
-</ul>
-<ol>
-<li><p>for 迴圈<br>MongoDB允許使用者透過<code>迴圈</code>快速建立資料<br><code>for (var i = 1; i &lt;= 25; i++) db.testData.insert( { x : i } )</code></p>
-</li>
-<li><p>function 建立<br>在Mongo Shell環境中打入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function insertData(dbName, colName, num) &#123;</div><div class="line">  var col = db.getSiblingDB(dbName).getCollection(colName);</div><div class="line">  for (i = 0; i &lt; num; i++) &#123;</div><div class="line">    col.insert(&#123;x:i&#125;);</div><div class="line">  &#125;</div><div class="line">  print(col.count());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://andyyou.logdown.com/posts/177947-mongodb-quick-notes" target="_blank" rel="external">MongoDB Quick Notes</a><br><a href="http://dog0416.blogspot.tw/2015/09/databasemongodb-2-crud-operation-2.html" target="_blank" rel="external">Mongo DataBase 學習系列</a></p>
+<h3 id="前端團隊奴的日常"><a href="#前端團隊奴的日常" class="headerlink" title="前端團隊奴的日常"></a>前端團隊奴的日常</h3><p>美商公司：Taroko Software(<a href="https://github.com/f2etw/jobs/issues/129" target="_blank" rel="external">https://github.com/f2etw/jobs/issues/129</a> )<br>履歷表必看：工作經歷、作品集、github、履歷來源(自己做的)<br>不看的：學歷、自傳、過去經歷條列式<br>面試：表達能力、個性、是否適合team、潛力<br>面試考試：就算不會某個要求框架，只要基礎功夠(例如JS)都會採納入取的</p>
+<h3 id="Vue-isomorphic"><a href="#Vue-isomorphic" class="headerlink" title="Vue isomorphic"></a>Vue isomorphic</h3><p>server sile render(SSR) v.s client side render(CSR)</p>
+<p>isomorphic application 共用性：同一份code前後端都能跑(維護性好)，複雜度高</p>
+<h3 id="網站規劃流程二三事"><a href="#網站規劃流程二三事" class="headerlink" title="網站規劃流程二三事"></a>網站規劃流程二三事</h3><p>公司：轉轉</p>
 
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/post/MEAN-Stack/" data-toggle="tooltip" data-placement="top"
-                           title="MEAN Stack">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/post/TodoProject/" data-toggle="tooltip" data-placement="top"
-                           title="Todo Project">Next Post &rarr;</a>
+                        <a href="/post/JSONP/" data-toggle="tooltip" data-placement="top"
+                           title="JSONP">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -313,7 +241,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#環境安裝"><span class="toc-text">環境安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Relational-DB-v-s-MongoDB"><span class="toc-text">Relational DB v.s MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本指令-Mongo-Shell"><span class="toc-text">基本指令(Mongo Shell)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#進階應用"><span class="toc-text">進階應用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端團隊奴的日常"><span class="toc-text">前端團隊奴的日常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-isomorphic"><span class="toc-text">Vue isomorphic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#網站規劃流程二三事"><span class="toc-text">網站規劃流程二三事</span></a></li></ol>
                 </div>
             </div>
         </div>
@@ -337,14 +265,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Stoarge"
-                           title="Stoarge">Stoarge</a>
-                        
-                        <a class="tag" href="/tags/#Database"
-                           title="Database">Database</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
-                           title="MongoDB">MongoDB</a>
+                        <a class="tag" href="/tags/#Javascript"
+                           title="Javascript">Javascript</a>
                         
                     </div>
                 </section>
@@ -364,8 +286,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "https://kueiblog.herokuapp.com/post/MongoDB/";
-    var disqus_url = "https://kueiblog.herokuapp.com/post/MongoDB/";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/高雄前端開發者大會/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/高雄前端開發者大會/";
 
     (function () {
         var dsq = document.createElement('script');

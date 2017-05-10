@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JSONP/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttp://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://images.ttcdn.co/media/i/product/453319-e03ca8487e9c429eb3c16aca9f7cde21.png?size=2000');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>JSONP</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-05-03
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#JSON"
+                           title="JSON">JSON</a>
+                        
+                        <a class="tag" href="/tags/#JSONP"
+                           title="JSONP">JSONP</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            JSONP
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>瀏覽器的安全性政策</li>
+<li>解決跨網域(Cross Domain Ajax)問題</li>
+<li>JSONP</li>
+<li>same origin</li>
+<li>參考資料</li>
+<li>程式碼下載</li>
+</ul>
+<h3 id="瀏覽器的安全性政策"><a href="#瀏覽器的安全性政策" class="headerlink" title="瀏覽器的安全性政策"></a>瀏覽器的安全性政策</h3><p>我們經常用<code>XMLHttpRequest()</code>去取得資料:</p>
+<p><strong>JSONP.js</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=testJson;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testJson</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> url = <span class="string">"http://gumball.wickedlysmart.com"</span>;</div><div class="line">    <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    request.open(<span class="string">"GET"</span>,url);</div><div class="line">    request.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(request.status==<span class="number">200</span>)&#123;</div><div class="line">            alert(<span class="string">"Data received!"</span>);</div><div class="line">        &#125;</div><div class="line">    request.send(<span class="literal">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>index.html</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>JSONPTest<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"JSONP.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>試著輸入上面程式，看看成果吧~~~<br>甚麼?甚麼也看不到?你說我在唬你?<br>打開你的developer tool看看有甚麼bug吧!<br>甚麼?no error?那麼到底問題在哪?</p>
+<p>答案:<code>跨網域(Cross Domain Ajax)問題</code></p>
+<p>所謂的跨網頁問題意思是說，當請求資料的伺服器與網頁檔案不在同一個網域地點時，將無法請求到資料，瀏覽器會要求Same origin policy (同網域限制)的概念，以保障資料傳輸的安全性。</p>
+<h3 id="解決跨網域-Cross-Domain-Ajax-問題"><a href="#解決跨網域-Cross-Domain-Ajax-問題" class="headerlink" title="解決跨網域(Cross Domain Ajax)問題"></a>解決跨網域(Cross Domain Ajax)問題</h3><ul>
+<li>JSONP</li>
+<li>same origin</li>
+</ul>
+<p>那麼把檔案放在同網域問題就解決了?<br>錯!!某些時候就是必須要取得第三方的資料，例如twitter、FB等等</p>
+<h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><p>全名為JSON with padding，但是個人比較喜歡說是<code>JSON with a script</code>，只要將JSON連結放入神奇的<code>&lt;script&gt;</code>就能載入資料。。</p>
+<p>剛剛的例子透過JSONP來解決:</p>
+<p><strong>index.html</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- head多加上這一行 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://gumball.wickedlysmart.com?callback=testJson"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>JSONP.js</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">testJson</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(data)&#123;</div><div class="line">        alert(<span class="string">"Data received!"</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        alert(<span class="string">"Null"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在<code>script</code>中後面有<code>?callback=testJson</code>，意思為將傳回來的<code>callback</code>傳入<code>testJson</code>，這邊要注意testJson是一個<code>function</code>。</p>
+<p>傳進來的JSON作為參數<code>data</code>傳入，一旦接受到data就alert出”Data received!”。</p>
+<p>如是，就是JSONP的解決辦法。</p>
+<p>讓我們在深入一點看看JSONP的JSON file:<br><code><br><a href="http://gumball.wickedlysmart.com" target="_blank" rel="external">http://gumball.wickedlysmart.com</a><br></code></p>
+<p>檔案結構應該是如下所示:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">updateSales([&#123;<span class="string">"name"</span>:<span class="string">"FRESNO"</span>,<span class="string">"time"</span>:<span class="number">1494382882766</span>,<span class="string">"sales"</span>:<span class="number">5</span>,<span class="string">"longitude"</span>:<span class="string">"-119.639658"</span>,<span class="string">"latitude"</span>:<span class="string">"+36.746375"</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"CUTTEN"</span>,<span class="string">"time"</span>:<span class="number">1494382889284</span>,<span class="string">"sales"</span>:<span class="number">6</span>,<span class="string">"longitude"</span>:<span class="string">"-123.944021"</span>,<span class="string">"latitude"</span>:<span class="string">"+40.733552"</span>&#125;]);</div></pre></td></tr></table></figure></p>
+<p>你會納悶一個問題，JSON被包在<code>()</code>裏頭，外面還有一個<code>updateSales</code>，為什麼要有這個updateSales?</p>
+<p>具經典犀牛書<code>&lt;&lt;JavaScript: The Definitive Guide&gt;&gt;</code>所說:「透過<code>&lt;script&gt;</code>傳入JSON data時，你的服務必須用括號(parenthess)包圍他的回應(筆者猜測指JSON Data)，並為它的前綴(prefix)上一個JavaScript函式名稱以 <code>填補</code> (pad)它」</p>
+<h3 id="same-origin"><a href="#same-origin" class="headerlink" title="same origin"></a>same origin</h3><p>同源意指在同一網源下應該要能透過<code>XMLHttpRequest()</code>取得json file(筆者理解下)，故這邊小編嘗試將<code>index.html</code>、<code>JSONP.js</code>都放進同一個<code>repo</code><br>檔案如下:</p>
+<p><strong>index.html</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"JSONP.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>JSONP.js</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> url = <span class="string">"https://rawgit.com/kueikuei/JSONP/master/testJson.json"</span>;</div><div class="line">    <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    request.open(<span class="string">"GET"</span>,url);</div><div class="line">    request.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">if</span>(request.status==<span class="number">200</span>)&#123;</div><div class="line">            alert(<span class="string">"Data received!"</span>);</div><div class="line">        &#125;</div><div class="line">    request.send(<span class="literal">null</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>但依舊出現類似跨網域(Cross Domain Ajax)問題的狀況(沒有結果亦沒有出錯)，後續或用<code>heroku</code>再挑戰看看same origin。</p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><ul>
+<li>Head First HTML5 Programming: Building Web Apps with JavaScript</li>
+<li>JavaScript: The Definitive Guide 6th</li>
+<li><a href="https://rawgit.com/" target="_blank" rel="external">RawGit serves raw files directly from GitHub with proper Content-Type headers.</a></li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/高雄前端開發者大會/" data-toggle="tooltip" data-placement="top"
+                           title="高雄前端開發者大會">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/SEO搜尋引擎優化結合Hexo實作/" data-toggle="tooltip" data-placement="top"
+                           title="SEO搜尋引擎優化結合Hexo實作">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#瀏覽器的安全性政策"><span class="toc-text">瀏覽器的安全性政策</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解決跨網域-Cross-Domain-Ajax-問題"><span class="toc-text">解決跨網域(Cross Domain Ajax)問題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP"><span class="toc-text">JSONP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#same-origin"><span class="toc-text">same origin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#JavaScript"
+                           title="JavaScript">JavaScript</a>
+                        
+                        <a class="tag" href="/tags/#JSON"
+                           title="JSON">JSON</a>
+                        
+                        <a class="tag" href="/tags/#JSONP"
+                           title="JSONP">JSONP</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JSONP/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/JSONP/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

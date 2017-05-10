@@ -7,6 +7,22 @@
     </url>
 
     <url>
+        <loc>https://kueiblog.herokuapp.com/post/JSONP/</loc>
+        <lastmod>2017-05-10T12:41:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/post/%E9%AB%98%E9%9B%84%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC%E8%80%85%E5%A4%A7%E6%9C%83/</loc>
+        <lastmod>2017-05-06T10:40:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://kueiblog.herokuapp.com/post/SASS/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>

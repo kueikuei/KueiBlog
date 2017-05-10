@@ -86,13 +86,6 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Javascript/</loc>
-        <lastmod>2017-02-13T12:31:48.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/Ajax/</loc>
         <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -151,6 +144,34 @@
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/project/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Javascript/</loc>
+        <lastmod>2017-05-06T10:40:30.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/JavaScript/</loc>
+        <lastmod>2017-05-10T12:41:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/JSON/</loc>
+        <lastmod>2017-05-10T12:41:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/JSONP/</loc>
+        <lastmod>2017-05-10T12:41:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
