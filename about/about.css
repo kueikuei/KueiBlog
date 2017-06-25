@@ -1,16 +1,3 @@
-/*nav*/
-.container-fluid{
-  display: inline-block;
-}
-.navbar-header, .huxblog_navbar{
-  display: inline-block;
-}
-.nav_li{
-  display: inline-block;
-}
-
-
-
 .kuei_pic{
   width:150px;
   margin:auto;
