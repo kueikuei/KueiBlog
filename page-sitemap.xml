@@ -7,6 +7,13 @@
     </url>
     
     <url>
+        <loc>https://kueiblog.herokuapp.com/about/</loc>
+        <lastmod>2017-06-25T07:13:56.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
         <loc>https://kueiblog.herokuapp.com/archives/</loc>
         <lastmod>2016-12-22T14:09:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
