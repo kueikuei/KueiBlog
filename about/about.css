@@ -200,6 +200,9 @@ Main components
 }
 
 @media only screen and (min-width: 768px) {
+  .cd-timeline-content {
+    color: white;
+  }
   .cd-timeline-content h2 {
     font-size: 20px;
     font-size: 1.25rem;
