@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://kueiblog.herokuapp.com/post/gulp/</loc>
+        <lastmod>2017-07-12T11:48:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://kueiblog.herokuapp.com/post/JSONP/</loc>
         <lastmod>2017-05-10T12:41:28.000Z</lastmod>
         <changefreq>weekly</changefreq>

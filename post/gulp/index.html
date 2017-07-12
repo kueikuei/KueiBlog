@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/gulp/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://nodejs.org/static/images/logos/nodejs-new-pantone-black.png">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>WhatGulpCanDo?</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-07-05
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Gulp"
+                           title="Gulp">Gulp</a>
+                        
+                        <a class="tag" href="/tags/#Node"
+                           title="Node">Node</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            WhatGulpCanDo?
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ul>
+<li>Gulp介紹</li>
+<li>編譯檔案</li>
+<li>壓縮優化檔案</li>
+<li>Bower前端套件管理</li>
+<li>Watch監聽檔案</li>
+<li>main-bower-files前端整合套件</li>
+<li>github上傳</li>
+<li>environment choice</li>
+<li>tips</li>
+<li>程式碼下載</li>
+</ul>
+<h3 id="Gulp介紹"><a href="#Gulp介紹" class="headerlink" title="Gulp介紹"></a>Gulp介紹</h3><p>Gulp能處理網頁自動化流程，所謂的<code>自動化流程</code>，概念是將某些工作自動化去執行，有點類似模組的概念，不用每一次跑一個專案都做同樣的事情。</p>
+<p>那麼，哪些事情是需要自動化流程的呢?<br>筆者認為大概能區分為<code>編譯檔案</code>、<code>壓縮檔案</code>、<code>部屬動作</code>。<br>有了這些自動化流程，在開發時能更增加效率、壓縮後得檔案在部屬後能更快得被載入網頁中。</p>
+<h3 id="編譯檔案"><a href="#編譯檔案" class="headerlink" title="編譯檔案"></a>編譯檔案</h3><ul>
+<li>Jade、SASS、ES6都能透過gulp去編譯</li>
+</ul>
+<p>而Gulp的起手式，就是將轉存檔案<br>這邊一個簡單的例子:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task('&#123;name&#125;,function()&#123;</div><div class="line">    gulp.src('&#123;./xxx/xxx.file&#125;')</div><div class="line">        .pipe(/* do sthing */)</div><div class="line">        .pipe(gulp.dest('&#123;...path&#125;'))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>gulp全部的動作都是由<code>task</code>去執行<br>可以把<code>pipe</code>想像成水管，負責運送資料。</p>
+<p>而編譯過程都相當簡單，只要將特定套件(package)裝上就可以使用。<br>像是<code>gulp-jade</code>、<code>gulp-sass</code>、<code>gulp-babel</code></p>
+<p>簡單範例請參考如下:</p>
+<p><strong>Compile Jade to HTML</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'jade'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    gulp.src(<span class="string">'./source/jade_test.jade'</span>)</div><div class="line">    .pipe(jade(&#123;</div><div class="line">        <span class="attr">pretty</span>: <span class="literal">true</span> <span class="comment">//好讀版</span></div><div class="line">    &#125;))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/'</span>))</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>Compile SASS to CSS</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./source/css/sass_test.css'</span>)</div><div class="line">    .pipe(sass().on(<span class="string">'error'</span>,sass.logError))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/css'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>Compile ES6 to Javacript</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'ES6'</span>, () =&gt; &#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./source/js/**/*.js'</span>)</div><div class="line">        .pipe(babel(&#123;<span class="comment">//by load-plugins to insert babel and compile</span></div><div class="line">            presets: [<span class="string">'es2015'</span>]</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public/js'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="壓縮優化檔案"><a href="#壓縮優化檔案" class="headerlink" title="壓縮優化檔案"></a>壓縮優化檔案</h3><p>無論是Html、CSS、還是Javascript，程序人員編寫時都會透過縮排或特定格式讓其好觀看、好編寫，而無形中也產生許多不必要的<code>空格</code>，挪用了資源空間。<br>其中，<code>圖片</code>更是深深影響使用網頁載入的速度，故透過gulp去壓縮這些檔案將使整體網頁更流暢快速，增加使用者經驗好感。</p>
+<p>主要使用到的套件如下:</p>
+<p><em>gulp-jade</em>:壓縮jade，也能進一步增加參數<code>pretty: true</code>使其恢復為好讀排版。<br><em>gulp-minify-css</em>:壓縮css<br><em>gulp-uglify</em>:壓縮JS，進一步透過<code>compress:{drop_console: true}</code>能自動移除掉<code>console.log</code><br><em>gulp-imagemin</em>:壓縮圖片檔</p>
+<p>更進一步，我們能決定哪些環境時要壓縮那些不用壓縮。<br>例如當還是完整<code>成品production</code>時，我們稱為<code>develop environmention</code><br>此時我能能夠過兩個套件來定義這些環境，並藉由<code>傳入參數</code>來決定是否壓縮</p>
+<p><code>minimist</code>與<code>gulp-if</code>套件:創造不同開發環境<code>develop</code>和<code>production</code><br>而由於圖片壓縮會浩比較多的時間，適合在<code>production</code>時在壓縮</p>
+<p>使用範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> minimist = <span class="built_in">require</span>(<span class="string">'minimist'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> envOptions = &#123;</div><div class="line">   <span class="attr">string</span>: <span class="string">'env'</span>,</div><div class="line">   <span class="attr">default</span>:&#123; <span class="attr">env</span>: <span class="string">'develop'</span>&#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> options = minimist(process.argv.slice(<span class="number">2</span>), envOptions)</div><div class="line"><span class="built_in">console</span>.log(options); <span class="comment">// 查看結果</span></div></pre></td></tr></table></figure></p>
+<p>透過<code>$gulp --env {參數}</code>就能將參數帶入至option<br>process.argv.slice(2) 這行則是跳過前兩個 – 字元，直接讀取 env 這個字串</p>
+<p>而透過<code>$.if(options.env===&#39;production&#39;, $.minifyCss())</code>進行輸入參數的判斷<br>即可得到壓縮成甚麼樣的版本</p>
+<h3 id="Bower前端套件管理"><a href="#Bower前端套件管理" class="headerlink" title="Bower前端套件管理"></a>Bower前端套件管理</h3><p>功能類似於<code>npm</code><br>比較如下:<br><code>bower init</code>&lt;-&gt;<code>npm init</code><br><code>bower.json</code>&lt;-&gt;<code>package.json</code><br><code>bower install</code>&lt;-&gt;<code>npm install</code><br><code>bower install --save &#39;package&#39;</code>&lt;-&gt;<code>npm install --save &#39;package&#39;</code></p>
+<h3 id="gulp-watch監聽"><a href="#gulp-watch監聽" class="headerlink" title="gulp-watch監聽"></a>gulp-watch監聽</h3><p>一旦監聽後，每當編寫完存檔時就能馬上看到成果以及改變，html、css、javascript都能監聽。</p>
+<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'&#123;name&#125;'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    gulp.watch([<span class="string">'default'</span>], [func name1, func name2]);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h3 id="main-bower-files前端整合套件"><a href="#main-bower-files前端整合套件" class="headerlink" title="main-bower-files前端整合套件"></a>main-bower-files前端整合套件</h3><p>main-bower-files藉此package能取得<code>前端套件(bower_components)</code>進入gulpfile並統一管理</p>
+<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main bower files</span></div><div class="line">gulp.task(<span class="string">'bower'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(mainBowerFiles())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./.tmp/vendors'</span>))</div><div class="line">        callback()</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//產生出vendors後再做concat、uglify等等</span></div><div class="line">gulp.task(<span class="string">'vendorJs'</span>,[<span class="string">'bower'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'.tmp/vendors/**/**.js'</span>)</div><div class="line">    .pipe($.concat(<span class="string">'vendor.js'</span>))</div><div class="line">    .pipe($.uglify())</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/js'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>產生出vendors後接著透過<code>concat()</code>、<code>ugilfy()</code>等套件將其融合又壓縮最後存到public/js使用。</p>
+<h3 id="github上傳"><a href="#github上傳" class="headerlink" title="github上傳"></a>github上傳</h3><p><em>push to git</em><br>要丟上去的資料夾只有<code>sourece dir</code><br>檔案有:<code>bower.json</code>、<code>package.json</code>、<code>gulpfile.js</code><br>可以透過<code>.gitignore</code>將不需要丟上去的檔案事先寫好</p>
+<p><em>push gh-pages to git and autoly create webpage </em><br>安裝套件<code>gulp-gh-pages</code><br>選擇輸出資料夾<code>public</code>後<br><code>gulp deploy</code>到git上並且自動生成<code>靜態頁面</code></p>
+<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//create gh-pages and push to git</span></div><div class="line">gulp.task(<span class="string">'deploy'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*'</span>)</div><div class="line">        .pipe($.ghPages());</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="environment-choice"><a href="#environment-choice" class="headerlink" title="environment choice"></a>environment choice</h3><p>前面有提過不同的開發環境，反過來說，今天從git clone某個專案到本地端時，或是要上傳到heroku時都要選擇開發環境。</p>
+<p>如果要單純就純測試環境dev進行安裝可以額外增加<code>-dev</code>如下:<br>devolpe-eni:npm install package_name –save<code>-dev</code><br>而一般的pcakage save如下:<br>production-eni:npm install package_name –save</p>
+<p>安裝特定環境可以如下指令:<br>npm install <code>--only=dev</code><br>npm install <code>--only=prod</code></p>
+<p>將dev環境下的package移除，只保留production的<br>npm prune –prod</p>
+<h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><p>1.soucemap()可以用來追蹤檔案來源</p>
+<p>2.不希望語法錯誤而造成監聽(watching)停止時<br>透過<code>plumber()</code>去預防</p>
+<p>3.透過<code>gulp-load-plugins</code>簡化gulp載入流程<br>所有gulp套件都能透過<code>統一變數，例如$</code>進行集中使用</p>
+<p>4.<em>PostCSS</em> 與 <em>autoPrefixer</em><br>CSS常常有瀏覽器版本不支援某些特效的問題，或是要增加<code>前綴詞</code>讓瀏覽器支援，而透過<code>PostCSS</code>與<code>autoPrefixer</code>自動去查詢瀏覽器支援度並加入適當前綴詞</p>
+<p>5.gulp有其自己的測試local端-<code>browser-sync</code>，並搭配<code>browserSync.stream()</code>自動做網頁重新整理</p>
+<p>6.build提交要上架的專案<br>包含<code>gulp-clean</code>與<code>gulp-sequence</code><br>gulp-sequence透過clean將public移除後再依序重新產生檔案<br>過程中記得加入<code>--env production</code>來產生最小化的檔案</p>
+<h3 id="程式碼下載"><a href="#程式碼下載" class="headerlink" title="程式碼下載"></a>程式碼下載</h3><p><a href="https://github.com/kueikuei/GulpPractice" target="_blank" rel="external"><button type="button" style="background-color:#008CBA;color:white;border-radius:8px;border:none">Go to GitHub</button><br></a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/高雄前端開發者大會/" data-toggle="tooltip" data-placement="top"
+                           title="高雄前端開發者大會">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gulp介紹"><span class="toc-text">Gulp介紹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#編譯檔案"><span class="toc-text">編譯檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#壓縮優化檔案"><span class="toc-text">壓縮優化檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bower前端套件管理"><span class="toc-text">Bower前端套件管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp-watch監聽"><span class="toc-text">gulp-watch監聽</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#main-bower-files前端整合套件"><span class="toc-text">main-bower-files前端整合套件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github上傳"><span class="toc-text">github上傳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#environment-choice"><span class="toc-text">environment choice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tips"><span class="toc-text">tips</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程式碼下載"><span class="toc-text">程式碼下載</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Gulp"
+                           title="Gulp">Gulp</a>
+                        
+                        <a class="tag" href="/tags/#Node"
+                           title="Node">Node</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/gulp/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/gulp/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
