@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/UnitTest初探/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="undefinedhttps://nodejs.org/static/images/logos/nodejs-new-pantone-black.png">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('https://nodejs.org/static/images/logos/nodejs-new-pantone-black.png');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>單元測試(UnitTest)初探</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-07-18
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                           title="TDD &amp; BDD">TDD &amp; BDD</a>
+                        
+                        <a class="tag" href="/tags/#Mocha"
+                           title="Mocha">Mocha</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            單元測試(UnitTest)初探
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h3 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h3><ul>
+<li>單元測試為何</li>
+<li>TDD、BDD差異與目的</li>
+<li>單元測試框架有哪些</li>
+<li>參考資料</li>
+</ul>
+<h3 id="單元測試為何"><a href="#單元測試為何" class="headerlink" title="單元測試為何"></a>單元測試為何</h3><p><strong>針對程式的最小測試單位</strong>，例如單一函式，並且為獨立，不應跟其他程式碼相依(不應測試後端程式碼)</p>
+<p>在寫測試碼的同時，我們同時也在設計函式。有時會發現難以測試，而想出更簡潔的介面。當我們能輕鬆寫出測試碼時，也意味著目標函式易於使用，之後才方便重用。</p>
+<p><strong>好處</strong><br>好處為何?<br>Tim King在2006年的文章清楚回答了這個問題<br>相關部落客也翻譯了<a href="http://blog.turn.tw/?p=2821" target="_blank" rel="external">文章</a></p>
+<p>其中幾點包含：</p>
+<ol>
+<li>單元測試保證你的code真的能動</li>
+<li>你會得到一組底層的regression-test suite</li>
+<li>讓你改善系統設計的時候，不怕弄壞系統</li>
+<li>寫測試會讓coding更好玩</li>
+<li>它們可靠地展現目前進度</li>
+<li>單元測試是一種使用範例</li>
+<li>測試先行會強迫你寫code前先做規劃</li>
+<li>先寫測試能減少bug的成本</li>
+<li>它比事後代碼檢查(code review)的效果好</li>
+<li>幾乎解決了「開發者瓶頸」(coder’s block)</li>
+<li>單元測試讓設計更棒</li>
+<li>寫測試會讓開發速度更快</li>
+<li>它能即時的驗證你的想法</li>
+</ol>
+<h3 id="TDD、BDD差異與目的"><a href="#TDD、BDD差異與目的" class="headerlink" title="TDD、BDD差異與目的"></a>TDD、BDD差異與目的</h3><p><strong>比較</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">TDD</th>
+<th style="text-align:center">BDD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Test Driven Development測試驅動開發</td>
+<td style="text-align:center">Behavior Driven Development行為驅動開發</td>
+</tr>
+<tr>
+<td style="text-align:center">測試功能導向</td>
+<td style="text-align:center">測試流程導向</td>
+</tr>
+<tr>
+<td style="text-align:center">注重功能結果是否正常</td>
+<td style="text-align:center">注重專案整體運作的邏輯</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BDD常用方法:</strong><br><code>describe()</code>, <code>it()</code>,  context(), before(), after(), beforeEach(), afterEach()<br>describe()稱為<code>測試套件(test suite)</code>，用來描述每個測試案例所要測試的情境(scenario)<br>it()稱為<code>測試案例(test case)</code>，將要驗證的結果放在裏頭<br>it下驗證的方法包含<code>should()</code>、<code>expect()</code></p>
+<p>簡單案例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//BDD Example</span></div><div class="line">describe(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試前執行的程式</span></div><div class="line">  &#125;);</div><div class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試後刪除的資料</span></div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  describe(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    it(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="comment">//用來描述你所預期的測試結果，通常會用 “should xxxx” 來表示</span></div><div class="line">      <span class="comment">//接起來看的話就會是 “it should xxxx"</span></div><div class="line">      echo.print(<span class="string">'訊息'</span>).should.equal(<span class="string">'訊息'</span>);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>TDD</strong><br>一種程式開發的流程，而不是工具。<br>它講究的是 </p>
+<pre><code>1. 小步前進 
+2. 快速且持續回饋，擁抱變化
+3. 重視溝通 
+4. 滿足需求
+</code></pre><p>簡單來說就是先寫測試程式，然後才實作功能。具體的流程則是透過 <code>Red–Green–Refactor</code> cycle 的循環：</p>
+<ol>
+<li>Red – 先寫測試程式，此時因為還沒有實作功能，所以這個測試是會失敗</li>
+<li>Green – 快速實作出功能，讓上述的測試通過</li>
+<li>Refactor – 重構程式碼，去除多餘重複的代碼，提高程式碼品質，同時維持測試通過</li>
+</ol>
+<p>TDD常用方法:<br><code>suite()</code>, <code>test()</code>, suiteSetup(), suiteTeardown(), setup(), teardown()</p>
+<p>在 TDD 開發下，不再使用如describe()跟it()，而是改用<code>suite()與test()</code><br>同時也不太會再用should()，而是直接使用Node中的<code>assert()</code>函式</p>
+<p>簡單案例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TDD Test</span></div><div class="line">suite(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  setup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試前執行的程式</span></div><div class="line">  &#125;);</div><div class="line">  teardown(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試後刪除的資料</span></div><div class="line">  &#125;);</div><div class="line">  suite(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    test(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      assert.equal(<span class="string">'訊息'</span>, echo.print(<span class="string">'訊息'</span>));</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="單元測試框架有哪些"><a href="#單元測試框架有哪些" class="headerlink" title="單元測試框架有哪些"></a>單元測試框架有哪些</h3><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th>Mocha</th>
+<th style="text-align:center">Qunit</th>
+<th>Jasmine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">發展時間</td>
+<td>2012~</td>
+<td style="text-align:center">2008~</td>
+<td>2010~</td>
+</tr>
+<tr>
+<td style="text-align:center">執行環境</td>
+<td>JavaScript、Node.js、browsers</td>
+<td style="text-align:center">browsers</td>
+<td>browsers</td>
+</tr>
+<tr>
+<td style="text-align:center">優點</td>
+<td>無內建斷言庫，支援各種斷詞(assertion)庫</td>
+<td style="text-align:center">輕量，只需一個js與css即可，不須依靠其他套件或框架</td>
+<td>(1) 可支援Ant，Maven等自動建構工具整合 (2) 輕量，只需一個js與css即可 (3) 用法貼近自然語言</td>
+</tr>
+<tr>
+<td style="text-align:center">缺點</td>
+<td>需要經常配合其他套件如：chai等使用，配置麻烦，維護成本高</td>
+<td style="text-align:center">自動化測試支援差，很難與Ant, Maven等自動建構工具整合</td>
+<td>本身不支援Node.js，須由第三方套件支持</td>
+</tr>
+</tbody>
+</table>
+<p>資料來源：<br><a href="http://slides.com/kueikuei/mocha#/11" target="_blank" rel="external">Mocha-JavaScript單元測試工具介紹</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://blog.turn.tw/?p=2821" target="_blank" rel="external">先寫單元測試的12個好處！</a><br><a href="http://slides.com/kueikuei/mocha#/" target="_blank" rel="external">Mocha-JavaScript單元測試工具介紹</a><br><a href="https://www.slideshare.net/yvonne_yu/ss-51379324" target="_blank" rel="external">測試是甚麼!?</a><br><a href="https://www.slideshare.net/wantingj/tdd-bdd-47559903" target="_blank" rel="external">認試軟體測試的世界 &amp; TDD/BDD 入門</a><br><a href="https://ihower.tw/blog/archives/8162" target="_blank" rel="external">程式設計師升級必練內功：TDD Kata</a><br><a href="http://fcamel-fc.blogspot.tw/2009/06/unit-test.html" target="_blank" rel="external">為什麼要寫 unit test？為什麼要先寫測試？</a><br><a href="https://www.slideshare.net/simonguest/automated-web-testing-using-javascript/48-Simplifying_theStack4_Selenium_acting_as" target="_blank" rel="external">Automated Web Testing using JavaScript</a></p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Mocha實作UnitTest/" data-toggle="tooltip" data-placement="top"
+                           title="單元測試(UnitTest)初探">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/gulp/" data-toggle="tooltip" data-placement="top"
+                           title="WhatGulpCanDo?">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#單元測試為何"><span class="toc-text">單元測試為何</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD、BDD差異與目的"><span class="toc-text">TDD、BDD差異與目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#單元測試框架有哪些"><span class="toc-text">單元測試框架有哪些</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                           title="TDD &amp; BDD">TDD &amp; BDD</a>
+                        
+                        <a class="tag" href="/tags/#Mocha"
+                           title="Mocha">Mocha</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/UnitTest初探/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/UnitTest初探/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>

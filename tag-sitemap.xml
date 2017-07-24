@@ -107,27 +107,6 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
-        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
-        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Google-Search-Engine/</loc>
-        <lastmod>2017-02-14T08:25:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -186,6 +165,48 @@
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Node/</loc>
         <lastmod>2017-07-12T11:48:36.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
+        <lastmod>2017-07-20T01:05:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
+        <lastmod>2017-07-20T01:05:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Google-Search-Engine/</loc>
+        <lastmod>2017-07-20T01:05:16.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
+        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/TDD-BDD/</loc>
+        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Mocha/</loc>
+        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
