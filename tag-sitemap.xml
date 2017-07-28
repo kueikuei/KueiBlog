@@ -192,21 +192,21 @@
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
-        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
+        <lastmod>2017-07-28T08:58:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/TDD-BDD/</loc>
-        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
+        <lastmod>2017-07-28T08:58:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Mocha/</loc>
-        <lastmod>2017-07-24T12:28:34.000Z</lastmod>
+        <lastmod>2017-07-28T08:58:01.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
