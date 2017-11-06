@@ -58,27 +58,6 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Stoarge/</loc>
-        <lastmod>2017-01-25T04:31:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Database/</loc>
-        <lastmod>2017-01-25T04:31:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/MongoDB/</loc>
-        <lastmod>2017-01-25T04:31:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/jQuery/</loc>
         <lastmod>2017-02-06T07:07:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -191,22 +170,50 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
-        <lastmod>2017-07-28T09:05:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://kueiblog.herokuapp.com/tags/TDD-BDD/</loc>
-        <lastmod>2017-07-28T09:05:44.000Z</lastmod>
+        <lastmod>2017-09-21T06:57:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Mocha/</loc>
-        <lastmod>2017-07-28T09:05:44.000Z</lastmod>
+        <lastmod>2017-09-22T08:42:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Express/</loc>
+        <lastmod>2017-09-22T08:42:00.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Stoarge/</loc>
+        <lastmod>2017-11-02T04:03:10.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
+        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Database/</loc>
+        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/MongoDB/</loc>
+        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

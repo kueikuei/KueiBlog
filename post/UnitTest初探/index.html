@@ -79,6 +79,20 @@
                     
                         
 							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
                         <li>
                             <a href="/archives/">archives</a>
                         </li>
@@ -87,22 +101,8 @@
                     
                         
 							
-								
-							
-						
-                    
-                        
-							
                         <li>
                             <a href="/works/">works</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -190,11 +190,11 @@
                         <a class="tag" href="/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#TDD &amp; BDD"
-                           title="TDD &amp; BDD">TDD &amp; BDD</a>
-                        
                         <a class="tag" href="/tags/#Mocha"
                            title="Mocha">Mocha</a>
+                        
+                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                           title="TDD &amp; BDD">TDD &amp; BDD</a>
                         
                     </div>
                 </div>
@@ -281,6 +281,8 @@
 <p>TDD常用方法:<br><code>suite()</code>, <code>test()</code>, suiteSetup(), suiteTeardown(), setup(), teardown()</p>
 <p>在 TDD 開發下，不再使用如describe()跟it()，而是改用<code>suite()與test()</code><br>同時也不太會再用should()，而是直接使用Node中的<code>assert()</code>函式</p>
 <p>簡單案例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TDD Test</span></div><div class="line">suite(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  setup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試前執行的程式</span></div><div class="line">  &#125;);</div><div class="line">  teardown(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試後刪除的資料</span></div><div class="line">  &#125;);</div><div class="line">  suite(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    test(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      assert.equal(<span class="string">'訊息'</span>, echo.print(<span class="string">'訊息'</span>));</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>何時該用TDD何時用BDD?</strong></p>
+<p>在實際寫程式時這個問題始終困惑著筆者。<br>邏輯上來說，TDD與BDD做的事情一樣，差別在於<code>想要給誰看</code>。</p>
 <h3 id="單元測試框架有哪些"><a href="#單元測試框架有哪些" class="headerlink" title="單元測試框架有哪些"></a>單元測試框架有哪些</h3><table>
 <thead>
 <tr>
@@ -379,11 +381,11 @@
                         <a class="tag" href="/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#TDD &amp; BDD"
-                           title="TDD &amp; BDD">TDD &amp; BDD</a>
-                        
                         <a class="tag" href="/tags/#Mocha"
                            title="Mocha">Mocha</a>
+                        
+                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                           title="TDD &amp; BDD">TDD &amp; BDD</a>
                         
                     </div>
                 </section>
