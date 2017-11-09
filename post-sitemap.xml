@@ -7,8 +7,8 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/post/MongoDB-2/</loc>
-        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <loc>https://kueiblog.herokuapp.com/post/Mongoose/</loc>
+        <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -16,7 +16,15 @@
 
     <url>
         <loc>https://kueiblog.herokuapp.com/post/MongoDB/</loc>
-        <lastmod>2017-11-02T04:03:10.000Z</lastmod>
+        <lastmod>2017-11-08T02:49:47.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/post/MongoDB-2/</loc>
+        <lastmod>2017-11-06T07:09:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

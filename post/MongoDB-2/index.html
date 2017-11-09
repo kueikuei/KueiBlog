@@ -79,6 +79,14 @@
                     
                         
 							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
 								
 							
 						
@@ -87,14 +95,6 @@
 							
                         <li>
                             <a href="/tags/">tags</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/archives/">archives</a>
                         </li>
 							
 						
@@ -187,14 +187,14 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
                         <a class="tag" href="/tags/#Database"
                            title="Database">Database</a>
                         
                         <a class="tag" href="/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
                         
                     </div>
                 </div>
@@ -224,7 +224,7 @@
 <li>Node操作MongoDB並進行CRUD</li>
 <li>參考資料</li>
 </ul>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>承襲上一篇<a href="https://kueiblog.herokuapp.com/post/Mocha%E5%AF%A6%E4%BD%9CUnitTest/">MochaTestExpress</a>，為了單元測試MongoDB，本篇讓我們深入了解一下MongoDB運作流程。</p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>承襲上一篇<a href="http://kueiblog.herokuapp.com/post/MochaTestExpress/">MochaTestExpress</a>，為了單元測試MongoDB，本篇讓我們深入了解一下MongoDB運作流程。</p>
 <p>在<a href="https://kueiblog.herokuapp.com/post/MongoDB/">MongoDB</a>曾經聊過諸多MongoDB的相關介紹以及Mongo Shell的指令<br>但是諸多細節還是沒有提到<br>故一併在本文提。</p>
 <h3 id="Mongo-Shell啟動及基本檢查"><a href="#Mongo-Shell啟動及基本檢查" class="headerlink" title="Mongo Shell啟動及基本檢查"></a>Mongo Shell啟動及基本檢查</h3><p><strong>步驟一</strong><br>終端機輸入<code>sudo mongod</code>並輸入<code>passpord</code></p>
 <p><strong>步驟二</strong><br><code>cmd+t</code>開啟新視窗並輸入<code>mongo</code>開啟MongoDB shell<br>此時能輸入各種指令操作MongoDB</p>
@@ -235,7 +235,7 @@
 <p><strong>程式碼講解</strong></p>
 <p><a href="https://github.com/kueikuei/mocha_express" target="_blank" rel="external">範例程式碼</a>在此</p>
 <p>操作之前一樣要<code>開啟MongoDB shell</code></p>
-<p><strong>連結資料庫並寫入資料</strong><br><em>n-7-5-connect-write/playground/mongodb-connect.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//require</span></div><div class="line"><span class="keyword">const</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</div><div class="line"></div><div class="line">MongoClient.connect(<span class="string">'mongodb://localhost:27017/todo'</span>, (err, db) =&gt; &#123;</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to connect to MongoDB server'</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Connected to MongoDB server'</span>);</div><div class="line"></div><div class="line">  db.collection(<span class="string">'Todos'</span>).insertOne(&#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'Something to do'</span>,</div><div class="line">    <span class="attr">completed</span>: <span class="literal">false</span></div><div class="line">  &#125;, (err, result) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert todo'</span>, err);</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(result.ops, <span class="literal">undefined</span>, <span class="number">2</span>));</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>連結資料庫並寫入資料(Create)</strong><br><em>n-7-5-connect-write/playground/mongodb-connect.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//require</span></div><div class="line"><span class="keyword">const</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</div><div class="line"></div><div class="line">MongoClient.connect(<span class="string">'mongodb://localhost:27017/todo'</span>, (err, db) =&gt; &#123;</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to connect to MongoDB server'</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Connected to MongoDB server'</span>);</div><div class="line"></div><div class="line">  db.collection(<span class="string">'Todos'</span>).insertOne(&#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'Something to do'</span>,</div><div class="line">    <span class="attr">completed</span>: <span class="literal">false</span></div><div class="line">  &#125;, (err, result) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert todo'</span>, err);</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(result.ops, <span class="literal">undefined</span>, <span class="number">2</span>));</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
 <p>藉由<code>MongoClient</code>套件去連結<code>local端DB</code><br><code>mongodb://localhost:27017/todo</code>，todo位置為<code>DB name</code>，可以連結或是創造新的DB<br><code>db.collection(&#39;Todos&#39;)</code>連結想要連結的<code>collection</code><br><code>insertOne({})</code>插入新資料並回傳結果<br>詳細的方法可以參考<a href="http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html#insertOne" target="_blank" rel="external">insertOne</a></p>
 <p><strong>運用ObjectId()</strong><br><em>n-7-6-objectid/playground/mongodb-connect.js</em></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">db.collection(<span class="string">'Users'</span>).insertOne(&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Andrew'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">25</span>,</div><div class="line">    <span class="attr">location</span>: <span class="string">'Philadelphia'</span></div><div class="line">  &#125;, (err, result) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert user'</span>, err);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(result.ops[<span class="number">0</span>]._id.getTimestamp());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -255,6 +255,11 @@
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Mongoose/" data-toggle="tooltip" data-placement="top"
+                           title="Mongoose">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -302,14 +307,14 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
                         <a class="tag" href="/tags/#Database"
                            title="Database">Database</a>
                         
                         <a class="tag" href="/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
                         
                     </div>
                 </section>

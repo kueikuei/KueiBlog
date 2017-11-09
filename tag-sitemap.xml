@@ -149,14 +149,14 @@
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
+        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
         <lastmod>2017-07-20T01:05:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
+        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
         <lastmod>2017-07-20T01:05:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -192,28 +192,35 @@
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Stoarge/</loc>
-        <lastmod>2017-11-02T04:03:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
-        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <lastmod>2017-11-08T02:49:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/Database/</loc>
-        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://kueiblog.herokuapp.com/tags/MongoDB/</loc>
-        <lastmod>2017-11-06T06:43:45.000Z</lastmod>
+        <lastmod>2017-11-09T03:22:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/Mongoose/</loc>
+        <lastmod>2017-11-09T03:22:25.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
+        <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
