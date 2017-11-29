@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://kueiblog.herokuapp.com/post/MochaTestMongoDB(%E4%B8%8A)/</loc>
+        <lastmod>2017-11-29T08:42:57.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://kueiblog.herokuapp.com/post/Mongoose/</loc>
         <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
