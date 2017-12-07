@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="null">
+    <meta name="keyword" content="undefined">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="KueiKuei" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    
+    <title>
+        KueiBlog
+    </title>
+
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/MochaTestMongoDB(下)/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('undefined')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    KueiKuei
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <!-- nav right -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+								
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/works/">works</a>
+                        </li>
+							
+						
+                    
+
+                    
+					
+					
+						<li>
+							<a href="/about">About</a>
+						</li>
+					
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+
+<img class="wechat-title-img"
+     src="http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg">
+
+
+
+<style>
+
+    header.intro-header {
+        background-image: url('http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg');
+    }
+
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>MochaTestMongoDB(下)</h1>
+                    
+                    <span class="meta">
+                         作者 KueiKuei
+                        <span>
+                          日期 2017-11-30
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Express"
+                           title="Express">Express</a>
+                        
+                        <a class="tag" href="/tags/#MongoDB"
+                           title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/tags/#Supertest"
+                           title="Supertest">Supertest</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            MochaTestMongoDB(下)
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h3 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h3><ul>
+<li>server.test.js</li>
+<li>測試前準備</li>
+<li>POST測試</li>
+<li>GET測試</li>
+<li>DELETE測試</li>
+<li>PATCH測試</li>
+<li>小結</li>
+</ul>
+<h3 id="server-test-js"><a href="#server-test-js" class="headerlink" title="server.test.js"></a>server.test.js</h3><p>延續<a href="https://kueiblog.herokuapp.com/post/MochaTestMongoDB(%E4%B8%8A)/">MochaTestMongoDB(上)</a>文章</p>
+<p>這次我們將鎖定講解<code>server.test.js</code><br>瞭解如何透過單元測試對於完整的前後端過程分別進行測試。</p>
+<p><a href="https://github.com/kueikuei/mocha_express/blob/master/n-7-28-test-database/server/tests/server.test.js" target="_blank" rel="external">測試程式碼在此</a></p>
+<h3 id="測試前準備"><a href="#測試前準備" class="headerlink" title="測試前準備"></a>測試前準備</h3><p><strong>require package</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'expect'</span>);</div><div class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'supertest'</span>);</div><div class="line"><span class="comment">// const &#123;ObjectID&#125; = require('mongodb');</span></div><div class="line"><span class="comment">// const &#123;app&#125; = require('./../server');</span></div><div class="line"><span class="comment">// const &#123;Todo&#125; = require('./../models/todo');</span></div><div class="line"><span class="keyword">var</span> ObjectID = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).ObjectID;</div><div class="line"><span class="keyword">const</span> app = <span class="built_in">require</span>(<span class="string">'./../server'</span>).app;</div><div class="line"><span class="keyword">const</span> Todo = <span class="built_in">require</span>(<span class="string">'./../models/todo'</span>);</div></pre></td></tr></table></figure></p>
+<p><code>supertest</code>專門用來測試<code>express</code><br>任何特別的應用程式理論上都會有大神門開發相對應模組進行測試(只要不是太冷門的應用)<br>這在<a href="https://kueiblog.herokuapp.com/post/MochaTestExpress/">MochaTestExpress</a>時聊過</p>
+<p>註解部分為原作者引用方式<br>是透過ES6去進行<br>但筆者這邊會引用失敗故註解</p>
+<p>在<code>server.js</code>中我們透過<code>express</code><br>將眾多<code>(req,res)</code>與對應的<code>url</code>設定完成<br>並且<code>module.exports.app = app;</code>出去<br>等號左邊的app為<code>物件函式名稱</code>；右邊為我們設定好的<code>express app</code><br>這邊我們就必須特別使用<code>.app</code>呼叫<br>不然會呼叫到整個<code>server.js</code><br>而<code>app</code>的引入成功至關重要<br>因爲所有的<code>url</code>與對應<code>method</code>都已經在app中設定好</p>
+<p>此外會用到mongodb的<code>ObjectID</code>方法<br>以及Todo model<br>一併引用</p>
+<p><strong>測試資料</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Data for testing</span></div><div class="line"><span class="keyword">const</span> todos = [&#123;</div><div class="line">  <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(),</div><div class="line">  <span class="attr">text</span>: <span class="string">'First test todo'</span></div><div class="line">&#125;, &#123;</div><div class="line">  <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(),</div><div class="line">  <span class="attr">text</span>: <span class="string">'Second test todo'</span>,</div><div class="line">  <span class="attr">completed</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">completedAt</span>: <span class="number">333</span></div><div class="line">&#125;];</div><div class="line"></div><div class="line"><span class="comment">//what to do before unittest</span></div><div class="line">beforeEach(<span class="function">(<span class="params">done</span>) =&gt;</span> &#123;</div><div class="line">  Todo.remove(&#123;&#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> Todo.insertMany(todos);</div><div class="line">  &#125;).then(<span class="function"><span class="params">()</span> =&gt;</span> done());</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>這邊有兩組被<code>陣列todos</code>包覆的資料<br>在每一個<code>測試案例(專指it)</code>前<br>我們都先清空<code>Todo.remove({})</code>DB<br>並且將將這兩筆資料存入<code>MongoDB中</code>以便測試</p>
+<h3 id="Post測試"><a href="#Post測試" class="headerlink" title="Post測試"></a>Post測試</h3><p><strong>Post</strong><br>我們進行兩個測試</p>
+<ul>
+<li>should create a new todo</li>
+<li>should not create todo with invalid body data</li>
+</ul>
+<p>我們用<code>一個測試套件describe包覆這兩個測試案例it</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'POST /todos'</span>, () =&gt; &#123;</div><div class="line">    it()&#123;&#125;;</div><div class="line">    it()&#123;&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">it(<span class="string">'should create a new todo'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> text = <span class="string">'Test todo text'</span>;</div><div class="line">    </div><div class="line">    <span class="comment">//test for front-end progress</span></div><div class="line">    request(app)</div><div class="line">      .post(<span class="string">'/todos'</span>)</div><div class="line">      .send(&#123;text&#125;)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.text).toBe(text);</div><div class="line">      &#125;)</div><div class="line">      .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">return</span> done(err);</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//test for DB</span></div><div class="line">        Todo.find(&#123;text&#125;).then(<span class="function">(<span class="params">todos</span>) =&gt;</span> &#123;</div><div class="line">          expect(todos.length).toBe(<span class="number">1</span>);</div><div class="line">          expect(todos[<span class="number">0</span>].text).toBe(text);</div><div class="line">          done();</div><div class="line">        &#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> done(e));</div><div class="line">      &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>(1) request(app)<br>request給予app參數<br>如此一來所有的CRUD method都能使用</p>
+<p>(2) .post(‘/todos’)<br>使用<code>post</code>方法<br>網址列讀取<code>/todos</code></p>
+<p>(3) .send({text})<br>這邊我們無法依靠<code>postman</code>傳送<code>req</code><br>但透過<code>supertest</code>的<code>send({})</code><br>能做到一模一樣的事情<br>{text}會將<code>{text:&#39;Test todo text&#39;}</code>傳送(send)出去</p>
+<p><strong>接著轉入server.js的app.post</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> todo = <span class="keyword">new</span> Todo(&#123;</div><div class="line">    <span class="attr">text</span>: req.body.text</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">todo.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</div><div class="line">    res.send(doc);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>接著做的事情相信大家都很熟悉<br>創建新資料並儲存及回傳<code>(res.send(doc))</code><br><a href="http://localhost:4000/post/MochaTestMongoDB(%E4%B8%8A)/" target="_blank" rel="external">MochaTestMongoDB(上)</a></p>
+<p>(4) expect(200)<br>一旦回傳成功<br><code>http state</code>顯示為<code>200</code><br>並且加以去驗證<code>expect(200)</code></p>
+<p>(5) expect((res) =&gt; {expect(res.body.text).toBe(text);})<br>接著我們測試存入DB後回傳的<code>res</code><br>是否為我們想存入的內容(等於是幫DB先行測試)<br>最後加入<code>end((err, res)</code>結束</p>
+<p>(6) test for DB<br>這邊我們測試存入DB中的資料<br>分別藉由測試其<code>長度length</code>以及<code>內容</code>是否正確</p>
+<p>以上步驟繁瑣<br>但是一步又一步完整的測試了<code>post</code><br>接著介紹<code>Get的測試</code></p>
+<h3 id="Get測試"><a href="#Get測試" class="headerlink" title="Get測試"></a>Get測試</h3><p><strong>Get</strong><br>分成兩個測試套件<br>共四個測試案例<br>我們在這邊分成兩種路徑進行測試<br>分別是<code>/todos</code>與<code>/todos/:id</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'GET /todos'</span>, () =&gt; &#123;</div><div class="line">  it(<span class="string">'should get all todos'</span>, (done) =&gt; &#123;</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">describe(<span class="string">'GET /todos/:id'</span>, () =&gt; &#123;</div><div class="line">  it(<span class="string">'should return todo doc'</span>, (done) =&gt; &#123;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  it(<span class="string">'should return 404 if todo not found'</span>, (done) =&gt; &#123;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  it(<span class="string">'should return 404 for non-object ids'</span>, (done) =&gt; &#123;</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>GET /todos</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'GET /todos'</span>, () =&gt; &#123;</div><div class="line">  it(<span class="string">'should get all todos'</span>, (done) =&gt; &#123;</div><div class="line">    request(app)</div><div class="line">      .get(<span class="string">'/todos'</span>)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.todos.length).toBe(<span class="number">2</span>);</div><div class="line">      &#125;)</div><div class="line">      .end(done);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>先看單純的<code>GET /todos</code>範例</p>
+<p>(1).get(‘/todos’)<br>取得<code>/todos url</code><br>方法用<code>get</code><br>並轉到<code>server.js的app.get(&#39;/todos&#39;) method</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//read</span></div><div class="line">app.get(<span class="string">'/todos'</span>, (req, res) =&gt; &#123;</div><div class="line">  Todo.find().then(<span class="function">(<span class="params">todos</span>) =&gt;</span> &#123;</div><div class="line">    res.send(&#123;todos&#125;);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>做的事情很單純<br>到DB中找尋<code>所有資料</code><br>並且res回傳所有資料</p>
+<p>(2).expect(200)<br>取得資料則得到<code>status 200</code></p>
+<p>(3).expect((res) =&gt; {expect(res.body.todos.length).toBe(2);})<br>這邊不比較內容<br>因為整個資料要比較資料內容會較於繁瑣<br>故<code>比較資料數量</code>是否正確<br>這邊輸入兩筆資料<br>故要等於2</p>
+<p><code>GET /todos/:id</code>範例<br>進行三個測試案例</p>
+<ul>
+<li>should return todo doc</li>
+<li>should return 404 if todo not found</li>
+<li>should return 404 for non-object ids</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'GET /todos/:id'</span>, () =&gt; &#123;</div><div class="line">  it(<span class="string">'should return todo doc'</span>, (done) =&gt; &#123;</div><div class="line">    request(app)</div><div class="line">      .get(<span class="string">`/todos/<span class="subst">$&#123;todos[<span class="number">0</span>]._id.toHexString()&#125;</span>`</span>)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.todo.text).toBe(todos[<span class="number">0</span>].text);</div><div class="line">      &#125;)</div><div class="line">      .end(done);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  it(<span class="string">'should return 404 if todo not found'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> hexId = <span class="keyword">new</span> ObjectID().toHexString();</div><div class="line"></div><div class="line">    request(app)</div><div class="line">      .get(<span class="string">`/todos/<span class="subst">$&#123;hexId&#125;</span>`</span>)</div><div class="line">      .expect(<span class="number">404</span>)</div><div class="line">      .end(done);</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  it(<span class="string">'should return 404 for non-object ids'</span>, (done) =&gt; &#123;</div><div class="line">    request(app)</div><div class="line">      .get(<span class="string">'/todos/123abc'</span>)</div><div class="line">      .expect(<span class="number">404</span>)</div><div class="line">      .end(done);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>依序講解</p>
+<p><code>should return todo doc</code><br>是<code>正確取得資料</code>時該做的測試<br>(1) .get(<code>/todos/${todos[0]._id.toHexString()}</code>)<br>透過<code>${}</code>允許我們在裡頭擺放<code>變數</code></p>
+<p>(2) .expect(200)<br>轉換到<code>server.js的app.get(&#39;/todos/:id&#39;) method</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/todos/:id'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> id = req.params.id;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (!ObjectID.isValid(id)) &#123;</div><div class="line">    <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Todo.findById(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!todo) &#123;</div><div class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    res.send(&#123;todo&#125;);</div><div class="line">  &#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">    res.status(<span class="number">400</span>).send();</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>server.js的app.get詳細介紹能看<br><a href="http://localhost:4000/post/MochaTestMongoDB(%E4%B8%8A)/" target="_blank" rel="external">MochaTestMongoDB(上)</a></p>
+<p>這邊再確定<code>id是驗證過valid的</code><br>並且有從DB中(<code>findById(id)</code>)取到此筆id資料則回傳</p>
+<p>(3) .expect((res) =&gt; {expect(res.body.todo.text).toBe(todos[0].text);})<br>這邊比較資料內容是否正確<br>並結束</p>
+<p><code>should return 404 if todo not found</code><br>此為驗證id正確<br>但是在DB中找不到資料的情況</p>
+<p>(1).get(<code>/todos/${hexId}</code>)<br>在<code>var hexId = new ObjectID().toHexString();</code>建立好驗證後的id<br>將其輸入到網址<code>/todos/${hexId}</code></p>
+<p>(2) .expect(404)<br>轉換到<code>server.js</code><br>進行id的驗證正確與否判斷<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!ObjectID.isValid(id)) &#123;</div><div class="line">    <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>儘管會通過<br>卻會因為資料無法在DB中取得回傳<code>status 404</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!todo) &#123;</div><div class="line">    <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>判斷是404後並<code>end()</code>結束測試</p>
+<p><code>should return 404 for non-object ids</code></p>
+<p>(1) .get(‘/todos/123abc’)<br>此情況為在<code>id驗證</code>時就不通過的情況<br>我們藉由<code>url params</code>去取得id<br>所以在這邊我們只要輸入任意的非驗證過的url就能進行測試<br>這邊輸入<code>123abc</code></p>
+<p>(2) .expect(404)<br>在<code>server.js</code>的<code>if (!ObjectID.isValid(id))</code>驗證失敗<br>回傳<code>404</code><br>並end()結束</p>
+<p>以上介紹為<code>/GET</code>上的所有測試</p>
+<h3 id="DELETE測試"><a href="#DELETE測試" class="headerlink" title="DELETE測試"></a>DELETE測試</h3><p><strong>DELETE /todos</strong><br>進行三個測試案例</p>
+<ul>
+<li>should remove a todo</li>
+<li>should return 404 if todo not found</li>
+<li>should return 404 if object id is invalid</li>
+</ul>
+<p>有發現嗎？<br>基本上和<code>GET /todos/:id</code>測試很像</p>
+<p><strong>should remove a todo</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">it(<span class="string">'should remove a todo'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> hexId = todos[<span class="number">1</span>]._id.toHexString();</div><div class="line"></div><div class="line">    request(app)</div><div class="line">      .delete(<span class="string">`/todos/<span class="subst">$&#123;hexId&#125;</span>`</span>)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.todo._id).toBe(hexId);</div><div class="line">      &#125;)</div><div class="line">      .end(<span class="function">(<span class="params">err, res</span>) =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="keyword">return</span> done(err);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Todo.findById(hexId).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">          expect(todo).toNotExist();</div><div class="line">          done();</div><div class="line">        &#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> done(e));</div><div class="line">      &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>基本上和<code>should return todo doc</code>做的事一模一樣<br>方法改用<code>delete()</code></p>
+<p>進入<code>server.js的app.delete(&#39;/todos/:id&#39;)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Todo.findByIdAndRemove(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!todo) &#123;</div><div class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    res.send(&#123;todo&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>刪除成功回傳<code>200</code><br>並且比較<code>id</code>是否為同筆</p>
+<p>比較特別的是<br><code>expect</code>提供<code>toNotExist()</code>方法<br>檢驗DB中此筆資料是否已刪除</p>
+<p><strong>should return 404 if todo not found</strong><br><strong>should return 404 if object id is invalid</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">it(<span class="string">'should return 404 if todo not found'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> hexId = <span class="keyword">new</span> ObjectID().toHexString();</div><div class="line"></div><div class="line">    request(app)</div><div class="line">      .delete(<span class="string">`/todos/<span class="subst">$&#123;hexId&#125;</span>`</span>)</div><div class="line">      .expect(<span class="number">404</span>)</div><div class="line">      .end(done);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">it(<span class="string">'should return 404 if object id is invalid'</span>, (done) =&gt; &#123;</div><div class="line">    request(app)</div><div class="line">      .delete(<span class="string">'/todos/123abc'</span>)</div><div class="line">      .expect(<span class="number">404</span>)</div><div class="line">      .end(done);</div><div class="line">  &#125;);</div></pre></td></tr></table></figure></p>
+<p>此兩個測試案例都和GET時一模一樣<br>並且沒有資料刪除<br>所以DB也不用進行測試</p>
+<h3 id="PATCH測試"><a href="#PATCH測試" class="headerlink" title="PATCH測試"></a>PATCH測試</h3><p>進行兩個測試案例</p>
+<ul>
+<li>should update the todo</li>
+<li>should clear completedAt when todo is not completed</li>
+</ul>
+<p>以測試<code>completedAt有無</code>作為分別<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">describe(<span class="string">'PATCH /todos/:id'</span>, () =&gt; &#123;</div><div class="line">    it(<span class="string">'should update the todo'</span>)&#123;&#125;;</div><div class="line">    it(<span class="string">'should clear completedAt when todo is not completed'</span>)&#123;&#125;;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p><strong>should update the todo</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">it(<span class="string">'should update the todo'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> hexId = todos[<span class="number">0</span>]._id.toHexString();</div><div class="line">    <span class="keyword">var</span> text = <span class="string">'This should be the new text'</span>;</div><div class="line"></div><div class="line">    request(app)</div><div class="line">      .patch(<span class="string">`/todos/<span class="subst">$&#123;hexId&#125;</span>`</span>)</div><div class="line">      .send(&#123;</div><div class="line">        <span class="attr">completed</span>: <span class="literal">true</span>,</div><div class="line">        text</div><div class="line">      &#125;)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.todo.text).toBe(text);</div><div class="line">        expect(res.body.todo.completed).toBe(<span class="literal">true</span>);</div><div class="line">        expect(res.body.todo.completedAt).toBeA(<span class="string">'number'</span>);</div><div class="line">      &#125;)</div><div class="line">      .end(done);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>todos[0]與todos[1]分別有completedAt與沒有completedAt<br>用<code>patch()進行更新</code>並且<code>send({})</code>要更新的資料<br>轉換到<code>server.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Todo.findByIdAndUpdate(id, &#123;<span class="attr">$set</span>: body&#125;, &#123;<span class="attr">new</span>: <span class="literal">true</span>&#125;).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!todo) &#123;</div><div class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">    &#125;</div><div class="line">    res.send(&#123;todo&#125;);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>成功的話<code>status 200</code><br>接著測試更新後從DB回完的資料<br>分別測試<code>內容text</code>、<code>completed是否為true</code>、<code>completedAt是否有並且是數字num</code><br>最後<code>end()</code></p>
+<p><strong>should clear completedAt when todo is not completed</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">it(<span class="string">'should clear completedAt when todo is not completed'</span>, (done) =&gt; &#123;</div><div class="line">    <span class="keyword">var</span> hexId = todos[<span class="number">1</span>]._id.toHexString();</div><div class="line">    <span class="keyword">var</span> text = <span class="string">'This should be the new text!!'</span>;</div><div class="line"></div><div class="line">    request(app)</div><div class="line">      .patch(<span class="string">`/todos/<span class="subst">$&#123;hexId&#125;</span>`</span>)</div><div class="line">      .send(&#123;</div><div class="line">        <span class="attr">completed</span>: <span class="literal">false</span>,</div><div class="line">        text</div><div class="line">      &#125;)</div><div class="line">      .expect(<span class="number">200</span>)</div><div class="line">      .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">        expect(res.body.todo.text).toBe(text);</div><div class="line">        expect(res.body.todo.completed).toBe(<span class="literal">false</span>);</div><div class="line">        expect(res.body.todo.completedAt).toNotExist();</div><div class="line">      &#125;)</div><div class="line">      .end(done);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>差別在於<code>send({})</code>給予<code>completed: false</code><br>一樣會進行更新<br>測試部分一樣是<code>內容</code>、<code>completed</code>與<code>completedAt</code><br>並且end()</p>
+<h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>以上我們完成了所有<code>express的CRUD測試</code><br>這些都是最基本卻也最重要的測試<br>思考需要進行哪些測試時<br>筆者認為<br>某個函式的<code>目的為何</code><br>如此重要的事情一定要進行測試</p>
+<p>而測試又牽扯到各種面向<br>以本例子來說<br>牽扯到前端、後端、DB<br>單元測試的語法就必須同時考量到這些面向的語法<br>光是找尋有哪些語法能用的過程就相當繁瑣<br>更不用說後續寫成測試語言<br>不熟悉單元測試的初學者絕對是要多付出<code>更多的時間</code>完成<br>這是單元測試不容易入門的地方<br>也是筆者需要再多加努力的地方</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/Node_Debug_Skill/" data-toggle="tooltip" data-placement="top"
+                           title="Node_Debug_Skill">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/MochaTestMongoDB(上)/" data-toggle="tooltip" data-placement="top"
+                           title="MochaTestMongoDB(上)">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-test-js"><span class="toc-text">server.test.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#測試前準備"><span class="toc-text">測試前準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Post測試"><span class="toc-text">Post測試</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Get測試"><span class="toc-text">Get測試</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DELETE測試"><span class="toc-text">DELETE測試</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PATCH測試"><span class="toc-text">PATCH測試</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小結"><span class="toc-text">小結</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+                
+               
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Express"
+                           title="Express">Express</a>
+                        
+                        <a class="tag" href="/tags/#MongoDB"
+                           title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/tags/#Supertest"
+                           title="Supertest">Supertest</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "kueikueiblog";
+    var disqus_identifier = "https://kueiblog.herokuapp.com/post/MochaTestMongoDB(下)/";
+    var disqus_url = "https://kueiblog.herokuapp.com/post/MochaTestMongoDB(下)/";
+
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/kueikuei">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; KueiKuei 2017
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','null','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="null">
+</body>
+
+</html>
