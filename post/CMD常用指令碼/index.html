@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/">
+    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/post/CMD常用指令碼/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -177,24 +177,24 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>SEO搜尋引擎優化結合Hexo實作</h1>
+                    <h1>CMD常用指令碼</h1>
                     
                     <span class="meta">
                          作者 KueiKuei
                         <span>
-                          日期 2017-02-14
+                          日期 2018-02-05
                          </span>
                     </span>
                     <div class="tags text-center">
                         
+                        <a class="tag" href="/KueiBlog/tags/#CMD"
+                           title="CMD">CMD</a>
+                        
                         <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/KueiBlog/tags/#SEO"
-                           title="SEO">SEO</a>
-                        
-                        <a class="tag" href="/KueiBlog/tags/#Google Search Engine"
-                           title="Google Search Engine">Google Search Engine</a>
+                        <a class="tag" href="/KueiBlog/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </div>
@@ -203,7 +203,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            SEO搜尋引擎優化結合Hexo實作
+            CMD常用指令碼
         </span>
     </div>
 </header>
@@ -217,58 +217,14 @@
                 <p><code></code></p>
 <p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
 <p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
-<h3 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h3><ul>
-<li>SEO為何</li>
-<li>Google Webmaster Central 結合 Hexo</li>
-<li>詳細流程講解</li>
-<li>成果</li>
-<li>參考資料</li>
+<h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h2><ul>
+<li>純CMD</li>
+<li>Hexo CMD</li>
+<li>GIT CMD</li>
 </ul>
-<h3 id="SEO為何"><a href="#SEO為何" class="headerlink" title="SEO為何"></a>SEO為何</h3><p>SEO(Search Engine Optimization)，中文翻譯為<code>搜尋引擎優化</code>，搜尋引擎最佳化等等。</p>
-<p><strong>今天費盡千辛萬苦，將網頁寫好並且放到雲端上，假若不能被搜尋到，一切都是枉然。</strong></p>
-<p>沒錯，這正是SEO重要性所在。而SEO運用一系列的方法，讓搜尋引擎看懂你的網站內容，然後使你的網站排名出現在自然搜尋結果的前面，進而取得高流量。而SEO的<code>最終目標是讓網站排在第一頁，排名越前面越好</code><a href="http://www.inboundjournals.com/what-is-seo/" target="_blank" rel="external">(SEO是甚麼－搜尋引擎優化概要)</a>。</p>
-<p>相關技巧有許多，例如：有沒有善用HTML5重要Tag、RWD有無、是否加入廣告等等，有興趣的讀者可以再詳閱<a href="http://www.inboundjournals.com/what-is-seo/" target="_blank" rel="external">SEO是甚麼－搜尋引擎優化概要</a>。</p>
-<p>而本文主要是期望能透過有名的Hexo Blog讓Google Search Engine能夠更容易發現我們的Blog。</p>
-<p>那麼……開始囉~~</p>
-<h3 id="Google-Webmaster-Central-結合-Hexo"><a href="#Google-Webmaster-Central-結合-Hexo" class="headerlink" title="Google Webmaster Central 結合 Hexo"></a>Google Webmaster Central 結合 Hexo</h3><p>要了解，每一個<code>Search Engine</code>都有自己的搜尋法演算法與特性，今天要盡快讓一個搜尋引擎搜尋到自己的文章，最快的方式是主動出擊提交自己的站點。</p>
-<ul>
-<li><a href="http://blogsearch.google.com/ping" target="_blank" rel="external">Google</a></li>
-</ul>
-<p><code><br><img src="http://i.imgur.com/SANQVok.png" alt="Smiley face" height="300" width="400"><br></code></p>
-<ul>
-<li><a href="http://ping.baidu.com/ping.html" target="_blank" rel="external">百度</a></li>
-<li><a href="http://www.sogou.com/feedback/blogfeedback.php" target="_blank" rel="external">Bing</a></li>
-</ul>
-<p>而當有大量文章時，一篇篇提交就顯得很麻煩。</p>
-<p><strong>透過Google搜索引擎提交Sitemap</strong></p>
-<p>步驟如下：</p>
-<ol>
-<li>進入<a href="https://www.google.com/webmasters/verification/home?hl=cn" target="_blank" rel="external">頁面</a>並將自己的Blog首頁匯入</li>
-<li>進入到網頁驗證處</li>
-<li>跟著網頁提示步驟進行</li>
-<li>跟著步驟1.下載HTML Verification</li>
-<li>將剛下載的ver code插入hexo的_config.yml</li>
-<li>重新<code>hexo g</code>後產生google-site-verification.xml file</li>
-<li>將整個Blog project重新推到雲端上</li>
-<li>透過步驟3.進行驗證</li>
-<li>驗證成功後依序步驟4.將整個驗證完成</li>
-<li>為部落格產生sitemap</li>
-<li>將sitemap:<br>path: sitemap.xml插入_config.yml</li>
-<li>重新hexo g後產生sitemap.xml file</li>
-<li>將整個Blog project重新推到雲端上</li>
-<li>進入<a href="https://www.google.com/webmasters/tools/home?hl=zh-TW" target="_blank" rel="external">Sitemap提交站</a>提交sitemap.xml後便完成</li>
-<li>等待google驗證</li>
-</ol>
-<h3 id="詳細流程講解"><a href="#詳細流程講解" class="headerlink" title="詳細流程講解"></a>詳細流程講解</h3><p>這邊將詳細部分流程。</p>
-<p><code>流程3.</code> 網頁提示步驟畫面<br><code><br><img src="http://i.imgur.com/fJzn81t.png" alt="Smiley face" height="300" width="400"><br></code></p>
-<p><code>流程5.</code> ver code插入hexo的<code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">google-site-verification:</span> googlexxxxxxxxxxxxxxx.html</div></pre></td></tr></table></figure></p>
-<p><strong>下載hexo sitemap package</strong><br><code>npm install hexo-generator-sitemap</code><br><code>sudo npm install hexo-generator-seo-friendly-sitemap --save</code><br>載完後重新<code>hexo g</code>時就會產生<code>sitemap.xml</code>、<code>sitemap.xsl</code>、<code>page-sitemap.xml</code>、<code>post-sitemap.xml</code>、<code>tag-sitemap.xml</code>這幾個檔案，而這些到時候都會一起推到雲端並且被google所琛測到。</p>
-<p><code>流程11.</code> ver code插入hexo的<code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">sitemap:</span></div><div class="line"><span class="attr">  path:</span> sitemap.xml</div></pre></td></tr></table></figure></p>
-<p><code>流程15.</code> sitemap提交後畫面<br><code><br><img src="http://i.imgur.com/SEVYEN7.png" alt="Smiley face" height="400" width="500"><br></code></p>
-<h3 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h3><p>靜待數小時後就會發現部落格被搜尋到了!!!<br>讓我們看看兩者比較圖：<br><code><br><img src="http://i.imgur.com/L5HPQJH.png" alt="Smiley face" height="300" width="400"><img src="http://i.imgur.com/uevyffF.png" alt="Smiley face" height="300" width="400"><br></code></p>
-<p>而一但有新的Blog產出，將其push到雲端後，透過Google Search Console介面左上角<code>重新提交</code>，就會自動將新的文章提交上去囉，是不是很方便呢:)?</p>
-<p>如此便是SEO成功的第一步囉!!</p>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://www.franktly.com/2016/07/06/%E8%AE%A9Baidu%E5%92%8CGoogle%E6%94%B6%E5%BD%95Hexo%E5%8D%9A%E5%AE%A2/" target="_blank" rel="external">让Baidu和Google收录Hexo博客</a><br><a href="http://conanwhf.github.io/2015/10/15/HexoSearch/" target="_blank" rel="external">Hexo搜索引擎支持和访问分析（基于Next主题）</a><br><a href="https://www.google.com/webmasters/verification/home?hl=en" target="_blank" rel="external">Google Webmaster Central</a><br><a href="http://www.inboundjournals.com/what-is-seo/" target="_blank" rel="external">SEO是甚麼－搜尋引擎優化概要</a></p>
+<h3 id="純CMD"><a href="#純CMD" class="headerlink" title="純CMD"></a>純CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//產生新資料夾</div><div class="line"><span class="variable">$mkdir</span> direct_name</div><div class="line"></div><div class="line">//轉移到某路徑下</div><div class="line"><span class="variable">$cd</span> direct_name</div><div class="line"></div><div class="line">//印出當前路徑</div><div class="line"><span class="variable">$pwd</span></div><div class="line"></div><div class="line">//產生某種類型的檔案</div><div class="line"><span class="variable">$touch</span> file_name</div><div class="line"></div><div class="line">//呼叫出所有路徑下檔案</div><div class="line"><span class="variable">$ls</span></div><div class="line"></div><div class="line">//呼叫出所有路徑下檔案(包含隱藏檔案)</div><div class="line"><span class="variable">$ls</span> <span class="_">-a</span></div><div class="line"></div><div class="line">//藉由cmd快速寫入資料</div><div class="line"><span class="variable">$echo</span> <span class="string">'# another hello world!'</span> &gt;&gt; <span class="string">'file_name'</span></div></pre></td></tr></table></figure>
+<h3 id="Hexo-CMD"><a href="#Hexo-CMD" class="headerlink" title="Hexo CMD"></a>Hexo CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//Create a new post</div><div class="line"><span class="variable">$hexo</span> new post <span class="string">"My New Post"</span></div><div class="line"></div><div class="line">//Run hexo server 4000</div><div class="line"><span class="variable">$hexo</span> server</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> s</div><div class="line"></div><div class="line">//清除不存在於_posts下的markdown檔案</div><div class="line"><span class="variable">$hexo</span> clean</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> c</div><div class="line"></div><div class="line">//依照_posts下的檔案產出其對應html檔案於public/post下</div><div class="line"><span class="variable">$hexo</span> generate</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> g</div><div class="line"></div><div class="line">//clean和generate通常一起使用</div><div class="line"><span class="variable">$hexo</span> c &amp;&amp; hexo g </div><div class="line"></div><div class="line">//部署</div><div class="line"><span class="variable">$hexo</span> deploy</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> d</div></pre></td></tr></table></figure>
+<h3 id="GIT-CMD"><a href="#GIT-CMD" class="headerlink" title="GIT CMD"></a>GIT CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">//控管此路徑下檔案</div><div class="line"><span class="variable">$git</span> init  </div><div class="line"></div><div class="line">//查看此git使用者資訊</div><div class="line"><span class="variable">$git</span> config --list </div><div class="line"></div><div class="line">//加入追蹤對象</div><div class="line"><span class="variable">$git</span> add  </div><div class="line"></div><div class="line">//commit後加入儲存庫裡頭，並添加commit訊息</div><div class="line"><span class="variable">$git</span> commit -m<span class="string">"message"</span> </div><div class="line"></div><div class="line">//連接到遠端儲存庫</div><div class="line"><span class="variable">$git</span> remote add origin   </div><div class="line"></div><div class="line">//推上遠端儲存庫 </div><div class="line"><span class="variable">$git</span> push origin master</div><div class="line"></div><div class="line">//記錄每一筆commit，檢視 commit 是否成功</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span></div><div class="line"></div><div class="line">//圖形流程圖去看</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --graph --all</div><div class="line"></div><div class="line">//查看工作目錄的狀態時...</div><div class="line"><span class="variable">$git</span> status</div><div class="line"></div><div class="line">//或是看更精簡一點的狀態...</div><div class="line"><span class="variable">$git</span> status <span class="_">-s</span></div><div class="line"></div><div class="line">//目前code與上一個版本的差別，還沒放進stage area(還沒git add)</div><div class="line"><span class="variable">$git</span> diff</div><div class="line"></div><div class="line">//假若已經放進stage area了(已經git add)，則使用此查看差別</div><div class="line">git diff --cached</div><div class="line"></div><div class="line">//取消已經暫存的(git add)檔案</div><div class="line"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span></div><div class="line"></div><div class="line">//取消對檔案的修改(edit)</div><div class="line"><span class="variable">$git</span> checkout -- <span class="string">'file_name'</span></div><div class="line"></div><div class="line">//恢復 Commit，重新提交 Commit</div><div class="line"><span class="variable">$git</span> reset --soft HEAD\^</div><div class="line"></div><div class="line">//恢復 Commit，重新提交 Commit -  commit amend</div><div class="line"><span class="variable">$git</span> add <span class="string">'file_name'</span></div><div class="line"><span class="variable">$git</span> commit --amend</div><div class="line"></div><div class="line">//如果懶得更改commit message，則打入</div><div class="line"><span class="variable">$git</span> commit --amend --no-edit</div><div class="line"></div><div class="line">//強制恢復到上一版本(commit)</div><div class="line"><span class="variable">$git</span> reset --hard HEAD\^</div><div class="line"></div><div class="line">//想要回到多個版本之前</div><div class="line"><span class="variable">$git</span> reset --hard HEAD~<span class="string">'num'</span></div><div class="line"></div><div class="line">//創立新的分支</div><div class="line"><span class="variable">$git</span> branch 新分支名稱</div><div class="line"></div><div class="line">//切換到該分支:</div><div class="line"><span class="variable">$git</span> checkout 新分支名稱</div><div class="line"></div><div class="line">//回到主支</div><div class="line"><span class="variable">$git</span> checkout master</div></pre></td></tr></table></figure>
 
                 <hr>
                 
@@ -276,14 +232,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/KueiBlog/post/JSONP/" data-toggle="tooltip" data-placement="top"
-                           title="JSONP">&larr; Previous Post</a>
+                        <a href="/KueiBlog/post/git與github的第一步/" data-toggle="tooltip" data-placement="top"
+                           title="git與github的第一步">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/KueiBlog/post/SASS/" data-toggle="tooltip" data-placement="top"
-                           title="SASS(CSS樣板語言)">Next Post &rarr;</a>
+                        <a href="/KueiBlog/post/Node_Debug_Skill/" data-toggle="tooltip" data-placement="top"
+                           title="Node_Debug_Skill">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -302,7 +258,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SEO為何"><span class="toc-text">SEO為何</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Google-Webmaster-Central-結合-Hexo"><span class="toc-text">Google Webmaster Central 結合 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#詳細流程講解"><span class="toc-text">詳細流程講解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#成果"><span class="toc-text">成果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#純CMD"><span class="toc-text">純CMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-CMD"><span class="toc-text">Hexo CMD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIT-CMD"><span class="toc-text">GIT CMD</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -326,14 +282,14 @@
                     </h5>
                     <div class="tags">
                         
+                        <a class="tag" href="/KueiBlog/tags/#CMD"
+                           title="CMD">CMD</a>
+                        
                         <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/KueiBlog/tags/#SEO"
-                           title="SEO">SEO</a>
-                        
-                        <a class="tag" href="/KueiBlog/tags/#Google Search Engine"
-                           title="Google Search Engine">Google Search Engine</a>
+                        <a class="tag" href="/KueiBlog/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </section>
@@ -353,8 +309,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/";
-    var disqus_url = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/";
+    var disqus_identifier = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/CMD常用指令碼/";
+    var disqus_url = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/CMD常用指令碼/";
 
     (function () {
         var dsq = document.createElement('script');

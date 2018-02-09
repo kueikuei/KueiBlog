@@ -21,16 +21,16 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/Git_lec2_note/">
+    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/archives/2018/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/blog-style.css">
+    <link rel="stylesheet" href="../../css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="../../css/syntax.css">
 </head>
 
 <style>
@@ -42,7 +42,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="/about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -154,168 +154,119 @@
 </script>
 
 <!-- Main Content -->
-
-<!--only post-->
-
-
-
-<img class="wechat-title-img"
-     src="undefinedhttps://image.freepik.com/free-icon/github-logo_318-49838.jpg">
-
-
-
 <style>
-
-    header.intro-header {
-        background-image: url('https://image.freepik.com/free-icon/github-logo_318-49838.jpg');
+    header.intro-header{
+        background-image: url('http://file1.jydoc.com/%E7%B4%A0%E6%9D%90%E5%BA%93/0715-14/1100-%E8%B6%85%E6%B8%85%E6%99%B0%E9%A3%8E%E6%99%AF%E5%9B%BE13.jpg');
     }
-
+    header.site-heading {
+        margin: 50px;
+        background-image: url('http://file1.jydoc.com/%E7%B4%A0%E6%9D%90%E5%BA%93/0715-14/1100-%E8%B6%85%E6%B8%85%E6%99%B0%E9%A3%8E%E6%99%AF%E5%9B%BE13.jpg');
+    }
 </style>
 
+<!-- Page Header -->
 <header class="intro-header">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>git lec2</h1>
-                    
-                    <span class="meta">
-                         作者 KueiKuei
-                        <span>
-                          日期 2016-11-07
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#Git"
-                           title="Git">Git</a>
-                        
-                    </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
+                <div class="site-heading text-center">
+                    <h1>archives</h1>
+                    <span class="subheading">Search page by date</span>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="post-title-haojen">
-        <span>
-            git lec2
-        </span>
     </div>
 </header>
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <blockquote>
-<p>github是有名的rails專案</p>
-</blockquote>
-<p>####commit講解<br>一個 commit 在 Git 中就是一個節點，這些 commit的節點就是未來你可以回朔及追蹤的參考，你可以想像就像是電玩遊戲時的存檔，每一個 commit 是一次存檔，讓我們未來在需要的時候都可以回到這些存檔時的狀態。</p>
-<p>##U r the sum of all ur training!!</p>
-<p>####[檔案在 git 底下的四種狀態]<br><img src="https://s3.amazonaws.com/media-p.slid.es/uploads/406442/images/3199193/687474703a2f2f6769742d73636d2e636f6d2f666967757265732f3138333333666967303230312d746e2e706e67.png" alt="File Status LifeCycle" title="File Status LifeCycle"></p>
-<p>1.untracked:未追蹤的，代表尚未被加入 Git 儲存庫的檔案狀態<br>2.staged:等待被 commit 的，代表下次執行git commit會將這些檔案全部送入儲存庫。新檔案透過git add後的狀態。<br>3.modified:已修改的，代表檔案已經被編輯過，或是檔案內容與上一個版本內容是不一致的狀態。通常是已經做了git add後會呈現的狀態。commit完後回到unfodify狀態。<br>staging_area暫存區：只有放在裡頭的檔案才能進行commit，一定要用git add才會放入暫存區。</p>
-<p>流程的整理：<br>修改檔案 =&gt; 加入 stage (git add) =&gt; 提交( git commit )=&gt; 繼續修改其他檔案</p>
-<p>####[復原版本]<br><em>–soft 代表銷毀 commit 但是保留 commit 內容</em><br><em>HEAD^ 代表上一個 commit (版本)</em></p>
-<p>#####git reset –soft HEAD^<br>推到雲端時不被接受 </p>
-<p>####git push origin master –force<br><em>強行毀掉遠端的commit存入local的commit</em></p>
-<p>不破壞原本commit並進行現存commit的更改  </p>
-<p>#####git commit –amend<br>原本commit的其他功能<br>$ git commit –amend –no-edit<br>推到雲端時仍不被接受<br>原因：即便是同一個commit但是內容不同仍然不給上傳<br>git push origin master –force</p>
-<p>######把commit直接銷毀<br>soft毀掉commit但是內容還在<br>hard不只commit還會把內容檔案都刪除</p>
-
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <!-- archive list -->
+            
+                
+                
+                
+                    
+                    
+                    <div class="archive archive-year" data-date="2018">
+                        <h2 class="archive-title">
+                        <span class="fa fa-archive">
+                            <a href="">2018</a>
+                        </span>
+                        </h2>
+                
+                
+                    
+                    
+                    <div class="archive archive-month" data-date="201802">
+                        <h3 class="archive-title">
+                            <a href="02">02</a>
+                        </h3>
+                
+                <div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/KueiBlog/post/Git_lec3_note/">
+                        <h4 class="post-title">
+                            git lec3
+                        </h4>
+                        
+                    </a>
+                </div>
                 <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/post/JS_Object/" data-toggle="tooltip" data-placement="top"
-                           title="Javascript Object">&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                    <li class="next">
-                        <a href="/post/Git_lec1_note/" data-toggle="tooltip" data-placement="top"
-                           title="git introduction">Next Post &rarr;</a>
-                    </li>
-                    
-                </ul>
-
-                
-
-                
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
                 </div>
-                <!-- disqus 评论框 end -->
+            
                 
-
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    
+                
+                
+                
+                <div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/">
+                        <h4 class="post-title">
+                            git學習之二 - commit講解、reset復原版本、建立分支
+                        </h4>
+                        
+                    </a>
                 </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Sidebar Container -->
-
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+                <hr>
+                </div>
+            
                 
-               
-
-                <!-- Featured Tags -->
                 
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
+                
+                
+                <div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/KueiBlog/post/git與github的第一步/">
+                        <h4 class="post-title">
+                            git與github的第一步
+                        </h4>
                         
-                        <a class="tag" href="/tags/#Git"
-                           title="Git">Git</a>
+                    </a>
+                </div>
+                <hr>
+                </div>
+            
+                
+                
+                
+                
+                <div class="one-tag-list">
+                <div class="post-preview">
+                    <a href="/KueiBlog/post/CMD常用指令碼/">
+                        <h4 class="post-title">
+                            CMD常用指令碼
+                        </h4>
                         
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-            </div>
+                    </a>
+                </div>
+                <hr>
+                </div>
+            
         </div>
-
     </div>
-</article>
-
-
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "https://kueiblog.herokuapp.com/post/Git_lec2_note/";
-    var disqus_url = "https://kueiblog.herokuapp.com/post/Git_lec2_note/";
-
-    (function () {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-
-
-
-
+</div>
 <!-- Footer -->
 <!-- Footer -->
 <footer>
@@ -347,7 +298,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; KueiKuei 2017
+                    Copyright &copy; KueiKuei 2018
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                     <br>
@@ -360,13 +311,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="../../js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/blog.js"></script>
+<script src="../../js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -384,7 +335,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+        async("https://kueikuei.github.io/KueiBlog/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

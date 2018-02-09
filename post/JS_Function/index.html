@@ -21,16 +21,16 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueiblog.herokuapp.com/post/JS_Function/">
+    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/post/JS_Function/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/blog-style.css">
+    <link rel="stylesheet" href="../../css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="../../css/syntax.css">
 </head>
 
 <style>
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="/about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -234,7 +234,7 @@
 <p>jQuery經常用到自調用函數<br>其主要功用是簡化JS DOM，讓開發者簡單去操作DOM</p>
 <h3 id="var-hoisting"><a href="#var-hoisting" class="headerlink" title="var hoisting"></a>var hoisting</h3><p>JS中，函數在被執行之前就會先被解析(hoisted)，因此變數可以函數內任意的地方<br>宣告，先宣告卻未被定義的變數則會被設定為<code>undefined</code>。</p>
 <p>由剛剛的例子得知，JavaScript是<code>function scope</code>，無論你在函數內那裏宣告變數<br>var，都會提升到最前面宣告，稱為<code>變數的拉升(Variable Hoisting)</code>。</p>
-<p>建議把變數的宣告放在函數的最頂端。否則可能導致混亂的情況，或是使用<code>let</code>可避免這種狀況<br>詳細用法可以參考<a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/">JS_ES6_Variable</a>此篇文章</p>
+<p>建議把變數的宣告放在函數的最頂端。否則可能導致混亂的情況，或是使用<code>let</code>可避免這種狀況<br>詳細用法可以參考<a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/" target="_blank" rel="external">JS_ES6_Variable</a>此篇文章</p>
 <p>example1<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//儘管還沒定義但會回傳 undefinded</span></div><div class="line">    <span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">func();</div></pre></td></tr></table></figure></p>
 <p>example2<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//首先，Global Execution Context（A wrapper to help manage the code that is running）會被建立</span></div><div class="line"><span class="comment">//function a 和 b 由於 hoisting 的緣故會先被建立在記憶體中，接著才會開始逐行執行程式。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">&#125;;</div><div class="line"><span class="comment">//接著，程式碼會執行到 a( ) 這個部分，這時候，會建立a的execution context，並且被放置到execution stack中。</span></div><div class="line"><span class="comment">//由於在 function a( ) 裡面有去執行到 function b ，因此，在這個execution stack中，最上面會變成 function b 的execution context。</span></div><div class="line"><span class="comment">//當 function b 執行完之後，會從execution stack中離開，繼續逐行執行function a。</span></div><div class="line"><span class="comment">//當 function a 執行完之後，一樣會從execution stack中抽離，在回到Global Execution Context逐行執行。</span></div><div class="line">a();</div></pre></td></tr></table></figure></p>
 <p><img src="https://1.bp.blogspot.com/-8l88MM54PFg/V0Qb5ztM1tI/AAAAAAAAlzY/3HiJFqWAF4ItzxKqE3gEa4mSz-u8tKrigCLcB/s1600/4.png" alt="Loading Fail" title="execution stack"></p>
@@ -266,13 +266,13 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeSizer</span>(<span class="params">size</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">document</span>.body.style.fontSize=size+<span class="string">'px'</span>;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">//每個函數的創建都會有自己獨特生存環境</span></div><div class="line"><span class="keyword">var</span> size12=makeSizer(<span class="number">12</span>);</div><div class="line"><span class="keyword">var</span> size14=makeSizer(<span class="number">14</span>);</div><div class="line"><span class="keyword">var</span> size16=makeSizer(<span class="number">16</span>);</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'size‐12'</span>).onclick=size12;</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'size‐14'</span>).onclick=size14;</div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'size‐16'</span>).onclick=size16;</div></pre></td></tr></table></figure>
 <p><strong>非同步處理</strong><br>在JS中有許多非同步(asynchronous)的事件處理，舉凡撈取open data，這邊我們以<code>setTimeout</code>進行模擬，期望結果是將0~5依序印出，但是最後結果卻是<code>全都是5</code>，原因何在？在這等待的1秒中，迴圈已經非同步的跑到了5，最後連續印出五個5。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(i);&#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>顯然的，剛剛的結果並不是我們要的，於是透過<code>closure</code>解決此問題，由於每一個閒置變數都存於不同記憶體，故能順利將結果印出來，依序印出<code>0~5</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printLog</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">    <span class="comment">//closure</span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(i);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">    setTimeout(printLog(i),<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>當然，透過<code>promise</code>也能解決非同步問題，有興趣的讀者能讀讀<a href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/">Ajax asynchronous
+<p>當然，透過<code>promise</code>也能解決非同步問題，有興趣的讀者能讀讀<a href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/" target="_blank" rel="external">Ajax asynchronous
 </a>。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Example2</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildFunctions</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> arr = [];</div><div class="line">    </div><div class="line">    <span class="comment">//一開始 i = 0，這時候會把陣列的內容 function( )&#123;console.log(i)&#125; 儲存到陣列中</span></div><div class="line">    <span class="comment">//但要注意的是這時候這個被儲到陣列中的函式並沒有執行（invoke），而是只是儲存在裡面而已</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">        arr.push(</div><div class="line">            <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(i);</div><div class="line">            &#125;</div><div class="line">        )</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> arr;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> fs = buildFunctions();</div><div class="line">fs[<span class="number">0</span>]();</div><div class="line">fs[<span class="number">1</span>]();</div><div class="line">fs[<span class="number">2</span>]();</div><div class="line"></div><div class="line"><span class="comment">//&gt;3</span></div><div class="line"><span class="comment">//&gt;3</span></div><div class="line"><span class="comment">//&gt;3</span></div><div class="line"></div><div class="line"><span class="comment">//當我們透過 console.log( fs[0] ) 來看陣列的內容，同樣地會發現三個陣列的內容都是一樣的function</span></div><div class="line"><span class="built_in">console</span>.log(fs[<span class="number">0</span>]);</div><div class="line"><span class="built_in">console</span>.log(fs[<span class="number">1</span>]);</div><div class="line"><span class="built_in">console</span>.log(fs[<span class="number">2</span>]);</div><div class="line"><span class="comment">//&gt;function(console.log(i);)</span></div></pre></td></tr></table></figure>
 <h3 id="Arrow-Function"><a href="#Arrow-Function" class="headerlink" title="Arrow Function"></a>Arrow Function</h3><p>箭頭函數(Arrow Function)是ES6之後可以使用的功能，讓程式碼更為簡潔。</p>
 <p><em>基本語法</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(param1, param2, …, paramN) =&gt; &#123; statements &#125; </div><div class="line">(param1, param2, …, paramN) =&gt; expression</div><div class="line"><span class="comment">// 等於 :  =&gt; &#123; return expression; &#125; </span></div><div class="line"></div><div class="line"><span class="comment">// 只有一個參數時,括號才能不加:</span></div><div class="line">(singleParam) =&gt; &#123; statements &#125;</div><div class="line">singleParam =&gt; &#123; statements &#125;</div><div class="line"></div><div class="line"><span class="comment">//若無參數,就一定要加括號:</span></div><div class="line">() =&gt; &#123; statements &#125;</div></pre></td></tr></table></figure></p>
 <p><strong>Examples</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// An empty arrow function returns undefined</span></div><div class="line"><span class="keyword">let</span> empty = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;</div><div class="line"></div><div class="line"><span class="function">(<span class="params">(</span>) =&gt;</span> <span class="string">"foobar"</span>)() <span class="comment">// returns "foobar" </span></div><div class="line"></div><div class="line"><span class="keyword">var</span> simple = <span class="function"><span class="params">a</span> =&gt;</span> a &gt; <span class="number">15</span> ? <span class="number">15</span> : a; </div><div class="line">simple(<span class="number">16</span>); <span class="comment">// 15</span></div><div class="line">simple(<span class="number">10</span>); <span class="comment">// 10</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> max = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a &gt; b ? a : b;</div></pre></td></tr></table></figure></p>
-<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/">JS_ES6_Variable</a><br><a href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/">Ajax asynchronous</a><br><a href="http://openhome.cc/Gossip/JavaScript/Closure.html" target="_blank" rel="external">閉包（Closure）</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">闭包</a><br><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">箭頭函數 (Arrow Function)</a></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://kueiblog.herokuapp.com/post/JS_ES6_Variable/" target="_blank" rel="external">JS_ES6_Variable</a><br><a href="https://kueiblog.herokuapp.com/post/Ajax_asynchronous/" target="_blank" rel="external">Ajax asynchronous</a><br><a href="http://openhome.cc/Gossip/JavaScript/Closure.html" target="_blank" rel="external">閉包（Closure）</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="external">闭包</a><br><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="external">箭頭函數 (Arrow Function)</a></p>
 
                 <hr>
                 
@@ -280,13 +280,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/hexo/" data-toggle="tooltip" data-placement="top"
-                           title="Hexo">&larr; Previous Post</a>
+                        <a href="/KueiBlog/post/Terminal_Command/" data-toggle="tooltip" data-placement="top"
+                           title="Terminal Command">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Emmet/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Emmet/" data-toggle="tooltip" data-placement="top"
                            title="Emmet">Next Post &rarr;</a>
                     </li>
                     
@@ -326,11 +326,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -351,8 +351,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "https://kueiblog.herokuapp.com/post/JS_Function/";
-    var disqus_url = "https://kueiblog.herokuapp.com/post/JS_Function/";
+    var disqus_identifier = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/JS_Function/";
+    var disqus_url = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/JS_Function/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -398,7 +398,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; KueiKuei 2017
+                    Copyright &copy; KueiKuei 2018
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                     <br>
@@ -411,13 +411,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
+<script src="../../js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/js/blog.js"></script>
+<script src="../../js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -435,7 +435,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://kueiblog.herokuapp.com/js/jquery.tagcloud.js",function(){
+        async("https://kueikuei.github.io/KueiBlog/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

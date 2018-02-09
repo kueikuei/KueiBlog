@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/post/Ruby_lec8_note/">
+    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/post/git與github的第一步/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -160,14 +160,14 @@
 
 
 <img class="wechat-title-img"
-     src="undefinedhttps://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg">
+     src="undefinedhttps://image.freepik.com/free-icon/github-logo_318-49838.jpg">
 
 
 
 <style>
 
     header.intro-header {
-        background-image: url('https://omnidev.co.uk/assets/ruby_on_rails_background-631973495d20b742f92db5cbbf95ee414c56b1c85e082268274d3941829c7d72.jpg');
+        background-image: url('https://image.freepik.com/free-icon/github-logo_318-49838.jpg');
     }
 
 </style>
@@ -177,21 +177,18 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>RoR 8 - Bootstrap into RoR</h1>
+                    <h1>git與github的第一步</h1>
                     
                     <span class="meta">
                          作者 KueiKuei
                         <span>
-                          日期 2016-10-22
+                          日期 2018-02-06
                          </span>
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
-                           title="Ruby on Rails">Ruby on Rails</a>
-                        
-                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
-                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        <a class="tag" href="/KueiBlog/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </div>
@@ -200,7 +197,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            RoR 8 - Bootstrap into RoR
+            git與github的第一步
         </span>
     </div>
 </header>
@@ -211,25 +208,44 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>[我是這樣學會 Ruby on Rails：12 個星期打造 12 個網頁 APP]<br>看每個人知識背景狀況，不見得這就是好方式。<br>真正厲害的人：keep learning!!!keep practicing!!!刻意去練習。例如打造四個網站但是用的技術都不同、永遠都要挑戰自己沒做過的東西。</p>
-<p>[gem 都被安裝到了哪裏？]<br>bundle show ‘bootstrap’<br> 顯示是否有沒有裝成功<br>bundle show –paths<br>copy paths 貼到 find =&gt; 但小心別亂改</p>
-<h4 id="打造view-partial"><a href="#打造view-partial" class="headerlink" title="打造view partial"></a>打造view partial</h4><p><strong>統一顯示的frame</strong><br>create:_title.html.erb<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">title</span> %&gt;</span><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>new.html.erb<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- view partial 就像是一個 method，是可以允許呼叫者丟參數進來 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">render</span> '<span class="attr">title</span>', <span class="attr">title:</span>'<span class="attr">New</span> <span class="attr">Order</span>' %&gt;</span></div></pre></td></tr></table></figure></p>
-<p>index.html.erb<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;%= render &apos;title&apos;, title:&apos;訂單列表&apos; %&gt;</div></pre></td></tr></table></figure></p>
-<p>form_for跟一個物件綁定<br>所有的erb都是patial</p>
-<h4 id="Url-Helper"><a href="#Url-Helper" class="headerlink" title="Url Helper"></a>Url Helper</h4><p>把url打包成變數或說metohd<br>url_helper 簡化了我們的程式碼，用 ruby 變數的方式指向原本複雜的 url<br>不止被使用在前端也可以用在後端</p>
-<p>before:<br>/orders<br>after:<br>orders_path</p>
-<p>說明路徑 <a href="http://localhost:3000/rails/info/routes" target="_blank" rel="external">http://localhost:3000/rails/info/routes</a></p>
-<h4 id="link-to"><a href="#link-to" class="headerlink" title="link_to"></a>link_to</h4><p>link_to:幫我們產生 hyperlink (超連結) 的方法<br>吃兩個參數</p>
-<p>orders_path：顯示許多Order<br>order_path：顯示單筆(show)<br>(new)</p>
-<p>resource-post<br>index posts_path<br>show  post_path<br>new   new_post_path<br>edit  edit_post_path</p>
-<p>有URL Helper都是靜態頁面，有Get搜尋資料的</p>
-<p>自己定義URL</p>
-<h4 id="BootStrap"><a href="#BootStrap" class="headerlink" title="BootStrap"></a>BootStrap</h4><p><em>小提醒：應徵工作只會它一定被刷掉，但是如果是全端或許就ＯＫ</em></p>
-<p>Rails 可以使用 gem 把 Bootstrap 裝進專案<br>靜態資源不會因為資料改變而改變：<br>app/assets/javascript/application.js<br>app/assets/stylesheets/application.css</p>
-<p>CSS:SASS跟SCSS<br>SASS是寫rails的人寫的，SCSS是另一派寫的</p>
-<h4 id="引用bootstrap"><a href="#引用bootstrap" class="headerlink" title="引用bootstrap"></a>引用bootstrap</h4><p>改application.css為application.scss<br>@import “bootstrap” 進入專案</p>
-<p>在_form.html.erb實作：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">'well'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%=</span> <span class="attr">f.submit</span>(<span class="attr">class:</span>'<span class="attr">btn</span> <span class="attr">btn-primary</span>') %&gt;</span></div></pre></td></tr></table></figure></p>
+                <p><code></code></p>
+<p><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></p>
+<p><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><br></p>
+<h2 id="主題"><a href="#主題" class="headerlink" title="主題"></a>主題</h2><ul>
+<li>前言</li>
+<li>Git與Github</li>
+<li>git初始安裝與設定</li>
+<li>本地端儲存庫Repository</li>
+<li>第一個commit</li>
+<li>遠端儲存庫</li>
+<li>參考資料</li>
+</ul>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>經常在寫程式時遇到需要恢復原本程式狀態軟體發⾏，需要分成<code>維護版(released)</code>跟<code>開發版(development)</code>，那何謂<code>版本控制</code>呢？</p>
+<p><strong>版本控制</strong></p>
+<ol>
+<li>可以隨時復原修改，回到之前的版本</li>
+<li>多⼈協作時，不會把別⼈的東⻄蓋掉</li>
+<li>保留修改歷史記錄，以供查詢</li>
+<li>軟體發⾏時，可以⽅便管理不同版本</li>
+</ol>
+<h3 id="Git與Github"><a href="#Git與Github" class="headerlink" title="Git與Github"></a>Git與Github</h3><p><strong>What is git?</strong><br>一個開放源碼的版本管理系統(VCS)<br>發明⼈ Linus Torvalds (Linux creator)<br>證明了厲害的工程師同時也是軟體發明者<br>git無論在<code>local或remote都能進行版本控制</code></p>
+<p><strong>What is github?</strong><br>一個基於 git 開發出來的服務<br>讓你能透過 git 在遠端備份程式碼<br>一般的使用免費但必須公開程式碼<br>廣受大量開源專案的喜愛<br>是程式設計師的寶庫 (可以在裡面查詢各式各樣的程式與實作的程式碼)</p>
+<h3 id="git初始安裝與設定"><a href="#git初始安裝與設定" class="headerlink" title="git初始安裝與設定"></a>git初始安裝與設定</h3><p>安裝來源包含</p>
+<ol>
+<li>至官網安裝</li>
+<li>$brew install git</li>
+</ol>
+<p>簡單設定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//打開 git 的彩色輸出</div><div class="line"><span class="variable">$git</span> config --global color.ui <span class="literal">true</span></div><div class="line"></div><div class="line">//設定 git 的 user 和 email (用註冊 github 的資訊)</div><div class="line"><span class="variable">$git</span> config --global user.name <span class="string">"你的名稱"</span></div><div class="line"><span class="variable">$git</span> config --global user.email <span class="string">"你的email"</span></div><div class="line"></div><div class="line">//確認有無安裝成功</div><div class="line"><span class="variable">$git</span> config --list</div></pre></td></tr></table></figure></p>
+<h3 id="本地端儲存庫Repository"><a href="#本地端儲存庫Repository" class="headerlink" title="本地端儲存庫Repository"></a>本地端儲存庫Repository</h3><p>我們一旦要對一個專案裡的檔案進行版本控管，我們一定需要創造一個<code>儲存庫(Repository)</code>來記錄這些版本的訊息</p>
+<p>建立儲存庫的方式有很多種，最簡單的方式就是在切換到放置程式碼的路徑下<br>輸入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> init</div></pre></td></tr></table></figure></p>
+<p>接下來這個路徑 (資料夾) 就成為我們的<code>工作目錄 (Working Directory)</code>，之後無論是新增、修改、刪除檔案，或是下任何 git 指令，都是在該工作目錄底下進行</p>
+<h3 id="第一個commit"><a href="#第一個commit" class="headerlink" title="第一個commit"></a>第一個commit</h3><p>完整第一個commit流程如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> init</div><div class="line"><span class="variable">$mkdir</span> lesson1.md</div><div class="line"><span class="variable">$git</span> add .</div><div class="line"><span class="variable">$git</span> commit -m<span class="string">'my first commit'</span></div></pre></td></tr></table></figure></p>
+<p>接著用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
+<p>去檢查有沒有commit記錄<br>也可以圖形化去看<br>透過<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all</div><div class="line">或是</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure></p>
+<p>想要查看當下資料與上一個commit的差別:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//目前code與上一個版本的差別，還沒放進stage area(還沒git add)</div><div class="line"><span class="variable">$git</span> diff</div><div class="line"></div><div class="line">//假若已經放進stage area了(已經git add)，則使用此查看差別</div><div class="line">git diff --cached</div></pre></td></tr></table></figure></p>
+<h3 id="遠端儲存庫"><a href="#遠端儲存庫" class="headerlink" title="遠端儲存庫"></a>遠端儲存庫</h3><p>今天你寫好的程式碼，你當然不希望只放在本機端，因為本機端要是發生任何天災人禍，你的程式碼就消失了，所以<code>遠端備份</code>是比較保險的作法</p>
+<p> 指令如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> remote add origin <span class="string">'remote_url.git'</span></div><div class="line"><span class="variable">$git</span> push origin master</div></pre></td></tr></table></figure></p>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://slides.com/kueikuei/deck-25/live#/" target="_blank" rel="external">git 版本管理入門實戰班 - 1 </a></p>
 
                 <hr>
                 
@@ -237,14 +253,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/KueiBlog/post/Ruby_lec7_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 7 - 表單與驗證">&larr; Previous Post</a>
+                        <a href="/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/" data-toggle="tooltip" data-placement="top"
+                           title="git學習之二 - commit講解、reset復原版本、建立分支">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/KueiBlog/post/Ruby_lec5_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 5 - MVC 架構">Next Post &rarr;</a>
+                        <a href="/KueiBlog/post/CMD常用指令碼/" data-toggle="tooltip" data-placement="top"
+                           title="CMD常用指令碼">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -263,7 +279,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#打造view-partial"><span class="toc-text">打造view partial</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Url-Helper"><span class="toc-text">Url Helper</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#link-to"><span class="toc-text">link_to</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BootStrap"><span class="toc-text">BootStrap</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#引用bootstrap"><span class="toc-text">引用bootstrap</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git與Github"><span class="toc-text">Git與Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git初始安裝與設定"><span class="toc-text">git初始安裝與設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#本地端儲存庫Repository"><span class="toc-text">本地端儲存庫Repository</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一個commit"><span class="toc-text">第一個commit</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遠端儲存庫"><span class="toc-text">遠端儲存庫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#參考資料"><span class="toc-text">參考資料</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -287,11 +303,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
-                           title="Ruby on Rails">Ruby on Rails</a>
-                        
-                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
-                           title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
+                        <a class="tag" href="/KueiBlog/tags/#Git"
+                           title="Git">Git</a>
                         
                     </div>
                 </section>
@@ -311,8 +324,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/Ruby_lec8_note/";
-    var disqus_url = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/Ruby_lec8_note/";
+    var disqus_identifier = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/git與github的第一步/";
+    var disqus_url = "https://kueikuei.github.io/KueiBlog/KueiBlog/post/git與github的第一步/";
 
     (function () {
         var dsq = document.createElement('script');

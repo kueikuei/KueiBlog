@@ -2,239 +2,246 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Ruby-on-Rails/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Ruby-on-Rails/</loc>
         <lastmod>2016-12-10T09:26:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Ruby-on-Rails-Lecture/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Ruby-on-Rails-Lecture/</loc>
         <lastmod>2016-12-10T09:26:46.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Markdown/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Markdown/</loc>
         <lastmod>2016-12-10T09:30:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Emmet/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Emmet/</loc>
         <lastmod>2016-12-10T09:30:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Git/</loc>
-        <lastmod>2016-12-10T09:34:04.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Terminal/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Terminal/</loc>
         <lastmod>2016-12-16T13:08:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/MAEN-Stack/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/MAEN-Stack/</loc>
         <lastmod>2017-01-18T15:04:24.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Facebook/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Facebook/</loc>
         <lastmod>2017-01-25T02:42:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/jQuery/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/jQuery/</loc>
         <lastmod>2017-02-06T07:07:20.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Ajax/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Ajax/</loc>
         <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Project/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Project/</loc>
         <lastmod>2017-02-13T12:31:48.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Bootstrap/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Bootstrap/</loc>
         <lastmod>2017-02-13T12:37:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/CSS/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/CSS/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/SASS/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/SASS/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/project/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/project/</loc>
         <lastmod>2017-02-22T06:51:45.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Javascript/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Javascript/</loc>
         <lastmod>2017-05-06T10:40:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/JavaScript/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/JavaScript/</loc>
         <lastmod>2017-05-10T12:41:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/JSON/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/JSON/</loc>
         <lastmod>2017-05-10T12:41:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/JSONP/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/JSONP/</loc>
         <lastmod>2017-05-10T12:41:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Gulp/</loc>
-        <lastmod>2017-07-12T11:48:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/SEO/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/SEO/</loc>
         <lastmod>2017-07-20T01:05:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Hexo/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Google-Search-Engine/</loc>
         <lastmod>2017-07-20T01:05:16.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Google-Search-Engine/</loc>
-        <lastmod>2017-07-20T01:05:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/TDD-BDD/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/TDD-BDD/</loc>
         <lastmod>2017-09-21T06:57:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Mocha/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Mocha/</loc>
         <lastmod>2017-09-22T08:42:00.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Stoarge/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Stoarge/</loc>
         <lastmod>2017-11-08T02:49:47.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Database/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Database/</loc>
         <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Mongoose/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Mongoose/</loc>
         <lastmod>2017-11-09T03:22:25.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Node/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/DebugMode/</loc>
         <lastmod>2017-12-07T06:58:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/DebugMode/</loc>
-        <lastmod>2017-12-07T06:58:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Express/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/UnitTest/</loc>
         <lastmod>2017-12-07T08:30:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/MongoDB/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Express/</loc>
         <lastmod>2017-12-07T08:30:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/UnitTest/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/MongoDB/</loc>
         <lastmod>2017-12-07T08:30:41.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://kueiblog.herokuapp.com/tags/Supertest/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Supertest/</loc>
         <lastmod>2017-12-07T08:30:41.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Node/</loc>
+        <lastmod>2018-02-02T03:55:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Gulp/</loc>
+        <lastmod>2018-02-02T03:55:58.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/CMD/</loc>
+        <lastmod>2018-02-07T07:12:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Hexo/</loc>
+        <lastmod>2018-02-07T07:12:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/Git/</loc>
+        <lastmod>2018-02-07T09:08:10.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
