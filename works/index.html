@@ -3,6 +3,7 @@
 
 <!-- Head tag -->
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,22 +22,21 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="https://kueikuei.github.io/KueiBlog/KueiBlog/works/">
+    <link rel="canonical" href="https://kueiblog.herokuapp.com/works/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="/KueiBlog/css/bootstrap.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="../css/blog-style.css">
+    <link rel="stylesheet" href="/KueiBlog/css/blog-style.css">
 
     <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="../css/syntax.css">
+    <link rel="stylesheet" href="/KueiBlog/css/syntax.css">
 </head>
 
 <style>
-
     header.intro-header {
-        background-image: url('undefined')
+        background-image: url('http://ocnnxadky.bkt.clouddn.com/16-9-11/335924.jpg');
     }
 </style>
 <!-- hack iOS CSS :active style -->
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/KueiBlog/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,45 +73,25 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/KueiBlog/">Home</a>
+                        <a href="/KueiBlog">Home</a>
                     </li>
-					
+                             
+                    <li>
+                        <a href="/KueiBlog/tags/">tags</a>
+                    </li>  
                     
-                        
-							
-                        <li>
-                            <a href="/KueiBlog/tags/">tags</a>
-                        </li>
-							
-						
-                    
-                        
-							
-								
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/KueiBlog/archives/">archives</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
-                            <a href="/KueiBlog/works/">works</a>
-                        </li>
-							
-						
-                    
+                    <li>
+                        <a href="/KueiBlog/archives/">archives</a>
+                    </li>
 
-                    
-					
-					
+                    <li>
+                        <a href="/KueiBlog/works/">works</a>
+                    </li>
 
+                    <li>
+                        <a href="/KueiBlog/about/">about</a>
+                    </li>
+                    
                     
                 </ul>
             </div>
@@ -157,7 +137,8 @@
 
     header .bg-header {
         height: 560px;
-        background-color: #62A4FF;
+        /*background-color: #62A4FF;*/
+        background-image: url('http://www.vipsucai.com/UploadsImg/Desk/2013/04/12/nb8214121332091.jpg');
     }
 
     /*头像*/
@@ -289,13 +270,13 @@
         <div class="bg-header text-center">
             <div class="profile">
                 <div class="avatar">
-                    <img src="null">
+                    <img src="https://avatars1.githubusercontent.com/u/13944013?v=3&u=b5bd217897072a90b72c8cbc7619e692027def3b&s=400">
                 </div>
                 <div class="personal-profile">
                     <h1>
                         KueiKuei
                     </h1>
-                    <h2>个人作品集</h2>
+                    <h2>個人作品集</h2>
                 </div>
             </div>
         </div>
@@ -305,7 +286,164 @@
             <div class="col-sm-10 col-sm-offset-1
                         col-md-8 col-md-offset-2
                       works-area">
-                
+                <div class="works-item">
+                    <div class="title">
+                        <h3>
+                            SASS系統化CSS Style-品牌網頁的進擊
+                        </h3>
+                        <span class="title-date text-muted">
+                            2017.2
+                        </span>
+                    </div>
+                    <div class="works-item-img">
+                        <img src="http://i.imgur.com/QOVyqiS.png">
+                    </div>
+                    <div class="works-content">
+                        <div class="use text-warning">
+                            
+                            <span>SASS</span>
+                            <span>CSS-Position</span>
+                            
+                        </div>
+
+
+                        <p class="text-muted"> 
+                        在寫一品牌網站時會先定義後該有的佈局、字體顏色等等，而透過SASS的變數、mixin、css排列能夠更加系統化地去完成網頁，例如改變一個變數顏色、一個變數size，整份網頁對應到的變數都能有所改變，而當網頁系統相當龐大時此方法就會相當便利。而透過此範例也能更加瞭解CSS在佈局定位時的技巧。
+                        </p>
+                    </div>
+                    <div class="footer clearfix">
+                        <a class=" btn btn-default" href="https://codepen.io/KUEI/pen/WRWWYQ?editors=1100" target="_blank"> Open
+                            it</a>
+                    </div>
+                </div>
+
+                <div class="works-item">
+                    <div class="title">
+                        <h3>
+                            iCSS-NameCard
+                        </h3>
+                        <span class="title-date text-muted">
+                            2017.2
+                        </span>
+                    </div>
+                    <div class="works-item-img">
+                        <img src="http://i.imgur.com/14lxH0w.png">
+                    </div>
+                    <div class="works-content">
+                        <div class="use text-warning">
+                            
+                            <span>CSS</span>
+                            <span>CSS-Position</span>
+                            
+                        </div>
+
+
+                        <p class="text-muted"> 
+                        本Project嘗試從趣味中去了解CSS在排版上的原理，並逐一透過Border等技巧去進行排版上的Debug，最後做出此麵包超人，一但滑鼠移動到臉上就會交出我的名片唷:)
+                        </p>
+                    </div>
+                    <div class="footer clearfix">
+                        <a class=" btn btn-default" href="https://kueikuei.github.io/NameCard/" target="_blank"> Open
+                            it</a>
+                    </div>
+                </div>
+        
+                <div class="works-item">
+                    <div class="title">
+                        <h3>
+                            iPet寵物領養
+                        </h3>
+                        <span class="title-date text-muted">
+                            2017.2
+                        </span>
+                    </div>
+                    <div class="works-item-img">
+                        <img src="http://i.imgur.com/q9WcyPj.png">
+                    </div>
+                    <div class="works-content">
+                        <div class="use text-warning">
+                            
+                            <span>Javascript</span>
+                            <span>AJAX</span>
+                            <span>Open Data</span>
+                            
+                        </div>
+
+
+                        <p class="text-muted"> 
+                        非同步方法ajax撈取open data資料並呈現於前端頁面。
+                        如果無法看到結果是由於http安全協定的問題，請將右上角盾牌打開方便瀏覽:)
+                        </p>
+                    </div>
+                    <div class="footer clearfix">
+                        <a class=" btn btn-default" href="https://kueikuei.github.io/iPet/" target="_blank"> Open
+                            it</a>
+                    </div>
+                </div>
+
+                <div class="works-item">
+                    <div class="title">
+                        <h3>
+                            ToDo備忘錄
+                        </h3>
+                        <span class="title-date text-muted">
+                            2017.1
+                        </span>
+                    </div>
+                    <div class="works-item-img">
+                        <img src="http://i.imgur.com/OEGpOe6.png">
+                    </div>
+                    <div class="works-content">
+                        <div class="use text-warning">
+                            
+                            <span>MEAN Stack</span>
+                            <span>MongoDB</span>
+                            <span>Express</span>
+                            <span>Node</span>
+                            
+                        </div>
+                        　
+                        <p class="subtitle"> A MEAN Stack Project </p>
+
+                        <p class="text-muted"> 
+                        整合MongoDB、Express、NodeJS所完成的雲端備忘錄。
+                        </p>
+                    </div>
+                    <div class="footer clearfix">
+                        <a class=" btn btn-default" href="https://what-need-todo.herokuapp.com/" target="_blank"> Open
+                            it</a>
+                    </div>
+                </div>
+
+                <div class="works-item">
+                    <div class="title">
+                        <h3>
+                            iSave雲端記帳本
+                        </h3>
+                        <span class="title-date text-muted">
+                            2016.12
+                        </span>
+                    </div>
+                    <div class="works-item-img">
+                        <img src="http://i.imgur.com/rhzuFH9.png">
+                    </div>
+                    <div class="works-content">
+                        <div class="use text-warning">
+                            
+                            <span>Javascript</span>
+                            <span>FireBase</span>                          
+                        </div>
+                        　
+                        <p class="subtitle"></p>
+
+                        <p class="text-muted"> 透過純前端語言Javascript結合雲端資料庫Firebase，輕鬆打造出雲端記事本，此成品完全沒有仰賴後端資料庫，雲端資料庫Firebase作為一線上資料庫服務系統相當有應用潛力。 </p>
+                    </div>
+                    <div class="footer clearfix">
+                        <a class=" btn btn-default" href="https://kueikuei.github.io/iSave/" target="_blank"> Open
+                            it</a>
+                    </div>
+                </div>
+
             </div>
         </section>
     </div>
@@ -341,7 +479,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; KueiKuei 2018
+                    Copyright &copy; KueiKuei 2016
                     <br>
                     <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
                     <br>
@@ -354,13 +492,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="../js/jquery.min.js"></script>
+<script src="/KueiBlog/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
+<script src="/KueiBlog/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="../js/blog.js"></script>
+<script src="/KueiBlog/js/blog.js"></script>
 
 <!-- async load function -->
 <script>
@@ -378,7 +516,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("https://kueikuei.github.io/KueiBlog/KueiBlog/js/jquery.tagcloud.js",function(){
+        async("https://kueikuei.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -413,10 +551,3 @@
   _st('install','null','2.0.0');
 </script>
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-<!--wechat title img-->
-<img class="wechat-title-img" src="null">
-</body>
-
-</html>
