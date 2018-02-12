@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>https://kueikuei.github.io/KueiBlog</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/about/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/about/</loc>
         <lastmod>2017-06-25T07:13:56.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/archives/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/archives/</loc>
         <lastmod>2016-12-22T14:09:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/works/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/works/</loc>
         <lastmod>2016-12-10T02:54:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://yoursite.com/tags/</loc>
+        <loc>https://kueikuei.github.io/KueiBlog/tags/</loc>
         <lastmod>2016-12-09T15:54:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
