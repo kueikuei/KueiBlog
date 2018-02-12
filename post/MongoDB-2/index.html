@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/MongoDB-2/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/MongoDB-2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
                         
-                        <a class="tag" href="/tags/#Database"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#Database"
                            title="Database">Database</a>
                         
                     </div>
@@ -235,18 +235,108 @@
 <p><strong>程式碼講解</strong></p>
 <p><a href="https://github.com/kueikuei/mocha_express" target="_blank" rel="external">範例程式碼</a>在此</p>
 <p>操作之前一樣要<code>開啟MongoDB shell</code></p>
-<p><strong>連結資料庫並寫入資料(Create)</strong><br><em>n-7-5-connect-write/playground/mongodb-connect.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//require</span></div><div class="line"><span class="keyword">const</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;</div><div class="line"></div><div class="line">MongoClient.connect(<span class="string">'mongodb://localhost:27017/todo'</span>, (err, db) =&gt; &#123;</div><div class="line">  <span class="keyword">if</span> (err) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to connect to MongoDB server'</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Connected to MongoDB server'</span>);</div><div class="line"></div><div class="line">  db.collection(<span class="string">'Todos'</span>).insertOne(&#123;</div><div class="line">    <span class="attr">text</span>: <span class="string">'Something to do'</span>,</div><div class="line">    <span class="attr">completed</span>: <span class="literal">false</span></div><div class="line">  &#125;, (err, result) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert todo'</span>, err);</div><div class="line">    &#125;</div><div class="line">  </div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(result.ops, <span class="literal">undefined</span>, <span class="number">2</span>));</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>連結資料庫並寫入資料(Create)</strong><br><em>n-7-5-connect-write/playground/mongodb-connect.js</em></p>
+<pre><code class="javascript"><span class="comment">//require</span>
+<span class="keyword">const</span> MongoClient = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).MongoClient;
+
+MongoClient.connect(<span class="string">'mongodb://localhost:27017/todo'</span>, (err, db) =&gt; {
+  <span class="keyword">if</span> (err) {
+    <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to connect to MongoDB server'</span>);
+  }
+  <span class="built_in">console</span>.log(<span class="string">'Connected to MongoDB server'</span>);
+
+  db.collection(<span class="string">'Todos'</span>).insertOne({
+    <span class="attr">text</span>: <span class="string">'Something to do'</span>,
+    <span class="attr">completed</span>: <span class="literal">false</span>
+  }, (err, result) =&gt; {
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert todo'</span>, err);
+    }
+
+    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(result.ops, <span class="literal">undefined</span>, <span class="number">2</span>));
+  });
+});
+</code></pre>
 <p>藉由<code>MongoClient</code>套件去連結<code>local端DB</code><br><code>mongodb://localhost:27017/todo</code>，todo位置為<code>DB name</code>，可以連結或是創造新的DB<br><code>db.collection(&#39;Todos&#39;)</code>連結想要連結的<code>collection</code><br><code>insertOne({})</code>插入新資料並回傳結果<br>詳細的方法可以參考<a href="http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html#insertOne" target="_blank" rel="external">insertOne</a></p>
 <p><strong>運用ObjectId()</strong><br><em>n-7-6-objectid/playground/mongodb-connect.js</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">db.collection(<span class="string">'Users'</span>).insertOne(&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Andrew'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">25</span>,</div><div class="line">    <span class="attr">location</span>: <span class="string">'Philadelphia'</span></div><div class="line">  &#125;, (err, result) =&gt; &#123;</div><div class="line">    <span class="keyword">if</span> (err) &#123;</div><div class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert user'</span>, err);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(result.ops[<span class="number">0</span>]._id.getTimestamp());</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<pre><code class="javascript">db.collection(<span class="string">'Users'</span>).insertOne({
+    <span class="attr">name</span>: <span class="string">'Andrew'</span>,
+    <span class="attr">age</span>: <span class="number">25</span>,
+    <span class="attr">location</span>: <span class="string">'Philadelphia'</span>
+  }, (err, result) =&gt; {
+    <span class="keyword">if</span> (err) {
+      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'Unable to insert user'</span>, err);
+    }
+    <span class="built_in">console</span>.log(result.ops[<span class="number">0</span>]._id.getTimestamp());
+});
+</code></pre>
 <p>mongodb為每一個document做出獨一無二的ID<br>我們可以應用此ID做諸多應用<br>包含查詢或是得到他的建立時間<code>getTimestamp()</code></p>
 <p>mongodb package裡頭有諸多方法，包含剛剛使用的<code>MongoClient</code>、<code>ObjectId</code>都可以在<br><a href="http://mongodb.github.io/node-mongodb-native/2.2/api/" target="_blank" rel="external">Node.js MongoDB Driver API</a>搜尋到</p>
 <p><strong>讀取(Read)資料</strong><br><em>n-7-7-fetching-data/playground/mongodb-find.js</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//test 1.</span></div><div class="line">db.collection(<span class="string">'todos'</span>).find(&#123;</div><div class="line">    <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(<span class="string">'586b4132d1d01f38cf0da8ea'</span>)</div><div class="line">    <span class="comment">// "_id" : new ObjectId("586b4132d1d01f38cf0da8ea") //ObjectId is not defined</span></div><div class="line">    &#125;).toArray().then(<span class="function">(<span class="params">docs</span>) =&gt;</span> &#123;</div><div class="line">    <span class="comment">//if not toArray()</span></div><div class="line">    <span class="comment">//TypeError: db.collection(...).find(...).then is not a function</span></div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Todos'</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(docs, <span class="literal">undefined</span>, <span class="number">2</span>));</div><div class="line">    &#125;, (err) =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Unable to fetch todos'</span>, err);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//test 2.</span></div><div class="line"><span class="comment">//計算共幾筆資料</span></div><div class="line">db.collection(<span class="string">'todos'</span>).find().count().then(<span class="function">(<span class="params">count</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">`Todos count: <span class="subst">$&#123;count&#125;</span>`</span>);</div><div class="line">    &#125;, (err) =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Unable to fetch todos'</span>, err);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//test 3.</span></div><div class="line"><span class="comment">//by key:value to find</span></div><div class="line">db.collection(<span class="string">'todos'</span>).find(&#123;<span class="attr">name</span>: <span class="string">'Andrew'</span>&#125;).toArray().then(<span class="function">(<span class="params">docs</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(docs, <span class="literal">undefined</span>, <span class="number">2</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//test 1.</span>
+db.collection(<span class="string">'todos'</span>).find({
+    <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(<span class="string">'586b4132d1d01f38cf0da8ea'</span>)
+    <span class="comment">// "_id" : new ObjectId("586b4132d1d01f38cf0da8ea") //ObjectId is not defined</span>
+    }).toArray().then(<span class="function">(<span class="params">docs</span>) =&gt;</span> {
+    <span class="comment">//if not toArray()</span>
+    <span class="comment">//TypeError: db.collection(...).find(...).then is not a function</span>
+    <span class="built_in">console</span>.log(<span class="string">'Todos'</span>);
+    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(docs, <span class="literal">undefined</span>, <span class="number">2</span>));
+    }, (err) =&gt; {
+    <span class="built_in">console</span>.log(<span class="string">'Unable to fetch todos'</span>, err);
+});
+
+<span class="comment">//test 2.</span>
+<span class="comment">//計算共幾筆資料</span>
+db.collection(<span class="string">'todos'</span>).find().count().then(<span class="function">(<span class="params">count</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(<span class="string">`Todos count: <span class="subst">${count}</span>`</span>);
+    }, (err) =&gt; {
+    <span class="built_in">console</span>.log(<span class="string">'Unable to fetch todos'</span>, err);
+});
+
+<span class="comment">//test 3.</span>
+<span class="comment">//by key:value to find</span>
+db.collection(<span class="string">'todos'</span>).find({<span class="attr">name</span>: <span class="string">'Andrew'</span>}).toArray().then(<span class="function">(<span class="params">docs</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(docs, <span class="literal">undefined</span>, <span class="number">2</span>));
+});
+</code></pre>
 <p>此三個範例分別藉由<br><code>ObjectID</code>、<code>{key:value}</code>、<code>get all data</code>進行搜尋<br>要特別注意的是id搜尋法一定要用<code>_id: new ObjectID()</code>進行搜尋</p>
-<p><strong>刪除(Delete)資料</strong><br><em>n-7-9-deleting-documents/playground/mongodb-delete.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1.</span></div><div class="line"><span class="comment">// deleteMany</span></div><div class="line">db.collection(<span class="string">'Todos'</span>).deleteMany(&#123;<span class="string">"test"</span> : <span class="string">"test"</span>&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//2.</span></div><div class="line"><span class="comment">// deleteOne</span></div><div class="line">db.collection(<span class="string">'Todos'</span>).deleteOne(&#123;<span class="string">"completed"</span> : <span class="literal">false</span>&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//3.</span></div><div class="line"><span class="comment">// findOneAndDelete</span></div><div class="line">db.collection(<span class="string">'Todos'</span>).findOneAndDelete(&#123;<span class="attr">completed</span>: <span class="literal">false</span>&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>刪除(Delete)資料</strong><br><em>n-7-9-deleting-documents/playground/mongodb-delete.js</em></p>
+<pre><code class="javascript"><span class="comment">//1.</span>
+<span class="comment">// deleteMany</span>
+db.collection(<span class="string">'Todos'</span>).deleteMany({<span class="string">"test"</span> : <span class="string">"test"</span>}).then(<span class="function">(<span class="params">result</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(result);
+});
+
+<span class="comment">//2.</span>
+<span class="comment">// deleteOne</span>
+db.collection(<span class="string">'Todos'</span>).deleteOne({<span class="string">"completed"</span> : <span class="literal">false</span>}).then(<span class="function">(<span class="params">result</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(result);
+});
+
+<span class="comment">//3.</span>
+<span class="comment">// findOneAndDelete</span>
+db.collection(<span class="string">'Todos'</span>).findOneAndDelete({<span class="attr">completed</span>: <span class="literal">false</span>}).then(<span class="function">(<span class="params">result</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(result);
+});
+</code></pre>
 <p>MongoDB透過三種主要方法進行刪除<br><code>deleteMany({})</code>、<code>deleteOne({})</code>、<code>findOneAndDelete({})</code><br>裡面存放物件並進行刪除</p>
-<p><strong>更新(Update)資料</strong><br><em>n-7-10-updating-documents/playground/mongodb-update.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//findOneAndUpdate(filter,update,options,callback)</span></div><div class="line"></div><div class="line"><span class="comment">//test 1.</span></div><div class="line">db.collection(<span class="string">'Todos'</span>).findOneAndUpdate(&#123;</div><div class="line">    <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(<span class="string">'59ec320b05a4b74e3bdff8c1'</span>)</div><div class="line">&#125;, &#123;</div><div class="line">    <span class="attr">$set</span>: &#123;</div><div class="line">      <span class="attr">age</span> : <span class="number">1</span></div><div class="line">    &#125;</div><div class="line">&#125;, &#123;</div><div class="line">    <span class="attr">returnOriginal</span>: <span class="literal">false</span></div><div class="line">&#125;).then(<span class="function">(<span class="params">result</span>) =&gt;</span> &#123;</div><div class="line">    <span class="built_in">console</span>.log(result);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>更新(Update)資料</strong><br><em>n-7-10-updating-documents/playground/mongodb-update.js</em></p>
+<pre><code class="javascript"><span class="comment">//findOneAndUpdate(filter,update,options,callback)</span>
+
+<span class="comment">//test 1.</span>
+db.collection(<span class="string">'Todos'</span>).findOneAndUpdate({
+    <span class="attr">_id</span>: <span class="keyword">new</span> ObjectID(<span class="string">'59ec320b05a4b74e3bdff8c1'</span>)
+}, {
+    <span class="attr">$set</span>: {
+      <span class="attr">age</span> : <span class="number">1</span>
+    }
+}, {
+    <span class="attr">returnOriginal</span>: <span class="literal">false</span>
+}).then(<span class="function">(<span class="params">result</span>) =&gt;</span> {
+    <span class="built_in">console</span>.log(result);
+});
+</code></pre>
 <p><code>filter</code>為篩選條件，像剛剛的find()方法一樣，裡頭篩物件<br><code>update</code>放要更新的物件，如果搜尋不到則會增加新物件<br><code>options</code>有多個參數方式，大部分使用<code>returnOriginal:false</code>，回傳更新後的物件<br><code>callback</code>能夠丟入<code>then(res)</code>進一步呈現</p>
 <p>以上大致介紹了純MongoDB進行CRUD的方法。<br>之後我們會透過更簡單的套件<code>mongoose</code>進行</p>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://mongodb.github.io/node-mongodb-native/2.2/api/" target="_blank" rel="external">Node.js MongoDB Driver API</a></p>
@@ -257,13 +347,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Mongoose/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Mongoose/" data-toggle="tooltip" data-placement="top"
                            title="Mongoose">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/MochaTestExpress/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MochaTestExpress/" data-toggle="tooltip" data-placement="top"
                            title="MochaTestExpress">Next Post &rarr;</a>
                     </li>
                     
@@ -303,17 +393,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
                         
-                        <a class="tag" href="/tags/#Database"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#Database"
                            title="Database">Database</a>
                         
                     </div>
@@ -334,8 +424,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/MongoDB-2/";
-    var disqus_url = "http://yoursite.com/post/MongoDB-2/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/MongoDB-2/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/MongoDB-2/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -418,7 +508,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

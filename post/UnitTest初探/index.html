@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/UnitTest初探/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/UnitTest初探/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#Mocha"
+                        <a class="tag" href="/KueiBlog/tags/#Mocha"
                            title="Mocha">Mocha</a>
                         
-                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                        <a class="tag" href="/KueiBlog/tags/#TDD &amp; BDD"
                            title="TDD &amp; BDD">TDD &amp; BDD</a>
                         
                     </div>
@@ -266,7 +266,25 @@
 </tbody>
 </table>
 <p><strong>BDD常用方法:</strong><br><code>describe()</code>, <code>it()</code>,  context(), before(), after(), beforeEach(), afterEach()<br>describe()稱為<code>測試套件(test suite)</code>，用來描述每個測試案例所要測試的情境(scenario)<br>it()稱為<code>測試案例(test case)</code>，將要驗證的結果放在裏頭<br>it下驗證的方法包含<code>should()</code>、<code>expect()</code></p>
-<p>簡單案例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//BDD Example</span></div><div class="line">describe(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試前執行的程式</span></div><div class="line">  &#125;);</div><div class="line">  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試後刪除的資料</span></div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  describe(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    it(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="comment">//用來描述你所預期的測試結果，通常會用 “should xxxx” 來表示</span></div><div class="line">      <span class="comment">//接起來看的話就會是 “it should xxxx"</span></div><div class="line">      echo.print(<span class="string">'訊息'</span>).should.equal(<span class="string">'訊息'</span>);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>簡單案例如下:</p>
+<pre><code class="javascript"><span class="comment">//BDD Example</span>
+describe(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">// 任何需要在測試前執行的程式</span>
+  });
+  after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">// 任何需要在測試後刪除的資料</span>
+  });
+
+  describe(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    it(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+      <span class="comment">//用來描述你所預期的測試結果，通常會用 “should xxxx” 來表示</span>
+      <span class="comment">//接起來看的話就會是 “it should xxxx"</span>
+      echo.print(<span class="string">'訊息'</span>).should.equal(<span class="string">'訊息'</span>);
+    });
+  });
+});
+</code></pre>
 <p><strong>TDD</strong><br>一種程式開發的流程，而不是工具。<br>它講究的是 </p>
 <pre><code>1. 小步前進 
 2. 快速且持續回饋，擁抱變化
@@ -280,7 +298,22 @@
 </ol>
 <p>TDD常用方法:<br><code>suite()</code>, <code>test()</code>, suiteSetup(), suiteTeardown(), setup(), teardown()</p>
 <p>在 TDD 開發下，不再使用如describe()跟it()，而是改用<code>suite()與test()</code><br>同時也不太會再用should()，而是直接使用Node中的<code>assert()</code>函式</p>
-<p>簡單案例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//TDD Test</span></div><div class="line">suite(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  setup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試前執行的程式</span></div><div class="line">  &#125;);</div><div class="line">  teardown(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 任何需要在測試後刪除的資料</span></div><div class="line">  &#125;);</div><div class="line">  suite(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    test(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      assert.equal(<span class="string">'訊息'</span>, echo.print(<span class="string">'訊息'</span>));</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>簡單案例如下:</p>
+<pre><code class="javascript"><span class="comment">//TDD Test</span>
+suite(<span class="string">'測試標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  setup(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">// 任何需要在測試前執行的程式</span>
+  });
+  teardown(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="comment">// 任何需要在測試後刪除的資料</span>
+  });
+  suite(<span class="string">'測試子標題'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    test(<span class="string">'測試內容'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+      assert.equal(<span class="string">'訊息'</span>, echo.print(<span class="string">'訊息'</span>));
+    });
+  });
+});
+</code></pre>
 <p><strong>何時該用TDD何時用BDD?</strong></p>
 <p>在實際寫程式時這個問題始終困惑著筆者。<br>邏輯上來說，TDD與BDD做的事情一樣，差別在於<code>想要給誰看</code>。</p>
 <h3 id="單元測試框架有哪些"><a href="#單元測試框架有哪些" class="headerlink" title="單元測試框架有哪些"></a>單元測試框架有哪些</h3><table>
@@ -328,13 +361,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Mocha實作UnitTest/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Mocha實作UnitTest/" data-toggle="tooltip" data-placement="top"
                            title="Mocha實作UnitTest">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/gulp/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/gulp/" data-toggle="tooltip" data-placement="top"
                            title="WhatGulpCanDo?">Next Post &rarr;</a>
                     </li>
                     
@@ -374,17 +407,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#Mocha"
+                        <a class="tag" href="/KueiBlog/tags/#Mocha"
                            title="Mocha">Mocha</a>
                         
-                        <a class="tag" href="/tags/#TDD &amp; BDD"
+                        <a class="tag" href="/KueiBlog/tags/#TDD &amp; BDD"
                            title="TDD &amp; BDD">TDD &amp; BDD</a>
                         
                     </div>
@@ -405,8 +438,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/UnitTest初探/";
-    var disqus_url = "http://yoursite.com/post/UnitTest初探/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/UnitTest初探/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/UnitTest初探/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -489,7 +522,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

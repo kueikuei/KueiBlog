@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Mongoose/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Mongoose/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,16 +187,16 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
                         
-                        <a class="tag" href="/tags/#Database"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#Database"
                            title="Database">Database</a>
                         
-                        <a class="tag" href="/tags/#Mongoose"
+                        <a class="tag" href="/KueiBlog/tags/#Mongoose"
                            title="Mongoose">Mongoose</a>
                         
                     </div>
@@ -229,25 +229,134 @@
 </ul>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在上一篇<a href="https://kueiblog.herokuapp.com/post/MongoDB-2/" target="_blank" rel="external">MongoDB(2)</a>中有提到原生的Mongo如何透過local端套件<code>Client</code>寫入資料到DB<br>而透過<code>Mongoose</code>可以更容易更直觀地寫入，此外，最大的好處在於可以定義<code>Schma以及Validation</code><br>類似於<code>關聯資料庫中的實體(entity)定義</code></p>
 <h3 id="Schma-and-Validation"><a href="#Schma-and-Validation" class="headerlink" title="Schma and Validation"></a>Schma and Validation</h3><p>透過定義<code>Schame</code>，賦予資料準則<br>例如<code>password document</code><br>我們不會指定<code>字串String</code>作為password<br>而Schama就在幫我們定義這些規則並加以<code>驗證(Validation)</code><br>不遵照規則則無法產生資料進入資料庫<br>除了<code>data type</code>外，還能指定<code>長度</code>、<code>預設值</code>等等</p>
-<p>以下為簡單例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">text: &#123;</div><div class="line">  <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">  <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">minlength</span>: <span class="number">1</span>,</div><div class="line">  <span class="attr">trim</span>: <span class="literal">true</span></div><div class="line">&#125;,</div><div class="line"><span class="attr">completed</span>: &#123;</div><div class="line">  <span class="attr">type</span>: <span class="built_in">Boolean</span>,</div><div class="line">  <span class="attr">default</span>: <span class="literal">false</span></div><div class="line">&#125;,</div><div class="line"><span class="attr">completedAt</span>: &#123;</div><div class="line">  <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">  <span class="attr">default</span>: <span class="literal">null</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以下為簡單例子：</p>
+<pre><code class="javascript">text: {
+  <span class="attr">type</span>: <span class="built_in">String</span>,
+  <span class="attr">required</span>: <span class="literal">true</span>,
+  <span class="attr">minlength</span>: <span class="number">1</span>,
+  <span class="attr">trim</span>: <span class="literal">true</span>
+},
+<span class="attr">completed</span>: {
+  <span class="attr">type</span>: <span class="built_in">Boolean</span>,
+  <span class="attr">default</span>: <span class="literal">false</span>
+},
+<span class="attr">completedAt</span>: {
+  <span class="attr">type</span>: <span class="built_in">Number</span>,
+  <span class="attr">default</span>: <span class="literal">null</span>
+}
+</code></pre>
 <p>詳細請看<a href="http://mongoosejs.com/docs/guide.html" target="_blank" rel="external">Mongoose Schema</a></p>
 <h3 id="程式碼與Postman"><a href="#程式碼與Postman" class="headerlink" title="程式碼與Postman"></a>程式碼與Postman</h3><p><strong>程式碼講解</strong></p>
 <p><a href="https://github.com/kueikuei/mocha_express" target="_blank" rel="external">範例程式碼</a>在此</p>
-<p><strong>Mongoose連結資料庫</strong><br><em>mocha_express/n-7-13-schemas/server/server.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line">mongoose.Promise = global.Promise;</div><div class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/TodoApp'</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>Mongoose連結資料庫</strong><br><em>mocha_express/n-7-13-schemas/server/server.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+
+mongoose.Promise = global.Promise;
+mongoose.connect(<span class="string">'mongodb://localhost:27017/TodoApp'</span>);
+</code></pre>
 <p>mongodb://localhost:27017/<code>TodoApp</code><br>一樣是接資料庫名稱<br><code>mongoose.Promise = global.Promise;</code>用法有待查證。<br>事實上目前不放mongoose.Promise = global.Promise也不會出問題</p>
-<p><strong>Mongoose連結資料庫</strong><br><em>mocha_express/n-7-13-schemas/server/server.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> User = mongoose.model(<span class="string">'User'</span>, &#123;</div><div class="line">  <span class="attr">email</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">    <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">trim</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">minlength</span>: <span class="number">1</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">var</span> user = <span class="keyword">new</span> User(&#123;</div><div class="line">  <span class="attr">email</span>: <span class="string">'andrew@example.com   '</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line">user.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'User saved'</span>, doc);</div><div class="line">&#125;, (e) =&gt; &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Unable to save user'</span>, e);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>Mongoose連結資料庫</strong><br><em>mocha_express/n-7-13-schemas/server/server.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> User = mongoose.model(<span class="string">'User'</span>, {
+  <span class="attr">email</span>: {
+    <span class="attr">type</span>: <span class="built_in">String</span>,
+    <span class="attr">required</span>: <span class="literal">true</span>,
+    <span class="attr">trim</span>: <span class="literal">true</span>,
+    <span class="attr">minlength</span>: <span class="number">1</span>
+  }
+});
+
+<span class="keyword">var</span> user = <span class="keyword">new</span> User({
+  <span class="attr">email</span>: <span class="string">'andrew@example.com   '</span>
+});
+
+user.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> {
+  <span class="built_in">console</span>.log(<span class="string">'User saved'</span>, doc);
+}, (e) =&gt; {
+  <span class="built_in">console</span>.log(<span class="string">'Unable to save user'</span>, e);
+});
+</code></pre>
 <p><code>mongoose.model</code>可以想像為烘焙時餅乾形狀容器<br>產生出一個名為<code>User</code>的容器<br>並定義出容器的<code>形狀與規則Schema</code><br>其中<code>trim</code>代表不能有長空格</p>
 <p>要創造出容器內容物使用<code>物件</code>呼叫法<br><code>new User</code><br>這邊看到的email資料為必填required<br>後面的空格因為有trim<br>在寫入DB後會自動往前縮排<br>最後<code>user.save()</code>存入DB中</p>
 <p><code>n-7-15-post-todos</code>將<code>DB</code>、<code>model</code>、<code>server.js</code>分開<br>以上這些檔案都算是<code>後端end</code>檔案<br>之後我們會模擬前端，透過<code>Postman</code>發出請求去與後端資料庫互動</p>
-<p><strong>Mongoose file export</strong><br><em>mocha_express/n-7-15-post-todos/server/db/mongoose.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/todoapp'</span>);</div></pre></td></tr></table></figure></p>
+<p><strong>Mongoose file export</strong><br><em>mocha_express/n-7-15-post-todos/server/db/mongoose.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+mongoose.connect(<span class="string">'mongodb://localhost:27017/todoapp'</span>);
+</code></pre>
 <p><code>mongoose.js</code>用於連結到我們的資料庫<code>todoapp</code></p>
-<p><strong>Model- Todo and User</strong><br><em>mocha_express/n-7-15-post-todos/server/models/todo.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">'Todo'</span>, &#123;</div><div class="line">  <span class="attr">text</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">    <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">minlength</span>: <span class="number">1</span>,</div><div class="line">    <span class="attr">trim</span>: <span class="literal">true</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">completed</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">Boolean</span>,</div><div class="line">    <span class="attr">default</span>: <span class="literal">false</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">completedAt</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">Number</span>,</div><div class="line">    <span class="attr">default</span>: <span class="literal">null</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><em>mocha_express/n-7-15-post-todos/server/models/user.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = mongoose.model(<span class="string">'User'</span>, &#123;</div><div class="line">  <span class="attr">email</span>: &#123;</div><div class="line">    <span class="attr">type</span>: <span class="built_in">String</span>,</div><div class="line">    <span class="attr">required</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">trim</span>: <span class="literal">true</span>,</div><div class="line">    <span class="attr">minlength</span>: <span class="number">1</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>Model- Todo and User</strong><br><em>mocha_express/n-7-15-post-todos/server/models/todo.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+
+<span class="built_in">module</span>.exports = mongoose.model(<span class="string">'Todo'</span>, {
+  <span class="attr">text</span>: {
+    <span class="attr">type</span>: <span class="built_in">String</span>,
+    <span class="attr">required</span>: <span class="literal">true</span>,
+    <span class="attr">minlength</span>: <span class="number">1</span>,
+    <span class="attr">trim</span>: <span class="literal">true</span>
+  },
+  <span class="attr">completed</span>: {
+    <span class="attr">type</span>: <span class="built_in">Boolean</span>,
+    <span class="attr">default</span>: <span class="literal">false</span>
+  },
+  <span class="attr">completedAt</span>: {
+    <span class="attr">type</span>: <span class="built_in">Number</span>,
+    <span class="attr">default</span>: <span class="literal">null</span>
+  }
+});
+</code></pre>
+<p><em>mocha_express/n-7-15-post-todos/server/models/user.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);
+
+<span class="built_in">module</span>.exports = mongoose.model(<span class="string">'User'</span>, {
+  <span class="attr">email</span>: {
+    <span class="attr">type</span>: <span class="built_in">String</span>,
+    <span class="attr">required</span>: <span class="literal">true</span>,
+    <span class="attr">trim</span>: <span class="literal">true</span>,
+    <span class="attr">minlength</span>: <span class="number">1</span>
+  }
+});
+</code></pre>
 <p>建立好我們的兩個容器後，由<code>server.js</code>負責創造實體資料</p>
-<p><strong>Server.js - post and create data by webfront</strong><br><em>mocha_express/n-7-15-post-todos/server/server.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'./db/mongoose'</span>);</div><div class="line"><span class="keyword">var</span> Todo = <span class="built_in">require</span>(<span class="string">'./models/todo'</span>);</div><div class="line"><span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">'./models/user'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.use(bodyParser.json());</div></pre></td></tr></table></figure></p>
+<p><strong>Server.js - post and create data by webfront</strong><br><em>mocha_express/n-7-15-post-todos/server/server.js</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+
+<span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'./db/mongoose'</span>);
+<span class="keyword">var</span> Todo = <span class="built_in">require</span>(<span class="string">'./models/todo'</span>);
+<span class="keyword">var</span> User = <span class="built_in">require</span>(<span class="string">'./models/user'</span>);
+
+<span class="keyword">var</span> app = express();
+
+app.use(bodyParser.json());
+</code></pre>
 <p>結合<code>express</code>進行應用<br>express能夠輕易建立<code>request url direction</code><br>詳細express用法也能參考<a href="https://kueiblog.herokuapp.com/post/TodoProject/" target="_blank" rel="external">範ToDoproject</a></p>
 <p>重要的是，搭配<code>body-parser</code><br>如此便能從前端的body中去取得某些資訊<br><code>app.use(bodyParser.json())</code>扮演重要的資料轉換主角<br>在此範例<br>我們將取到的資訊加以存入DB</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//------post--------</span></div><div class="line"><span class="comment">//todos</span></div><div class="line">app.post(<span class="string">'/todos'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> todo = <span class="keyword">new</span> Todo(&#123;</div><div class="line">    <span class="attr">text</span>: req.body.text</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  todo.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</div><div class="line">    res.send(doc);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//user</span></div><div class="line">app.post(<span class="string">'/users'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> user = <span class="keyword">new</span> User(&#123;</div><div class="line">    <span class="attr">email</span>: req.body.email</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  user.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</div><div class="line">    res.send(doc);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//------post--------</span>
+<span class="comment">//todos</span>
+app.post(<span class="string">'/todos'</span>, (req, res) =&gt; {
+  <span class="keyword">var</span> todo = <span class="keyword">new</span> Todo({
+    <span class="attr">text</span>: req.body.text
+  });
+
+  todo.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> {
+    res.send(doc);
+  }, (e) =&gt; {
+    res.status(<span class="number">400</span>).send(e);
+  });
+});
+
+<span class="comment">//user</span>
+app.post(<span class="string">'/users'</span>, (req, res) =&gt; {
+  <span class="keyword">var</span> user = <span class="keyword">new</span> User({
+    <span class="attr">email</span>: req.body.email
+  });
+
+  user.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> {
+    res.send(doc);
+  }, (e) =&gt; {
+    res.status(<span class="number">400</span>).send(e);
+  });
+});
+</code></pre>
 <p>重頭戲來了<br>要<code>create</code>資料則使用<code>post method</code><br>所以這邊使用<code>app.post</code><br>new一個新的data<br><code>req.body</code>幫我們取得前端資料<br>這邊的<code>email(key)</code>必須固定<br>因為我們在model已經定好<br>接著就是<code>postman使用</code></p>
 <p><strong>Postman使用</strong><br><code><br><img src="https://i.imgur.com/jUIt4SI.png" alt="Smiley face" height="300" width="400"><br></code></p>
 <p>步驟<br>1.選擇post<br>2.網址貼上<code>localhost:3000/collection name</code><br>3.選擇body-&gt;raw-&gt;json<br>4.打入req資料<br>5.Send送出</p>
@@ -262,13 +371,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/MochaTestMongoDB(上)/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MochaTestMongoDB(上)/" data-toggle="tooltip" data-placement="top"
                            title="MochaTestMongoDB(上)">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/MongoDB-2/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MongoDB-2/" data-toggle="tooltip" data-placement="top"
                            title="MongoDB(2)">Next Post &rarr;</a>
                     </li>
                     
@@ -308,20 +417,20 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
                         
-                        <a class="tag" href="/tags/#Database"
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#Database"
                            title="Database">Database</a>
                         
-                        <a class="tag" href="/tags/#Mongoose"
+                        <a class="tag" href="/KueiBlog/tags/#Mongoose"
                            title="Mongoose">Mongoose</a>
                         
                     </div>
@@ -342,8 +451,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Mongoose/";
-    var disqus_url = "http://yoursite.com/post/Mongoose/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Mongoose/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Mongoose/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -426,7 +535,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/MochaTestExpress/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/MochaTestExpress/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,14 +187,14 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
+                        <a class="tag" href="/KueiBlog/tags/#Express"
+                           title="Express">Express</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#Mocha"
+                        <a class="tag" href="/KueiBlog/tags/#Mocha"
                            title="Mocha">Mocha</a>
-                        
-                        <a class="tag" href="/tags/#Express"
-                           title="Express">Express</a>
                         
                     </div>
                 </div>
@@ -231,27 +231,123 @@
 <p>筆者認為<br>思考單元測試時<br>必須先想想當寫一個app時此app的<code>哪些功能會是重要的?</code><br>例如一個論壇一定要有user在裡頭<br>那麼一定會有使用者登入登出的功能<br>如何去測試使用者是否登入、是否登出<br>就是一個有意義的安源測試<br>而不是什麼芝麻綠豆的測試都進行<br>耗時又費力。</p>
 <p>下面將簡單介紹Mocha、Express並簡單進行Express的測試。</p>
 <h3 id="敏捷指令法"><a href="#敏捷指令法" class="headerlink" title="敏捷指令法"></a>敏捷指令法</h3><p><code>nodemon --exec &#39;npm test&#39;</code>能夠自動並持續去監測程式碼，並進行單元測試</p>
-<p>在<code>package.json</code>中插入快捷<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&quot;scripts&quot;: &#123;</div><div class="line">    &quot;test&quot;: &quot;mocha **/*.test.js&quot;,</div><div class="line">    &quot;test-watch&quot;: &quot;nodemon --exec &apos;npm test&apos;&quot;</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
-<p>後續就能在command line輸入<code>npm run &quot;test&quot;</code>去執行</p>
+<p>在<code>package.json</code>中插入快捷</p>
+<pre><code>&quot;scripts&quot;: {
+    &quot;test&quot;: &quot;mocha **/*.test.js&quot;,
+    &quot;test-watch&quot;: &quot;nodemon --exec &apos;npm test&apos;&quot;
+  },
+</code></pre><p>後續就能在command line輸入<code>npm run &quot;test&quot;</code>去執行</p>
 <h3 id="Mocha簡單介紹與測試"><a href="#Mocha簡單介紹與測試" class="headerlink" title="Mocha簡單介紹與測試"></a>Mocha簡單介紹與測試</h3><p><a href="https://kueiblog.herokuapp.com/post/Mocha%E5%AF%A6%E4%BD%9CUnitTest/" target="_blank" rel="external">前Mocha實作UnitTest</a>中有提到，TDD與BDD邏輯一樣，故這邊不特別去區分它們，而想提提單元測試的簡單邏輯。</p>
 <p>在做單元測試時，通常會另外新增一個測試檔，再不改變原始程式檔的情況下去進行測試。<br>例如<code>utils.js</code>為主程式檔案，<code>utils.test.js</code>作為測試檔案。</p>
 <p>不需要將單元測試想得非常高深<br>單元測試也並非什麼都能測試<br>mocha結合許多<code>斷言assert</code>庫去進行測試<br>其實也可以想像成透過一些簡單的<code>邏輯判斷if-else</code>去進行單元測試<br>把單元測試想像成簡單的邏輯測試如下：</p>
-<p>例子6-2<br><code>utils.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports.add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</div></pre></td></tr></table></figure></p>
-<p><code>utils.test.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>);</div><div class="line"></div><div class="line">it(<span class="string">'should add two numbers'</span>, () =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> res = utils.add(<span class="number">33</span>, <span class="number">11</span>);</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (res !== <span class="number">44</span>) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Expected 44, but got <span class="subst">$&#123;res&#125;</span>.`</span>)</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>執行<code>mocha utils.test.js</code><br>結果為<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">✓ should add two numbers</div><div class="line">2 passing (9ms)</div></pre></td></tr></table></figure></p>
-<p>就只是判斷並且丟出測試錯誤或通過罷了。</p>
+<p>例子6-2<br><code>utils.js</code></p>
+<pre><code class="javascript"><span class="built_in">module</span>.exports.add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;
+</code></pre>
+<p><code>utils.test.js</code></p>
+<pre><code class="javascript"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>);
+
+it(<span class="string">'should add two numbers'</span>, () =&gt; {
+  <span class="keyword">var</span> res = utils.add(<span class="number">33</span>, <span class="number">11</span>);
+
+  <span class="keyword">if</span> (res !== <span class="number">44</span>) {
+    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Expected 44, but got <span class="subst">${res}</span>.`</span>)
+  }
+});
+</code></pre>
+<p>執行<code>mocha utils.test.js</code><br>結果為</p>
+<pre><code>✓ should add two numbers
+2 passing (9ms)
+</code></pre><p>就只是判斷並且丟出測試錯誤或通過罷了。</p>
 <p>而透過斷詞庫可以更簡單去進行<code>一系列的單元測試</code><br>這在<a href="https://kueiblog.herokuapp.com/post/Mocha%E5%AF%A6%E4%BD%9CUnitTest/" target="_blank" rel="external">前Mocha實作UnitTest</a>也使用諸多，這邊不特別去示範</p>
 <p>想要特別強調關於<code>異質性asnyc測試</code></p>
 <p>運行概念為：透過傳入<code>done參數</code>，當斷言結束時呼叫<code>done()</code>，來確定有執行到斷言，而不是因為時間錯過而導致非正確的單元測試通過</p>
 <p>例子6-5</p>
-<p><code>utils.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">module</span>.exports.asyncAdd = <span class="function">(<span class="params">a, b, callback</span>) =&gt;</span> &#123;</div><div class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">    callback(a + b);</div><div class="line">  &#125;, <span class="number">1000</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p><code>utils.test.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'expect'</span>);</div><div class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>);</div><div class="line"></div><div class="line">it(<span class="string">'should async add two numbers'</span>, (done) =&gt; &#123;</div><div class="line">  utils.asyncAdd(<span class="number">4</span>, <span class="number">3</span>, (sum) =&gt; &#123;</div><div class="line">    expect(sum).toBe(<span class="number">7</span>).toBeA(<span class="string">'number'</span>);</div><div class="line">    done();</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>utils.js</code></p>
+<pre><code class="javascript"><span class="built_in">module</span>.exports.asyncAdd = <span class="function">(<span class="params">a, b, callback</span>) =&gt;</span> {
+  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> {
+    callback(a + b);
+  }, <span class="number">1000</span>);
+};
+</code></pre>
+<p><code>utils.test.js</code></p>
+<pre><code class="javascript"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'expect'</span>);
+<span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>);
+
+it(<span class="string">'should async add two numbers'</span>, (done) =&gt; {
+  utils.asyncAdd(<span class="number">4</span>, <span class="number">3</span>, (sum) =&gt; {
+    expect(sum).toBe(<span class="number">7</span>).toBeA(<span class="string">'number'</span>);
+    done();
+  });
+});
+</code></pre>
 <p>如果沒有done，則當進行asyncAdd()時必須花費1s的時間，而此時it這邊的城市也在進行，故結果可能是就算單元測試有誤還是會因為時間上的delay而變成正確測試。</p>
 <h3 id="express-unit-test"><a href="#express-unit-test" class="headerlink" title="express unit test"></a>express unit test</h3><p>使用<code>supertest</code> package進行測試<br>express經常應用於建立blog<br>其能輕鬆建立網頁路徑，並針對該路徑去建立網頁內容<br>故在測試時必須思考</p>
 <p>當讀取到特定路徑時，例如<code>get /users</code><br>狀態(status)是否正確?<br>內容(body)資料(json)是否正確?</p>
 <p>例子6-7</p>
-<p><code>server.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"></div><div class="line">app.get(<span class="string">'/'</span>, (req, res) =&gt; &#123;</div><div class="line">  res.status(<span class="number">404</span>).send(&#123;</div><div class="line">    <span class="attr">error</span>: <span class="string">'Page not found.'</span>,</div><div class="line">    <span class="attr">name</span>: <span class="string">'Todo App v1.0'</span></div><div class="line">  &#125;);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">app.get(<span class="string">'/users'</span>, (req, res) =&gt; &#123;</div><div class="line">  res.send([&#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Mike'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">27</span></div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Andrew'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">25</span></div><div class="line">  &#125;, &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Jen'</span>,</div><div class="line">    <span class="attr">age</span>: <span class="number">26</span></div><div class="line">  &#125;]);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// GET /users</span></div><div class="line"><span class="comment">// Give users a name prop and age prop</span></div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>);</div><div class="line"><span class="built_in">module</span>.exports.app = app;</div></pre></td></tr></table></figure></p>
-<p><code>server.test.js</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//引用supertest</span></div><div class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'supertest'</span>);</div><div class="line"><span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'expect'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'./server'</span>).app;</div><div class="line"></div><div class="line">it(<span class="string">'should return hello world response'</span>, (done) =&gt; &#123;</div><div class="line">  request(app)</div><div class="line">    .get(<span class="string">'/'</span>)</div><div class="line">    .expect(<span class="number">404</span>)</div><div class="line">    .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">      expect(res.body).toInclude(&#123;</div><div class="line">        <span class="attr">error</span>: <span class="string">'Page not found.'</span></div><div class="line">      &#125;);</div><div class="line">    &#125;)</div><div class="line">    .end(done);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// Make a new test</span></div><div class="line"><span class="comment">// assert 200</span></div><div class="line"><span class="comment">// Assert that you exist in users array</span></div><div class="line">it(<span class="string">'should return my user object'</span>, (done) =&gt; &#123;</div><div class="line">  request(app)</div><div class="line">    .get(<span class="string">'/users'</span>)</div><div class="line">    .expect(<span class="number">200</span>)</div><div class="line">    .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</div><div class="line">      expect(res.body).toInclude(&#123;</div><div class="line">        <span class="attr">name</span>: <span class="string">'Andrew'</span>,</div><div class="line">        <span class="attr">age</span>: <span class="number">25</span></div><div class="line">      &#125;);</div><div class="line">    &#125;)</div><div class="line">    .end(done);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>server.js</code></p>
+<pre><code class="javascript"><span class="keyword">const</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> app = express();
+
+app.get(<span class="string">'/'</span>, (req, res) =&gt; {
+  res.status(<span class="number">404</span>).send({
+    <span class="attr">error</span>: <span class="string">'Page not found.'</span>,
+    <span class="attr">name</span>: <span class="string">'Todo App v1.0'</span>
+  });
+});
+
+app.get(<span class="string">'/users'</span>, (req, res) =&gt; {
+  res.send([{
+    <span class="attr">name</span>: <span class="string">'Mike'</span>,
+    <span class="attr">age</span>: <span class="number">27</span>
+  }, {
+    <span class="attr">name</span>: <span class="string">'Andrew'</span>,
+    <span class="attr">age</span>: <span class="number">25</span>
+  }, {
+    <span class="attr">name</span>: <span class="string">'Jen'</span>,
+    <span class="attr">age</span>: <span class="number">26</span>
+  }]);
+});
+<span class="comment">// GET /users</span>
+<span class="comment">// Give users a name prop and age prop</span>
+
+app.listen(<span class="number">3000</span>);
+<span class="built_in">module</span>.exports.app = app;
+</code></pre>
+<p><code>server.test.js</code></p>
+<pre><code class="javascript"><span class="comment">//引用supertest</span>
+<span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'supertest'</span>);
+<span class="keyword">const</span> expect = <span class="built_in">require</span>(<span class="string">'expect'</span>);
+
+<span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'./server'</span>).app;
+
+it(<span class="string">'should return hello world response'</span>, (done) =&gt; {
+  request(app)
+    .get(<span class="string">'/'</span>)
+    .expect(<span class="number">404</span>)
+    .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> {
+      expect(res.body).toInclude({
+        <span class="attr">error</span>: <span class="string">'Page not found.'</span>
+      });
+    })
+    .end(done);
+});
+
+<span class="comment">// Make a new test</span>
+<span class="comment">// assert 200</span>
+<span class="comment">// Assert that you exist in users array</span>
+it(<span class="string">'should return my user object'</span>, (done) =&gt; {
+  request(app)
+    .get(<span class="string">'/users'</span>)
+    .expect(<span class="number">200</span>)
+    .expect(<span class="function">(<span class="params">res</span>) =&gt;</span> {
+      expect(res.body).toInclude({
+        <span class="attr">name</span>: <span class="string">'Andrew'</span>,
+        <span class="attr">age</span>: <span class="number">25</span>
+      });
+    })
+    .end(done);
+});
+</code></pre>
 <p>由於<code>http request</code>都是<code>異質性asnyc</code>故都需要使用done</p>
 <p>後續將介紹如何透過<code>express搭配mongoDB</code>去進行更多測試:)</p>
 
@@ -261,13 +357,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/MongoDB-2/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MongoDB-2/" data-toggle="tooltip" data-placement="top"
                            title="MongoDB(2)">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Mocha實作UnitTest/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Mocha實作UnitTest/" data-toggle="tooltip" data-placement="top"
                            title="Mocha實作UnitTest">Next Post &rarr;</a>
                     </li>
                     
@@ -307,18 +403,18 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
+                        <a class="tag" href="/KueiBlog/tags/#Express"
+                           title="Express">Express</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
                            title="UnitTest">UnitTest</a>
                         
-                        <a class="tag" href="/tags/#Mocha"
+                        <a class="tag" href="/KueiBlog/tags/#Mocha"
                            title="Mocha">Mocha</a>
-                        
-                        <a class="tag" href="/tags/#Express"
-                           title="Express">Express</a>
                         
                     </div>
                 </section>
@@ -338,8 +434,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/MochaTestExpress/";
-    var disqus_url = "http://yoursite.com/post/MochaTestExpress/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/MochaTestExpress/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/MochaTestExpress/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -422,7 +518,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

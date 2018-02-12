@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_Object2/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_Object2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -214,34 +214,209 @@
 <h4 id="自建物件"><a href="#自建物件" class="headerlink" title="自建物件"></a>自建物件</h4><blockquote>
 <p>{}<br>new Object()<br>使用建構函數<br>ES6 建立物件</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#123;&#125;</span></div><div class="line"><span class="comment">//JS一定要有this才會正確指向類別成員</span></div><div class="line"><span class="keyword">const</span> nameCard = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Tony'</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">20</span>,</div><div class="line">    <span class="attr">printCard</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">nameCard.name;</div><div class="line">nameCard.printCard;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//等同var nameCard = &#123;&#125;;</span></div><div class="line"><span class="keyword">const</span> nameCard = <span class="keyword">new</span> <span class="built_in">Object</span>()<span class="comment">//呼叫老祖宗</span></div><div class="line"></div><div class="line">nameCard.name = <span class="string">'Tony'</span>;</div><div class="line">nameCard.age = <span class="number">20</span>;</div><div class="line">nameCard.printCard = print;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line">nameCard.name;</div><div class="line">nameCard.printCard;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建構函數建立物件</span></div><div class="line"><span class="comment">//自首要大寫</span></div><div class="line"><span class="comment">//類別方法可以透過prototype去建立</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">NameCard</span>(<span class="params">name, phone, email</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.phone = phone;</div><div class="line">    <span class="keyword">this</span>.email = email;</div><div class="line">    <span class="keyword">this</span>.print = printCard;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCard</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//prototype</span></div><div class="line">NameCard.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'this is prototype'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> myCard = <span class="keyword">new</span> NameCard(<span class="string">'CD'</span>,<span class="string">'0987599848'</span>,<span class="string">'dvd@yahoo.com.tw'</span>);</div><div class="line">myCard.name;</div><div class="line">myCard.print();</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6建立物件</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;  </div><div class="line">    &#125;</div><div class="line">    speak()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'喵喵'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">c = <span class="keyword">new</span> Cat(<span class="string">'Mirza'</span>);</div><div class="line">c.speak();</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//{}</span>
+<span class="comment">//JS一定要有this才會正確指向類別成員</span>
+<span class="keyword">const</span> nameCard = {
+    <span class="attr">name</span>: <span class="string">'Tony'</span>,
+    <span class="attr">age</span>:<span class="number">20</span>,
+    <span class="attr">printCard</span>: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);
+    }
+}
+nameCard.name;
+nameCard.printCard;
+</code></pre>
+<pre><code class="javascript"><span class="comment">//等同var nameCard = {};</span>
+<span class="keyword">const</span> nameCard = <span class="keyword">new</span> <span class="built_in">Object</span>()<span class="comment">//呼叫老祖宗</span>
+
+nameCard.name = <span class="string">'Tony'</span>;
+nameCard.age = <span class="number">20</span>;
+nameCard.printCard = print;
+
+<span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);
+}
+
+nameCard.name;
+nameCard.printCard;
+</code></pre>
+<pre><code class="javascript"><span class="comment">//建構函數建立物件</span>
+<span class="comment">//自首要大寫</span>
+<span class="comment">//類別方法可以透過prototype去建立</span>
+<span class="function"><span class="keyword">function</span> <span class="title">NameCard</span>(<span class="params">name, phone, email</span>)</span>{
+    <span class="keyword">this</span>.name = name;
+    <span class="keyword">this</span>.phone = phone;
+    <span class="keyword">this</span>.email = email;
+    <span class="keyword">this</span>.print = printCard;
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">printCard</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);
+}
+
+<span class="comment">//prototype</span>
+NameCard.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);
+    <span class="built_in">console</span>.log(<span class="string">'this is prototype'</span>);
+}
+
+<span class="keyword">var</span> myCard = <span class="keyword">new</span> NameCard(<span class="string">'CD'</span>,<span class="string">'0987599848'</span>,<span class="string">'dvd@yahoo.com.tw'</span>);
+myCard.name;
+myCard.print();
+</code></pre>
+<pre><code class="javascript"><span class="comment">//ES6建立物件</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>{
+    <span class="keyword">constructor</span>(name){
+        <span class="keyword">this</span>.name = name;  
+    }
+    speak(){
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'喵喵'</span>);
+    }
+}
+c = <span class="keyword">new</span> Cat(<span class="string">'Mirza'</span>);
+c.speak();
+</code></pre>
 <h4 id="obj-常用方法"><a href="#obj-常用方法" class="headerlink" title="obj 常用方法"></a>obj 常用方法</h4><blockquote>
 <p>hasOwnProperty:</p>
 </blockquote>
-<h4 id="逐一印出array、obj的value"><a href="#逐一印出array、obj的value" class="headerlink" title="逐一印出array、obj的value"></a>逐一印出array、obj的value</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//array</span></div><div class="line">arr = [<span class="string">'Tom'</span>,<span class="string">'Jason'</span>];</div><div class="line"></div><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//obj</span></div><div class="line"><span class="keyword">const</span> nameCard = &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'Tony'</span>,</div><div class="line">    <span class="attr">age</span>:<span class="number">20</span>,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">Object</span>.keys(nameCard).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">  <span class="built_in">console</span>.log(nameCard[value]);</div><div class="line">  <span class="comment">//=======result:=======</span></div><div class="line">  <span class="comment">// name</span></div><div class="line">  <span class="comment">// Tony</span></div><div class="line">  <span class="comment">// age</span></div><div class="line">  <span class="comment">// 20</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//or by this method</span></div><div class="line"><span class="keyword">for</span>(key <span class="keyword">in</span> nameCard)&#123;</div><div class="line">  <span class="keyword">if</span>(nameCard.hasOwnProperty(key))&#123;</div><div class="line">    <span class="built_in">console</span>.log(nameCard[key]);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="逐一印出array、obj的value"><a href="#逐一印出array、obj的value" class="headerlink" title="逐一印出array、obj的value"></a>逐一印出array、obj的value</h4><pre><code class="javascript"><span class="comment">//array</span>
+arr = [<span class="string">'Tom'</span>,<span class="string">'Jason'</span>];
+
+arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>{
+  <span class="built_in">console</span>.log(value);
+});
+</code></pre>
+<pre><code class="javascript"><span class="comment">//obj</span>
+<span class="keyword">const</span> nameCard = {
+    <span class="attr">name</span>: <span class="string">'Tony'</span>,
+    <span class="attr">age</span>:<span class="number">20</span>,
+}
+
+<span class="built_in">Object</span>.keys(nameCard).forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>)</span>{
+  <span class="built_in">console</span>.log(value);
+  <span class="built_in">console</span>.log(nameCard[value]);
+  <span class="comment">//=======result:=======</span>
+  <span class="comment">// name</span>
+  <span class="comment">// Tony</span>
+  <span class="comment">// age</span>
+  <span class="comment">// 20</span>
+});
+
+<span class="comment">//or by this method</span>
+<span class="keyword">for</span>(key <span class="keyword">in</span> nameCard){
+  <span class="keyword">if</span>(nameCard.hasOwnProperty(key)){
+    <span class="built_in">console</span>.log(nameCard[key]);
+  }
+}
+</code></pre>
 <h4 id="類別靜態屬性方法"><a href="#類別靜態屬性方法" class="headerlink" title="類別靜態屬性方法"></a>類別靜態屬性方法</h4><blockquote>
 <p>static關鍵字<br>不用new出來就可以直接使用類別裡的的方法</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(x,y)&#123;</div><div class="line">        <span class="keyword">this</span>.x = x;  </div><div class="line">        <span class="keyword">this</span>.y = y;  </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> sum(a,b)&#123;</div><div class="line">        <span class="keyword">return</span> a+b;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(Point.sum(<span class="number">2</span>,<span class="number">5</span>));</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>{
+    <span class="keyword">constructor</span>(x,y){
+        <span class="keyword">this</span>.x = x;  
+        <span class="keyword">this</span>.y = y;  
+    }
+    <span class="keyword">static</span> sum(a,b){
+        <span class="keyword">return</span> a+b;
+    };
+}
+<span class="built_in">console</span>.log(Point.sum(<span class="number">2</span>,<span class="number">5</span>));
+</code></pre>
 <h4 id="JS物件導向觀念基礎"><a href="#JS物件導向觀念基礎" class="headerlink" title="JS物件導向觀念基礎"></a>JS物件導向觀念基礎</h4><blockquote>
 <p>JS為prototype-based(原型基礎的物件導向)，不同於class-based<br>封裝(Encapsulation)<br>繼承(Inhertance)<br>多型(poly…)  </p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//繼承(Inhertance)</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</div><div class="line">    <span class="keyword">constructor</span>(name)&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;  </div><div class="line">    &#125;</div><div class="line">    speak()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'喵喵'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//狗狗繼承動物</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</div><div class="line">    speak()&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'旺旺'</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    parentFunc()&#123;</div><div class="line">        <span class="keyword">super</span>.speak();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> dog = <span class="keyword">new</span> Dog(<span class="string">'momo'</span>);</div><div class="line">dog.speak();</div><div class="line">dog.parentFunc();</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//繼承(Inhertance)</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>{
+    <span class="keyword">constructor</span>(name){
+        <span class="keyword">this</span>.name = name;  
+    }
+    speak(){
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'喵喵'</span>);
+    }
+}
+
+<span class="comment">//狗狗繼承動物</span>
+<span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>{
+    speak(){
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'旺旺'</span>);
+    }
+
+    parentFunc(){
+        <span class="keyword">super</span>.speak();
+    }
+}
+
+<span class="keyword">const</span> dog = <span class="keyword">new</span> Dog(<span class="string">'momo'</span>);
+dog.speak();
+dog.parentFunc();
+</code></pre>
 <h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><blockquote>
 <p>隱性綁定(implicit binding)  </p>
 <blockquote>
 <p>誰呼叫就指向誰<br>顯性綁定<br>為了解決隱性綁定implicit問題，顯性綁定可以指定this的值，利用call、bind、apply等方法  </p>
 </blockquote>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span>(<span class="params">a,b,c</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'My name is '</span>+ <span class="keyword">this</span>.name +<span class="string">' '</span>+a+<span class="string">' '</span>+b+<span class="string">' '</span>+c);</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> Tom = &#123;</div><div class="line">        <span class="attr">name</span>:<span class="string">'Tom'</span>,</div><div class="line">        <span class="attr">age</span>:<span class="number">20</span>,</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> language = [<span class="string">'Python'</span>,<span class="string">'JS'</span>,<span class="string">'Ruby'</span>];</div><div class="line"></div><div class="line"><span class="comment">//call function</span></div><div class="line">sayName.call(Tom,language[<span class="number">0</span>],language[<span class="number">1</span>],language[<span class="number">2</span>]);</div><div class="line"><span class="comment">//be equal to apply</span></div><div class="line">sayName.apply(Tom,language);</div><div class="line"><span class="comment">//be equal to bind, but it can reserve into var</span></div><div class="line"><span class="keyword">var</span> bind = sayName.bind(Tom,language[<span class="number">0</span>],language[<span class="number">1</span>],language[<span class="number">2</span>]);</div><div class="line">bind();</div></pre></td></tr></table></figure>
+<pre><code class="javascript">    <span class="keyword">var</span> sayName = <span class="function"><span class="keyword">function</span>(<span class="params">a,b,c</span>)</span>{
+        <span class="built_in">console</span>.log(<span class="string">'My name is '</span>+ <span class="keyword">this</span>.name +<span class="string">' '</span>+a+<span class="string">' '</span>+b+<span class="string">' '</span>+c);
+    };
+
+    <span class="keyword">var</span> Tom = {
+        <span class="attr">name</span>:<span class="string">'Tom'</span>,
+        <span class="attr">age</span>:<span class="number">20</span>,
+    };
+
+    <span class="keyword">var</span> language = [<span class="string">'Python'</span>,<span class="string">'JS'</span>,<span class="string">'Ruby'</span>];
+
+<span class="comment">//call function</span>
+sayName.call(Tom,language[<span class="number">0</span>],language[<span class="number">1</span>],language[<span class="number">2</span>]);
+<span class="comment">//be equal to apply</span>
+sayName.apply(Tom,language);
+<span class="comment">//be equal to bind, but it can reserve into var</span>
+<span class="keyword">var</span> bind = sayName.bind(Tom,language[<span class="number">0</span>],language[<span class="number">1</span>],language[<span class="number">2</span>]);
+bind();
+</code></pre>
 <blockquote>
 <p>new Binding (new Object)<br>全域 window Binding  </p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//example1</span></div><div class="line"><span class="keyword">var</span> age = <span class="number">12</span>;</div><div class="line"><span class="keyword">var</span> sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> me = &#123;</div><div class="line">    <span class="attr">age</span>:<span class="number">25</span></div><div class="line">&#125;;</div><div class="line">sayAge();<span class="comment">//print to window this 12</span></div><div class="line">sayAge.call(me);<span class="comment">//print to this 25</span></div><div class="line"></div><div class="line"><span class="comment">//example2</span></div><div class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</div><div class="line"><span class="keyword">var</span> Obj = &#123;</div><div class="line">    <span class="attr">x</span>:<span class="number">20</span>,</div><div class="line">    <span class="attr">f</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">        <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="keyword">this</span>.x);&#125;</div><div class="line">        foo();<span class="comment">//call from window obj</span></div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line">Obj.f();</div><div class="line"></div><div class="line"><span class="comment">//result by var - that</span></div><div class="line"><span class="comment">//that can be any var name</span></div><div class="line"><span class="keyword">var</span> Obj = &#123;</div><div class="line">    <span class="attr">x</span>:<span class="number">20</span>,</div><div class="line">    <span class="attr">f</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);</div><div class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(that.x);&#125;</div><div class="line">        foo();</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//example1</span>
+<span class="keyword">var</span> age = <span class="number">12</span>;
+<span class="keyword">var</span> sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);
+};
+<span class="keyword">var</span> me = {
+    <span class="attr">age</span>:<span class="number">25</span>
+};
+sayAge();<span class="comment">//print to window this 12</span>
+sayAge.call(me);<span class="comment">//print to this 25</span>
+
+<span class="comment">//example2</span>
+<span class="keyword">var</span> x = <span class="number">10</span>;
+<span class="keyword">var</span> Obj = {
+    <span class="attr">x</span>:<span class="number">20</span>,
+    <span class="attr">f</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
+        <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="keyword">this</span>.x);}
+        foo();<span class="comment">//call from window obj</span>
+    }
+};
+Obj.f();
+
+<span class="comment">//result by var - that</span>
+<span class="comment">//that can be any var name</span>
+<span class="keyword">var</span> Obj = {
+    <span class="attr">x</span>:<span class="number">20</span>,
+    <span class="attr">f</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+        <span class="built_in">console</span>.log(<span class="keyword">this</span>.x);
+        <span class="keyword">var</span> that = <span class="keyword">this</span>;
+        <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(that.x);}
+        foo();
+    }
+};
+</code></pre>
 <blockquote>
 <p>callback </p>
 </blockquote>
@@ -252,13 +427,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/JS_BOMandDOM/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_BOMandDOM/" data-toggle="tooltip" data-placement="top"
                            title="Javascript Bom & Dom">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Git_lec4_note/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Git_lec4_note/" data-toggle="tooltip" data-placement="top"
                            title="git lec4與多人協作">Next Post &rarr;</a>
                     </li>
                     
@@ -298,11 +473,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -323,8 +498,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_Object2/";
-    var disqus_url = "http://yoursite.com/post/JS_Object2/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_Object2/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_Object2/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -407,7 +582,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

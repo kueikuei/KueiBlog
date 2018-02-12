@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Git_lec3_note/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Git_lec3_note/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -216,12 +216,75 @@
 <li>git merge再深入</li>
 <li>git初始安裝與設定</li>
 </ul>
-<p>分支建立複習<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">//創立新的分支:</div><div class="line"><span class="variable">$git</span> branch 新分支名稱</div><div class="line"></div><div class="line">//切換到該分支:</div><div class="line"><span class="variable">$git</span> checkout 新分支名稱</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line"><span class="comment">### 合併分支(git merge)  </span></div><div class="line">今天不管在一個分支上做了多少開發，終究還是需要`把該分支和預設分支 (master) 進行合併`，這樣才會把分支上的 commit 納入 master 裡面</div><div class="line"></div><div class="line">情境課題:當不同分支的同一檔案剛好有不同的程式碼  </div><div class="line">```bash</div><div class="line">//lesson3_1 commit</div><div class="line"><span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; lesson3_1.md</div><div class="line"><span class="variable">$git</span> add lesson3_1.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"added lesson3_1.md"</span></div><div class="line"></div><div class="line">//lesson3_2 commit</div><div class="line"><span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; lesson3_2.md</div><div class="line"><span class="variable">$git</span> add lesson3_2.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"added lesson3_2.md"</span></div><div class="line"></div><div class="line">//new branch feature</div><div class="line"><span class="variable">$git</span> branch feature</div><div class="line"><span class="variable">$git</span> checkout feature</div><div class="line"></div><div class="line">//現在我們在 feature branch 上做一個 commit...</div><div class="line"><span class="variable">$echo</span> <span class="string">'# another hello world!'</span> &gt;&gt; lesson3_1.md</div><div class="line"><span class="variable">$git</span> add lesson3_1.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"edit lesson3_1.md"</span></div><div class="line"></div><div class="line">//現在我們回到 master branch 上：</div><div class="line"><span class="variable">$git</span> checkout master</div><div class="line"></div><div class="line">//接下來我們再創造一個檔案並且做 commit:</div><div class="line"><span class="variable">$echo</span> <span class="string">'# hello world in lesson3_3.md'</span> &gt;&gt; lesson3_3.md</div><div class="line"><span class="variable">$git</span> add lesson3_3.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"added lesson3_3.md"</span></div><div class="line"></div><div class="line">//此時 master 與 feature 的內容開始出現 <span class="string">"分叉"</span></div><div class="line"></div><div class="line">//接下來把 feature branch 上面的 commit 合併到 master branch 上：</div><div class="line"><span class="variable">$git</span> merge feature </div><div class="line"></div><div class="line">//此時我們已經完成合併，也就是把 feature 分支裡的內容加入 master 分支裡</div></pre></td></tr></table></figure></p>
+<p>分支建立複習</p>
+<pre><code class="bash">//創立新的分支:
+<span class="variable">$git</span> branch 新分支名稱
+
+//切換到該分支:
+<span class="variable">$git</span> checkout 新分支名稱
+</code></pre>
+<h3 id="合併分支-git-merge"><a href="#合併分支-git-merge" class="headerlink" title="合併分支(git merge)"></a>合併分支(git merge)</h3><p>今天不管在一個分支上做了多少開發，終究還是需要<code>把該分支和預設分支 (master) 進行合併</code>，這樣才會把分支上的 commit 納入 master 裡面</p>
+<p>情境課題:當不同分支的同一檔案剛好有不同的程式碼  </p>
+<pre><code class="bash">//lesson3_1 commit
+<span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; lesson3_1.md
+<span class="variable">$git</span> add lesson3_1.md
+<span class="variable">$git</span> commit -m <span class="string">"added lesson3_1.md"</span>
+
+//lesson3_2 commit
+<span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; lesson3_2.md
+<span class="variable">$git</span> add lesson3_2.md
+<span class="variable">$git</span> commit -m <span class="string">"added lesson3_2.md"</span>
+
+//new branch feature
+<span class="variable">$git</span> branch feature
+<span class="variable">$git</span> checkout feature
+
+//現在我們在 feature branch 上做一個 commit...
+<span class="variable">$echo</span> <span class="string">'# another hello world!'</span> &gt;&gt; lesson3_1.md
+<span class="variable">$git</span> add lesson3_1.md
+<span class="variable">$git</span> commit -m <span class="string">"edit lesson3_1.md"</span>
+
+//現在我們回到 master branch 上：
+<span class="variable">$git</span> checkout master
+
+//接下來我們再創造一個檔案並且做 commit:
+<span class="variable">$echo</span> <span class="string">'# hello world in lesson3_3.md'</span> &gt;&gt; lesson3_3.md
+<span class="variable">$git</span> add lesson3_3.md
+<span class="variable">$git</span> commit -m <span class="string">"added lesson3_3.md"</span>
+
+//此時 master 與 feature 的內容開始出現 <span class="string">"分叉"</span>
+
+//接下來把 feature branch 上面的 commit 合併到 master branch 上：
+<span class="variable">$git</span> merge feature 
+
+//此時我們已經完成合併，也就是把 feature 分支裡的內容加入 master 分支裡
+</code></pre>
 <p>注意merge並非是把feature分支的commit放入master內<br>而是<code>在master上創造一個新的&#39;merge commit&#39;</code><br>裡面包含了所有 feature 分支的內容</p>
 <h3 id="git-merge再深入"><a href="#git-merge再深入" class="headerlink" title="git merge再深入"></a>git merge再深入</h3><p>merge包含<br>(1) fast-forward merge<br>(2) 3-way merge</p>
 <p>接著我們來詳細討論此兩種差異</p>
 <p><code>fast-forward merge</code><br>如果想要合併的提交可以直接往回追溯歷史到目前所在的提交<br>也就是說<code>branch</code>的內容只是原來檔案的增加或減少<br>Git 會因為沒有需要合併的工作而簡單地把指標向前推進<br>這就是所謂的「快進（fast-forward）」。</p>
-<p><code>example</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//master file</div><div class="line"><span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; master.md</div><div class="line"><span class="variable">$git</span> add master.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"added master.md"</span></div><div class="line"></div><div class="line">//此時的master file只有<span class="string">'# hello world!'</span></div><div class="line"></div><div class="line">//branch file</div><div class="line"><span class="variable">$git</span> branch feature</div><div class="line"><span class="variable">$git</span> checkout feature</div><div class="line"><span class="variable">$echo</span> <span class="string">'# hello branch!'</span> &gt;&gt; branch.md</div><div class="line"><span class="variable">$git</span> add branch.md</div><div class="line"><span class="variable">$git</span> commit -m <span class="string">"added branch.md"</span></div><div class="line"></div><div class="line">//此時的branch file有<span class="string">'# hello world!# hello branch!'</span></div><div class="line"></div><div class="line"><span class="variable">$git</span> checkout master</div><div class="line"><span class="variable">$git</span> merge feature</div><div class="line"></div><div class="line">//此時就會進行fast-forward</div></pre></td></tr></table></figure></p>
+<p><code>example</code></p>
+<pre><code class="bash">//master file
+<span class="variable">$echo</span> <span class="string">'# hello world!'</span> &gt;&gt; master.md
+<span class="variable">$git</span> add master.md
+<span class="variable">$git</span> commit -m <span class="string">"added master.md"</span>
+
+//此時的master file只有<span class="string">'# hello world!'</span>
+
+//branch file
+<span class="variable">$git</span> branch feature
+<span class="variable">$git</span> checkout feature
+<span class="variable">$echo</span> <span class="string">'# hello branch!'</span> &gt;&gt; branch.md
+<span class="variable">$git</span> add branch.md
+<span class="variable">$git</span> commit -m <span class="string">"added branch.md"</span>
+
+//此時的branch file有<span class="string">'# hello world!# hello branch!'</span>
+
+<span class="variable">$git</span> checkout master
+<span class="variable">$git</span> merge feature
+
+//此時就會進行fast-forward
+</code></pre>
 <p><code><br><img src="https://developer.atlassian.com/blog/2014/12/pull-request-merge-strategies-the-great-debate/what-is-a-fast-forward.gif" alt="Smiley face" height="300" width="400"><br></code></p>
 <p>git merge ‘branch_name’<br>將head移動到原來的branch再併吞後來延伸的，稱為<br>fast-forward merge<br>不會留下merge的紀錄</p>
 <p>git merge –no-ff ‘branch_name’<br>—no<br>3-way merge<br>會留下merge記錄</p>
@@ -238,7 +301,7 @@
                     
                     
                     <li class="next">
-                        <a href="/post/git學習之二 - commit講解、reset復原版本、建立分支/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/" data-toggle="tooltip" data-placement="top"
                            title="git學習之二 - commit講解、reset復原版本、建立分支">Next Post &rarr;</a>
                     </li>
                     
@@ -258,7 +321,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-merge再深入"><span class="toc-text">git merge再深入</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主題"><span class="toc-text">主題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#合併分支-git-merge"><span class="toc-text">合併分支(git merge)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-merge再深入"><span class="toc-text">git merge再深入</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -278,11 +341,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -303,8 +366,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Git_lec3_note/";
-    var disqus_url = "http://yoursite.com/post/Git_lec3_note/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Git_lec3_note/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Git_lec3_note/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -387,7 +450,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

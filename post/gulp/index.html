@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/gulp/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/gulp/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Node"
+                        <a class="tag" href="/KueiBlog/tags/#Node"
                            title="Node">Node</a>
                         
-                        <a class="tag" href="/tags/#Gulp"
+                        <a class="tag" href="/KueiBlog/tags/#Gulp"
                            title="Gulp">Gulp</a>
                         
                     </div>
@@ -229,35 +229,109 @@
 <li>Jade、SASS、ES6都能透過gulp去編譯</li>
 </ul>
 <p>而Gulp的起手式，就是將轉存檔案<br>這邊一個簡單的例子:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task('&#123;name&#125;,function()&#123;</div><div class="line">    gulp.src('&#123;./xxx/xxx.file&#125;')</div><div class="line">        .pipe(/* do sthing */)</div><div class="line">        .pipe(gulp.dest('&#123;...path&#125;'))</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<pre><code class="javascript">gulp.task(&#39;{name},function(){
+    gulp.src(&#39;{./xxx/xxx.file}&#39;)
+        .pipe(/* do sthing */)
+        .pipe(gulp.dest(&#39;{...path}&#39;))
+});
+</code></pre>
 <p>gulp全部的動作都是由<code>task</code>去執行<br>可以把<code>pipe</code>想像成水管，負責運送資料。</p>
 <p><code><br><img src="https://i.imgur.com/TMMULSR.png" alt="Smiley face" height="300" width="400"><br></code></p>
 <p>而編譯過程都相當簡單，只要將特定套件(package)裝上就可以使用。<br>像是<code>gulp-jade</code>、<code>gulp-sass</code>、<code>gulp-babel</code></p>
 <p>簡單範例請參考如下:</p>
-<p><strong>Compile Jade to HTML</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'jade'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    gulp.src(<span class="string">'./source/jade_test.jade'</span>)</div><div class="line">    .pipe(jade(&#123;</div><div class="line">        <span class="attr">pretty</span>: <span class="literal">true</span> <span class="comment">//好讀版</span></div><div class="line">    &#125;))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/'</span>))</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>Compile SASS to CSS</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./source/css/sass_test.css'</span>)</div><div class="line">    .pipe(sass().on(<span class="string">'error'</span>,sass.logError))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/css'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>Compile ES6 to Javacript</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'ES6'</span>, () =&gt; &#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./source/js/**/*.js'</span>)</div><div class="line">        .pipe(babel(&#123;<span class="comment">//by load-plugins to insert babel and compile</span></div><div class="line">            presets: [<span class="string">'es2015'</span>]</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public/js'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><strong>執行</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gulp jade</div><div class="line">$ gulp sass</div><div class="line">$ gulp ES6</div></pre></td></tr></table></figure></p>
-<p>即可得到我們要的結果</p>
+<p><strong>Compile Jade to HTML</strong></p>
+<pre><code class="javascript">gulp.task(<span class="string">'jade'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    gulp.src(<span class="string">'./source/jade_test.jade'</span>)
+    .pipe(jade({
+        <span class="attr">pretty</span>: <span class="literal">true</span> <span class="comment">//好讀版</span>
+    }))
+    .pipe(gulp.dest(<span class="string">'./public/'</span>))
+});
+</code></pre>
+<p><strong>Compile SASS to CSS</strong></p>
+<pre><code class="javascript">gulp.task(<span class="string">'sass'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> gulp.src(<span class="string">'./source/css/sass_test.css'</span>)
+    .pipe(sass().on(<span class="string">'error'</span>,sass.logError))
+    .pipe(gulp.dest(<span class="string">'./public/css'</span>));
+});
+</code></pre>
+<p><strong>Compile ES6 to Javacript</strong></p>
+<pre><code class="javascript">gulp.task(<span class="string">'ES6'</span>, () =&gt; {
+    <span class="keyword">return</span> gulp.src(<span class="string">'./source/js/**/*.js'</span>)
+        .pipe(babel({<span class="comment">//by load-plugins to insert babel and compile</span>
+            presets: [<span class="string">'es2015'</span>]
+        }))
+        .pipe(gulp.dest(<span class="string">'./public/js'</span>));
+});
+</code></pre>
+<p><strong>執行</strong></p>
+<pre><code>$ gulp jade
+$ gulp sass
+$ gulp ES6
+</code></pre><p>即可得到我們要的結果</p>
 <h3 id="壓縮優化檔案"><a href="#壓縮優化檔案" class="headerlink" title="壓縮優化檔案"></a>壓縮優化檔案</h3><p>無論是Html、CSS、還是Javascript，程序人員編寫時都會透過縮排或特定格式讓其好觀看、好編寫，而無形中也產生許多不必要的<code>空格</code>，挪用了資源空間。<br>其中，<code>圖片</code>更是深深影響使用網頁載入的速度，故透過gulp去壓縮這些檔案將使整體網頁更流暢快速，增加使用者經驗好感。</p>
 <p>主要使用到的套件如下:</p>
 <p><strong>gulp-jade</strong>:壓縮jade，也能進一步增加參數<code>pretty: true</code>使其恢復為好讀排版。<br><strong>gulp-minify-css</strong>:壓縮css<br><strong>gulp-uglify</strong>:壓縮JS，進一步透過<code>compress:{drop_console: true}</code>能自動移除掉<code>console.log</code><br><strong>gulp-imagemin</strong>:壓縮圖片檔</p>
 <p>更進一步，我們能決定哪些環境時要壓縮那些不用壓縮。<br>例如當還是完整<code>成品production</code>時，我們稱為<code>develop environmention</code><br>此時我能能夠過兩個套件來定義這些環境，並藉由<code>傳入參數</code>來決定是否壓縮</p>
 <p><code>minimist</code>與<code>gulp-if</code>套件:創造不同開發環境<code>develop</code>和<code>production</code><br>而由於圖片壓縮會浩比較多的時間，適合在<code>production</code>時在壓縮</p>
-<p>使用範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> minimist = <span class="built_in">require</span>(<span class="string">'minimist'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> envOptions = &#123;</div><div class="line">   <span class="attr">string</span>: <span class="string">'env'</span>,</div><div class="line">   <span class="attr">default</span>:&#123; <span class="attr">env</span>: <span class="string">'develop'</span>&#125; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> options = minimist(process.argv.slice(<span class="number">2</span>), envOptions)</div><div class="line"><span class="built_in">console</span>.log(options); <span class="comment">// 查看結果</span></div></pre></td></tr></table></figure></p>
+<p>使用範例如下:</p>
+<pre><code class="javascript"><span class="keyword">var</span> minimist = <span class="built_in">require</span>(<span class="string">'minimist'</span>);
+
+<span class="keyword">var</span> envOptions = {
+   <span class="attr">string</span>: <span class="string">'env'</span>,
+   <span class="attr">default</span>:{ <span class="attr">env</span>: <span class="string">'develop'</span>} 
+}
+
+<span class="keyword">var</span> options = minimist(process.argv.slice(<span class="number">2</span>), envOptions)
+<span class="built_in">console</span>.log(options); <span class="comment">// 查看結果</span>
+</code></pre>
 <p>透過<code>$gulp --env {參數}</code>就能將參數帶入至option<br>process.argv.slice(2) 這行則是跳過前兩個 – 字元，直接讀取 env 這個字串</p>
 <p>而透過<code>$.if(options.env===&#39;production&#39;, $.minifyCss())</code>進行輸入參數的判斷<br>即可得到壓縮成甚麼樣的版本</p>
-<p>此外<br><strong>gulp-load-plugins</strong>:簡化套件加入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'gulp-load-plugins'</span>)();</div><div class="line"></div><div class="line">gulp.task(<span class="string">'scripts'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./src/**.js'</span>)</div><div class="line">    .pipe($.uglify())</div><div class="line">    .pipe($.rename(&#123; <span class="attr">extname</span>: <span class="string">'.min.js'</span> &#125;))</div><div class="line">    .pipe(gulp.dest(<span class="string">'./dist'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>此外<br><strong>gulp-load-plugins</strong>:簡化套件加入</p>
+<pre><code class="javascript"><span class="keyword">var</span> $ = <span class="built_in">require</span>(<span class="string">'gulp-load-plugins'</span>)();
+
+gulp.task(<span class="string">'scripts'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> gulp.src(<span class="string">'./src/**.js'</span>)
+    .pipe($.uglify())
+    .pipe($.rename({ <span class="attr">extname</span>: <span class="string">'.min.js'</span> }))
+    .pipe(gulp.dest(<span class="string">'./dist'</span>));
+});
+</code></pre>
 <p>即可以用<code>$</code>去取代套件<br>使程式碼更精簡</p>
 <h3 id="Bower前端套件管理"><a href="#Bower前端套件管理" class="headerlink" title="Bower前端套件管理"></a>Bower前端套件管理</h3><p>功能類似於<code>npm</code><br>比較如下:<br><code>bower init</code>&lt;-&gt;<code>npm init</code><br><code>bower.json</code>&lt;-&gt;<code>package.json</code><br><code>bower install</code>&lt;-&gt;<code>npm install</code><br><code>bower install --save &#39;package&#39;</code>&lt;-&gt;<code>npm install --save &#39;package&#39;</code></p>
 <h3 id="gulp-watch監聽"><a href="#gulp-watch監聽" class="headerlink" title="gulp-watch監聽"></a>gulp-watch監聽</h3><p>一旦監聽後，每當編寫完存檔時就能馬上看到成果以及改變，html、css、javascript都能監聽。</p>
-<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gulp.task(<span class="string">'&#123;name&#125;'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    gulp.watch([<span class="string">'default'</span>], [func name1, func name2]);</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>範例如下:</p>
+<pre><code class="javascript">gulp.task(<span class="string">'{name}'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    gulp.watch([<span class="string">'default'</span>], [func name1, func name2]);
+})
+</code></pre>
 <h3 id="main-bower-files前端整合套件"><a href="#main-bower-files前端整合套件" class="headerlink" title="main-bower-files前端整合套件"></a>main-bower-files前端整合套件</h3><p>main-bower-files藉此package能取得<code>前端套件(bower_components)</code>進入gulpfile並統一管理</p>
-<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//main bower files</span></div><div class="line">gulp.task(<span class="string">'bower'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(mainBowerFiles())</div><div class="line">        .pipe(gulp.dest(<span class="string">'./.tmp/vendors'</span>))</div><div class="line">        callback()</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//產生出vendors後再做concat、uglify等等</span></div><div class="line">gulp.task(<span class="string">'vendorJs'</span>,[<span class="string">'bower'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'.tmp/vendors/**/**.js'</span>)</div><div class="line">    .pipe($.concat(<span class="string">'vendor.js'</span>))</div><div class="line">    .pipe($.uglify())</div><div class="line">    .pipe(gulp.dest(<span class="string">'./public/js'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>範例如下:</p>
+<pre><code class="javascript"><span class="comment">//main bower files</span>
+gulp.task(<span class="string">'bower'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">callback</span>)</span>{
+    <span class="keyword">return</span> gulp.src(mainBowerFiles())
+        .pipe(gulp.dest(<span class="string">'./.tmp/vendors'</span>))
+        callback()
+});
+
+<span class="comment">//產生出vendors後再做concat、uglify等等</span>
+gulp.task(<span class="string">'vendorJs'</span>,[<span class="string">'bower'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> gulp.src(<span class="string">'.tmp/vendors/**/**.js'</span>)
+    .pipe($.concat(<span class="string">'vendor.js'</span>))
+    .pipe($.uglify())
+    .pipe(gulp.dest(<span class="string">'./public/js'</span>));
+});
+</code></pre>
 <p>產生出vendors後接著透過<code>concat()</code>、<code>ugilfy()</code>等套件將其融合又壓縮最後存到public/js使用。</p>
 <h3 id="github上傳"><a href="#github上傳" class="headerlink" title="github上傳"></a>github上傳</h3><p><em>push to git</em><br>要丟上去的資料夾只有<code>sourece dir</code><br>檔案有:<code>bower.json</code>、<code>package.json</code>、<code>gulpfile.js</code><br>可以透過<code>.gitignore</code>將不需要丟上去的檔案事先寫好</p>
 <p><em>push gh-pages to git and autoly create webpage </em><br>安裝套件<code>gulp-gh-pages</code><br>選擇輸出資料夾<code>public</code>後<br><code>gulp deploy</code>到git上並且自動生成<code>靜態頁面</code></p>
-<p>範例如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//create gh-pages and push to git</span></div><div class="line">gulp.task(<span class="string">'deploy'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*'</span>)</div><div class="line">        .pipe($.ghPages());</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>範例如下:</p>
+<pre><code class="javascript"><span class="comment">//create gh-pages and push to git</span>
+gulp.task(<span class="string">'deploy'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*'</span>)
+        .pipe($.ghPages());
+});
+</code></pre>
 <h3 id="environment-choice"><a href="#environment-choice" class="headerlink" title="environment choice"></a>environment choice</h3><p>前面有提過不同的開發環境，反過來說，今天從git clone某個專案到本地端時，或是要上傳到heroku時都要選擇開發環境。</p>
 <p>如果要單純就純測試環境dev進行安裝可以額外增加<code>-dev</code>如下:<br>devolpe-eni:npm install package_name –save<code>-dev</code><br>而一般的pcakage save如下:<br>production-eni:npm install package_name –save</p>
 <p>安裝特定環境可以如下指令:<br>npm install <code>--only=dev</code><br>npm install <code>--only=prod</code></p>
@@ -276,13 +350,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/UnitTest初探/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/UnitTest初探/" data-toggle="tooltip" data-placement="top"
                            title="單元測試(UnitTest)初探">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/高雄前端開發者大會/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/高雄前端開發者大會/" data-toggle="tooltip" data-placement="top"
                            title="高雄前端開發者大會">Next Post &rarr;</a>
                     </li>
                     
@@ -322,14 +396,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Node"
+                        <a class="tag" href="/KueiBlog/tags/#Node"
                            title="Node">Node</a>
                         
-                        <a class="tag" href="/tags/#Gulp"
+                        <a class="tag" href="/KueiBlog/tags/#Gulp"
                            title="Gulp">Gulp</a>
                         
                     </div>
@@ -350,8 +424,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/gulp/";
-    var disqus_url = "http://yoursite.com/post/gulp/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/gulp/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/gulp/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -434,7 +508,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

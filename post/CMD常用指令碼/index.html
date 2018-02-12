@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/CMD常用指令碼/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/CMD常用指令碼/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#CMD"
+                        <a class="tag" href="/KueiBlog/tags/#CMD"
                            title="CMD">CMD</a>
                         
-                        <a class="tag" href="/tags/#Hexo"
+                        <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -222,9 +222,121 @@
 <li>Hexo CMD</li>
 <li>GIT CMD</li>
 </ul>
-<h3 id="純CMD"><a href="#純CMD" class="headerlink" title="純CMD"></a>純CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//產生新資料夾</div><div class="line"><span class="variable">$mkdir</span> direct_name</div><div class="line"></div><div class="line">//轉移到某路徑下</div><div class="line"><span class="variable">$cd</span> direct_name</div><div class="line"></div><div class="line">//印出當前路徑</div><div class="line"><span class="variable">$pwd</span></div><div class="line"></div><div class="line">//產生某種類型的檔案</div><div class="line"><span class="variable">$touch</span> file_name</div><div class="line"></div><div class="line">//呼叫出所有路徑下檔案</div><div class="line"><span class="variable">$ls</span></div><div class="line"></div><div class="line">//呼叫出所有路徑下檔案(包含隱藏檔案)</div><div class="line"><span class="variable">$ls</span> <span class="_">-a</span></div><div class="line"></div><div class="line">//藉由cmd快速寫入資料</div><div class="line"><span class="variable">$echo</span> <span class="string">'# another hello world!'</span> &gt;&gt; <span class="string">'file_name'</span></div></pre></td></tr></table></figure>
-<h3 id="Hexo-CMD"><a href="#Hexo-CMD" class="headerlink" title="Hexo CMD"></a>Hexo CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">//Create a new post</div><div class="line"><span class="variable">$hexo</span> new post <span class="string">"My New Post"</span></div><div class="line"></div><div class="line">//Run hexo server 4000</div><div class="line"><span class="variable">$hexo</span> server</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> s</div><div class="line"></div><div class="line">//清除不存在於_posts下的markdown檔案</div><div class="line"><span class="variable">$hexo</span> clean</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> c</div><div class="line"></div><div class="line">//依照_posts下的檔案產出其對應html檔案於public/post下</div><div class="line"><span class="variable">$hexo</span> generate</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> g</div><div class="line"></div><div class="line">//clean和generate通常一起使用</div><div class="line"><span class="variable">$hexo</span> c &amp;&amp; hexo g </div><div class="line"></div><div class="line">//部署</div><div class="line"><span class="variable">$hexo</span> deploy</div><div class="line">或</div><div class="line"><span class="variable">$hexo</span> d</div></pre></td></tr></table></figure>
-<h3 id="GIT-CMD"><a href="#GIT-CMD" class="headerlink" title="GIT CMD"></a>GIT CMD</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">//控管此路徑下檔案</div><div class="line"><span class="variable">$git</span> init  </div><div class="line"></div><div class="line">//查看此git使用者資訊</div><div class="line"><span class="variable">$git</span> config --list </div><div class="line"></div><div class="line">//加入追蹤對象</div><div class="line"><span class="variable">$git</span> add  </div><div class="line"></div><div class="line">//commit後加入儲存庫裡頭，並添加commit訊息</div><div class="line"><span class="variable">$git</span> commit -m<span class="string">"message"</span> </div><div class="line"></div><div class="line">//連接到遠端儲存庫</div><div class="line"><span class="variable">$git</span> remote add origin   </div><div class="line"></div><div class="line">//推上遠端儲存庫 </div><div class="line"><span class="variable">$git</span> push origin master</div><div class="line"></div><div class="line">//記錄每一筆commit，檢視 commit 是否成功</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span></div><div class="line"></div><div class="line">//圖形流程圖去看</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --graph --all</div><div class="line"></div><div class="line">//查看工作目錄的狀態時...</div><div class="line"><span class="variable">$git</span> status</div><div class="line"></div><div class="line">//或是看更精簡一點的狀態...</div><div class="line"><span class="variable">$git</span> status <span class="_">-s</span></div><div class="line"></div><div class="line">//目前code與上一個版本的差別，還沒放進stage area(還沒git add)</div><div class="line"><span class="variable">$git</span> diff</div><div class="line"></div><div class="line">//假若已經放進stage area了(已經git add)，則使用此查看差別</div><div class="line">git diff --cached</div><div class="line"></div><div class="line">//取消已經暫存的(git add)檔案</div><div class="line"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span></div><div class="line"></div><div class="line">//取消對檔案的修改(edit)</div><div class="line"><span class="variable">$git</span> checkout -- <span class="string">'file_name'</span></div><div class="line"></div><div class="line">//恢復 Commit，重新提交 Commit</div><div class="line"><span class="variable">$git</span> reset --soft HEAD\^</div><div class="line"></div><div class="line">//恢復 Commit，重新提交 Commit -  commit amend</div><div class="line"><span class="variable">$git</span> add <span class="string">'file_name'</span></div><div class="line"><span class="variable">$git</span> commit --amend</div><div class="line"></div><div class="line">//如果懶得更改commit message，則打入</div><div class="line"><span class="variable">$git</span> commit --amend --no-edit</div><div class="line"></div><div class="line">//強制恢復到上一版本(commit)</div><div class="line"><span class="variable">$git</span> reset --hard HEAD\^</div><div class="line"></div><div class="line">//想要回到多個版本之前</div><div class="line"><span class="variable">$git</span> reset --hard HEAD~<span class="string">'num'</span></div><div class="line"></div><div class="line">//創立新的分支</div><div class="line"><span class="variable">$git</span> branch 新分支名稱</div><div class="line"></div><div class="line">//切換到該分支:</div><div class="line"><span class="variable">$git</span> checkout 新分支名稱</div><div class="line"></div><div class="line">//回到主支</div><div class="line"><span class="variable">$git</span> checkout master</div></pre></td></tr></table></figure>
+<h3 id="純CMD"><a href="#純CMD" class="headerlink" title="純CMD"></a>純CMD</h3><pre><code class="bash">//產生新資料夾
+<span class="variable">$mkdir</span> direct_name
+
+//轉移到某路徑下
+<span class="variable">$cd</span> direct_name
+
+//印出當前路徑
+<span class="variable">$pwd</span>
+
+//產生某種類型的檔案
+<span class="variable">$touch</span> file_name
+
+//呼叫出所有路徑下檔案
+<span class="variable">$ls</span>
+
+//呼叫出所有路徑下檔案(包含隱藏檔案)
+<span class="variable">$ls</span> <span class="_">-a</span>
+
+//藉由cmd快速寫入資料
+<span class="variable">$echo</span> <span class="string">'# another hello world!'</span> &gt;&gt; <span class="string">'file_name'</span>
+</code></pre>
+<h3 id="Hexo-CMD"><a href="#Hexo-CMD" class="headerlink" title="Hexo CMD"></a>Hexo CMD</h3><pre><code class="bash">//Create a new post
+<span class="variable">$hexo</span> new post <span class="string">"My New Post"</span>
+
+//Run hexo server 4000
+<span class="variable">$hexo</span> server
+或
+<span class="variable">$hexo</span> s
+
+//清除不存在於_posts下的markdown檔案
+<span class="variable">$hexo</span> clean
+或
+<span class="variable">$hexo</span> c
+
+//依照_posts下的檔案產出其對應html檔案於public/post下
+<span class="variable">$hexo</span> generate
+或
+<span class="variable">$hexo</span> g
+
+//clean和generate通常一起使用
+<span class="variable">$hexo</span> c &amp;&amp; hexo g 
+
+//部署
+<span class="variable">$hexo</span> deploy
+或
+<span class="variable">$hexo</span> d
+</code></pre>
+<h3 id="GIT-CMD"><a href="#GIT-CMD" class="headerlink" title="GIT CMD"></a>GIT CMD</h3><pre><code class="bash">//控管此路徑下檔案
+<span class="variable">$git</span> init  
+
+//查看此git使用者資訊
+<span class="variable">$git</span> config --list 
+
+//加入追蹤對象
+<span class="variable">$git</span> add  
+
+//commit後加入儲存庫裡頭，並添加commit訊息
+<span class="variable">$git</span> commit -m<span class="string">"message"</span> 
+
+//連接到遠端儲存庫
+<span class="variable">$git</span> remote add origin   
+
+//推上遠端儲存庫 
+<span class="variable">$git</span> push origin master
+
+//記錄每一筆commit，檢視 commit 是否成功
+<span class="variable">$git</span> <span class="built_in">log</span>
+
+//圖形流程圖去看
+<span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all
+<span class="variable">$git</span> <span class="built_in">log</span> --graph --all
+
+//查看工作目錄的狀態時...
+<span class="variable">$git</span> status
+
+//或是看更精簡一點的狀態...
+<span class="variable">$git</span> status <span class="_">-s</span>
+
+//目前code與上一個版本的差別，還沒放進stage area(還沒git add)
+<span class="variable">$git</span> diff
+
+//假若已經放進stage area了(已經git add)，則使用此查看差別
+git diff --cached
+
+//取消已經暫存的(git add)檔案
+<span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span>
+
+//取消對檔案的修改(edit)
+<span class="variable">$git</span> checkout -- <span class="string">'file_name'</span>
+
+//恢復 Commit，重新提交 Commit
+<span class="variable">$git</span> reset --soft HEAD\^
+
+//恢復 Commit，重新提交 Commit -  commit amend
+<span class="variable">$git</span> add <span class="string">'file_name'</span>
+<span class="variable">$git</span> commit --amend
+
+//如果懶得更改commit message，則打入
+<span class="variable">$git</span> commit --amend --no-edit
+
+//強制恢復到上一版本(commit)
+<span class="variable">$git</span> reset --hard HEAD\^
+
+//想要回到多個版本之前
+<span class="variable">$git</span> reset --hard HEAD~<span class="string">'num'</span>
+
+//創立新的分支
+<span class="variable">$git</span> branch 新分支名稱
+
+//切換到該分支:
+<span class="variable">$git</span> checkout 新分支名稱
+
+//回到主支
+<span class="variable">$git</span> checkout master
+</code></pre>
 
                 <hr>
                 
@@ -232,13 +344,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/git與github的第一步/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/git與github的第一步/" data-toggle="tooltip" data-placement="top"
                            title="git與github的第一步">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Node_Debug_Skill/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Node_Debug_Skill/" data-toggle="tooltip" data-placement="top"
                            title="Node_Debug_Skill">Next Post &rarr;</a>
                     </li>
                     
@@ -278,17 +390,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#CMD"
+                        <a class="tag" href="/KueiBlog/tags/#CMD"
                            title="CMD">CMD</a>
                         
-                        <a class="tag" href="/tags/#Hexo"
+                        <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -309,8 +421,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/CMD常用指令碼/";
-    var disqus_url = "http://yoursite.com/post/CMD常用指令碼/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/CMD常用指令碼/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/CMD常用指令碼/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -393,7 +505,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/git與github的第一步/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/git與github的第一步/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -235,16 +235,48 @@
 <li>至官網安裝</li>
 <li>$brew install git</li>
 </ol>
-<p>簡單設定<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//打開 git 的彩色輸出</div><div class="line"><span class="variable">$git</span> config --global color.ui <span class="literal">true</span></div><div class="line"></div><div class="line">//設定 git 的 user 和 email (用註冊 github 的資訊)</div><div class="line"><span class="variable">$git</span> config --global user.name <span class="string">"你的名稱"</span></div><div class="line"><span class="variable">$git</span> config --global user.email <span class="string">"你的email"</span></div><div class="line"></div><div class="line">//確認有無安裝成功</div><div class="line"><span class="variable">$git</span> config --list</div></pre></td></tr></table></figure></p>
+<p>簡單設定</p>
+<pre><code class="bash">//打開 git 的彩色輸出
+<span class="variable">$git</span> config --global color.ui <span class="literal">true</span>
+
+//設定 git 的 user 和 email (用註冊 github 的資訊)
+<span class="variable">$git</span> config --global user.name <span class="string">"你的名稱"</span>
+<span class="variable">$git</span> config --global user.email <span class="string">"你的email"</span>
+
+//確認有無安裝成功
+<span class="variable">$git</span> config --list
+</code></pre>
 <h3 id="本地端儲存庫Repository"><a href="#本地端儲存庫Repository" class="headerlink" title="本地端儲存庫Repository"></a>本地端儲存庫Repository</h3><p>我們一旦要對一個專案裡的檔案進行版本控管，我們一定需要創造一個<code>儲存庫(Repository)</code>來記錄這些版本的訊息</p>
-<p>建立儲存庫的方式有很多種，最簡單的方式就是在切換到放置程式碼的路徑下<br>輸入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> init</div></pre></td></tr></table></figure></p>
+<p>建立儲存庫的方式有很多種，最簡單的方式就是在切換到放置程式碼的路徑下<br>輸入：</p>
+<pre><code class="bash"><span class="variable">$git</span> init
+</code></pre>
 <p>接下來這個路徑 (資料夾) 就成為我們的<code>工作目錄 (Working Directory)</code>，之後無論是新增、修改、刪除檔案，或是下任何 git 指令，都是在該工作目錄底下進行</p>
-<h3 id="第一個commit"><a href="#第一個commit" class="headerlink" title="第一個commit"></a>第一個commit</h3><p>完整第一個commit流程如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> init</div><div class="line"><span class="variable">$mkdir</span> lesson1.md</div><div class="line"><span class="variable">$git</span> add .</div><div class="line"><span class="variable">$git</span> commit -m<span class="string">'my first commit'</span></div></pre></td></tr></table></figure></p>
-<p>接著用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> <span class="built_in">log</span></div></pre></td></tr></table></figure></p>
-<p>去檢查有沒有commit記錄<br>也可以圖形化去看<br>透過<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all</div><div class="line">或是</div><div class="line"><span class="variable">$git</span> <span class="built_in">log</span> --graph --all</div></pre></td></tr></table></figure></p>
-<p>想要查看當下資料與上一個commit的差別:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//目前code與上一個版本的差別，還沒放進stage area(還沒git add)</div><div class="line"><span class="variable">$git</span> diff</div><div class="line"></div><div class="line">//假若已經放進stage area了(已經git add)，則使用此查看差別</div><div class="line">git diff --cached</div></pre></td></tr></table></figure></p>
+<h3 id="第一個commit"><a href="#第一個commit" class="headerlink" title="第一個commit"></a>第一個commit</h3><p>完整第一個commit流程如下</p>
+<pre><code class="bash"><span class="variable">$git</span> init
+<span class="variable">$mkdir</span> lesson1.md
+<span class="variable">$git</span> add .
+<span class="variable">$git</span> commit -m<span class="string">'my first commit'</span>
+</code></pre>
+<p>接著用</p>
+<pre><code class="bash"><span class="variable">$git</span> <span class="built_in">log</span>
+</code></pre>
+<p>去檢查有沒有commit記錄<br>也可以圖形化去看<br>透過</p>
+<pre><code class="bash"><span class="variable">$git</span> <span class="built_in">log</span> --oneline --graph --all
+或是
+<span class="variable">$git</span> <span class="built_in">log</span> --graph --all
+</code></pre>
+<p>想要查看當下資料與上一個commit的差別:</p>
+<pre><code class="bash">//目前code與上一個版本的差別，還沒放進stage area(還沒git add)
+<span class="variable">$git</span> diff
+
+//假若已經放進stage area了(已經git add)，則使用此查看差別
+git diff --cached
+</code></pre>
 <h3 id="遠端儲存庫"><a href="#遠端儲存庫" class="headerlink" title="遠端儲存庫"></a>遠端儲存庫</h3><p>今天你寫好的程式碼，你當然不希望只放在本機端，因為本機端要是發生任何天災人禍，你的程式碼就消失了，所以<code>遠端備份</code>是比較保險的作法</p>
-<p> 指令如下:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> remote add origin <span class="string">'remote_url.git'</span></div><div class="line"><span class="variable">$git</span> push origin master</div></pre></td></tr></table></figure></p>
+<p> 指令如下:</p>
+<pre><code class="bash"><span class="variable">$git</span> remote add origin <span class="string">'remote_url.git'</span>
+<span class="variable">$git</span> push origin master
+</code></pre>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://slides.com/kueikuei/deck-25/live#/" target="_blank" rel="external">git 版本管理入門實戰班 - 1 </a></p>
 
                 <hr>
@@ -253,13 +285,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/git學習之二 - commit講解、reset復原版本、建立分支/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/" data-toggle="tooltip" data-placement="top"
                            title="git學習之二 - commit講解、reset復原版本、建立分支">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/CMD常用指令碼/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/CMD常用指令碼/" data-toggle="tooltip" data-placement="top"
                            title="CMD常用指令碼">Next Post &rarr;</a>
                     </li>
                     
@@ -299,11 +331,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -324,8 +356,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/git與github的第一步/";
-    var disqus_url = "http://yoursite.com/post/git與github的第一步/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/git與github的第一步/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/git與github的第一步/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -408,7 +440,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

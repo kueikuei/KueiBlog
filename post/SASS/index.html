@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/SASS/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/SASS/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#CSS"
+                        <a class="tag" href="/KueiBlog/tags/#CSS"
                            title="CSS">CSS</a>
                         
-                        <a class="tag" href="/tags/#SASS"
+                        <a class="tag" href="/KueiBlog/tags/#SASS"
                            title="SASS">SASS</a>
                         
-                        <a class="tag" href="/tags/#project"
+                        <a class="tag" href="/KueiBlog/tags/#project"
                            title="project">project</a>
                         
                     </div>
@@ -231,7 +231,18 @@
 <li>要冒號</li>
 </ol>
 <p><strong>CSS與SASS比較</strong></p>
-<p><strong>css</strong><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.namecard</span>&#123;</div><div class="line">    <span class="attribute">width</span>:<span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>:<span class="number">100px</span>;</div><div class="line">    <span class="attribute">border</span>:solid <span class="number">1px</span> black;</div><div class="line">    <span class="attribute">color</span>:<span class="number">#eee</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.namecard</span> <span class="selector-tag">h2</span>&#123;</div><div class="line">    <span class="attribute">font-size</span>:<span class="number">30px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>css</strong></p>
+<pre><code class="css"><span class="selector-class">.namecard</span>{
+    <span class="attribute">width</span>:<span class="number">100px</span>;
+    <span class="attribute">height</span>:<span class="number">100px</span>;
+    <span class="attribute">border</span>:solid <span class="number">1px</span> black;
+    <span class="attribute">color</span>:<span class="number">#eee</span>;
+}
+
+<span class="selector-class">.namecard</span> <span class="selector-tag">h2</span>{
+    <span class="attribute">font-size</span>:<span class="number">30px</span>;
+}
+</code></pre>
 <p><strong>sass</strong></p>
 <ul>
 <li>加入<code>變數</code>功能(key:value形式)</li>
@@ -239,17 +250,50 @@
 <li>可以用<code>&amp;</code>表示元素：看起來更有層次感，更能了解是什麼元素包在什麼裡頭</li>
 <li><code>minin</code>：CSS的function，下一節會特別說明</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$color: #eee; </div><div class="line"></div><div class="line">.namecard</div><div class="line">    width: 100px</div><div class="line">    height: 100px</div><div class="line">    border: solid 1px black</div><div class="line">    color: $color</div><div class="line">    &amp; h2</div><div class="line">        font-size: 30px</div></pre></td></tr></table></figure>
+<pre><code class="sass">$color: #eee; 
+
+.namecard
+    width: 100px
+    height: 100px
+    border: solid 1px black
+    color: $color
+    &amp; h2
+        font-size: 30px
+</code></pre>
 <p>看起來是否更直觀簡單呢？</p>
 <h3 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h3><p><strong> <em>可否聽說css有function呢？直呼其名為<code>mixin</code></em> </strong></p>
 <p>mixin的作用在於讓我們將常用的CSS指令是先定義好，當程式project寫大時，只要改一個<code>屬性</code>，就能調整所有相關CSS。</p>
 <p>mixin也經常結合<code>sass變數</code>，將常用的元件模組化，例如<code>尺寸</code>、<code>文字</code>。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* mixin */</span></div><div class="line"><span class="comment">/* 如果沒有帶入參數，則會輸入default params */</span></div><div class="line"><span class="comment">/* 可以想像為minin是具有default constructor、constructor的類別 */</span></div><div class="line">@<span class="keyword">mixin</span> text($color: red,$size: <span class="number">10px</span> ,$letter-spacing: <span class="number">1px</span>)</div><div class="line">    color: $color</div><div class="line">    fint-size: $size</div><div class="line">    letter-spacing: $letter-spacing</div><div class="line"></div><div class="line">@minin size($width: <span class="number">200px</span>,$height: <span class="number">300px</span>)</div><div class="line">    width: $width</div><div class="line">    height: $height</div><div class="line"></div><div class="line">/* text */</div><div class="line">.element</div><div class="line">    +text()</div><div class="line">.element1</div><div class="line">    +text(blue,<span class="number">20px</span>,<span class="number">2px</span>)</div><div class="line"></div><div class="line">html,body</div><div class="line">    +height()</div><div class="line">    background-color: red;</div></pre></td></tr></table></figure>
+<pre><code class="css"><span class="comment">/* mixin */</span>
+<span class="comment">/* 如果沒有帶入參數，則會輸入default params */</span>
+<span class="comment">/* 可以想像為minin是具有default constructor、constructor的類別 */</span>
+@<span class="keyword">mixin</span> text($color: red,$size: <span class="number">10px</span> ,$letter-spacing: <span class="number">1px</span>)
+    color: $color
+    fint-size: $size
+    letter-spacing: $letter-spacing
+
+@minin size($width: <span class="number">200px</span>,$height: <span class="number">300px</span>)
+    width: $width
+    height: $height
+
+/* text */
+.element
+    +text()
+.element1
+    +text(blue,<span class="number">20px</span>,<span class="number">2px</span>)
+
+html,body
+    +height()
+    background-color: red;
+</code></pre>
 <p>完整範例請見<a href="http://codepen.io/KUEI/pen/ygreee" target="_blank" rel="external">Mixin</a></p>
 <h3 id="SASS系統化CSS-Style"><a href="#SASS系統化CSS-Style" class="headerlink" title="SASS系統化CSS Style"></a>SASS系統化CSS Style</h3><p>在寫一品牌網站時會先定義後該有的<code>佈局</code>、<code>字體顏色</code>等等，而透過SASS的<code>變數</code>、<code>mixin</code>、<code>css排列</code>能夠更加系統化地去完成網頁，例如改變一個變數顏色、一個變數size，整份網頁對應到的變數都能有所改變，而當網頁系統相當龐大時此方法就會相當便利。</p>
 <p>而透過此範例也能更加瞭解CSS在<code>佈局定位</code>時的技巧。</p>
 <p>完整範例請見<a href="https://codepen.io/KUEI/pen/WRWWYQ" target="_blank" rel="external">SASS系統化CSS Style</a></p>
-<h3 id="小叮嚀"><a href="#小叮嚀" class="headerlink" title="小叮嚀"></a>小叮嚀</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*  */</span></div><div class="line"><span class="selector-tag">color</span><span class="selector-pseudo">:black</span>    <span class="selector-tag">-</span>&gt;錯誤</div><div class="line"><span class="selector-tag">color</span>: <span class="selector-tag">black</span>   <span class="selector-tag">-</span>&gt;正確</div></pre></td></tr></table></figure>
+<h3 id="小叮嚀"><a href="#小叮嚀" class="headerlink" title="小叮嚀"></a>小叮嚀</h3><pre><code class="css"><span class="comment">/*  */</span>
+<span class="selector-tag">color</span><span class="selector-pseudo">:black</span>    <span class="selector-tag">-</span>&gt;錯誤
+<span class="selector-tag">color</span>: <span class="selector-tag">black</span>   <span class="selector-tag">-</span>&gt;正確
+</code></pre>
 
                 <hr>
                 
@@ -257,13 +301,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/SEO搜尋引擎優化結合Hexo實作/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/" data-toggle="tooltip" data-placement="top"
                            title="SEO搜尋引擎優化結合Hexo實作">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/CSS基礎與深入/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/CSS基礎與深入/" data-toggle="tooltip" data-placement="top"
                            title="CSS基礎與深入">Next Post &rarr;</a>
                     </li>
                     
@@ -303,17 +347,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#CSS"
+                        <a class="tag" href="/KueiBlog/tags/#CSS"
                            title="CSS">CSS</a>
                         
-                        <a class="tag" href="/tags/#SASS"
+                        <a class="tag" href="/KueiBlog/tags/#SASS"
                            title="SASS">SASS</a>
                         
-                        <a class="tag" href="/tags/#project"
+                        <a class="tag" href="/KueiBlog/tags/#project"
                            title="project">project</a>
                         
                     </div>
@@ -334,8 +378,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/SASS/";
-    var disqus_url = "http://yoursite.com/post/SASS/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/SASS/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/SASS/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -418,7 +462,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

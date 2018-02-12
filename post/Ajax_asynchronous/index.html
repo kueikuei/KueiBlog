@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Ajax_asynchronous/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Ajax_asynchronous/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Ajax"
+                        <a class="tag" href="/KueiBlog/tags/#Ajax"
                            title="Ajax">Ajax</a>
                         
                     </div>
@@ -228,8 +228,42 @@
 <p><em>Synchronous</em><br><img src="http://www.flag.com.tw/db/preview/images/F2472_1_F.jpg" alt="Loading Fail"></p>
 <p><em>Asychronous</em><br><img src="http://www.flag.com.tw/db/preview/images/F2472_1_F.jpg" alt="Loading Fail"></p>
 <h3 id="小試身手"><a href="#小試身手" class="headerlink" title="小試身手"></a>小試身手</h3><p>產生一個XML物件後，透過<code>get method</code>去遠端<code>request</code>資料，並透過<code>監聽</code>確認是否有取得資料。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//一般使用 XMLHttpRequest物件</span></div><div class="line"><span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//new出Ajax物件</span></div><div class="line"><span class="keyword">const</span> REQUEST_URL = <span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"></div><div class="line"><span class="comment">//監聽是否完成</span></div><div class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(xhr.readyState===XMLHttpRequest.DONE)&#123;</div><div class="line">        <span class="built_in">console</span>.log(xhr.responseText);</div><div class="line">    &#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">xhr.open(<span class="string">'GET'</span>,REQUEST_URL);</div><div class="line">xhr.send();</div></pre></td></tr></table></figure>
-<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p><code>1. Promise為何而生？</code><br>在開發時，我想或多或少都會碰到以下情況，多個接口非同步請求數據時，每个接口的調用都得上一個接口的结果，這就是有名的<code>迴調金字塔</code>，用程式碼顯示如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">    $.ajax(&#123;</div><div class="line">    <span class="attr">url</span>: <span class="string">'/a'</span>,</div><div class="line">    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (data.code === <span class="number">1</span>) &#123;</div><div class="line">            $.ajax(&#123;</div><div class="line">                <span class="attr">url</span>: <span class="string">'/b'</span>,</div><div class="line">                <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">if</span> (data.code === <span class="number">1</span>) &#123;</div><div class="line">                        $.ajax(&#123;</div><div class="line">                            <span class="attr">url</span>: <span class="string">'/c'</span>,</div><div class="line">                            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                                <span class="comment">// ......</span></div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<pre><code class="javascript"><span class="comment">//一般使用 XMLHttpRequest物件</span>
+<span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();<span class="comment">//new出Ajax物件</span>
+<span class="keyword">const</span> REQUEST_URL = <span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;
+
+<span class="comment">//監聽是否完成</span>
+xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    <span class="keyword">if</span>(xhr.readyState===XMLHttpRequest.DONE){
+        <span class="built_in">console</span>.log(xhr.responseText);
+    };
+};
+
+xhr.open(<span class="string">'GET'</span>,REQUEST_URL);
+xhr.send();
+</code></pre>
+<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><p><code>1. Promise為何而生？</code><br>在開發時，我想或多或少都會碰到以下情況，多個接口非同步請求數據時，每个接口的調用都得上一個接口的结果，這就是有名的<code>迴調金字塔</code>，用程式碼顯示如下：</p>
+<pre><code class="javascript">    $.ajax({
+    <span class="attr">url</span>: <span class="string">'/a'</span>,
+    <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+        <span class="keyword">if</span> (data.code === <span class="number">1</span>) {
+            $.ajax({
+                <span class="attr">url</span>: <span class="string">'/b'</span>,
+                <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+                    <span class="keyword">if</span> (data.code === <span class="number">1</span>) {
+                        $.ajax({
+                            <span class="attr">url</span>: <span class="string">'/c'</span>,
+                            <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>{
+                                <span class="comment">// ......</span>
+                            }
+                        });
+                    }
+                }
+            });
+        }
+    }
+});
+</code></pre>
 <p><strong>而Promise則是為了避免非同步處理進入<code>廻調地獄callback hell</code>的處理方法之一。</strong></p>
 <p>請不要誤會，Promise並不是Javascript特有的處理方式，而是像諸如OOP、演算法等，是每一種程式語言都有相似的處理方式，比如：</p>
 <ul>
@@ -256,15 +290,110 @@
 <li>Constructor </li>
 <li>Instance Method </li>
 </ul>
-<p>和一些內建物件一樣(例如Date)，這邊或能將Promise想像為物件較容易理解，我們可以用Constructor 来產生一個Promise:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">    <span class="comment">//處理非同步,结束後調用resolve或reject</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>和一些內建物件一樣(例如Date)，這邊或能將Promise想像為物件較容易理解，我們可以用Constructor 来產生一個Promise:</p>
+<pre><code class="javascript"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>{
+    <span class="comment">//處理非同步,结束後調用resolve或reject</span>
+});
+</code></pre>
 <p>物件都有內建的方法，Promise也不例外，最常見的為<code>then</code>、<code>catch</code>方法，延續剛剛的例子，在產生一筆新的Promise Object後，接著無非是想知道成功(resolve)取得資料或失敗(reject)：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">promise.then(<span class="function"><span class="keyword">function</span> <span class="title">onResolve</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//成功時調用</span></div><div class="line">&#125;.catch(<span class="function"><span class="keyword">function</span> <span class="title">onReject</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="comment">//失敗時調用</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><strong>easy example</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//define data</span></div><div class="line"><span class="keyword">const</span> comments=[</div><div class="line">  &#123;<span class="attr">title</span>:<span class="string">'Comment1'</span>,<span class="attr">content</span>:<span class="string">'content1'</span>&#125;,</div><div class="line">  &#123;<span class="attr">title</span>:<span class="string">'Comment2'</span>,<span class="attr">content</span>:<span class="string">'content2'</span>&#125;,</div><div class="line">];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getComments</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</div><div class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      resolve(comments);</div><div class="line">    &#125;,<span class="number">1000</span>);</div><div class="line">  &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCommentsToConsole</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  getComments()</div><div class="line">  .then(<span class="function"><span class="params">comments</span>=&gt;</span><span class="built_in">console</span>.log(comments))</div><div class="line">  .catch(<span class="function"><span class="params">err</span>=&gt;</span><span class="built_in">console</span>.log(err));</div><div class="line">&#125;</div><div class="line"></div><div class="line">printCommentsToConsole();</div></pre></td></tr></table></figure></p>
-<p><strong>result</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">[[object <span class="built_in">Object</span>] &#123;</div><div class="line">  <span class="attr">content</span>: <span class="string">"content1"</span>,</div><div class="line">  <span class="attr">title</span>: <span class="string">"Comment1"</span></div><div class="line">&#125;, [object <span class="built_in">Object</span>] &#123;</div><div class="line">  <span class="attr">content</span>: <span class="string">"content2"</span>,</div><div class="line">  <span class="attr">title</span>: <span class="string">"Comment2"</span></div><div class="line">&#125;]</div></pre></td></tr></table></figure></p>
-<p><strong>example2</strong><br><strong>ajax promise</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getJSON = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> client = <span class="keyword">new</span> XMLHttpRequest();</div><div class="line">    client.open(<span class="string">"GET"</span>, url);</div><div class="line">    client.onreadystatechange = handler;</div><div class="line">    client.responseType = <span class="string">"json"</span>;</div><div class="line">    client.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json"</span>);</div><div class="line">    client.send();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) &#123;</div><div class="line">        resolve(<span class="keyword">this</span>.response);</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText));</div><div class="line">      &#125;</div><div class="line">    &#125;;</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> promise;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">getJSON(<span class="string">"http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'Contents: '</span> + json);</div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.error(<span class="string">'出錯了'</span>, error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<pre><code class="javascript">promise.then(<span class="function"><span class="keyword">function</span> <span class="title">onResolve</span>(<span class="params"></span>) </span>{
+    <span class="comment">//成功時調用</span>
+}.catch(<span class="function"><span class="keyword">function</span> <span class="title">onReject</span>(<span class="params">error</span>) </span>{
+    <span class="comment">//失敗時調用</span>
+});
+</code></pre>
+<p><strong>easy example</strong></p>
+<pre><code class="javascript"><span class="comment">//define data</span>
+<span class="keyword">const</span> comments=[
+  {<span class="attr">title</span>:<span class="string">'Comment1'</span>,<span class="attr">content</span>:<span class="string">'content1'</span>},
+  {<span class="attr">title</span>:<span class="string">'Comment2'</span>,<span class="attr">content</span>:<span class="string">'content2'</span>},
+];
+
+<span class="function"><span class="keyword">function</span> <span class="title">getComments</span>(<span class="params"></span>)</span>{
+  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>{
+    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+      resolve(comments);
+    },<span class="number">1000</span>);
+  });
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">printCommentsToConsole</span>(<span class="params"></span>)</span>{
+  getComments()
+  .then(<span class="function"><span class="params">comments</span>=&gt;</span><span class="built_in">console</span>.log(comments))
+  .catch(<span class="function"><span class="params">err</span>=&gt;</span><span class="built_in">console</span>.log(err));
+}
+
+printCommentsToConsole();
+</code></pre>
+<p><strong>result</strong></p>
+<pre><code class="javascript">[[object <span class="built_in">Object</span>] {
+  <span class="attr">content</span>: <span class="string">"content1"</span>,
+  <span class="attr">title</span>: <span class="string">"Comment1"</span>
+}, [object <span class="built_in">Object</span>] {
+  <span class="attr">content</span>: <span class="string">"content2"</span>,
+  <span class="attr">title</span>: <span class="string">"Comment2"</span>
+}]
+</code></pre>
+<p><strong>example2</strong><br><strong>ajax promise</strong></p>
+<pre><code class="javascript"><span class="keyword">var</span> getJSON = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>{
+  <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>)</span>{
+    <span class="keyword">var</span> client = <span class="keyword">new</span> XMLHttpRequest();
+    client.open(<span class="string">"GET"</span>, url);
+    client.onreadystatechange = handler;
+    client.responseType = <span class="string">"json"</span>;
+    client.setRequestHeader(<span class="string">"Accept"</span>, <span class="string">"application/json"</span>);
+    client.send();
+
+    <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>{
+      <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) {
+        <span class="keyword">return</span>;
+      }
+      <span class="keyword">if</span> (<span class="keyword">this</span>.status === <span class="number">200</span>) {
+        resolve(<span class="keyword">this</span>.response);
+      } <span class="keyword">else</span> {
+        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText));
+      }
+    };
+  });
+
+  <span class="keyword">return</span> promise;
+};
+
+getJSON(<span class="string">"http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">json</span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">'Contents: '</span> + json);
+}, <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>{
+  <span class="built_in">console</span>.error(<span class="string">'出錯了'</span>, error);
+});
+</code></pre>
 <p>這邊有份有趣的Promise介紹文章，作者將Promise結合當前火紅的Pokemon Go進行講解，有興趣就讀讀看吧:)<a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a></p>
 <h3 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h3><p>讓原本的<code>XMLHttpRequest</code>更簡單<br>fetch() 主要使用兩個參數,<code>請求地址</code>和<code>選項</code>。請求完成後return Promise 物件</p>
-<p>這邊我們用剛剛的<strong>ajax promise</strong>為例子，透過fetch去做做看<br>範例如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> myHeaders = <span class="keyword">new</span> Headers();</div><div class="line"></div><div class="line"><span class="keyword">if</span>(self.fetch)&#123;</div><div class="line"><span class="comment">//runmyfetchrequesthere</span></div><div class="line"><span class="keyword">const</span> myInit=&#123;</div><div class="line">    <span class="attr">method</span>:<span class="string">'GET'</span>,</div><div class="line">    <span class="attr">headers</span>:myHeaders,</div><div class="line">    <span class="attr">mode</span>:<span class="string">'cors'</span>,</div><div class="line">    <span class="attr">cache</span>:<span class="string">'default'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">const</span> REQUEST_URL=<span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;</div><div class="line"></div><div class="line"><span class="comment">//do fetch API</span></div><div class="line">fetch(REQUEST_URL,myInit)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> response.json();</div><div class="line">    &#125;)</div><div class="line">    .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(data);</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line"><span class="comment">//dosomethingwithXMLHttpRequest?</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>這邊我們用剛剛的<strong>ajax promise</strong>為例子，透過fetch去做做看<br>範例如下：</p>
+<pre><code class="javascript"><span class="keyword">const</span> myHeaders = <span class="keyword">new</span> Headers();
+
+<span class="keyword">if</span>(self.fetch){
+<span class="comment">//runmyfetchrequesthere</span>
+<span class="keyword">const</span> myInit={
+    <span class="attr">method</span>:<span class="string">'GET'</span>,
+    <span class="attr">headers</span>:myHeaders,
+    <span class="attr">mode</span>:<span class="string">'cors'</span>,
+    <span class="attr">cache</span>:<span class="string">'default'</span>
+};
+
+<span class="keyword">const</span> REQUEST_URL=<span class="string">'http://163.29.157.32:8080/dataset/6a3e862a-e1cb-4e44-b989-d35609559463/resource/f4a75ba9-7721-4363-884d-c3820b0b917c/download/393625397fc043188a3f8237c1da1c6f.json'</span>;
+
+<span class="comment">//do fetch API</span>
+fetch(REQUEST_URL,myInit)
+    .then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>)</span>{
+        <span class="keyword">return</span> response.json();
+    })
+    .then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>{
+        <span class="built_in">console</span>.log(data);
+    });
+
+}<span class="keyword">else</span>{
+<span class="comment">//dosomethingwithXMLHttpRequest?</span>
+}
+</code></pre>
 <p>是不是簡化很多呢?<br>快來試試看吧:)</p>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://www.w3cin.com/2016/08/04/%E6%B5%85%E8%B0%88Javascript%20Promise/" target="_blank" rel="external">浅谈Javascript Promise</a><br><a href="http://es6.ruanyifeng.com/#docs/promise" target="_blank" rel="external">ECMAScript 6 入门之Promise</a><br><a href="http://huli.logdown.com/posts/292655-javascript-promise-generator-async-es6" target="_blank" rel="external">[Javascript] Promise, generator, async與ES6</a><br><a href="http://eddychang.me/blog/javascript/88-promise-basic-usage.html" target="_blank" rel="external">Promise教學 - Promise物件建立與基本使用</a><br><a href="https://www.gitbook.com/book/eyesofkids/javascript-start-from-es6/details" target="_blank" rel="external">從ES6開始的JavaScript學習生活</a></p>
 
@@ -274,13 +403,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/iPetProject/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/iPetProject/" data-toggle="tooltip" data-placement="top"
                            title="iPetProject">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/FacebookAPI 初探/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/FacebookAPI 初探/" data-toggle="tooltip" data-placement="top"
                            title="Facebook API 初探">Next Post &rarr;</a>
                     </li>
                     
@@ -320,14 +449,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Ajax"
+                        <a class="tag" href="/KueiBlog/tags/#Ajax"
                            title="Ajax">Ajax</a>
                         
                     </div>
@@ -348,8 +477,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Ajax_asynchronous/";
-    var disqus_url = "http://yoursite.com/post/Ajax_asynchronous/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Ajax_asynchronous/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Ajax_asynchronous/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -432,7 +561,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

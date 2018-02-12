@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_EventHandlers/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_EventHandlers/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -211,7 +211,8 @@
                 <h4 id="三種處理方式"><a href="#三種處理方式" class="headerlink" title="三種處理方式"></a>三種處理方式</h4><blockquote>
 <p>HTML屬性指定事件 </p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;button onclick=<span class="string">"click()"</span><span class="string">"&gt;按我&lt;/button&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="javascript">&lt;button onclick=<span class="string">"click()"</span><span class="string">"&gt;按我&lt;/button&gt;</span>
+</code></pre>
 <blockquote>
 <p>JavaScript屬性指定事件<br>DOM方式建立(較建議)</p>
 </blockquote>
@@ -227,20 +228,127 @@
 </blockquote>
 </blockquote>
 <p><img src="http://images2015.cnblogs.com/blog/940574/201605/940574-20160516174447982-1897907734.jpg" alt="Loading Fail" title="事件傳播模型"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;body id = &apos;bodybody&apos;&gt;</div><div class="line">    &lt;div id = &apos;papa&apos;&gt;</div><div class="line">        &lt;button id = &apos;xd&apos;&gt;bubble&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div id = &apos;sider&apos;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//get all element</span></div><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'xd'</span>);</div><div class="line"><span class="keyword">var</span> papa = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);</div><div class="line"><span class="keyword">var</span> sider = <span class="built_in">document</span>.getElementById(<span class="string">'sider'</span>);</div><div class="line"><span class="keyword">var</span> bodybody = <span class="built_in">document</span>.getElementById(<span class="string">'bodybody'</span>);</div><div class="line"></div><div class="line"><span class="comment">//give event of each</span></div><div class="line"><span class="comment">//false:bubble;true:capture</span></div><div class="line">btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);</div><div class="line">papa.addEventListener(<span class="string">'click'</span>,eventHandlerPapa,<span class="literal">false</span>);</div><div class="line">sider.addEventListener(<span class="string">'click'</span>,eventHandlerSide,<span class="literal">false</span>);</div><div class="line">bodybody.addEventListener(<span class="string">'click'</span>,eventHandlerBody,<span class="literal">false</span>);</div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,eventHandlerDoc,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="comment">//function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</div><div class="line">&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandlerPapa</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hi papa'</span>);&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandlerSide</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hi side'</span>);&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandlerBody</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hi body'</span>);&#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandlerDoc</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="string">'hi document'</span>);&#125;;</div></pre></td></tr></table></figure>
-<h4 id="事件物件"><a href="#事件物件" class="headerlink" title="事件物件"></a>事件物件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body id = &apos;bodybody&apos;&gt;</div><div class="line">    &lt;a href=&quot;http://www.google.com&quot; id=&quot;link&quot;&gt;&lt;/a&gt;</div><div class="line">    &lt;button id = &apos;btn&apos;&gt;I love JS&lt;/button&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>); </div><div class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);  </div><div class="line"></div><div class="line">btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);</div><div class="line">a.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">false</span>);</div><div class="line"></div><div class="line"><span class="comment">//event argument</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(event.clientX);</div><div class="line">    <span class="built_in">console</span>.log(event.clientY);</div><div class="line">    <span class="keyword">this</span>.innerHTML=<span class="string">'testinggggggggg'</span>;</div><div class="line">    <span class="keyword">this</span>.style.color = <span class="string">'red'</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    event.prevenDefault();</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body id = &apos;bodybody&apos;&gt;
+    &lt;div id = &apos;papa&apos;&gt;
+        &lt;button id = &apos;xd&apos;&gt;bubble&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id = &apos;sider&apos;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="comment">//get all element</span>
+<span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'xd'</span>);
+<span class="keyword">var</span> papa = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);
+<span class="keyword">var</span> sider = <span class="built_in">document</span>.getElementById(<span class="string">'sider'</span>);
+<span class="keyword">var</span> bodybody = <span class="built_in">document</span>.getElementById(<span class="string">'bodybody'</span>);
+
+<span class="comment">//give event of each</span>
+<span class="comment">//false:bubble;true:capture</span>
+btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);
+papa.addEventListener(<span class="string">'click'</span>,eventHandlerPapa,<span class="literal">false</span>);
+sider.addEventListener(<span class="string">'click'</span>,eventHandlerSide,<span class="literal">false</span>);
+bodybody.addEventListener(<span class="string">'click'</span>,eventHandlerBody,<span class="literal">false</span>);
+<span class="built_in">document</span>.addEventListener(<span class="string">'click'</span>,eventHandlerDoc,<span class="literal">false</span>);
+
+<span class="comment">//function</span>
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>{
+    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);
+};
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandlerPapa</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">'hi papa'</span>);};
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandlerSide</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">'hi side'</span>);};
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandlerBody</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">'hi body'</span>);};
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandlerDoc</span>(<span class="params"></span>)</span>{<span class="built_in">console</span>.log(<span class="string">'hi document'</span>);};
+</code></pre>
+<h4 id="事件物件"><a href="#事件物件" class="headerlink" title="事件物件"></a>事件物件</h4><pre><code class="HTML5">&lt;body id = &apos;bodybody&apos;&gt;
+    &lt;a href=&quot;http://www.google.com&quot; id=&quot;link&quot;&gt;&lt;/a&gt;
+    &lt;button id = &apos;btn&apos;&gt;I love JS&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>); 
+<span class="keyword">var</span> a = <span class="built_in">document</span>.getElementById(<span class="string">'link'</span>);  
+
+btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);
+a.addEventListener(<span class="string">'click'</span>,callback,<span class="literal">false</span>);
+
+<span class="comment">//event argument</span>
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params">event</span>)</span>{
+    <span class="built_in">console</span>.log(event.clientX);
+    <span class="built_in">console</span>.log(event.clientY);
+    <span class="keyword">this</span>.innerHTML=<span class="string">'testinggggggggg'</span>;
+    <span class="keyword">this</span>.style.color = <span class="string">'red'</span>;
+};
+
+<span class="function"><span class="keyword">function</span> <span class="title">callback</span>(<span class="params">event</span>)</span>{
+    event.prevenDefault();
+};
+</code></pre>
 <h4 id="動態註冊事件"><a href="#動態註冊事件" class="headerlink" title="動態註冊事件"></a>動態註冊事件</h4><blockquote>
 <p>example1</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=&apos;num&apos;&gt;&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> list = <span class="built_in">document</span>.getElementById(<span class="string">'num'</span>); </div><div class="line"></div><div class="line"><span class="comment">//dynamic creating by loop</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</div><div class="line">    <span class="comment">//dynamic create element</span></div><div class="line">    <span class="keyword">var</span> option = <span class="built_in">document</span>.createElement(<span class="string">'LI'</span>);</div><div class="line">    <span class="comment">//set attribute into element</span></div><div class="line">    option.setAttribute(<span class="string">'class'</span>,<span class="string">'style'</span>);</div><div class="line">    option.addEventListener(<span class="string">'click'</span>,hand,<span class="literal">false</span>);</div><div class="line"></div><div class="line">    option.innerHTML = i;</div><div class="line">    <span class="comment">//create child for "num"</span></div><div class="line">    list.appendChild(option);</div><div class="line">&#125;</div><div class="line"><span class="comment">//dynamic remove element</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hand</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dad = <span class="keyword">this</span>.parentNode;</div><div class="line">    dad.removeChild(<span class="keyword">this</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;ul id=&apos;num&apos;&gt;&lt;/ul&gt;
+</code></pre>
+<pre><code class="javascript"><span class="keyword">const</span> list = <span class="built_in">document</span>.getElementById(<span class="string">'num'</span>); 
+
+<span class="comment">//dynamic creating by loop</span>
+<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){
+    <span class="comment">//dynamic create element</span>
+    <span class="keyword">var</span> option = <span class="built_in">document</span>.createElement(<span class="string">'LI'</span>);
+    <span class="comment">//set attribute into element</span>
+    option.setAttribute(<span class="string">'class'</span>,<span class="string">'style'</span>);
+    option.addEventListener(<span class="string">'click'</span>,hand,<span class="literal">false</span>);
+
+    option.innerHTML = i;
+    <span class="comment">//create child for "num"</span>
+    list.appendChild(option);
+}
+<span class="comment">//dynamic remove element</span>
+<span class="function"><span class="keyword">function</span> <span class="title">hand</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> dad = <span class="keyword">this</span>.parentNode;
+    dad.removeChild(<span class="keyword">this</span>);
+}
+</code></pre>
 <blockquote>
 <p>example2</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Webville Tunes<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- script[src="playlist.js"] --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../JavaScript/playlist.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- link[rel="stylesheet" href="playlist.css"] --&gt;</span></div><div class="line">    <span class="comment">&lt;!-- &lt;link rel="stylesheet" href="../CSS/playlist.css"&gt; --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- form&gt;input[type="text" id="songTextInput" size="40" placeholder="Song name"]+input[type="button" id="addButton" value="Add Song"] --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"songTextInput"</span> <span class="attr">size</span>=<span class="string">"40"</span> <span class="attr">placeholder</span>=<span class="string">"Song name"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"addButton"</span> <span class="attr">value</span>=<span class="string">"Add Song"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"playlist"</span>&gt;</span></div><div class="line">        </div><div class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    </div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = init;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'addButton'</span>);</div><div class="line">    btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'playlist'</span>);</div><div class="line">    <span class="keyword">var</span> songText = <span class="built_in">document</span>.getElementById(<span class="string">'songTextInput'</span>);</div><div class="line">    <span class="keyword">var</span> songTextValue = songText.value;</div><div class="line">    <span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">    li.innerHTML = songTextValue;</div><div class="line">    ul.appendChild(li);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="meta">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span>
+<span class="tag">&lt;<span class="name">head</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Webville Tunes<span class="tag">&lt;/<span class="name">title</span>&gt;</span>
+    <span class="comment">&lt;!-- script[src="playlist.js"] --&gt;</span>
+    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../JavaScript/playlist.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+    <span class="comment">&lt;!-- link[rel="stylesheet" href="playlist.css"] --&gt;</span>
+    <span class="comment">&lt;!-- &lt;link rel="stylesheet" href="../CSS/playlist.css"&gt; --&gt;</span>
+<span class="tag">&lt;/<span class="name">head</span>&gt;</span>
+<span class="tag">&lt;<span class="name">body</span>&gt;</span>
+    <span class="comment">&lt;!-- form&gt;input[type="text" id="songTextInput" size="40" placeholder="Song name"]+input[type="button" id="addButton" value="Add Song"] --&gt;</span>
+    <span class="tag">&lt;<span class="name">form</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"songTextInput"</span> <span class="attr">size</span>=<span class="string">"40"</span> <span class="attr">placeholder</span>=<span class="string">"Song name"</span>&gt;</span>
+        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"addButton"</span> <span class="attr">value</span>=<span class="string">"Add Song"</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+
+    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"playlist"</span>&gt;</span>
+
+    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span>
+
+<span class="tag">&lt;/<span class="name">body</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">html</span>&gt;</span>
+</code></pre>
+<pre><code class="javascript"><span class="built_in">window</span>.onload = init;
+<span class="function"><span class="keyword">function</span> <span class="title">init</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">'addButton'</span>);
+    btn.addEventListener(<span class="string">'click'</span>,eventHandler,<span class="literal">false</span>);
+};
+
+
+<span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>{
+    <span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'playlist'</span>);
+    <span class="keyword">var</span> songText = <span class="built_in">document</span>.getElementById(<span class="string">'songTextInput'</span>);
+    <span class="keyword">var</span> songTextValue = songText.value;
+    <span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">'li'</span>);
+    li.innerHTML = songTextValue;
+    ul.appendChild(li);
+};
+</code></pre>
 <h4 id="事件物件-1"><a href="#事件物件-1" class="headerlink" title="事件物件"></a>事件物件</h4><blockquote>
 <p>取消預設動作:event.preventDefault();<br>取消事件傳播:event.preventPropagation();<br>滑鼠事件<br>鍵盤事件<br>拖曳事件</p>
 </blockquote>
@@ -258,13 +366,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Emmet/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Emmet/" data-toggle="tooltip" data-placement="top"
                            title="Emmet">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/JS_BOMandDOM/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_BOMandDOM/" data-toggle="tooltip" data-placement="top"
                            title="Javascript Bom & Dom">Next Post &rarr;</a>
                     </li>
                     
@@ -304,11 +412,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -329,8 +437,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_EventHandlers/";
-    var disqus_url = "http://yoursite.com/post/JS_EventHandlers/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_EventHandlers/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_EventHandlers/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -413,7 +521,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

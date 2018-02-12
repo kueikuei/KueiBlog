@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/SEO搜尋引擎優化結合Hexo實作/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Hexo"
+                        <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/tags/#SEO"
+                        <a class="tag" href="/KueiBlog/tags/#SEO"
                            title="SEO">SEO</a>
                         
-                        <a class="tag" href="/tags/#Google Search Engine"
+                        <a class="tag" href="/KueiBlog/tags/#Google Search Engine"
                            title="Google Search Engine">Google Search Engine</a>
                         
                     </div>
@@ -261,9 +261,14 @@
 </ol>
 <h3 id="詳細流程講解"><a href="#詳細流程講解" class="headerlink" title="詳細流程講解"></a>詳細流程講解</h3><p>這邊將詳細部分流程。</p>
 <p><code>流程3.</code> 網頁提示步驟畫面<br><code><br><img src="http://i.imgur.com/fJzn81t.png" alt="Smiley face" height="300" width="400"><br></code></p>
-<p><code>流程5.</code> ver code插入hexo的<code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">google-site-verification:</span> googlexxxxxxxxxxxxxxx.html</div></pre></td></tr></table></figure></p>
+<p><code>流程5.</code> ver code插入hexo的<code>_config.yml</code></p>
+<pre><code class="yml"><span class="attr">google-site-verification:</span> googlexxxxxxxxxxxxxxx.html
+</code></pre>
 <p><strong>下載hexo sitemap package</strong><br><code>npm install hexo-generator-sitemap</code><br><code>sudo npm install hexo-generator-seo-friendly-sitemap --save</code><br>載完後重新<code>hexo g</code>時就會產生<code>sitemap.xml</code>、<code>sitemap.xsl</code>、<code>page-sitemap.xml</code>、<code>post-sitemap.xml</code>、<code>tag-sitemap.xml</code>這幾個檔案，而這些到時候都會一起推到雲端並且被google所琛測到。</p>
-<p><code>流程11.</code> ver code插入hexo的<code>_config.yml</code><br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attr">sitemap:</span></div><div class="line"><span class="attr">  path:</span> sitemap.xml</div></pre></td></tr></table></figure></p>
+<p><code>流程11.</code> ver code插入hexo的<code>_config.yml</code></p>
+<pre><code class="yml"><span class="attr">sitemap:</span>
+<span class="attr">  path:</span> sitemap.xml
+</code></pre>
 <p><code>流程15.</code> sitemap提交後畫面<br><code><br><img src="http://i.imgur.com/SEVYEN7.png" alt="Smiley face" height="400" width="500"><br></code></p>
 <h3 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h3><p>靜待數小時後就會發現部落格被搜尋到了!!!<br>讓我們看看兩者比較圖：<br><code><br><img src="http://i.imgur.com/L5HPQJH.png" alt="Smiley face" height="300" width="400"><img src="http://i.imgur.com/uevyffF.png" alt="Smiley face" height="300" width="400"><br></code></p>
 <p>而一但有新的Blog產出，將其push到雲端後，透過Google Search Console介面左上角<code>重新提交</code>，就會自動將新的文章提交上去囉，是不是很方便呢:)?</p>
@@ -276,13 +281,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/JSONP/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JSONP/" data-toggle="tooltip" data-placement="top"
                            title="JSONP">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/SASS/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/SASS/" data-toggle="tooltip" data-placement="top"
                            title="SASS(CSS樣板語言)">Next Post &rarr;</a>
                     </li>
                     
@@ -322,17 +327,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Hexo"
+                        <a class="tag" href="/KueiBlog/tags/#Hexo"
                            title="Hexo">Hexo</a>
                         
-                        <a class="tag" href="/tags/#SEO"
+                        <a class="tag" href="/KueiBlog/tags/#SEO"
                            title="SEO">SEO</a>
                         
-                        <a class="tag" href="/tags/#Google Search Engine"
+                        <a class="tag" href="/KueiBlog/tags/#Google Search Engine"
                            title="Google Search Engine">Google Search Engine</a>
                         
                     </div>
@@ -353,8 +358,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/SEO搜尋引擎優化結合Hexo實作/";
-    var disqus_url = "http://yoursite.com/post/SEO搜尋引擎優化結合Hexo實作/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/SEO搜尋引擎優化結合Hexo實作/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -437,7 +442,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

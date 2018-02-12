@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/MochaTestMongoDB(上)/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/MochaTestMongoDB(上)/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,14 +187,14 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#Express"
+                        <a class="tag" href="/KueiBlog/tags/#Express"
                            title="Express">Express</a>
                         
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
                         
                     </div>
                 </div>
@@ -229,25 +229,112 @@
 <p>本篇將介紹如何透過mongoose進行完整的CRUD<br>有意思的是<br>過往我們要進行的前後端完整的功能測試<br>我們可能前端要寫出一個簡單框架<br>包含按鈕還有相關direct頁面<br>去進行<code>request</code>和<code>response</code>的取得<br>然而在這邊<br>我們透過<code>postman</code>去取代前端的<code>req</code>發送<br>並且取得相對應的<code>res</code>結果。</p>
 <p>一個 <strong>完整(req,res)流程</strong> 說明如下：</p>
 <p>前端使用者按出送出鍵後產生<code>請求(request)</code>到伺服器端<br>伺服器端根據請求到<code>DB</code>中撈取資料並<code>回傳(response)</code>結果<br>根據這些過程從中作測試<br>同時測試前端與後端<br>前端測試req後的網路狀態是否正確、res結果是否符合預期、DB資料有無正確產生並符合預期</p>
-<h3 id="程式碼講解"><a href="#程式碼講解" class="headerlink" title="程式碼講解"></a>程式碼講解</h3><p><strong>create</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//create</span></div><div class="line">app.post(<span class="string">'/todos'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> todo = <span class="keyword">new</span> Todo(&#123;</div><div class="line">    <span class="attr">text</span>: req.body.text</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  todo.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</div><div class="line">    res.send(doc);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h3 id="程式碼講解"><a href="#程式碼講解" class="headerlink" title="程式碼講解"></a>程式碼講解</h3><p><strong>create</strong></p>
+<pre><code class="javascript"><span class="comment">//create</span>
+app.post(<span class="string">'/todos'</span>, (req, res) =&gt; {
+  <span class="keyword">var</span> todo = <span class="keyword">new</span> Todo({
+    <span class="attr">text</span>: req.body.text
+  });
+
+  todo.save().then(<span class="function">(<span class="params">doc</span>) =&gt;</span> {
+    res.send(doc);
+  }, (e) =&gt; {
+    res.status(<span class="number">400</span>).send(e);
+  });
+});
+</code></pre>
 <p>postman將method設定為post<br>並且將要創造的資料打入欄中按送出<br>忘記的讀者能再去<a href="https://kueiblog.herokuapp.com/post/Mongoose/" target="_blank" rel="external">Mongoose</a>中複習</p>
 <p>瀏覽器讀取到<code>/todos</code>後發出<code>req</code><br>藉由req去取得裡頭的<code>text</code><br>並且創造一個新todo物件<br><a href="https://github.com/kueikuei/mocha_express/blob/master/n-7-28-test-database/server/models/todo.js" target="_blank" rel="external">物件的定義schema</a><br>並且藉由<code>save()</code>儲存入DB中<br>最後透過<code>res</code>將存進DB中的DATA重新<code>呈現(send)</code>在畫面(前端)上給使用者看<br>這邊則會呈現在postman的結果中<br>失敗的話則傳送網路狀態<code>400</code>並將<code>error</code>情況<code>send(e)</code>出去</p>
-<p><strong>read</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.get(<span class="string">'/todos'</span>, (req, res) =&gt; &#123;</div><div class="line">  Todo.find().then(<span class="function">(<span class="params">todos</span>) =&gt;</span> &#123;</div><div class="line">    res.send(&#123;todos&#125;);</div><div class="line">  &#125;, (e) =&gt; &#123;</div><div class="line">    res.status(<span class="number">400</span>).send(e);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><code>read</code>就顯得單純多<br>postman的method為<code>GET</code><br>讀取到<code>/todos</code>後去撈取DB資料<br>比較特別的是todos外面的<code>{}</code><br>為<code>ES6</code>寫法<br>差別在於將其中的key也撈出來<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"todos"</span>: [</div><div class="line">        &#123;</div><div class="line">            <span class="attr">"_id"</span>: <span class="string">"5a1689322ff3bd4b8839c5f3"</span>,</div><div class="line">            <span class="attr">"__v"</span>: <span class="number">0</span>,</div><div class="line">            <span class="attr">"text"</span>: <span class="string">"Update by Postman2"</span>,</div><div class="line">            <span class="attr">"completedAt"</span>: <span class="number">1511505011345</span>,</div><div class="line">            <span class="attr">"completed"</span>: <span class="literal">true</span></div><div class="line">        &#125;</div><div class="line">    ]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>沒有<code>{}</code><br>結果為<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">    &#123;</div><div class="line">        <span class="attr">"_id"</span>: <span class="string">"5a1689322ff3bd4b8839c5f3"</span>,</div><div class="line">        <span class="attr">"__v"</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">"text"</span>: <span class="string">"Update by Postman2"</span>,</div><div class="line">        <span class="attr">"completedAt"</span>: <span class="number">1511505011345</span>,</div><div class="line">        <span class="attr">"completed"</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p><strong>read</strong></p>
+<pre><code class="javascript">app.get(<span class="string">'/todos'</span>, (req, res) =&gt; {
+  Todo.find().then(<span class="function">(<span class="params">todos</span>) =&gt;</span> {
+    res.send({todos});
+  }, (e) =&gt; {
+    res.status(<span class="number">400</span>).send(e);
+  });
+});
+</code></pre>
+<p><code>read</code>就顯得單純多<br>postman的method為<code>GET</code><br>讀取到<code>/todos</code>後去撈取DB資料<br>比較特別的是todos外面的<code>{}</code><br>為<code>ES6</code>寫法<br>差別在於將其中的key也撈出來</p>
+<pre><code class="json">{
+    <span class="attr">"todos"</span>: [
+        {
+            <span class="attr">"_id"</span>: <span class="string">"5a1689322ff3bd4b8839c5f3"</span>,
+            <span class="attr">"__v"</span>: <span class="number">0</span>,
+            <span class="attr">"text"</span>: <span class="string">"Update by Postman2"</span>,
+            <span class="attr">"completedAt"</span>: <span class="number">1511505011345</span>,
+            <span class="attr">"completed"</span>: <span class="literal">true</span>
+        }
+    ]
+}
+</code></pre>
+<p>沒有<code>{}</code><br>結果為</p>
+<pre><code class="json">[
+    {
+        <span class="attr">"_id"</span>: <span class="string">"5a1689322ff3bd4b8839c5f3"</span>,
+        <span class="attr">"__v"</span>: <span class="number">0</span>,
+        <span class="attr">"text"</span>: <span class="string">"Update by Postman2"</span>,
+        <span class="attr">"completedAt"</span>: <span class="number">1511505011345</span>,
+        <span class="attr">"completed"</span>: <span class="literal">true</span>
+    }
+]
+</code></pre>
 <p>在<a href="https://kueiblog.herokuapp.com/post/TodoProject/#程式碼解釋" target="_blank" rel="external">Todo Project</a>中<br>我們有提過<code>subredditName</code>的概念<br>這邊我們再以相同技術來看一個例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ObjectID = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).ObjectID;</div><div class="line"></div><div class="line">app.get(<span class="string">'/todos/:id'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> id = req.params.id;</div><div class="line"></div><div class="line">  <span class="keyword">if</span> (!ObjectID.isValid(id)) &#123;</div><div class="line">    <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  Todo.findById(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!todo) &#123;</div><div class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    res.send(&#123;todo&#125;);</div><div class="line">  &#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">    res.status(<span class="number">400</span>).send();</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="keyword">var</span> ObjectID = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).ObjectID;
+
+app.get(<span class="string">'/todos/:id'</span>, (req, res) =&gt; {
+  <span class="keyword">var</span> id = req.params.id;
+
+  <span class="keyword">if</span> (!ObjectID.isValid(id)) {
+    <span class="keyword">return</span> res.status(<span class="number">404</span>).send();
+  }
+
+  Todo.findById(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> {
+    <span class="keyword">if</span> (!todo) {
+      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();
+    }
+
+    res.send({todo});
+  }).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> {
+    res.status(<span class="number">400</span>).send();
+  });
+});
+</code></pre>
 <p>網址列輸入<code>/:id</code> 後<br>我們可以藉由<code>req.params.id</code>去取得<br>下一步我們進行判斷<br><code>判斷其是否為正確並存在的id</code></p>
 <p>引入<code>require(&#39;mongodb&#39;).ObjectID</code><br>透過其方法<code>isValid(id)</code><br>回傳一個<code>boolean</code><br>non valid則會回傳<code>res.status(404).send()</code><br>代表沒有驗證過</p>
 <p>有驗證過要考量其是否真的還存在於DB中<br>故如果讀不到<code>(!todo)</code><br>則一樣回傳<code>return res.status(404).send();</code>錯誤情況<br>此外屬於正確</p>
 <p>附帶一提<br><code>ObjectID.isValid()</code>用於判斷此id是否為MongoDB所產生<br>合理所產生回傳<code>true</code>反之為<code>false</code></p>
 <p><strong>update</strong><br>前提假設：<br>1.<code>text</code>不是空的(null) -&gt; <code>completed</code>顯示為<code>true</code><br>2.進行更新時要重新更換建立時間<code>completedAt</code><br>3.否則<code>text=null</code>，<code>completed = false</code>;<code>completedAt = null</code>;</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (_.isBoolean(body.completed) &amp;&amp; body.completed) &#123;</div><div class="line">    body.completedAt = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    body.completed = <span class="literal">false</span>;</div><div class="line">    body.completedAt = <span class="literal">null</span>;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="keyword">if</span> (_.isBoolean(body.completed) &amp;&amp; body.completed) {
+    body.completedAt = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();
+  } <span class="keyword">else</span> {
+    body.completed = <span class="literal">false</span>;
+    body.completedAt = <span class="literal">null</span>;
+  }
+</code></pre>
 <p><em>進行更新</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Todo.findByIdAndUpdate(id, &#123;<span class="attr">$set</span>: body&#125;, &#123;<span class="attr">new</span>: <span class="literal">true</span>&#125;)</div></pre></td></tr></table></figure>
-<p><code>$set</code>內存放要改變的資料<br>為一個物件<br>這邊為<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"completed"</span>:<span class="literal">true</span>,</div><div class="line">  <span class="string">"text"</span>:<span class="string">"Update by Postman 11/25"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<pre><code class="javascript">Todo.findByIdAndUpdate(id, {<span class="attr">$set</span>: body}, {<span class="attr">new</span>: <span class="literal">true</span>})
+</code></pre>
+<p><code>$set</code>內存放要改變的資料<br>為一個物件<br>這邊為</p>
+<pre><code class="javascript">{
+  <span class="string">"completed"</span>:<span class="literal">true</span>,
+  <span class="string">"text"</span>:<span class="string">"Update by Postman 11/25"</span>
+}
+</code></pre>
 <p>我們一樣透過<code>postman</code>去打入更新資料內容<br>send後進行更新</p>
-<p><strong>delete</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">app.delete(<span class="string">'/todos/:id'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="keyword">var</span> id = req.params.id;</div><div class="line"></div><div class="line">  Todo.findByIdAndRemove(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">if</span> (!todo) &#123;</div><div class="line">      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();</div><div class="line">    &#125;</div><div class="line">    res.send(&#123;todo&#125;);</div><div class="line">  &#125;).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</div><div class="line">    res.status(<span class="number">400</span>).send();</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>delete</strong></p>
+<pre><code class="javascript">app.delete(<span class="string">'/todos/:id'</span>, (req, res) =&gt; {
+  <span class="keyword">var</span> id = req.params.id;
+
+  Todo.findByIdAndRemove(id).then(<span class="function">(<span class="params">todo</span>) =&gt;</span> {
+    <span class="keyword">if</span> (!todo) {
+      <span class="keyword">return</span> res.status(<span class="number">404</span>).send();
+    }
+    res.send({todo});
+  }).catch(<span class="function">(<span class="params">e</span>) =&gt;</span> {
+    res.status(<span class="number">400</span>).send();
+  });
+});
+</code></pre>
 <p>看完了<code>CRU</code>後<br>看<code>D</code>就顯得簡單<br>拿到id後進行搜尋並且<code>findByIdAndRemove()</code>進行移除</p>
 <h3 id="小結"><a href="#小結" class="headerlink" title="小結"></a>小結</h3><p>以上大致介紹完<code>server.js</code><br>後續將真正進入到<code>server.test.js</code><br>也就是我們的重點 - <code>單元測試</code></p>
 <p><strong>小提醒</strong><br>確定mongoose.connect(‘mongodb://localhost:27017/<code>todoapp</code>‘)DB名稱<code>大小寫</code>為正確的<br>並且有順利連結到DB</p>
@@ -258,13 +345,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/MochaTestMongoDB(下)/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MochaTestMongoDB(下)/" data-toggle="tooltip" data-placement="top"
                            title="MochaTestMongoDB(下)">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Mongoose/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Mongoose/" data-toggle="tooltip" data-placement="top"
                            title="Mongoose">Next Post &rarr;</a>
                     </li>
                     
@@ -304,18 +391,18 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#UnitTest"
-                           title="UnitTest">UnitTest</a>
-                        
-                        <a class="tag" href="/tags/#Express"
+                        <a class="tag" href="/KueiBlog/tags/#Express"
                            title="Express">Express</a>
                         
-                        <a class="tag" href="/tags/#MongoDB"
+                        <a class="tag" href="/KueiBlog/tags/#MongoDB"
                            title="MongoDB">MongoDB</a>
+                        
+                        <a class="tag" href="/KueiBlog/tags/#UnitTest"
+                           title="UnitTest">UnitTest</a>
                         
                     </div>
                 </section>
@@ -335,8 +422,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/MochaTestMongoDB(上)/";
-    var disqus_url = "http://yoursite.com/post/MochaTestMongoDB(上)/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/MochaTestMongoDB(上)/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/MochaTestMongoDB(上)/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -419,7 +506,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_BOMandDOM/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_BOMandDOM/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -215,31 +215,71 @@
 <p>window物件不用宣告，可直接使用，代表目前瀏覽器視窗<br>所有全域變數、函式、物件都屬於window<br>可操作包含：開啟/關閉視窗、改變視窗大小、計時器與取得網址、存取瀏覽器屬性</p>
 </blockquote>
 <p><img src="https://www.tutorialspoint.com/javascript/images/html-dom.jpg" alt="Loading Fail" title="DBOM"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;p&gt;輕功水上飄&lt;/p&gt;</div><div class="line">    &lt;button onclick = &quot;scrollWin()&quot;&gt;點我&lt;/button&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scrollWin</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">window</span>.scrollTo(<span class="number">500</span>,<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;p&gt;輕功水上飄&lt;/p&gt;
+    &lt;button onclick = &quot;scrollWin()&quot;&gt;點我&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">scrollWin</span>(<span class="params"></span>)</span>{
+    <span class="built_in">window</span>.scrollTo(<span class="number">500</span>,<span class="number">0</span>);
+}
+</code></pre>
 <p>####DOM  </p>
 <blockquote>
 <p>給HTML與XML文件使用的一組API<br>簡單說是將網頁物件化<br>將HTML想像為一棵節點樹，如：<br><img src="http://www.webreference.com/programming/javascript/ppk1/figure8-1.gif" alt="Loading Fail" title="DOM">  </p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//DOM API選擇器</span></div><div class="line"><span class="built_in">document</span>.getElementById(elementId)<span class="comment">//by id</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(tagename)<span class="comment">//by element name</span></div><div class="line"><span class="built_in">document</span>.getElementsByName(name)<span class="comment">//by name</span></div><div class="line"><span class="built_in">document</span>.getElementsByClassName(classname)<span class="comment">//by classname</span></div><div class="line"></div><div class="line"><span class="comment">//CSS選擇器</span></div><div class="line"><span class="built_in">document</span>.querySelectorAll()</div><div class="line"><span class="built_in">document</span>.querySelector()</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//DOM API選擇器</span>
+<span class="built_in">document</span>.getElementById(elementId)<span class="comment">//by id</span>
+<span class="built_in">document</span>.getElementsByTagName(tagename)<span class="comment">//by element name</span>
+<span class="built_in">document</span>.getElementsByName(name)<span class="comment">//by name</span>
+<span class="built_in">document</span>.getElementsByClassName(classname)<span class="comment">//by classname</span>
+
+<span class="comment">//CSS選擇器</span>
+<span class="built_in">document</span>.querySelectorAll()
+<span class="built_in">document</span>.querySelector()
+</code></pre>
 <blockquote>
 <p>有不止一個元素符合，則回傳NodeList集合，使用item()存取，透過forEach取值</p>
 <blockquote>
 <p>Example:</p>
 </blockquote>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id = &apos;danger&apos;&gt;&lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'#danger'</span>).innerHTML = <span class="string">'Testing'</span></div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;div id = &apos;danger&apos;&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="built_in">document</span>.querySelector(<span class="string">'#danger'</span>).innerHTML = <span class="string">'Testing'</span>
+</code></pre>
 <blockquote>
 <p>取得父子結點  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id = &apos;papa&apos;&gt;</div><div class="line">        &lt;div&gt;Hi Bro&lt;/div&gt;</div><div class="line">        &lt;div id = &apos;bro&apos;&gt;H&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);</div><div class="line"><span class="comment">//取得父節點body</span></div><div class="line"><span class="keyword">var</span> nodeParent = node.parentNode;</div><div class="line"><span class="built_in">console</span>.log(nodeParent.nodeName);</div><div class="line"><span class="comment">//取得兒子節點</span></div><div class="line"><span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);</div><div class="line"><span class="keyword">var</span> nodeBro = node.firstElementChild;</div><div class="line"><span class="built_in">console</span>.log(nodeBro.textContent);</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;div id = &apos;papa&apos;&gt;
+        &lt;div&gt;Hi Bro&lt;/div&gt;
+        &lt;div id = &apos;bro&apos;&gt;H&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);
+<span class="comment">//取得父節點body</span>
+<span class="keyword">var</span> nodeParent = node.parentNode;
+<span class="built_in">console</span>.log(nodeParent.nodeName);
+<span class="comment">//取得兒子節點</span>
+<span class="keyword">var</span> node = <span class="built_in">document</span>.getElementById(<span class="string">'papa'</span>);
+<span class="keyword">var</span> nodeBro = node.firstElementChild;
+<span class="built_in">console</span>.log(nodeBro.textContent);
+</code></pre>
 <blockquote>
 <p>存取HTML屬性</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id = &apos;test&apos; data-num = &apos;1&apos;&gt;</div><div class="line">        HTML</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelector(<span class="string">'#test'</span>).getAttribute(<span class="string">'data-num'</span>));</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;div id = &apos;test&apos; data-num = &apos;1&apos;&gt;
+        HTML
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="built_in">console</span>.log(<span class="built_in">document</span>.querySelector(<span class="string">'#test'</span>).getAttribute(<span class="string">'data-num'</span>));
+</code></pre>
 <blockquote>
 <p>更改CSS</p>
 <blockquote>
@@ -249,21 +289,45 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;button id = &apos;btn&apos;&gt;點我&lt;/button&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).style.backgroundColorColor=<span class="string">'red'</span>;</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;button id = &apos;btn&apos;&gt;點我&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="built_in">document</span>.getElementById(<span class="string">'btn'</span>).style.backgroundColorColor=<span class="string">'red'</span>;
+</code></pre>
 <blockquote>
 <p>取出input值</p>
 <blockquote>
 <p>前端表單驗證</p>
 </blockquote>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;input type = &quot;text&quot; id = &quot;input&quot;&gt;</div><div class="line">    &lt;button id = &apos;btn&apos;&gt;點我&lt;/button&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">'input'</span>).value);</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;input type = &quot;text&quot; id = &quot;input&quot;&gt;
+    &lt;button id = &apos;btn&apos;&gt;點我&lt;/button&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="built_in">console</span>.log(<span class="built_in">document</span>.getElementById(<span class="string">'input'</span>).value);
+</code></pre>
 <blockquote>
 <p>動態插入元素(element)</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;div id = &apos;test&apos; data-num = &apos;1&apos;&gt;</div><div class="line">        HTML</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> createBtn = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);</div><div class="line">createBtn.textContent = <span class="string">'點我點我'</span>;</div><div class="line"></div><div class="line"><span class="comment">//動態插入button</span></div><div class="line">parent.appendChild(createBtn);</div><div class="line"></div><div class="line"><span class="comment">//動態刪除</span></div><div class="line">parent.removeChild(createBtn);</div></pre></td></tr></table></figure>
+<pre><code class="HTML5">&lt;body&gt;
+    &lt;div id = &apos;test&apos; data-num = &apos;1&apos;&gt;
+        HTML
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript"><span class="keyword">const</span> parent = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);
+
+<span class="keyword">var</span> createBtn = <span class="built_in">document</span>.createElement(<span class="string">'button'</span>);
+createBtn.textContent = <span class="string">'點我點我'</span>;
+
+<span class="comment">//動態插入button</span>
+parent.appendChild(createBtn);
+
+<span class="comment">//動態刪除</span>
+parent.removeChild(createBtn);
+</code></pre>
 
                 <hr>
                 
@@ -271,13 +335,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/JS_EventHandlers/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_EventHandlers/" data-toggle="tooltip" data-placement="top"
                            title="Javascript EventHandler">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/JS_Object2/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_Object2/" data-toggle="tooltip" data-placement="top"
                            title="Javascript Object 2">Next Post &rarr;</a>
                     </li>
                     
@@ -317,11 +381,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -342,8 +406,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_BOMandDOM/";
-    var disqus_url = "http://yoursite.com/post/JS_BOMandDOM/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_BOMandDOM/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_BOMandDOM/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -426,7 +490,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Bootstrap/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Bootstrap/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#CSS"
+                        <a class="tag" href="/KueiBlog/tags/#CSS"
                            title="CSS">CSS</a>
                         
-                        <a class="tag" href="/tags/#Bootstrap"
+                        <a class="tag" href="/KueiBlog/tags/#Bootstrap"
                            title="Bootstrap">Bootstrap</a>
                         
                     </div>
@@ -223,7 +223,17 @@
 </ul>
 <h3 id="Bootstrap介紹"><a href="#Bootstrap介紹" class="headerlink" title="Bootstrap介紹"></a>Bootstrap介紹</h3><p><em>學習Bootstrap就如同國高中的歷史地理背誦，是一種洗腦，一種毒。</em></p>
 <p>Bootstrap讓前端工程師能夠快速開發出好看的頁面，也無需執著於雕刻CSS，很方便沒錯，但缺點在於，大家刻出來的東西都大同小異、此外，必須照著其規則走，故剛開始接觸時，會感覺不像在寫程式，比較像是在<code>背誦</code>程式。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>預設按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>危險按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-success btn-lg"</span>&gt;</span>成功按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>設定<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>帳號<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>課程<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>購買資訊<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>預設按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span>
+<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>危險按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span>
+<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"btn btn-success btn-lg"</span>&gt;</span>成功按鈕<span class="tag">&lt;/<span class="name">span</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>設定<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>帳號<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>課程<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn btn-default"</span>&gt;</span>購買資訊<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
 <p>幾個關鍵字<code>btn</code>、<code>btn-default</code>、<code>btn-group按鈕群組</code>等，就套用了bootstrap各式。<br><code></code></p>
 <p></p><p><br><span class="btn btn-default">預設按鈕</span><span class="btn btn-danger">危險按鈕</span><span class="btn btn-success btn-lg">成功按鈕</span></p>
 <p><div class="btn-group"><br>  <div class="btn btn-default">設定</div><br>  <div class="btn btn-primary">帳號</div><br>  <div class="btn btn-default">課程</div><br>  <div class="btn btn-default">購買資訊</div><br></div><br></p><br><p></p>
@@ -235,7 +245,13 @@
 <li>img-responsive</li>
 </ul>
 <p>Bootstrap的<code>jumbotron</code>超大屏幕。可以增加標題的大小，為頁面内容添加更多的margin<br><code>container</code>提供一個共用的RWD佈局方式<br>那麼圖片的RWD呢？別擔心，Bootstrap也預料到了，只要加上<code>img-responsive</code>就能輕鬆做到了</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello Bootstrap!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>bootstrap是個很多人使用的網頁模板，裡面有很多別人寫好的現成css資源，也有用來排版很方便的網格系統。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">href</span>=<span class="string">"https://kkbruce.tw/bs3/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>了解更多(中文說明文件)<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron"</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello Bootstrap!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">p</span>&gt;</span>bootstrap是個很多人使用的網頁模板，裡面有很多別人寫好的現成css資源，也有用來排版很方便的網格系統。<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span> <span class="attr">href</span>=<span class="string">"https://kkbruce.tw/bs3/"</span> <span class="attr">target</span>=<span class="string">"_blank"</span>&gt;</span>了解更多(中文說明文件)<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
 <p><code></code></p>
 <p><div class="jumbotron"><br>  <div class="container"><br>    <b>Hello Bootstrap!</b><br>    <p>bootstrap是個很多人使用的網頁模板，裡面有很多別人寫好的現成css資源，也有用來排版很方便的網格系統。</p><a class="btn btn-primary" href="https://kkbruce.tw/bs3/" target="_blank">了解更多(中文說明文件)</a><br>  </div><br></div><br></p>
 <h3 id="Bootstrap-常用基礎元件"><a href="#Bootstrap-常用基礎元件" class="headerlink" title="Bootstrap 常用基礎元件"></a>Bootstrap 常用基礎元件</h3><ul>
@@ -246,14 +262,41 @@
 </ul>
 <p>前面已經介紹過<code>Button</code>，這邊我們來聊聊其他好用的Bootstrap元件吧:))</p>
 <p><strong>Breadcrumb</strong><br>Breadcrumb中文翻譯為麵包屑，麵包屑一層一層疊加一起，適合用來表達有遞呈關連的當前網頁瀏覽位置<br>加上<code>breadcrumb</code>即可使用，然而在hexo的markdown筆記下無法順利產生，原因尚在查詢:(</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>麵包屑導覽列<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span>&gt;</span>動態網頁課程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>bootstrap介紹<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第一個範例<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>麵包屑導覽列<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span>&gt;</span>動態網頁課程<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>bootstrap介紹<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>第一個範例<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">ul</span>&gt;</span>
+</code></pre>
 <p><strong>list</strong><br>加上<code>list-group</code>定義清單群組，接著每一個子清單都要加入<code>list-group-item</code>關鍵字。<br>而清單有著諸多功能，包含加入<code>disabled</code>此清單就無法選取<br>加入<code>badge</code>還有提示的功能，配合JS改變數字變數，就可以進行一些計算，例如留言數等等，在當前網頁中經常看到。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>清單練習<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item active"</span>&gt;</span>list-group 清單<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge"</span>&gt;</span>15<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item disabled"</span>&gt;</span>btn btn-default 按鈕<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item list-group-item-success"</span>&gt;</span>breadcrumb 麵包屑尋覽列<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">"page-header"</span>&gt;</span>清單練習<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item active"</span>&gt;</span>list-group 清單<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge"</span>&gt;</span>15<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item disabled"</span>&gt;</span>btn btn-default 按鈕<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item list-group-item-success"</span>&gt;</span>breadcrumb 麵包屑尋覽列<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span>
+</code></pre>
 <p><code><br>  <ul class="list-group"><br>    <li class="list-group-item active">list-group 清單<span class="badge">15</span></li><br>    <li class="list-group-item disabled">btn btn-default 按鈕</li><br>    <li class="list-group-item list-group-item-success">breadcrumb 麵包屑尋覽列</li><br>  </ul><br></code></p>
 <p><strong>table</strong><br>使用起來相當簡單，只要加入<code>table</code>關鍵字即大功告成。</p>
 <p>完整範例請見<a href="http://codepen.io/frank890417/pen/vXRkaP?editors=1000" target="_blank" rel="external">Demo 8-6 RWD原理與應用-bootstrap 基礎案例與原理熟悉</a></p>
 <h3 id="Bootstrap格線系統"><a href="#Bootstrap格線系統" class="headerlink" title="Bootstrap格線系統"></a>Bootstrap格線系統</h3><p><strong><em>12column compose 1row, and rows be consist of FrontWeb</em></strong></p>
-<p>Bootstrap將螢幕寬度分為<code>12等分(12 column)</code>，而在定義column前必須先定義row。<br>故標準公式為：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Bootstrap將螢幕寬度分為<code>12等分(12 column)</code>，而在定義column前必須先定義row。<br>故標準公式為：</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>11<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-1"</span>&gt;</span>12<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
 <p>按照尺寸來分可以分為<code>4(xs/sm/md/lg)</code>個尺寸，讓我們看看上面的例子可以發現使用的是<code>xs超小螢幕尺寸</code>，這是因為<code>尺寸是向上覆蓋的</code>(比如如果指定md中螢幕佔7欄，沒有指定lg大螢幕佔多少，會沿用中螢幕的分配)，故原則上都要定義<code>xs</code>，否則板面容易跑掉，或是透過<code>visible-size</code>、<code>hidden-size</code>關鍵字在特定尺寸下顯示或隱藏，如此便完成RWD的設計。</p>
 <p>完整範例參考<a href="http://codepen.io/frank890417/pen/RGrwJm?editors=1100" target="_blank" rel="external">Demo 8-7 RWD原理與應用-bootstrap 格線系統原理與RWD應用</a></p>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://codepen.io/frank890417/pen/vXRmXk?editors=1100" target="_blank" rel="external">Demo 8-5 RWD原理與應用-懶人工具- bootstrap與原理與結構講解</a><br><a href="http://codepen.io/frank890417/pen/vXRkaP?editors=1000" target="_blank" rel="external">Demo 8-6 RWD原理與應用-bootstrap 基礎案例與原理熟悉</a><br><a href="http://codepen.io/frank890417/pen/RGrwJm?editors=1100" target="_blank" rel="external">Demo 8-7 RWD原理與應用-bootstrap 格線系統原理與RWD應用</a><br><a href="https://kkbruce.tw/bs3/GettingStarted" target="_blank" rel="external">kkbruce.tw/bs3/GettingStarted</a><br><a href="https://kkbruce.tw/bs3/CSS" target="_blank" rel="external">kkbruce.tw/bs3/CSS#type</a><br><a href="https://kkbruce.tw/bs2/Scaffolding" target="_blank" rel="external">kkbruce.tw/bs2/Scaffolding</a></p>
@@ -264,13 +307,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/CSS基礎與深入/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/CSS基礎與深入/" data-toggle="tooltip" data-placement="top"
                            title="CSS基礎與深入">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/JS-jQuery/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS-jQuery/" data-toggle="tooltip" data-placement="top"
                            title="JS_jQuery">Next Post &rarr;</a>
                     </li>
                     
@@ -310,14 +353,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#CSS"
+                        <a class="tag" href="/KueiBlog/tags/#CSS"
                            title="CSS">CSS</a>
                         
-                        <a class="tag" href="/tags/#Bootstrap"
+                        <a class="tag" href="/KueiBlog/tags/#Bootstrap"
                            title="Bootstrap">Bootstrap</a>
                         
                     </div>
@@ -338,8 +381,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Bootstrap/";
-    var disqus_url = "http://yoursite.com/post/Bootstrap/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Bootstrap/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Bootstrap/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -422,7 +465,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

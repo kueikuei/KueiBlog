@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/TodoProject/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/TodoProject/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,13 +187,13 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#MAEN Stack"
+                        <a class="tag" href="/KueiBlog/tags/#MAEN Stack"
                            title="MAEN Stack">MAEN Stack</a>
                         
-                        <a class="tag" href="/tags/#Project"
+                        <a class="tag" href="/KueiBlog/tags/#Project"
                            title="Project">Project</a>
                         
                     </div>
@@ -293,7 +293,11 @@
 <li><p>連結資料庫(MongoDB)<br>local端:<code>mongoose.connect(&#39;mongodb://localhost/todoapp&#39;)</code>，todoapp為db名稱<br>也可以透過雲端MongoDB服務mLab將資料塞在雲端<br>mLab:<code>var dbURI = mongodb://&lt;dbuser&gt;:&lt;dbpassword&gt;@ds145868.mlab.com:45868/todo</code>;最後做連結<code>mongoose.connect(dbURI)</code></p>
 </li>
 <li><p>透過mongoose建立起ToDo Schema<br>這邊只用到title與date</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">const TodoSchema = &#123; </div><div class="line">  title: String,</div><div class="line">  date: &#123; type: Date, default: Date.now() &#125;,</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<pre><code class="json">const TodoSchema = { 
+title: String,
+date: { type: Date, default: Date.now() },
+};
+</code></pre>
 </li>
 <li><p>透過mongoose建立起Model並將資料表(collection)取名為Todo<br>將其module.exports後可以讓其他file去<code>require</code>並使用此model與資料庫做互動<br><code>module.exports = mongoose.model(&#39;Todo&#39;, TodoSchema);</code></p>
 </li>
@@ -302,32 +306,130 @@
 <li>routes/index.js<br>route作為引入各種路徑至某網頁，可說是<code>Express</code>最方便與厲害的地方。<br>透過var router = <code>express.Router()</code>去取得router後便可以輕易做到各種route的引用。</li>
 </ul>
 <p>在CRUD中最重要的不外乎是<code>讀取(Read)</code>資料與<code>產生(Create)</code>資料<br>而相對應的<code>動作(method)</code>則是<code>get</code>與<code>post</code><br>express透過<code>router.get</code>與<code>router.post</code>等方法可以輕易達到效果</p>
-<p>先來介紹<code>讀取(Read)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.find(&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'index'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>先來介紹<code>讀取(Read)</code></p>
+<pre><code class="javascript">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  Todo.find({}, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>{
+    res.render(<span class="string">'index'</span>, { <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos });
+  });
+});
+</code></pre>
 <p>瀏覽器得到<code>/</code>請求(<code>request</code>)後便會導入此匿名function中，分別會有三個參數<code>req, res, next</code>ㄎ接著就能透過這些參數做事情。首先，這邊透過<code>Todo model</code>去取得所有資料，MongoDB對應指令則是<code>find({})</code>，取得後再接一匿名function去做接下來的事情，假若error則能透過next(err)去處理，而這邊假設會成功，成功後得到參數<code>todos</code>，此其時就是所有資料的集合，並用<code>json</code>的方式傳入，後續透過<code>res.render</code>，此為引用<code>ejs 模板</code>並將資料傳入得模板中，這邊只簡單提到，後續會做更近一步說明。</p>
-<p><code>產生(Create)</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/create'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log(req.body);//&#123; title: '打電動' &#125;</span></div><div class="line">  <span class="keyword">new</span> Todo(&#123;</div><div class="line">    <span class="attr">title</span>: req.body.title,</div><div class="line">  &#125;).save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">    res.redirect( <span class="string">'/'</span> );</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>產生(Create)</code></p>
+<pre><code class="javascript">router.post(<span class="string">'/create'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="comment">// console.log(req.body);//{ title: '打電動' }</span>
+  <span class="keyword">new</span> Todo({
+    <span class="attr">title</span>: req.body.title,
+  }).save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>{
+    res.redirect( <span class="string">'/'</span> );
+  });
+});
+</code></pre>
 <p>與<code>get</code>其實程式很像對吧？主要差異在於method改用<code>post</code>，在這邊不再是讀取資料而是產生資料，故透過<code>new Todo</code>去產生一筆新資料，這邊比較特別的是<code>req.body.title</code>，此為將前端表單輸入的資料讀取進來，由於express無法進行body的解析，故前面require此模組<code>body-parser</code>後就可以引入，而這邊讓我們先跳到<code>前端表單ejs</code>部分進行解釋。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/create"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">label</span>&gt;</span>代辦事項：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 透過name取得資料 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">required</span> <span class="attr">placeholder</span>=<span class="string">"請輸入代辦事項"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-block"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span>     </div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/create"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">label</span>&gt;</span>代辦事項：<span class="tag">&lt;/<span class="name">label</span>&gt;</span>
+    <span class="comment">&lt;!-- 透過name取得資料 --&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"title"</span> <span class="attr">required</span> <span class="attr">placeholder</span>=<span class="string">"請輸入代辦事項"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">br</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-block"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">button</span>&gt;</span>     
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
 <p>要特別注意的是表單的method要用<code>post</code>;<code>action</code>採用<code>&quot;/create&quot;</code>如此便能對應到應屬的route</p>
 <p>成功建立資料進行儲存動作<code>.save</code>，沒有意外則會儲存並導入到<code>首頁(/)</code></p>
 <p><code>更新(Update)</code><br>提到更新資料一定要提到route裡的<code>subredditName</code>。subredditName讓我們的route更加有擴充性，概念是將輸入的網址當作變數去使用，使用方式為加上<code>:</code>，例如網址列打<code>/:id/:title</code>後，透過req.params會得到：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//multi params</span></div><div class="line">req.params=</div><div class="line">&#123;</div><div class="line">    <span class="attr">id</span>:<span class="string">'1'</span>,</div><div class="line">    <span class="attr">title</span>:<span class="string">'sports'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//multi params</span>
+req.params=
+{
+    <span class="attr">id</span>:<span class="string">'1'</span>,
+    <span class="attr">title</span>:<span class="string">'sports'</span>
+}
+</code></pre>
 <p>所以要取出其中的值就按照物件方式<code>req.params.id</code>以及<code>req.params.title</code></p>
-<p>而在ToDo app中，如果要編輯資料則是先點選要更改的資料，route藉由<code>/todos/:id</code>導入到<code>todo.ejs</code>，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">router.get(<span class="string">'/todos/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  <span class="comment">// console.log(req.params.id);</span></div><div class="line">  Todo.findById(req.params.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    res.render(<span class="string">'todo'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todo</span>: todo &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>步驟大致都跟<code>create</code>時類似，要注意的是前端的小技巧部分，這邊來看看前端的寫法<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;table class="table table-striped"&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;th&gt;代辦事項名稱&lt;/th&gt;</div><div class="line">        &lt;th&gt;記錄時間&lt;/th&gt; </div><div class="line">    &lt;/tr&gt;</div><div class="line">    &lt;% for(var i = 0; i &lt; todos.length; i++) &#123; %&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt; </div><div class="line">    &lt;% &#125; %&gt;</div><div class="line">&lt;/table&gt;</div></pre></td></tr></table></figure></p>
-<p>這邊透過ejs的前端邏輯去進行<code>for loop</code>將從<code>router.get(&#39;/&#39;)</code>拿到的<code>todos</code>資料全部run過一遍並且呈現在前端interface上<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//todos資料為object</div><div class="line">todos=</div><div class="line">[ </div><div class="line">  &#123; _id: 587af425f82029c9f8814179,</div><div class="line">    title: '吃午餐',</div><div class="line">    __v: 0,</div><div class="line">    date: Sun Jan 15 2017 12:01:27 GMT+0800 (CST) &#125;,</div><div class="line">  &#123; _id: 587b10e9b57224e3e72dd6a4,</div><div class="line">    title: '打程式',</div><div class="line">    __v: 0,</div><div class="line">    date: Sun Jan 15 2017 15:02:15 GMT+0800 (CST) &#125; </div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>而在ToDo app中，如果要編輯資料則是先點選要更改的資料，route藉由<code>/todos/:id</code>導入到<code>todo.ejs</code>，完整程式碼如下：</p>
+<pre><code class="javascript">router.get(<span class="string">'/todos/:id'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  <span class="comment">// console.log(req.params.id);</span>
+  Todo.findById(req.params.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>{
+    res.render(<span class="string">'todo'</span>, { <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todo</span>: todo });
+  });
+});
+</code></pre>
+<p>步驟大致都跟<code>create</code>時類似，要注意的是前端的小技巧部分，這邊來看看前端的寫法</p>
+<pre><code class="html">&lt;table class="table table-striped"&gt;
+    &lt;tr&gt;
+        &lt;th&gt;代辦事項名稱&lt;/th&gt;
+        &lt;th&gt;記錄時間&lt;/th&gt; 
+    &lt;/tr&gt;
+    &lt;% for(var i = 0; i &lt; todos.length; i++) { %&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt; 
+    &lt;% } %&gt;
+&lt;/table&gt;
+</code></pre>
+<p>這邊透過ejs的前端邏輯去進行<code>for loop</code>將從<code>router.get(&#39;/&#39;)</code>拿到的<code>todos</code>資料全部run過一遍並且呈現在前端interface上</p>
+<pre><code class="json">//todos資料為object
+todos=
+[ 
+  { _id: 587af425f82029c9f8814179,
+    title: &#39;吃午餐&#39;,
+    __v: 0,
+    date: Sun Jan 15 2017 12:01:27 GMT+0800 (CST) },
+  { _id: 587b10e9b57224e3e72dd6a4,
+    title: &#39;打程式&#39;,
+    __v: 0,
+    date: Sun Jan 15 2017 15:02:15 GMT+0800 (CST) } 
+]
+</code></pre>
 <p>值得注意的是在塞資料的過程中取出各個資料的id<code>todos[i].id</code>並塞進超連結<code>href</code>中，於是當點擊某筆資料時能連結到他的id name route外，更能順便將網址的data取出拿來運用，真是個聰明方式!!</p>
-<p>進入到todo.ejs後真正要開始<code>update</code>與<code>delete</code>。<br>點擊<code>修改</code>button後，route導入到<code>/todos/:id/edit</code>並render <code>edit.ejs</code>，一但修改完資料後按出<code>送出修改</code>bitton，route導入到<code>/edit</code>，要注意的是，和<code>create</code>時一樣，這邊的方法一樣用<code>post</code>，接著就會去DB尋找此筆資料，然而，很重要的一點是，如何得知是哪比資料呢？前面用<code>req.params.id</code>去搜尋資料，然而別忘記，此刻所導入的route是<code>/edit</code>，故這邊透過<code>req.body.id</code>進行資料的搜尋，這邊又要提到前端的小技巧，將value偷偷塞入<code>&lt;input&gt;</code>tag中的value裡頭，如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>進入到todo.ejs後真正要開始<code>update</code>與<code>delete</code>。<br>點擊<code>修改</code>button後，route導入到<code>/todos/:id/edit</code>並render <code>edit.ejs</code>，一但修改完資料後按出<code>送出修改</code>bitton，route導入到<code>/edit</code>，要注意的是，和<code>create</code>時一樣，這邊的方法一樣用<code>post</code>，接著就會去DB尋找此筆資料，然而，很重要的一點是，如何得知是哪比資料呢？前面用<code>req.params.id</code>去搜尋資料，然而別忘記，此刻所導入的route是<code>/edit</code>，故這邊透過<code>req.body.id</code>進行資料的搜尋，這邊又要提到前端的小技巧，將value偷偷塞入<code>&lt;input&gt;</code>tag中的value裡頭，如下：</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span>
+</code></pre>
 <p>便能透過req.body.id去取得資料。</p>
-<p>故這邊逐一將title與date做更改，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/edit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    todo.title = req.body.title;</div><div class="line">    todo.date = <span class="built_in">Date</span>.now();</div><div class="line">    todo.save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">      res.redirect( <span class="string">'/'</span> );</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>刪除部分則是用<code>remove()</code>去執行<code>todo.remove()</code>，完整程式碼如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">router.post(<span class="string">'/delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">    todo.remove(<span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>&#123;</div><div class="line">      res.redirect( <span class="string">'/'</span> );</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>故這邊逐一將title與date做更改，完整程式碼如下：</p>
+<pre><code class="javascript">router.post(<span class="string">'/edit'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>{
+    todo.title = req.body.title;
+    todo.date = <span class="built_in">Date</span>.now();
+    todo.save(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>{
+      res.redirect( <span class="string">'/'</span> );
+    });
+  });
+});
+</code></pre>
+<p>刪除部分則是用<code>remove()</code>去執行<code>todo.remove()</code>，完整程式碼如下：</p>
+<pre><code class="javascript">router.post(<span class="string">'/delete'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>{
+  Todo.findById(req.body.id, <span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>{
+    todo.remove(<span class="function"><span class="keyword">function</span>(<span class="params">error, todo</span>)</span>{
+      res.redirect( <span class="string">'/'</span> );
+    });
+  });
+});
+</code></pre>
 <p>前端action此刻為<code>action=&quot;/delete&quot;</code>，完整程式碼如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/delete"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-lg"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>刪除<span class="tag">&lt;/<span class="name">button</span>&gt;</span>          </div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"/delete"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">value</span>=<span class="string">"&lt;%= todo.id %&gt;"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-lg"</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span>刪除<span class="tag">&lt;/<span class="name">button</span>&gt;</span>          
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
 <p>如此便完成所有關於<code>CRUD</code>程式碼部分的介紹。</p>
 <ul>
 <li>views/all ejs<br>前面其實已經有說到許多關於<code>ejs</code>在裡頭的運用<br>透過render去使用ejs，並能將資料以<code>json</code>方式傳入前端<br>ejs與javascript對應如下：</li>
 </ul>
-<p><em>javascript</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Todo.find(&#123;&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>&#123;</div><div class="line">    res.render(<span class="string">'index'</span>, &#123; <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p><em>ejs</em><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;</div><div class="line"></div><div class="line">&lt;% for(var i｀ = 0; i &lt; todos.length; i++) &#123; %&gt;</div><div class="line">    &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;</div><div class="line">    &lt;/tr&gt; </div><div class="line">&lt;% &#125; %&gt;</div></pre></td></tr></table></figure></p>
+<p><em>javascript</em></p>
+<pre><code class="javascript">Todo.find({}, <span class="function"><span class="keyword">function</span>(<span class="params">error, todos</span>) </span>{
+    res.render(<span class="string">'index'</span>, { <span class="attr">title</span>: <span class="string">'TodoApp'</span>, <span class="attr">todos</span>: todos });
+});
+</code></pre>
+<p><em>ejs</em></p>
+<pre><code class="html">&lt;h1&gt;&lt;%= title %&gt;&lt;/h1&gt;
+
+&lt;% for(var i｀ = 0; i &lt; todos.length; i++) { %&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;a href="/todos/&lt;%= todos[i].id %&gt;"&gt;&lt;span&gt;&lt;%= todos[i].title %&gt;&lt;/span&gt;&lt;/a&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;span&gt;&lt;%= todos[i].date %&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;/tr&gt; 
+&lt;% } %&gt;
+</code></pre>
 <h3 id="push-to-heroku"><a href="#push-to-heroku" class="headerlink" title="push to heroku"></a>push to heroku</h3><p>比較需要特別注意的是在<code>package</code>的安裝部分是否有順利在heroku上安裝成功。</p>
 <h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="http://blog.chh.tw/posts/mongodb-odm-mongoose/" target="_blank" rel="external">MongoDB的ODM：mongoose 簡單介紹</a><br><a href="http://dreamerslab.com/blog/tw/write-a-todo-list-with-express-and-mongodb/" target="_blank" rel="external">用Express和MongoDB寫一個todo list</a></p>
 <h3 id="程式碼下載"><a href="#程式碼下載" class="headerlink" title="程式碼下載"></a>程式碼下載</h3><p><a href="https://github.com/kueikuei/ToDo" target="_blank" rel="external"><button type="button" style="background-color:#008CBA;color:white;border-radius:8px;border:none">Go to GitHub</button><br></a></p>
@@ -338,13 +440,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/MongoDB/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MongoDB/" data-toggle="tooltip" data-placement="top"
                            title="MongoDB">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
                            title="JS_Project_Envi">Next Post &rarr;</a>
                     </li>
                     
@@ -384,17 +486,17 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#MAEN Stack"
+                        <a class="tag" href="/KueiBlog/tags/#MAEN Stack"
                            title="MAEN Stack">MAEN Stack</a>
                         
-                        <a class="tag" href="/tags/#Project"
+                        <a class="tag" href="/KueiBlog/tags/#Project"
                            title="Project">Project</a>
                         
                     </div>
@@ -415,8 +517,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/TodoProject/";
-    var disqus_url = "http://yoursite.com/post/TodoProject/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/TodoProject/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/TodoProject/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -499,7 +601,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/FacebookAPI 初探/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/FacebookAPI 初探/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Facebook"
+                        <a class="tag" href="/KueiBlog/tags/#Facebook"
                            title="Facebook">Facebook</a>
                         
                     </div>
@@ -216,16 +216,25 @@
 </ul>
 <h3 id="初探水溫"><a href="#初探水溫" class="headerlink" title="初探水溫"></a>初探水溫</h3><p>測試方面可以直接透過<code>http-server package</code>開啟local端去檢驗。<br>而藉由<a href="https://developers.facebook.com/tools/explorer/" target="_blank" rel="external">graph API explorer</a>可以初步了解FB回傳的資料樣子</p>
 <ol>
-<li><p>引入AppId放在body，其他部分都是一樣的，這邊可以暫時先不去管它們</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">window</span>.fbAsyncInit = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  FB.init(&#123;</div><div class="line">    <span class="attr">appId</span>      : <span class="string">'your_appId_number'</span>,</div><div class="line">    <span class="attr">xfbml</span>      : <span class="literal">true</span>,</div><div class="line">    <span class="attr">version</span>    : <span class="string">'v2.8'</span></div><div class="line">  &#125;);</div><div class="line">  FB.AppEvents.logPageView();</div><div class="line">&#125;;</div><div class="line"></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">d, s, id</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> js, fjs = d.getElementsByTagName(s)[<span class="number">0</span>];</div><div class="line">   <span class="keyword">if</span> (d.getElementById(id)) &#123;<span class="keyword">return</span>;&#125;</div><div class="line">   js = d.createElement(s); js.id = id;</div><div class="line">   js.src = <span class="string">"//connect.facebook.net/en_US/sdk.js"</span>;</div><div class="line">   fjs.parentNode.insertBefore(js, fjs);</div><div class="line"> &#125;(<span class="built_in">document</span>, <span class="string">'script'</span>, <span class="string">'facebook-jssdk'</span>));</div></pre></td></tr></table></figure>
-</li>
-<li><p>透過<code>Javascript SDK</code>提供的<code>login()</code>，在登入後就可以取得FB<code>callback</code>回來的相關資料<br><code>FB.api(&#39;/me/movies&#39;, function(response) { console.log(response); });</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">FB.login(function()&#123;</div><div class="line">    FB.api(&apos;/me?fields=id,name,email&apos;, function(response) &#123;</div><div class="line">      console.log(response);</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-<li><p>取得資料</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">response:</div><div class="line"></div><div class="line">Object&#123;</div><div class="line">    email:"r03228001@ntu.edu.tw"</div><div class="line">    id:"1205877949500880"</div><div class="line">    name:"陳奎元"</div><div class="line">    __proto__:Object </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<li><p>引入AppId放在body，其他部分都是一樣的，這邊可以暫時先不去管它們<br>```javascript</p>
+<p>window.fbAsyncInit = function() {<br> FB.init({<br>   appId      : ‘your_appId_number’,<br>   xfbml      : true,<br>   version    : ‘v2.8’<br> });<br> FB.AppEvents.logPageView();<br>};</p>
+<p>(function(d, s, id){<br>  var js, fjs = d.getElementsByTagName(s)[0];<br>  if (d.getElementById(id)) {return;}<br>  js = d.createElement(s); js.id = id;<br>  js.src = “//connect.facebook.net/en_US/sdk.js”;<br>  fjs.parentNode.insertBefore(js, fjs);<br>}(document, ‘script’, ‘facebook-jssdk’));</p>
 </li>
 </ol>
+<pre><code>
+2. 透過`Javascript SDK`提供的`login()`，在登入後就可以取得FB`callback`回來的相關資料
+`FB.api(&apos;/me/movies&apos;, function(response) { console.log(response); });`
+````javascript
+FB.login(function(){
+    FB.api(&apos;/me?fields=id,name,email&apos;, function(response) {
+      console.log(response);
+    });
+});
+</code></pre><ol>
+<li>取得資料<br>```json<br>response:</li>
+</ol>
+<p>Object{<br>    email:”r03228001@ntu.edu.tw”<br>    id:”1205877949500880”<br>    name:”陳奎元”<br>    <strong>proto</strong>:Object<br>}</p>
+<p>```</p>
 <p>以上的幾個步驟就是與FB API串接的最簡單例子，後續我們再更深入看看進階的應用吧。</p>
 
                 <hr>
@@ -234,13 +243,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Ajax_asynchronous/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Ajax_asynchronous/" data-toggle="tooltip" data-placement="top"
                            title="Ajax asynchronous">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/MEAN-Stack/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MEAN-Stack/" data-toggle="tooltip" data-placement="top"
                            title="MEAN Stack">Next Post &rarr;</a>
                     </li>
                     
@@ -280,14 +289,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Facebook"
+                        <a class="tag" href="/KueiBlog/tags/#Facebook"
                            title="Facebook">Facebook</a>
                         
                     </div>
@@ -308,8 +317,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/FacebookAPI 初探/";
-    var disqus_url = "http://yoursite.com/post/FacebookAPI 初探/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/FacebookAPI 初探/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/FacebookAPI 初探/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -392,7 +401,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_Object/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_Object/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -219,16 +219,103 @@
 <p>3.使用者自訂物件 </p>
 <p>========================</p>
 <h4 id="原生物件介紹"><a href="#原生物件介紹" class="headerlink" title="原生物件介紹"></a>原生物件介紹</h4><h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><p><em>與array的差別在於string用了method後不會改變原始變數</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//兩種建立方式</span></div><div class="line"><span class="keyword">const</span> str1 = <span class="string">'JS'</span>; </div><div class="line"><span class="keyword">const</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'HIJS'</span>);</div><div class="line"></div><div class="line"><span class="comment">//////////相關方法////////////</span></div><div class="line"><span class="comment">//字串長度和大小寫</span></div><div class="line">length <span class="comment">//屬性可以取得字串長度 </span></div><div class="line">toLowerCase() <span class="comment">//方法可以將英文大寫轉小寫  </span></div><div class="line">toUpperCase() <span class="comment">//方法可以將英文小寫轉大寫</span></div><div class="line"><span class="comment">//取得字串指定字元</span></div><div class="line">charAt(index)<span class="comment">//取得 index 位置的字元   </span></div><div class="line">charCodeAt(index)<span class="comment">//取得 index 位置的 Unicode  </span></div><div class="line"><span class="comment">//字串搜尋</span></div><div class="line">indexOf(string,index)<span class="comment">//傳回第一次搜尋到字串的index，未 找到傳回-1，傳入字串為欲搜尋字串，index 為開始位置</span></div><div class="line">lastIndexOf(string)<span class="comment">//同上一方法，不過是從尾部反向搜尋  </span></div><div class="line">match(string)<span class="comment">//同第一種方式，但傳回找到字串，無則傳null  </span></div><div class="line">search(string)<span class="comment">//與 indexOf 功能類似，但可用正則式  </span></div><div class="line"><span class="comment">//子字串的處理</span></div><div class="line">replace(string1,string2)<span class="comment">//將找到的 string1 子字串取代為 string2</span></div><div class="line">split(string)<span class="comment">//使用參數 string 作為分割，並回傳分割後 Array 物件</span></div><div class="line">substr(index,length)<span class="comment">//從 index 開始取出length個字元   </span></div><div class="line">substring(index1,index2)<span class="comment">//取 index1 到 index2(不含)子字串   </span></div><div class="line">concat(string)<span class="comment">//將 string 新增到 string 物件字串之後</span></div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//兩種建立方式</span>
+<span class="keyword">const</span> str1 = <span class="string">'JS'</span>; 
+<span class="keyword">const</span> str2 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'HIJS'</span>);
+
+<span class="comment">//////////相關方法////////////</span>
+<span class="comment">//字串長度和大小寫</span>
+length <span class="comment">//屬性可以取得字串長度 </span>
+toLowerCase() <span class="comment">//方法可以將英文大寫轉小寫  </span>
+toUpperCase() <span class="comment">//方法可以將英文小寫轉大寫</span>
+<span class="comment">//取得字串指定字元</span>
+charAt(index)<span class="comment">//取得 index 位置的字元   </span>
+charCodeAt(index)<span class="comment">//取得 index 位置的 Unicode  </span>
+<span class="comment">//字串搜尋</span>
+indexOf(string,index)<span class="comment">//傳回第一次搜尋到字串的index，未 找到傳回-1，傳入字串為欲搜尋字串，index 為開始位置</span>
+lastIndexOf(string)<span class="comment">//同上一方法，不過是從尾部反向搜尋  </span>
+match(string)<span class="comment">//同第一種方式，但傳回找到字串，無則傳null  </span>
+search(string)<span class="comment">//與 indexOf 功能類似，但可用正則式  </span>
+<span class="comment">//子字串的處理</span>
+replace(string1,string2)<span class="comment">//將找到的 string1 子字串取代為 string2</span>
+split(string)<span class="comment">//使用參數 string 作為分割，並回傳分割後 Array 物件</span>
+substr(index,length)<span class="comment">//從 index 開始取出length個字元   </span>
+substring(index1,index2)<span class="comment">//取 index1 到 index2(不含)子字串   </span>
+concat(string)<span class="comment">//將 string 新增到 string 物件字串之後</span>
+</code></pre>
 <h5 id="array"><a href="#array" class="headerlink" title="array"></a>array</h5><p><em>能動態新增元素</em> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//三種使用方法  </span></div><div class="line"><span class="comment">//宣告有三個元素的陣列   </span></div><div class="line">constnameA = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);   </div><div class="line">nameA[<span class="number">0</span>] = <span class="string">'KD'</span>;   </div><div class="line">nameA[<span class="number">1</span>] = <span class="string">'XD'</span>;   </div><div class="line">nameA[<span class="number">2</span>] = <span class="string">'XDD'</span>;</div><div class="line"><span class="comment">//也可以在建立物件時建立元素值   </span></div><div class="line"><span class="keyword">const</span> num = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">100</span>,<span class="number">22</span>,<span class="number">34</span>);  </div><div class="line"><span class="comment">//最簡單好記，使用[]  </span></div><div class="line"><span class="keyword">const</span> nameB = [];   </div><div class="line">nameB[<span class="number">0</span>] = <span class="string">'KD'</span>;   </div><div class="line">nameB[<span class="number">1</span>] = <span class="string">'XD'</span>;   </div><div class="line">nameB[<span class="number">2</span>] = <span class="string">'XDD'</span>;  </div><div class="line"><span class="comment">//Array 物件內建屬性和方法</span></div><div class="line"><span class="comment">//與string方法相似</span></div><div class="line">length<span class="comment">//取得陣列長度   </span></div><div class="line">join()<span class="comment">//將陣列元素用 "逗號," 串成一個字串   </span></div><div class="line">reverse()<span class="comment">//將陣列元素反轉   </span></div><div class="line">sort()<span class="comment">//將陣列元素依照   </span></div><div class="line">unicode <span class="comment">//進行排序   </span></div><div class="line">concat(array)<span class="comment">//將參數中的陣列合併到目前陣列  </span></div><div class="line"><span class="comment">//建立二維陣列  </span></div><div class="line"><span class="keyword">const</span> users = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123; </div><div class="line">    users[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);</div><div class="line">&#125;<span class="comment">//output:[[undefined, undefined], [undefined, undefined]]</span></div></pre></td></tr></table></figure>
-<h5 id="date"><a href="#date" class="headerlink" title="date"></a>date</h5><p><em>取得電腦日期和時間</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重要觀念！！！從1970開始算</span></div><div class="line"><span class="keyword">const</span> d = newDate(); <span class="comment">//milliseconds since 1970/01/01   </span></div><div class="line"><span class="keyword">const</span> now = <span class="built_in">Date</span>.now();  <span class="comment">//1970/1/1到現在的毫秒數</span></div><div class="line"><span class="keyword">const</span> date = d.getDate();   <span class="comment">//日期</span></div><div class="line">constyear = d.getFullYear(); <span class="comment">//年</span></div></pre></td></tr></table></figure></p>
+<pre><code class="javascript"><span class="comment">//三種使用方法  </span>
+<span class="comment">//宣告有三個元素的陣列   </span>
+constnameA = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">3</span>);   
+nameA[<span class="number">0</span>] = <span class="string">'KD'</span>;   
+nameA[<span class="number">1</span>] = <span class="string">'XD'</span>;   
+nameA[<span class="number">2</span>] = <span class="string">'XDD'</span>;
+<span class="comment">//也可以在建立物件時建立元素值   </span>
+<span class="keyword">const</span> num = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">100</span>,<span class="number">22</span>,<span class="number">34</span>);  
+<span class="comment">//最簡單好記，使用[]  </span>
+<span class="keyword">const</span> nameB = [];   
+nameB[<span class="number">0</span>] = <span class="string">'KD'</span>;   
+nameB[<span class="number">1</span>] = <span class="string">'XD'</span>;   
+nameB[<span class="number">2</span>] = <span class="string">'XDD'</span>;  
+<span class="comment">//Array 物件內建屬性和方法</span>
+<span class="comment">//與string方法相似</span>
+length<span class="comment">//取得陣列長度   </span>
+join()<span class="comment">//將陣列元素用 "逗號," 串成一個字串   </span>
+reverse()<span class="comment">//將陣列元素反轉   </span>
+sort()<span class="comment">//將陣列元素依照   </span>
+unicode <span class="comment">//進行排序   </span>
+concat(array)<span class="comment">//將參數中的陣列合併到目前陣列  </span>
+<span class="comment">//建立二維陣列  </span>
+<span class="keyword">const</span> users = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);
+<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++){ 
+    users[i] = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">2</span>);
+}<span class="comment">//output:[[undefined, undefined], [undefined, undefined]]</span>
+</code></pre>
+<h5 id="date"><a href="#date" class="headerlink" title="date"></a>date</h5><p><em>取得電腦日期和時間</em></p>
+<pre><code class="javascript"><span class="comment">//重要觀念！！！從1970開始算</span>
+<span class="keyword">const</span> d = newDate(); <span class="comment">//milliseconds since 1970/01/01   </span>
+<span class="keyword">const</span> now = <span class="built_in">Date</span>.now();  <span class="comment">//1970/1/1到現在的毫秒數</span>
+<span class="keyword">const</span> date = d.getDate();   <span class="comment">//日期</span>
+constyear = d.getFullYear(); <span class="comment">//年</span>
+</code></pre>
 <h5 id="math"><a href="#math" class="headerlink" title="math"></a>math</h5><p><em>不需要 new 運算子自己就會 建立，故可以直接使用屬性和方法</em> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.PI);   </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.E);  </div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.LN2);  </div><div class="line"><span class="comment">//Math物件的亂數最大和最小值</span></div><div class="line">max(value1,value2)<span class="comment">//傳回兩個參數中的最大值   </span></div><div class="line">min(value1,value2)<span class="comment">//傳回兩個參數中的最小值</span></div><div class="line"><span class="comment">//重要方法、random   </span></div><div class="line">random()<span class="comment">//傳回亂數值(0-1，不含1)   </span></div><div class="line">round(value)<span class="comment">//將參數四捨五入後傳回  </span></div><div class="line"><span class="comment">//Math物件的數學方法</span></div><div class="line">abs()<span class="comment">//傳回絕對值   </span></div><div class="line">log()<span class="comment">//傳會自然對數   </span></div><div class="line">sqrt()<span class="comment">//傳回平方根   </span></div><div class="line">pow()<span class="comment">//傳回次方   </span></div><div class="line">exp()<span class="comment">//自然對數</span></div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="built_in">console</span>.log(<span class="built_in">Math</span>.PI);   
+<span class="built_in">console</span>.log(<span class="built_in">Math</span>.E);  
+<span class="built_in">console</span>.log(<span class="built_in">Math</span>.LN2);  
+<span class="comment">//Math物件的亂數最大和最小值</span>
+max(value1,value2)<span class="comment">//傳回兩個參數中的最大值   </span>
+min(value1,value2)<span class="comment">//傳回兩個參數中的最小值</span>
+<span class="comment">//重要方法、random   </span>
+random()<span class="comment">//傳回亂數值(0-1，不含1)   </span>
+round(value)<span class="comment">//將參數四捨五入後傳回  </span>
+<span class="comment">//Math物件的數學方法</span>
+abs()<span class="comment">//傳回絕對值   </span>
+log()<span class="comment">//傳會自然對數   </span>
+sqrt()<span class="comment">//傳回平方根   </span>
+pow()<span class="comment">//傳回次方   </span>
+exp()<span class="comment">//自然對數</span>
+</code></pre>
 <h5 id="error"><a href="#error" class="headerlink" title="error"></a>error</h5><p><em>Error 物件會儲存執行時發生錯誤的資 訊，發生錯誤時會自動建立</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//基本錯誤處理架構</span></div><div class="line"><span class="keyword">try</span>&#123;</div><div class="line">    <span class="comment">//此區塊內為需要例外處理的程式碼</span></div><div class="line">&#125; <span class="keyword">catch</span>(e)&#123;</div><div class="line">    <span class="comment">//如果try區塊發生錯誤會執行此一區塊，並傳入e參數(Error物件)，可</span></div><div class="line">&#125; <span class="keyword">finally</span>&#123;</div><div class="line">    <span class="comment">//這是選擇性區域，是不管錯誤是否發生都會執行的區塊</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//基本錯誤處理架構</span>
+<span class="keyword">try</span>{
+    <span class="comment">//此區塊內為需要例外處理的程式碼</span>
+} <span class="keyword">catch</span>(e){
+    <span class="comment">//如果try區塊發生錯誤會執行此一區塊，並傳入e參數(Error物件)，可</span>
+} <span class="keyword">finally</span>{
+    <span class="comment">//這是選擇性區域，是不管錯誤是否發生都會執行的區塊</span>
+}
+</code></pre>
 <h5 id="regexp"><a href="#regexp" class="headerlink" title="regexp"></a>regexp</h5><p><em>使用正規表示法的物件，用以比對其它字串是法符合範本字串</em>  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">exec(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳字串陣列</span></div><div class="line">test(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳true不符合回傳false</span></div><div class="line"></div><div class="line"><span class="comment">//\S+至少有一非空白字元   </span></div><div class="line"><span class="keyword">const</span> matches=<span class="regexp">/(hello\S+)/</span>.exec(<span class="string">'Thisisahelloworld!'</span>);  </div><div class="line"><span class="built_in">console</span>.log(matches[<span class="number">1</span>]);<span class="comment">//helloworld!</span></div><div class="line">conststr=<span class="string">"helloworld!"</span>;   </div><div class="line">constresult=<span class="regexp">/^hello/</span>.test(str);   </div><div class="line"><span class="built_in">console</span>.log(result);<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<pre><code class="javascript">exec(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳字串陣列</span>
+test(string)<span class="comment">//檢查參數string字串是否符合正規運算是子字串，符合回傳true不符合回傳false</span>
+
+<span class="comment">//\S+至少有一非空白字元   </span>
+<span class="keyword">const</span> matches=<span class="regexp">/(hello\S+)/</span>.exec(<span class="string">'Thisisahelloworld!'</span>);  
+<span class="built_in">console</span>.log(matches[<span class="number">1</span>]);<span class="comment">//helloworld!</span>
+conststr=<span class="string">"helloworld!"</span>;   
+constresult=<span class="regexp">/^hello/</span>.test(str);   
+<span class="built_in">console</span>.log(result);<span class="comment">//true</span>
+</code></pre>
 <h4 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h4><p>在這個章節中我們學會了:  </p>
 <ol>
 <li>物件基礎概念  </li>
@@ -241,13 +328,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Ruby_lec11_note/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Ruby_lec11_note/" data-toggle="tooltip" data-placement="top"
                            title="RoR 11 - 新增投票功能">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Ruby_lec10_note/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Ruby_lec10_note/" data-toggle="tooltip" data-placement="top"
                            title="RoR 10 - 使用者認證">Next Post &rarr;</a>
                     </li>
                     
@@ -287,11 +374,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -312,8 +399,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_Object/";
-    var disqus_url = "http://yoursite.com/post/JS_Object/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_Object/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_Object/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -396,7 +483,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

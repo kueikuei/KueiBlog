@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Ruby_lec5_note/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Ruby_lec5_note/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Ruby on Rails"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
                            title="Ruby on Rails">Ruby on Rails</a>
                         
-                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
                            title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
                         
                     </div>
@@ -213,7 +213,10 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h4 id="作業講解"><a href="#作業講解" class="headerlink" title="作業講解"></a>作業講解</h4><p>4.找出array中非字串<br>[].select(|x|x [].class != String)</p>
 <p>6.arr = [1,2,3,3].uniq<br>=&gt; [1,2,3] 但保留原始 arr<br>[1,2,3,4].uniq!<br>=&gt; [1,2,3] 不保留原始 arr</p>
-<p><em>小知識</em><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>].uniq! <span class="comment">#arr = [1,2,3]</span></div><div class="line"><span class="comment">#!放後面會改變原本的值</span></div></pre></td></tr></table></figure></p>
+<p><em>小知識</em></p>
+<pre><code class="ruby">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>].uniq! <span class="comment">#arr = [1,2,3]</span>
+<span class="comment">#!放後面會改變原本的值</span>
+</code></pre>
 <p><strong>ruby方法能加?或!</strong>  </p>
 <blockquote>
 <p>清楚告訴使用者大概會回傳怎樣的值<br>?回傳boolean;!代表值會改變</p>
@@ -242,7 +245,9 @@
 <li>操作 Model 來做資料的處理</li>
 <li>回傳 response 結果</li>
 </ol>
-<h4 id="rails-scaffold-訂便當系統"><a href="#rails-scaffold-訂便當系統" class="headerlink" title="rails scaffold 訂便當系統"></a>rails scaffold 訂便當系統</h4><p><strong>scaffold鷹架指令：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rails g scaffold order name:string phone:string description:text</div></pre></td></tr></table></figure></p>
+<h4 id="rails-scaffold-訂便當系統"><a href="#rails-scaffold-訂便當系統" class="headerlink" title="rails scaffold 訂便當系統"></a>rails scaffold 訂便當系統</h4><p><strong>scaffold鷹架指令：</strong></p>
+<pre><code class="terminal">$rails g scaffold order name:string phone:string description:text
+</code></pre>
 <p><strong>scaffold做了什麼？</strong>  </p>
 <blockquote>
 <p>產生諸多CRUD新檔案</p>
@@ -259,7 +264,15 @@
 </blockquote>
 </blockquote>
 </blockquote>
-<p><strong>rails routes URL 定義</strong><br><strong>route file</strong><br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#route</span></div><div class="line">get <span class="string">'orders/index'</span> =&gt; <span class="string">'order#index'</span></div><div class="line"></div><div class="line"><span class="comment">#controller</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span></span></div><div class="line">    @order=Order.all</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p><strong>rails routes URL 定義</strong><br><strong>route file</strong></p>
+<pre><code class="ruby"><span class="comment">#route</span>
+get <span class="string">'orders/index'</span> =&gt; <span class="string">'order#index'</span>
+
+<span class="comment">#controller</span>
+<span class="function"><span class="keyword">def</span> <span class="title">index</span></span>
+    @order=Order.all
+<span class="keyword">end</span>
+</code></pre>
 <p>＊routes.rb為專案最主要的檔案，http請求後給予相對應回應檔案，Rails 專案的路由<br>都是在這裡設定<br>＊routes info:<a href="http://localhost:3000/rails/info/routes" target="_blank" rel="external">http://localhost:3000/rails/info/routes</a>  </p>
 <blockquote>
 <p>也可在 terminal 裡輸入 rake routes 查詢</p>
@@ -321,7 +334,25 @@
 <blockquote>
 <p>商業邏輯該放哪？ruby習慣放在model，controller越小越好，處理CRUD就好</p>
 </blockquote>
-<p><strong>html.erb file</strong><br>＊ruby的html為.erb，代表可以嵌入ruby語言的html<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#controller</div><div class="line">def index</div><div class="line">    @order=Order.all</div><div class="line">end</div><div class="line"></div><div class="line">#html.erb</div><div class="line">&lt;tbody&gt;</div><div class="line">    &lt;% @orders.each do |order| %&gt;</div><div class="line">      &lt;tr&gt;</div><div class="line">        &lt;td&gt;&lt;%= order.name %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= order.phone %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Show', order %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Edit', edit_order_path(order) %&gt;&lt;/td&gt;</div><div class="line">        &lt;td&gt;&lt;%= link_to 'Destroy', order, method: :delete, data: &#123; confirm: 'Are you sure?' &#125; %&gt;&lt;/td&gt;</div><div class="line">      &lt;/tr&gt;</div><div class="line">    &lt;% end %&gt;</div><div class="line">&lt;/tbody&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>html.erb file</strong><br>＊ruby的html為.erb，代表可以嵌入ruby語言的html</p>
+<pre><code class="ruby">#controller
+def index
+    @order=Order.all
+end
+
+#html.erb
+&lt;tbody&gt;
+    &lt;% @orders.each do |order| %&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;%= order.name %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= order.phone %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Show', order %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Edit', edit_order_path(order) %&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;% end %&gt;
+&lt;/tbody&gt;
+</code></pre>
 <p>$bundle install  </p>
 <blockquote>
 <p>確保相關package安裝，並且不用再裝舊或新pcakage版本<br>類似MEAN的npm install<br>gem.file 紀錄需要的package 類似node 的.json檔</p>
@@ -356,15 +387,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Ruby_lec8_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 8 - Bootstrap into RoR">&larr; Previous Post</a>
+                        <a href="/KueiBlog/post/Ruby_lec6_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 6 - 手動打造Action">&larr; Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/post/Ruby_lec6_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 6 - 手動打造Action">Next Post &rarr;</a>
-                    </li>
                     
                 </ul>
 
@@ -402,14 +428,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Ruby on Rails"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
                            title="Ruby on Rails">Ruby on Rails</a>
                         
-                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
                            title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
                         
                     </div>
@@ -430,8 +456,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Ruby_lec5_note/";
-    var disqus_url = "http://yoursite.com/post/Ruby_lec5_note/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Ruby_lec5_note/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Ruby_lec5_note/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -514,7 +540,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

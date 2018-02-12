@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS-jQuery/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS-jQuery/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#jQuery"
+                        <a class="tag" href="/KueiBlog/tags/#jQuery"
                            title="jQuery">jQuery</a>
                         
                     </div>
@@ -220,19 +220,71 @@
 <h3 id="jQuery介紹"><a href="#jQuery介紹" class="headerlink" title="jQuery介紹"></a>jQuery介紹</h3><p>jQuery 是一套物件導向式簡潔輕量級的 JavaScript Library。透過 jQuery 你可以用最精簡少量的程式碼來輕鬆達到跨瀏覽器 DOM 操作、事件處理、設計頁面元素動態效果、AJAX 互動等。</p>
 <p>key:<code>選擇器selector</code>、<code>動作action</code>，jQuery能更快速選擇所要的並進行動過改變它。</p>
 <p><strong>jQuery長怎樣呢？</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"selector"</span>).<span class="string">"action"</span>(<span class="string">"oh my"</span>);</div></pre></td></tr></table></figure>
+<pre><code class="javascript">$(<span class="string">"selector"</span>).<span class="string">"action"</span>(<span class="string">"oh my"</span>);
+</code></pre>
 <h3 id="jQuery動態改變css外觀與html內容"><a href="#jQuery動態改變css外觀與html內容" class="headerlink" title="jQuery動態改變css外觀與html內容"></a>jQuery動態改變css外觀與html內容</h3><p>由改變就知道這部分的主角是<code>action</code>，jQuery透過<code>html</code>、<code>css</code>、<code>text</code>、<code>(pre)append</code>、<code>add(remove)Class</code>等關鍵字能快速的更改css和html內容。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"selector"</span>).html(<span class="string">"更新公告!!"</span>);</div><div class="line">$(<span class="string">"selector"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f34"</span>);</div><div class="line">$(<span class="string">"selector"</span>).css(<span class="string">"border-radius"</span>,<span class="string">"100%"</span>);</div><div class="line">$(<span class="string">"selector"</span>).addClass(<span class="string">"bigblock"</span>);</div><div class="line">$(<span class="string">"selector"</span>).removeClass(<span class="string">"bigblock"</span>);</div><div class="line">$(<span class="string">"selector"</span>).html(<span class="string">"&lt;div class='block'&gt;商品&lt;/div&gt;&lt;div class='block'&gt;商品&lt;/div&gt;"</span>);</div><div class="line">$(<span class="string">"selector"</span>).prepend(<span class="string">"&lt;p&gt;商品清單&lt;/p&gt;"</span>);</div><div class="line">$(<span class="string">"selector"</span>).append(<span class="string">"總共有兩項商品"</span>);</div><div class="line">$(<span class="string">"selector"</span>).text(<span class="string">"&lt;div class='block'&gt;商品&lt;/div&gt;"</span>);</div></pre></td></tr></table></figure>
+<pre><code class="javascript">$(<span class="string">"selector"</span>).html(<span class="string">"更新公告!!"</span>);
+$(<span class="string">"selector"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f34"</span>);
+$(<span class="string">"selector"</span>).css(<span class="string">"border-radius"</span>,<span class="string">"100%"</span>);
+$(<span class="string">"selector"</span>).addClass(<span class="string">"bigblock"</span>);
+$(<span class="string">"selector"</span>).removeClass(<span class="string">"bigblock"</span>);
+$(<span class="string">"selector"</span>).html(<span class="string">"&lt;div class='block'&gt;商品&lt;/div&gt;&lt;div class='block'&gt;商品&lt;/div&gt;"</span>);
+$(<span class="string">"selector"</span>).prepend(<span class="string">"&lt;p&gt;商品清單&lt;/p&gt;"</span>);
+$(<span class="string">"selector"</span>).append(<span class="string">"總共有兩項商品"</span>);
+$(<span class="string">"selector"</span>).text(<span class="string">"&lt;div class='block'&gt;商品&lt;/div&gt;"</span>);
+</code></pre>
 <p>詳細範例請見<a href="http://codepen.io/frank890417/pen/rrOwVR" target="_blank" rel="external">jquery動態改變css外觀與html內容</a></p>
 <h3 id="jQuery滑鼠事件"><a href="#jQuery滑鼠事件" class="headerlink" title="jQuery滑鼠事件"></a>jQuery滑鼠事件</h3><p>滑鼠的動作有<code>點擊click</code>、<code>移入移出enter/leave</code>大致是這些。<br>進階應用還有搭配<code>時間</code>，包含經特定時間觸發的事件<code>setTimeout</code>與每經過特定時間後觸發的事件<code>setInterval</code>。</p>
-<p><code>click</code>簡單例子如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"buybtn"</span>&gt;</span>購買物品<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".buybtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">".buybtn"</span>).text(<span class="string">"已經購買"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>click</code>簡單例子如下：</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"buybtn"</span>&gt;</span>購買物品<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+<pre><code class="javascript">$(<span class="string">".buybtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    $(<span class="string">".buybtn"</span>).text(<span class="string">"已經購買"</span>);
+});
+</code></pre>
 <p>點擊後按鈕呈現為已經購買。</p>
-<p>而在按鈕的例子裡，搭配<code>this</code>就可以輕鬆選取到想選的<code>元素element</code>:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>$(this)操作觸發動作的按鍵: 請選擇物品<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"bamboo"</span>&gt;</span>選擇物品一<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"flower"</span>&gt;</span>選擇物品二<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"tree"</span>&gt;</span>選擇物品三<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"show_info"</span>&gt;</span>以選擇物品: 無<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"show_cata"</span>&gt;</span>以選擇種類<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".selbtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    $(<span class="string">".show_info"</span>).text(<span class="string">"已經選擇: "</span>+$(<span class="keyword">this</span>).text());</div><div class="line">    <span class="keyword">var</span> cata=$(<span class="keyword">this</span>).attr(<span class="string">"data-cata"</span>);<span class="comment">//將屬性data-cate存入變數中</span></div><div class="line">    $(<span class="string">".show_cata"</span>).text(cata);<span class="comment">//呈現出來</span></div><div class="line">    <span class="comment">//最後進行判斷與資料添加</span></div><div class="line">    <span class="keyword">if</span> (cata==<span class="string">"flower"</span>)&#123;</div><div class="line">        $(<span class="string">".show_cata"</span>).append(<span class="string">"，他買的是花!!!"</span>);</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        $(<span class="string">".show_cata"</span>).append(<span class="string">"嗚嗚他買的不是花:(("</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>而在按鈕的例子裡，搭配<code>this</code>就可以輕鬆選取到想選的<code>元素element</code>:</p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>$(this)操作觸發動作的按鍵: 請選擇物品<span class="tag">&lt;/<span class="name">h3</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"bamboo"</span>&gt;</span>選擇物品一<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"flower"</span>&gt;</span>選擇物品二<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"selbtn"</span> <span class="attr">data-cata</span>=<span class="string">"tree"</span>&gt;</span>選擇物品三<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+<span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"show_info"</span>&gt;</span>以選擇物品: 無<span class="tag">&lt;/<span class="name">h4</span>&gt;</span>
+<span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"show_cata"</span>&gt;</span>以選擇種類<span class="tag">&lt;/<span class="name">h4</span>&gt;</span>
+</code></pre>
+<pre><code class="javascript">$(<span class="string">".selbtn"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+    $(<span class="string">".show_info"</span>).text(<span class="string">"已經選擇: "</span>+$(<span class="keyword">this</span>).text());
+    <span class="keyword">var</span> cata=$(<span class="keyword">this</span>).attr(<span class="string">"data-cata"</span>);<span class="comment">//將屬性data-cate存入變數中</span>
+    $(<span class="string">".show_cata"</span>).text(cata);<span class="comment">//呈現出來</span>
+    <span class="comment">//最後進行判斷與資料添加</span>
+    <span class="keyword">if</span> (cata==<span class="string">"flower"</span>){
+        $(<span class="string">".show_cata"</span>).append(<span class="string">"，他買的是花!!!"</span>);
+    }<span class="keyword">else</span>{
+        $(<span class="string">".show_cata"</span>).append(<span class="string">"嗚嗚他買的不是花:(("</span>);
+    }
+});
+</code></pre>
 <p><code>滑鼠移入移出enter/leave</code></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".hoverbox"</span>).mouseenter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="keyword">this</span>).text(<span class="string">"使用者有興趣!!!! :)"</span>);</div><div class="line">&#125;);</div><div class="line">$(<span class="string">".hoverbox"</span>).mouseleave(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="keyword">this</span>).text(<span class="string">"使用者沒興趣...."</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p><code>setTimeout與setInterval</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">".timerbox"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f24"</span>);</div><div class="line">  $(<span class="string">".timerbox"</span>).css(<span class="string">"margin-left"</span>,<span class="string">"50px"</span>);</div><div class="line">  $(<span class="string">".timerbox"</span>).css(<span class="string">"color"</span>,<span class="string">"#fff"</span>);</div><div class="line">  </div><div class="line">&#125;,<span class="number">5000</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> sec=<span class="number">1</span>;</div><div class="line">setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">".countbox"</span>).text(<span class="string">"經過了:"</span>+sec+<span class="string">"秒"</span>);</div><div class="line">  sec=sec+<span class="number">1</span>;</div><div class="line">&#125;,<span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<pre><code class="javascript">$(<span class="string">".hoverbox"</span>).mouseenter(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  $(<span class="keyword">this</span>).text(<span class="string">"使用者有興趣!!!! :)"</span>);
+});
+$(<span class="string">".hoverbox"</span>).mouseleave(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  $(<span class="keyword">this</span>).text(<span class="string">"使用者沒興趣...."</span>);
+});
+</code></pre>
+<p><code>setTimeout與setInterval</code></p>
+<pre><code class="javascript">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  $(<span class="string">".timerbox"</span>).css(<span class="string">"background-color"</span>,<span class="string">"#f24"</span>);
+  $(<span class="string">".timerbox"</span>).css(<span class="string">"margin-left"</span>,<span class="string">"50px"</span>);
+  $(<span class="string">".timerbox"</span>).css(<span class="string">"color"</span>,<span class="string">"#fff"</span>);
+
+},<span class="number">5000</span>);
+
+<span class="keyword">var</span> sec=<span class="number">1</span>;
+setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
+  $(<span class="string">".countbox"</span>).text(<span class="string">"經過了:"</span>+sec+<span class="string">"秒"</span>);
+  sec=sec+<span class="number">1</span>;
+},<span class="number">1000</span>);
+</code></pre>
 <p>詳細範例請見<a href="http://codepen.io/frank890417/pen/grVRbV" target="_blank" rel="external">jquery初階滑鼠事件-click/hover</a></p>
 
                 <hr>
@@ -241,13 +293,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Bootstrap/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Bootstrap/" data-toggle="tooltip" data-placement="top"
                            title="Bootstrap 初探">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/JS_ES6_Variable/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_ES6_Variable/" data-toggle="tooltip" data-placement="top"
                            title="JS_ES6_Variable">Next Post &rarr;</a>
                     </li>
                     
@@ -287,14 +339,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#jQuery"
+                        <a class="tag" href="/KueiBlog/tags/#jQuery"
                            title="jQuery">jQuery</a>
                         
                     </div>
@@ -315,8 +367,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS-jQuery/";
-    var disqus_url = "http://yoursite.com/post/JS-jQuery/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS-jQuery/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS-jQuery/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -399,7 +451,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/git學習之二 - commit講解、reset復原版本、建立分支/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -230,26 +230,65 @@
 </li>
 </ol>
 <p>流程整理：<br>修改檔案(edit) =&gt; 加入 staged (git add) =&gt; 提交(git commit)=&gt; 繼續修改其他檔案</p>
-<p>至於要如何查看檔案狀態呢？<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看工作目錄的狀態時...</div><div class="line"><span class="variable">$git</span> status</div><div class="line"></div><div class="line">//或是看更精簡一點的狀態...</div><div class="line"><span class="variable">$git</span> status <span class="_">-s</span></div></pre></td></tr></table></figure></p>
+<p>至於要如何查看檔案狀態呢？</p>
+<pre><code class="bash">//查看工作目錄的狀態時...
+<span class="variable">$git</span> status
+
+//或是看更精簡一點的狀態...
+<span class="variable">$git</span> status <span class="_">-s</span>
+</code></pre>
 <p>關於<code>git add</code><br>就是把untracked 或是 modified 狀態下的檔案改成 staged 的狀態 (等待被 commit 的版本)。</p>
 <p><code>git add .</code><br><code>.</code>代表這個路徑底下的所有檔案<br>今天你若不想把路徑下所有的檔案都變成 staged 狀態<br>git add 你要改成 staged 狀態的檔名</p>
-<p>假若想把檔案狀態從<code>staged</code>轉成<code>modified</code>該如何調整？<br>答:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span></div></pre></td></tr></table></figure></p>
-<h3 id="git-reset-commit-–amend復原版本"><a href="#git-reset-commit-–amend復原版本" class="headerlink" title="git reset||commit –amend復原版本"></a>git reset||commit –amend復原版本</h3><p><strong>取消已經暫存的(git add)檔案</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span></div></pre></td></tr></table></figure></p>
-<p><strong>取消對檔案的修改(edit)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> checkout -- <span class="string">'file_name'</span></div></pre></td></tr></table></figure></p>
+<p>假若想把檔案狀態從<code>staged</code>轉成<code>modified</code>該如何調整？<br>答:</p>
+<pre><code class="bash"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span>
+</code></pre>
+<h3 id="git-reset-commit-–amend復原版本"><a href="#git-reset-commit-–amend復原版本" class="headerlink" title="git reset||commit –amend復原版本"></a>git reset||commit –amend復原版本</h3><p><strong>取消已經暫存的(git add)檔案</strong></p>
+<pre><code class="bash"><span class="variable">$git</span> reset HEAD <span class="string">'file_name'</span>
+</code></pre>
+<p><strong>取消對檔案的修改(edit)</strong></p>
+<pre><code class="bash"><span class="variable">$git</span> checkout -- <span class="string">'file_name'</span>
+</code></pre>
 <p>在還沒有<code>git add &#39;file_name&#39;</code>的情況下使用指令。<br>此時回去看程式碼<br>發現已經修復回原本<br><code>請注意</code><br>這指令有些<code>危險</code>，針對該檔案的修改都沒有了，因為我們剛剛把之前版本的檔案複製過來覆蓋了此檔案。所以在用這指令前，請務必確定真的不再需要剛剛的修改。</p>
-<p><strong>恢復 Commit，重新提交 Commit</strong><br>假如您<code>想要修改 commit 訊息</code>，或者是尚未修改好檔案<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> reset --soft HEAD\^</div></pre></td></tr></table></figure></p>
+<p><strong>恢復 Commit，重新提交 Commit</strong><br>假如您<code>想要修改 commit 訊息</code>，或者是尚未修改好檔案</p>
+<pre><code class="bash"><span class="variable">$git</span> reset --soft HEAD\^
+</code></pre>
 <p><code>--soft</code> 代表銷毀 commit 但是保留 commit 內容<br><code>\</code>為跳脫字元，加上後mac的指令才能跑<br><code>HEAD^</code> 代表上一個 commit (版本)<br>再commit一次想要輸入的<code>message</code>即可<br>簡單來說<code>reset soft</code>會銷毀 commit 又再重新 commit </p>
 <p>第二種方法<br><code>commit --amend</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> add <span class="string">'file_name'</span></div><div class="line"><span class="variable">$git</span> commit --amend</div></pre></td></tr></table></figure>
+<pre><code class="bash"><span class="variable">$git</span> add <span class="string">'file_name'</span>
+<span class="variable">$git</span> commit --amend
+</code></pre>
 <p><code>--amend</code> 是指重新修改上一個 commit<br>提交時，預設的編輯器會出現，裡面會包含上一次提交的訊息內容。</p>
-<p>如果懶得更改commit message<br>則打入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> commit --amend --no-edit</div></pre></td></tr></table></figure></p>
+<p>如果懶得更改commit message<br>則打入</p>
+<pre><code class="bash"><span class="variable">$git</span> commit --amend --no-edit
+</code></pre>
 <p><code>--no-edit</code> 則是代表不會修改 commit message</p>
 <p><strong>強制恢復到上一版本(commit)</strong><br><code>謹慎小心此方法</code><br>因為會將原來版本強行砍掉</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> reset --hard HEAD\^</div></pre></td></tr></table></figure>
-<p>想要回到多個版本之前<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$git</span> reset --hard HEAD~<span class="string">'num'</span></div></pre></td></tr></table></figure></p>
-<p><strong>觀念複習與比較</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//取消上一個 commit，但是保有 commit 內容</div><div class="line"><span class="variable">$git</span> reset --soft HEAD^</div><div class="line"></div><div class="line">//取消上一個 commit，並且刪除 commit 內容</div><div class="line"><span class="variable">$git</span> reset --hard HEAD^</div><div class="line"></div><div class="line">//將工作目錄現有的編輯合併到上一個版本</div><div class="line"><span class="variable">$git</span> commit --amend</div></pre></td></tr></table></figure></p>
+<pre><code class="bash"><span class="variable">$git</span> reset --hard HEAD\^
+</code></pre>
+<p>想要回到多個版本之前</p>
+<pre><code class="bash"><span class="variable">$git</span> reset --hard HEAD~<span class="string">'num'</span>
+</code></pre>
+<p><strong>觀念複習與比較</strong></p>
+<pre><code class="bash">//取消上一個 commit，但是保有 commit 內容
+<span class="variable">$git</span> reset --soft HEAD^
+
+//取消上一個 commit，並且刪除 commit 內容
+<span class="variable">$git</span> reset --hard HEAD^
+
+//將工作目錄現有的編輯合併到上一個版本
+<span class="variable">$git</span> commit --amend
+</code></pre>
 <h3 id="建立分支-branch"><a href="#建立分支-branch" class="headerlink" title="建立分支(branch)"></a>建立分支(branch)</h3><p>在 git 的世界裡，分支 (branch) 是很重要的概念<br>簡單來說，分支就像是你的程式碼的平行世界<br>你可能在一個分支上搞砸了，但是不會影響到另一個分支的程式碼</p>
-<p>建立完分支後需要切換到該分支才能開始作業<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//創立新的分支</div><div class="line"><span class="variable">$git</span> branch 新分支名稱</div><div class="line"></div><div class="line">//切換到該分支:</div><div class="line"><span class="variable">$git</span> checkout 新分支名稱</div><div class="line"></div><div class="line">//回到主支</div><div class="line"><span class="variable">$git</span> checkout master</div></pre></td></tr></table></figure></p>
+<p>建立完分支後需要切換到該分支才能開始作業</p>
+<pre><code class="bash">//創立新的分支
+<span class="variable">$git</span> branch 新分支名稱
+
+//切換到該分支:
+<span class="variable">$git</span> checkout 新分支名稱
+
+//回到主支
+<span class="variable">$git</span> checkout master
+</code></pre>
 <p>#####git reset –soft HEAD^<br>推到雲端時不被接受 </p>
 <p>####git push origin master –force<br><em>強行毀掉遠端的commit存入local的commit</em></p>
 <p>不破壞原本commit並進行現存commit的更改  </p>
@@ -263,13 +302,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/Git_lec3_note/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Git_lec3_note/" data-toggle="tooltip" data-placement="top"
                            title="git lec3">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/git與github的第一步/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/git與github的第一步/" data-toggle="tooltip" data-placement="top"
                            title="git與github的第一步">Next Post &rarr;</a>
                     </li>
                     
@@ -309,11 +348,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Git"
+                        <a class="tag" href="/KueiBlog/tags/#Git"
                            title="Git">Git</a>
                         
                     </div>
@@ -334,8 +373,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/git學習之二 - commit講解、reset復原版本、建立分支/";
-    var disqus_url = "http://yoursite.com/post/git學習之二 - commit講解、reset復原版本、建立分支/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/git學習之二 - commit講解、reset復原版本、建立分支/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -418,7 +457,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/Ruby_lec7_note/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/Ruby_lec7_note/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Ruby on Rails"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
                            title="Ruby on Rails">Ruby on Rails</a>
                         
-                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
                            title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
                         
                     </div>
@@ -215,7 +215,14 @@
 <h4 id="rails-db-查詢技巧"><a href="#rails-db-查詢技巧" class="headerlink" title="rails db 查詢技巧"></a>rails db 查詢技巧</h4><p>＊搜尋某一筆<br>find.by<br>ex DBTable_find_by_name(“Bob”)</p>
 <p>＊搜尋多筆<br>where</p>
 <h4 id="Validation"><a href="#Validation" class="headerlink" title="Validation"></a>Validation</h4><p>“永遠不要相信前端傳來的東西”<br>SQL很難debug =&gt; How to deal with it?<br>將邏輯判斷寫在應用程式端(application)=&gt;Model層面(好處：不用考慮資料庫總類、與資料庫直接做連結)<br>最好作法千端也後端也寫</p>
-<h4 id="ruby-in-HTML"><a href="#ruby-in-HTML" class="headerlink" title="ruby in HTML"></a>ruby in HTML</h4><p>Controller<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">new</span></span></div><div class="line">    <span class="comment"># Order為order class，對應到Order Model，對應到資料表的</span></div><div class="line">    <span class="comment"># Order Table，產生出一個新的Order物件並存到order實例變數</span></div><div class="line">    </div><div class="line">    @order = Order.new</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h4 id="ruby-in-HTML"><a href="#ruby-in-HTML" class="headerlink" title="ruby in HTML"></a>ruby in HTML</h4><p>Controller</p>
+<pre><code class="ruby"><span class="function"><span class="keyword">def</span> <span class="title">new</span></span>
+    <span class="comment"># Order為order class，對應到Order Model，對應到資料表的</span>
+    <span class="comment"># Order Table，產生出一個新的Order物件並存到order實例變數</span>
+
+    @order = Order.new
+<span class="keyword">end</span>
+</code></pre>
 <p>new.html.erb<br><!-- 三行code如何變成這麼多東西？
 Ruby轉換而成... --></p>
 <p></p><h1>New Order</h1><br><!-- form為封包，將固定的html寫成此form封包
@@ -226,7 +233,11 @@ render 為呼叫此封包 --><br>&lt;%= render ‘form’, order: @order %&gt;<b
 </blockquote>
 <!-- f.label產生一個前端的label
 f.text_field將輸入的東西綁定:name -->
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;field&quot;&gt;</div><div class="line">    &lt;%= f.label :name %&gt;</div><div class="line">    &lt;%= f.text_field :name %&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<pre><code class="html5">&lt;div class=&quot;field&quot;&gt;
+    &lt;%= f.label :name %&gt;
+    &lt;%= f.text_field :name %&gt;
+&lt;/div&gt;
+</code></pre>
 <p><strong>一個表單都是跟某一個model的某一個instance綁定在一起</strong><br><strong>使用者登入則沒有綁定model=&gt;form_tag情況</strong></p>
 <h4 id="Create-Method"><a href="#Create-Method" class="headerlink" title="Create Method"></a>Create Method</h4><p>Post對應到Order#create<br>針對不同需求(前端或其他)傳遞不同類型資料(HTML or JSON)</p>
 <h4 id="order-params"><a href="#order-params" class="headerlink" title="order_params"></a>order_params</h4><p>將前端資料層層過濾，只允許name、phone、description等資料能傳進資料庫</p>
@@ -241,7 +252,14 @@ f.text_field將輸入的東西綁定:name -->
 </blockquote>
 <p><em>new vs create</em><br>new為顯示空表<br>create為填好資料要把資料寫入資料庫時</p>
 <h4 id="edit-amp-update"><a href="#edit-amp-update" class="headerlink" title="edit &amp; update"></a>edit &amp; update</h4><p>edit顯示出要更改的object<br>真正寫入DB是update</p>
-<h4 id="View-Partial"><a href="#View-Partial" class="headerlink" title="View Partial"></a>View Partial</h4><p>重複執行的程式碼打包起來<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">before_action <span class="symbol">:set_order</span>, <span class="symbol">only:</span> [<span class="symbol">:show</span>, <span class="symbol">:edit</span>, <span class="symbol">:update</span>, <span class="symbol">:destroy</span>]</div><div class="line"><span class="comment">#&lt;-&gt;before_action :set_order, except: [:index, :new, :create]</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_order</span></span></div><div class="line">      @order = Order.find(params[<span class="symbol">:id</span>])</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<h4 id="View-Partial"><a href="#View-Partial" class="headerlink" title="View Partial"></a>View Partial</h4><p>重複執行的程式碼打包起來</p>
+<pre><code class="ruby">before_action <span class="symbol">:set_order</span>, <span class="symbol">only:</span> [<span class="symbol">:show</span>, <span class="symbol">:edit</span>, <span class="symbol">:update</span>, <span class="symbol">:destroy</span>]
+<span class="comment">#&lt;-&gt;before_action :set_order, except: [:index, :new, :create]</span>
+
+<span class="function"><span class="keyword">def</span> <span class="title">set_order</span></span>
+      @order = Order.find(params[<span class="symbol">:id</span>])
+<span class="keyword">end</span>
+</code></pre>
 <h4 id="before-action"><a href="#before-action" class="headerlink" title="before_action"></a>before_action</h4><blockquote>
 <blockquote>
 <p>controller<br>執行某個action之前一定會先做某個事情</p>
@@ -258,14 +276,14 @@ f.text_field將輸入的東西綁定:name -->
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/JS_Note/" data-toggle="tooltip" data-placement="top"
-                           title="Javascript Introduction (From Lec 1~8)">&larr; Previous Post</a>
+                        <a href="/KueiBlog/post/Ruby_lec8_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 8 - Bootstrap into RoR">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Ruby_lec8_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 8 - Bootstrap into RoR">Next Post &rarr;</a>
+                        <a href="/KueiBlog/post/Ruby_lec6_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 6 - 手動打造Action">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -304,14 +322,14 @@ f.text_field將輸入的東西綁定:name -->
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Ruby on Rails"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails"
                            title="Ruby on Rails">Ruby on Rails</a>
                         
-                        <a class="tag" href="/tags/#Ruby on Rails Lecture"
+                        <a class="tag" href="/KueiBlog/tags/#Ruby on Rails Lecture"
                            title="Ruby on Rails Lecture">Ruby on Rails Lecture</a>
                         
                     </div>
@@ -332,8 +350,8 @@ f.text_field將輸入的東西綁定:name -->
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/Ruby_lec7_note/";
-    var disqus_url = "http://yoursite.com/post/Ruby_lec7_note/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/Ruby_lec7_note/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/Ruby_lec7_note/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -416,7 +434,7 @@ f.text_field將輸入的東西綁定:name -->
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

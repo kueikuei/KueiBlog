@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_Storage/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_Storage/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,10 +187,10 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Stoarge"
+                        <a class="tag" href="/KueiBlog/tags/#Stoarge"
                            title="Stoarge">Stoarge</a>
                         
                     </div>
@@ -222,20 +222,80 @@
 <li>個人化網站：記錄你在某網站的設定，例如背景顏色，當你下次再到該站時就會用你所設定的背景顏色； 記錄你之前在某網站瀏覽到那一頁，到下次瀏覽該站時就自動帶你到該頁，節省瀏覽時間</li>
 <li>登入保安：當你登入某網站時，伺服器會記錄一些資訊到瀏覽器，以確定你是否那個登入的使用者 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定Cookie</span></div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=Jason"</span>;</div><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=Jason; expires = Thu, 18 Dec 2017 12:00:00 UTC"</span>;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//設定Cookie</span>
+<span class="built_in">document</span>.cookie = <span class="string">"username=Jason"</span>;
+<span class="built_in">document</span>.cookie = <span class="string">"username=Jason; expires = Thu, 18 Dec 2017 12:00:00 UTC"</span>;
+</code></pre>
 <p>透過<code>⌘+alt+i</code>打開<code>developer tool</code>，查看<code>Application</code>後能發現資料已經順利儲存：<br><img src="http://i.imgur.com/PJzsWC8.png" alt="Loading Fail" title="Cookie"> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//set cookie by function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname, cvalue, exdays</span>)</span>&#123;</div><div class="line">    <span class="keyword">const</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">    <span class="comment">//六天後過期</span></div><div class="line">    d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">6</span>*<span class="number">1000</span>));</div><div class="line">    <span class="keyword">const</span> expires = <span class="string">"expires="</span> + d.toUTCString();</div><div class="line">    <span class="comment">//設定cookie</span></div><div class="line">    <span class="built_in">document</span>.cookie = cname + <span class="string">"="</span> + cvalue + <span class="string">";"</span> + expires + <span class="string">";"</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//getCookie func</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>)</span>&#123;</div><div class="line">    <span class="keyword">const</span> name = cname + <span class="string">'='</span>;</div><div class="line">    <span class="comment">//透過';'將所有cookie塞入array</span></div><div class="line">    <span class="keyword">const</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;ca.length;i++)&#123;</div><div class="line">        <span class="keyword">let</span> c = ca[i];</div><div class="line">        <span class="comment">//判斷是否前面開頭為空白' '</span></div><div class="line">        <span class="keyword">while</span>(c.charAt(<span class="number">0</span>) === <span class="string">''</span>)&#123;</div><div class="line">            <span class="comment">//空白則往第二個字元往後取得</span></div><div class="line">            c = c.substring;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">//判斷所需要的key name</span></div><div class="line">        <span class="keyword">if</span>(c.indexOf(name) === <span class="number">0</span>)&#123;</div><div class="line">            <span class="comment">//擷取正確的value</span></div><div class="line">            <span class="keyword">return</span> c.substring(name.length, c.length);</div><div class="line">        &#125;;</div><div class="line">    &#125;;</div><div class="line">    <span class="comment">//沒有符合的key就回傳空白</span></div><div class="line">    <span class="keyword">return</span> = <span class="string">''</span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">setCookie(<span class="string">'Name'</span>,<span class="string">'Jason'</span>,<span class="string">'10'</span>);</div><div class="line"><span class="built_in">console</span>.log(getCookie(<span class="string">'Name'</span>));</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//set cookie by function</span>
+<span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname, cvalue, exdays</span>)</span>{
+    <span class="keyword">const</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();
+    <span class="comment">//六天後過期</span>
+    d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">6</span>*<span class="number">1000</span>));
+    <span class="keyword">const</span> expires = <span class="string">"expires="</span> + d.toUTCString();
+    <span class="comment">//設定cookie</span>
+    <span class="built_in">document</span>.cookie = cname + <span class="string">"="</span> + cvalue + <span class="string">";"</span> + expires + <span class="string">";"</span>
+};
+
+<span class="comment">//getCookie func</span>
+<span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>)</span>{
+    <span class="keyword">const</span> name = cname + <span class="string">'='</span>;
+    <span class="comment">//透過';'將所有cookie塞入array</span>
+    <span class="keyword">const</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);
+    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;ca.length;i++){
+        <span class="keyword">let</span> c = ca[i];
+        <span class="comment">//判斷是否前面開頭為空白' '</span>
+        <span class="keyword">while</span>(c.charAt(<span class="number">0</span>) === <span class="string">''</span>){
+            <span class="comment">//空白則往第二個字元往後取得</span>
+            c = c.substring;
+        };
+        <span class="comment">//判斷所需要的key name</span>
+        <span class="keyword">if</span>(c.indexOf(name) === <span class="number">0</span>){
+            <span class="comment">//擷取正確的value</span>
+            <span class="keyword">return</span> c.substring(name.length, c.length);
+        };
+    };
+    <span class="comment">//沒有符合的key就回傳空白</span>
+    <span class="keyword">return</span> = <span class="string">''</span>;
+};
+
+setCookie(<span class="string">'Name'</span>,<span class="string">'Jason'</span>,<span class="string">'10'</span>);
+<span class="built_in">console</span>.log(getCookie(<span class="string">'Name'</span>));
+</code></pre>
 <p><img src="http://i.imgur.com/l9qof2T.png" alt="Loading Fail" title="Get Cookie"></p>
-<p><em>小技巧：也可以指定 Cookie 在某一個特定日期失效， 例如你想它在 2001 年 1 月 2 日 3 時 4 分失效， 可以將之前例子中的 expires 變數用以下方法來設定它的值：</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> expires = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">expires.setYear(<span class="number">2001</span>);</div><div class="line">expires.setMonth(<span class="number">0</span>);</div><div class="line">expires.setDate(<span class="number">1</span>);</div><div class="line">expires.setHours(<span class="number">2</span>);</div><div class="line">expires.setMinutes(<span class="number">3</span>);</div></pre></td></tr></table></figure></p>
+<p><em>小技巧：也可以指定 Cookie 在某一個特定日期失效， 例如你想它在 2001 年 1 月 2 日 3 時 4 分失效， 可以將之前例子中的 expires 變數用以下方法來設定它的值：</em></p>
+<pre><code class="javascript"><span class="keyword">var</span> expires = <span class="keyword">new</span> <span class="built_in">Date</span>();
+expires.setYear(<span class="number">2001</span>);
+expires.setMonth(<span class="number">0</span>);
+expires.setDate(<span class="number">1</span>);
+expires.setHours(<span class="number">2</span>);
+expires.setMinutes(<span class="number">3</span>);
+</code></pre>
 <h3 id="Local-Stoarge"><a href="#Local-Stoarge" class="headerlink" title="Local Stoarge"></a>Local Stoarge</h3><blockquote>
 <p>以key/value進行儲存。除非主動<code>remove</code>否則會保留資料<br>約5MB</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定localStorage</span></div><div class="line">localStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);</div><div class="line">localStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;</div><div class="line">localStorage.name = <span class="string">"Jason"</span>;</div><div class="line"><span class="comment">//取得localStorage data</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Name='</span>+localStorage.getItem(<span class="string">"name"</span>));</div><div class="line"><span class="comment">//刪除localStorage</span></div><div class="line">localStorage.removeItem(<span class="string">'name'</span>);</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//設定localStorage</span>
+localStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);
+localStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;
+localStorage.name = <span class="string">"Jason"</span>;
+<span class="comment">//取得localStorage data</span>
+<span class="built_in">console</span>.log(<span class="string">'Name='</span>+localStorage.getItem(<span class="string">"name"</span>));
+<span class="comment">//刪除localStorage</span>
+localStorage.removeItem(<span class="string">'name'</span>);
+</code></pre>
 <p><code>localStorage.setItem(&quot;name&quot;,&quot;Jason&quot;)</code>透過<code>⌘+alt+i</code>打開開發者工具，查看<code>Application</code>後能發現資料已經順利儲存：<br><img src="http://i.imgur.com/pet0WSJ.png" alt="Loading Fail" title="LocalStorage">  </p>
 <h3 id="Session-Stoarge"><a href="#Session-Stoarge" class="headerlink" title="Session Stoarge"></a>Session Stoarge</h3><blockquote>
 <p>用法和local幾乎一樣<br>關閉頁面或瀏覽器後清除</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//設定sessionStorage</span></div><div class="line">sessionStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);</div><div class="line">sessionStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;</div><div class="line">sessionStorage.name = <span class="string">"Jason"</span>;</div><div class="line"><span class="comment">//取得sessionStorage data</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Name='</span>+sessionStorage.getItem(<span class="string">"name"</span>));</div><div class="line"><span class="comment">//刪除sessionStorage</span></div><div class="line">sessionStorage.removeItem(<span class="string">'name'</span>);</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="comment">//設定sessionStorage</span>
+sessionStorage.setItem(<span class="string">"name"</span>,<span class="string">"Jason"</span>);
+sessionStorage[<span class="string">"name"</span>] = <span class="string">"Jason"</span>;
+sessionStorage.name = <span class="string">"Jason"</span>;
+<span class="comment">//取得sessionStorage data</span>
+<span class="built_in">console</span>.log(<span class="string">'Name='</span>+sessionStorage.getItem(<span class="string">"name"</span>));
+<span class="comment">//刪除sessionStorage</span>
+sessionStorage.removeItem(<span class="string">'name'</span>);
+</code></pre>
 <h3 id="相關閱讀"><a href="#相關閱讀" class="headerlink" title="相關閱讀"></a>相關閱讀</h3>
                 <hr>
                 
@@ -243,13 +303,13 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/JS_Project_Envi/" data-toggle="tooltip" data-placement="top"
                            title="JS_Project_Envi">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Terminal_Command/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/Terminal_Command/" data-toggle="tooltip" data-placement="top"
                            title="Terminal Command">Next Post &rarr;</a>
                     </li>
                     
@@ -289,14 +349,14 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
-                        <a class="tag" href="/tags/#Stoarge"
+                        <a class="tag" href="/KueiBlog/tags/#Stoarge"
                            title="Stoarge">Stoarge</a>
                         
                     </div>
@@ -317,8 +377,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_Storage/";
-    var disqus_url = "http://yoursite.com/post/JS_Storage/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_Storage/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_Storage/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -401,7 +461,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},

@@ -21,7 +21,7 @@
         KueiBlog
     </title>
 
-    <link rel="canonical" href="http://yoursite.com/post/JS_Note/">
+    <link rel="canonical" href="http://yoursite.com/KueiBlog/post/JS_Note/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
@@ -53,7 +53,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand animated pulse" href="/">
+            <a class="navbar-brand animated pulse" href="/KueiBlog/">
                 <span class="brand-logo">
                     KueiKuei
                 </span>
@@ -73,7 +73,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/KueiBlog/">Home</a>
                     </li>
 					
                     
@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/KueiBlog/archives/">archives</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/archives/">archives</a>
+                            <a href="/KueiBlog/tags/">tags</a>
                         </li>
 							
 						
@@ -102,7 +102,7 @@
                         
 							
                         <li>
-                            <a href="/works/">works</a>
+                            <a href="/KueiBlog/works/">works</a>
                         </li>
 							
 						
@@ -112,7 +112,7 @@
 					
 					
 						<li>
-							<a href="../../about">About</a>
+							<a href="../../KueiBlog/about">About</a>
 						</li>
 					
 
@@ -187,7 +187,7 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -211,8 +211,23 @@
                 <h4 id="單元1"><a href="#單元1" class="headerlink" title="單元1"></a>單元1</h4><h5 id="pokemon-fight-example"><a href="#pokemon-fight-example" class="headerlink" title="pokemon fight example"></a>pokemon fight example</h5><blockquote>
 <p>ES6:可以透過$代表變數並插入字串如：</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">"Jason"</span>;</div><div class="line"><span class="string">'hello!I am $&#123;name&#125;'</span></div></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//常用函數</span></div><div class="line">random()<span class="comment">//0~1</span></div><div class="line">prompt():使用者輸入<span class="function"><span class="keyword">function</span>之一，輸入為字串透過<span class="title">parseInt</span>轉成整數</span></div><div class="line"></div><div class="line"><span class="title">swith</span>(<span class="params"></span>)&#123;</div><div class="line">    <span class="keyword">case</span> x:</div><div class="line">        ...</div><div class="line">        break</div><div class="line">    <span class="keyword">case</span> y:</div><div class="line">        ...</div><div class="line">        break</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="javascript"><span class="keyword">var</span> name=<span class="string">"Jason"</span>;
+<span class="string">'hello!I am ${name}'</span>
+</code></pre>
+<pre><code class="javascript"><span class="comment">//常用函數</span>
+random()<span class="comment">//0~1</span>
+prompt():使用者輸入<span class="function"><span class="keyword">function</span>之一，輸入為字串透過<span class="title">parseInt</span>轉成整數
+
+<span class="title">swith</span>(<span class="params"></span>)</span>{
+    <span class="keyword">case</span> x:
+        ...
+        break
+    <span class="keyword">case</span> y:
+        ...
+        break
+
+}
+</code></pre>
 <h4 id="單元2"><a href="#單元2" class="headerlink" title="單元2"></a>單元2</h4><blockquote>
 <p>What is programming?<br>用什麼方式存取資料？資料結構<br>用什麼方法做？演算法</p>
 </blockquote>
@@ -223,13 +238,40 @@
 <li>用JS寫的原生應用程式</li>
 <li>網路爬蟲、VR/AR、IOT、Robotics等應用</li>
 </ol>
-<h4 id="單元2-3"><a href="#單元2-3" class="headerlink" title="單元2-3"></a>單元2-3</h4><h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span>&gt;</span></div><div class="line">//描述資料的資料</div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">utf8</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'Jason'</span> <span class="attr">descrition</span>=<span class="string">'hello world'</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="標籤"><a href="#標籤" class="headerlink" title="標籤"></a>標籤</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 有順序性 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>打顆蛋<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>伴入蔥花<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;</span></div><div class="line">    <span class="attr">li</span>&gt;放入少許鹽巴<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- 無順序性 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>李白<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>杜甫<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>白居易<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"連結網址"</span> <span class="attr">target</span>=<span class="string">"開啟方式"</span>&gt;</span>帶我走<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- target 常見屬性值（_blank（開新視窗）） --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"圖存放位置"</span> <span class="attr">alt</span>=<span class="string">"破圖說明"</span> <span class="attr">title</span>=<span class="string">"滑鼠移至圖上說明"</span> /&gt;</span></div><div class="line"><span class="comment">&lt;!-- alt也用在google搜尋檢索 --&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="單元2-3"><a href="#單元2-3" class="headerlink" title="單元2-3"></a>單元2-3</h4><h5 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h5><pre><code class="html"><span class="tag">&lt;<span class="name">meta</span>&gt;</span>
+//描述資料的資料
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">utf8</span> /&gt;</span>
+<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'Jason'</span> <span class="attr">descrition</span>=<span class="string">'hello world'</span>&gt;</span>
+</code></pre>
+<h5 id="標籤"><a href="#標籤" class="headerlink" title="標籤"></a>標籤</h5><pre><code class="html"><span class="comment">&lt;!-- 有順序性 --&gt;</span>
+<span class="tag">&lt;<span class="name">ol</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>打顆蛋<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>伴入蔥花<span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;
+    <span class="attr">li</span>&gt;</span>放入少許鹽巴<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">ol</span>&gt;</span>
+
+<span class="comment">&lt;!-- 無順序性 --&gt;</span>
+<span class="tag">&lt;<span class="name">ul</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>李白<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>杜甫<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">li</span>&gt;</span>白居易<span class="tag">&lt;/<span class="name">li</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">ul</span>&gt;</span>
+
+<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"連結網址"</span> <span class="attr">target</span>=<span class="string">"開啟方式"</span>&gt;</span>帶我走<span class="tag">&lt;/<span class="name">a</span>&gt;</span>
+<span class="comment">&lt;!-- target 常見屬性值（_blank（開新視窗）） --&gt;</span>
+<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"圖存放位置"</span> <span class="attr">alt</span>=<span class="string">"破圖說明"</span> <span class="attr">title</span>=<span class="string">"滑鼠移至圖上說明"</span> /&gt;</span>
+<span class="comment">&lt;!-- alt也用在google搜尋檢索 --&gt;</span>
+</code></pre>
 <h5 id="絕對位置"><a href="#絕對位置" class="headerlink" title="絕對位置"></a>絕對位置</h5><p>URL<br>網址</p>
 <h5 id="相對位置"><a href="#相對位置" class="headerlink" title="相對位置"></a>相對位置</h5><p>父資料夾../father/fathrt.html<br>子資料夾./sample/son.html<br>同資料夾./father.html</p>
-<h5 id="Get-vs-Post-表單運作"><a href="#Get-vs-Post-表單運作" class="headerlink" title="Get vs Post 表單運作"></a>Get vs Post 表單運作</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="Get-vs-Post-表單運作"><a href="#Get-vs-Post-表單運作" class="headerlink" title="Get vs Post 表單運作"></a>Get vs Post 表單運作</h5><pre><code class="html"><span class="tag">&lt;<span class="name">form</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
 <p>表單是撰寫動態網站和資料庫互動的重要一環，常用於客戶端（Client）蒐集資訊，透過提交表單可以讓資料傳送到給後端程式處理。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.php"</span><span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">!‐‐action放置後端程式位置，method為傳送方式，GET會顯示提交內容於網址列，POST則不會‐‐</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"query"</span>&gt;</span>搜尋</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<pre><code class="html"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"index.php"</span><span class="attr">method</span>=<span class="string">"post"</span>&gt;</span>
+    <span class="tag">&lt;<span class="name">!‐‐action放置後端程式位置，method為傳送方式，GET會顯示提交內容於網址列，POST則不會‐‐</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span><span class="attr">name</span>=<span class="string">"query"</span>&gt;</span>搜尋
+    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span><span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span>
+<span class="tag">&lt;/<span class="name">form</span>&gt;</span>
+</code></pre>
 <p>瀏覽的網頁傳遞參數給 Server 端主要有兩種方法：</p>
 <ol>
 <li>Get  </li>
@@ -244,7 +286,13 @@
 <li>內嵌樣式 (Embeded Styles):放head </li>
 <li>外部樣式表 (External Stylesheets):最推薦的</li>
 </ol>
-<h5 id="CSS-規則包含了兩部分：1-選擇器2-宣告"><a href="#CSS-規則包含了兩部分：1-選擇器2-宣告" class="headerlink" title="CSS 規則包含了兩部分：1. 選擇器2. 宣告"></a>CSS 規則包含了兩部分：1. 選擇器2. 宣告</h5><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!-- p為選擇器 --&gt;</div><div class="line">p&#123;</div><div class="line">    &lt;!-- 內容都是在宣告 --&gt;</div><div class="line">    color:red;</div><div class="line">    font‐family:Arial;//屬性(元素的面向)：值(想用在該元素上的設定值)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="CSS-規則包含了兩部分：1-選擇器2-宣告"><a href="#CSS-規則包含了兩部分：1-選擇器2-宣告" class="headerlink" title="CSS 規則包含了兩部分：1. 選擇器2. 宣告"></a>CSS 規則包含了兩部分：1. 選擇器2. 宣告</h5><pre><code class="css">&lt;!-- p為選擇器 --&gt;
+p{
+    &lt;!-- 內容都是在宣告 --&gt;
+    color:red;
+    font‐family:Arial;//屬性(元素的面向)：值(想用在該元素上的設定值)
+}
+</code></pre>
 <h5 id="常用選擇器種類（重要）"><a href="#常用選擇器種類（重要）" class="headerlink" title="常用選擇器種類（重要）"></a>常用選擇器種類（重要）</h5><h6 id="Universal-selector（通用選擇器）"><a href="#Universal-selector（通用選擇器）" class="headerlink" title="Universal selector（通用選擇器）"></a>Universal selector（通用選擇器）</h6><p>使用 * 選取所有元素</p>
 <h6 id="Type-selectors（型態選擇器）"><a href="#Type-selectors（型態選擇器）" class="headerlink" title="Type selectors（型態選擇器）"></a>Type selectors（型態選擇器）</h6><p>Ex. h1、p ，選取該元素</p>
 <h6 id="Class-selectors（Class選擇器）"><a href="#Class-selectors（Class選擇器）" class="headerlink" title="Class selectors（Class選擇器）"></a>Class selectors（Class選擇器）</h6><p>使用 .class 名稱，選取該class元素</p>
@@ -270,14 +318,14 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/post/MarkdownTest/" data-toggle="tooltip" data-placement="top"
+                        <a href="/KueiBlog/post/MarkdownTest/" data-toggle="tooltip" data-placement="top"
                            title="Markdown Editing">&larr; Previous Post</a>
                     </li>
                     
                     
                     <li class="next">
-                        <a href="/post/Ruby_lec7_note/" data-toggle="tooltip" data-placement="top"
-                           title="RoR 7 - 表單與驗證">Next Post &rarr;</a>
+                        <a href="/KueiBlog/post/Ruby_lec9_note/" data-toggle="tooltip" data-placement="top"
+                           title="RoR 9 - Heroku Deploy">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -316,11 +364,11 @@
                 <section>
                     <!-- no hr -->
                     <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
+                        <a href="/KueiBlog/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Javascript"
+                        <a class="tag" href="/KueiBlog/tags/#Javascript"
                            title="Javascript">Javascript</a>
                         
                     </div>
@@ -341,8 +389,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "kueikueiblog";
-    var disqus_identifier = "http://yoursite.com/post/JS_Note/";
-    var disqus_url = "http://yoursite.com/post/JS_Note/";
+    var disqus_identifier = "http://yoursite.com/KueiBlog/post/JS_Note/";
+    var disqus_url = "http://yoursite.com/KueiBlog/post/JS_Note/";
 
     (function () {
         var dsq = document.createElement('script');
@@ -425,7 +473,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://yoursite.com/js/jquery.tagcloud.js",function(){
+        async("http://yoursite.com/KueiBlog/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
